@@ -251,7 +251,7 @@ PROCEDURE Consultar
     DBMS_OUTPUT.PUT_LINE(LPAD('-', 150, '-'));
     WHILE C%FOUND LOOP
     DBMS_OUTPUT.PUT_LINE(RPAD(v_Alumnos.DNI_Alumno, 25) || RPAD(v_Alumnos.Nombre, 25) || RPAD(v_Alumnos.Apellidos, 25) || RPAD(v_Alumnos.Edad, 25) ||
-    RPAD(v_Alumnos.Telefono_Fijo, 25) || RPAD(v_Alumnos.Telefono_Movil) || RPAD(v_Alumnos.Email, 25) || RPAD(v_Alumnos.Nombre_Padre_Madre, 25) 
+    RPAD(v_Alumnos.Telefono_Fijo, 25) || RPAD(v_Alumnos.Telefono_Movil, 25) || RPAD(v_Alumnos.Email, 25) || RPAD(v_Alumnos.Nombre_Padre_Madre, 25) 
     || RPAD(v_Alumnos.Localidad, 25) || RPAD(v_Alumnos.Id_Recibo, 25));
     FETCH C INTO v_Alumnos;
     END LOOP;
@@ -289,7 +289,7 @@ EMAIL = v_EMAIL, NOMBRE_PADRE_MADRE = v_NOMBRE_PADRE_MADRE,  LOCALIDAD = v_LOCAL
 SELECT * INTO v_Alumnos FROM Alumnos WHERE DNI_ALUMNO = v_DNI_ALUMNO;
 IF v_Alumnos.NOMBRE != v_NOMBRE AND v_Alumnos.APELLIDOS != v_APELLIDOS AND v_Alumnos.EDAD != v_EDAD 
 AND v_Alumnos.TELEFONO_FIJO != v_TELEFONO_FIJO AND v_Alumnos.TELEFONO_MOVIL != v_TELEFONO_MOVIL AND v_Alumnos.EMAIL != v_EMAIL 
-AND v_Alumnos.NOMBRE_PADRE_MADRE != NOMBRE_PADRE_MADRE AND v_Alumnos.LOCALIDAD != v_LOCALIDAD AND v_Alumnos.ID_RECIBO != v_ID_RECIBO
+AND v_Alumnos.NOMBRE_PADRE_MADRE != v_NOMBRE_PADRE_MADRE AND v_Alumnos.LOCALIDAD != v_LOCALIDAD AND v_Alumnos.ID_RECIBO != v_ID_RECIBO
    THEN v_Salida := FALSE;
    END IF;
    COMMIT;
@@ -340,7 +340,7 @@ DBMS_OUTPUT.PUT_LINE(RPAD('DNI:', 25) || RPAD('Nombre:', 25) || RPAD('Apellidos:
 DBMS_OUTPUT.PUT_LINE(LPAD('-', 175, '-'));
 WHILE C%FOUND LOOP
 DBMS_OUTPUT.PUT_LINE(RPAD(v_Profesores.DNI_Profesor, 25) || RPAD(v_Profesores.Nombre, 25) || RPAD(v_Profesores.Apellidos, 25) 
-|| RPAD(v_Profesores.Edad, 25) || RPAD(v_Profesores.Telefono_Movil, 25) || RPAD(v_Profesores.Telefono_Fijo) || RPAD(v_Profesores.Email, 25) ||
+|| RPAD(v_Profesores.Edad, 25) || RPAD(v_Profesores.Telefono_Movil, 25) || RPAD(v_Profesores.Telefono_Fijo, 25) || RPAD(v_Profesores.Email, 25) ||
 RPAD(v_Profesores.Localidad, 25) || RPAD(v_Profesores.Nivel_Ingles, 25));
 FETCH C INTO v_Profesores;
 END LOOP;
