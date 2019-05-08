@@ -35,41 +35,15 @@ CREATE OR REPLACE PACKAGE PCK_Alumnos AS
     PROCEDURE Consultar;
     PROCEDURE Insertar 
         (nombrePrueba VARCHAR2, v_DNI_Alumno IN Alumnos.DNI_Alumno%TYPE, v_Nombre IN Alumnos.Nombre%TYPE, v_Apellidos IN Alumnos.Apellidos%TYPE,
-        v_Edad IN Alumnos.Edad%TYPE, v_Localidad IN Alumnos.Localidad%TYPE, v_Id_Recibo IN Alumnos.Id_Recibo%TYPE, salidaEsperada BOOLEAN);
+        v_Edad IN Alumnos.Edad%TYPE, v_Telefono_Fijo IN Alumnos.Telefono_Fijo%TYPE, v_Telefono_Movil IN Alumnos.Telefono_Movil%TYPE,
+        v_Email IN Alumnos.Email%TYPE,v_Nombre_Padre_Madre IN Alumnos.Nombre_Padre_Madre%TYPE,
+        v_Localidad IN Alumnos.Localidad%TYPE, v_Id_Recibo IN Alumnos.Id_Recibo%TYPE, salidaEsperada BOOLEAN);
     PROCEDURE Actualizar
     (nombrePrueba VARCHAR2, v_DNI_Alumno IN Alumnos.DNI_Alumno%TYPE, v_Nombre IN Alumnos.Nombre%TYPE, v_Apellidos IN Alumnos.Apellidos%TYPE,
-    v_Edad IN Alumnos.Edad%TYPE, v_Localidad IN Alumnos.Localidad%TYPE, v_Id_Recibo IN Alumnos.Id_Recibo%TYPE, salidaEsperada BOOLEAN);
-    PROCEDURE ELiminar (nombrePrueba VARCHAR2, v_DNI_Alumno IN Alumnos.DNI_Alumno%TYPE, salidaEsperada BOOLEAN);
-END;
-/
-
---Tabla Contactos_Alumno
-CREATE OR REPLACE PACKAGE PCK_Contactos_Alumno AS
-  PROCEDURE Inicializar;
-  PROCEDURE Consultar;
-  PROCEDURE Insertar
-    (nombrePrueba VARCHAR2, v_Telefono IN CONTACTOS_ALUMNO.TELEFONO%TYPE, v_Email IN CONTACTOS_ALUMNO.EMAIL%TYPE,
-    v_Id_Contacto IN CONTACTOS_ALUMNO.ID_CONTACTO%TYPE, v_DNI_Alumno IN CONTACTOS_ALUMNO.DNI_ALUMNO%TYPE, salidaEsperada BOOLEAN);
-  PROCEDURE Actualizar
-    (nombrePrueba VARCHAR2, v_Telefono IN CONTACTOS_ALUMNO.TELEFONO%TYPE, v_Email IN CONTACTOS_ALUMNO.EMAIL%TYPE,
-    v_Id_Contacto IN CONTACTOS_ALUMNO.ID_CONTACTO%TYPE, v_DNI_Alumno IN CONTACTOS_ALUMNO.DNI_ALUMNO%TYPE, salidaEsperada BOOLEAN);
-  PROCEDURE Eliminar
-    (nombrePrueba VARCHAR2,  v_Id_Contacto IN CONTACTOS_ALUMNO.ID_CONTACTO%TYPE, salidaEsperada BOOLEAN);
-END;
-/
-
---Tabla Familias Alumno
-CREATE OR REPLACE PACKAGE PCK_Familias_Alumno AS
-  PROCEDURE Inicializar;
-  PROCEDURE Consultar;
-  PROCEDURE Insertar
-    (nombrePrueba VARCHAR2, v_Nombre_Padre_Madre IN FAMILIAS_ALUMNO.NOMBRE_PADRE_MADRE%TYPE, v_Id_Familia IN FAMILIAS_ALUMNO.ID_FAMILIA%TYPE,
-    v_DNI_Alumno IN FAMILIAS_ALUMNO.DNI_ALUMNO%TYPE, salidaEsperada BOOLEAN);
-  PROCEDURE Actualizar
-    (nombrePrueba VARCHAR2, v_Nombre_Padre_Madre IN FAMILIAS_ALUMNO.NOMBRE_PADRE_MADRE%TYPE, v_Id_Familia IN FAMILIAS_ALUMNO.ID_FAMILIA%TYPE,
-    v_DNI_Alumno IN FAMILIAS_ALUMNO.DNI_ALUMNO%TYPE, salidaEsperada BOOLEAN);
-  PROCEDURE Eliminar
-    (nombrePrueba VARCHAR2,  v_Id_Familia IN FAMILIAS_ALUMNO.ID_FAMILIA%TYPE, salidaEsperada BOOLEAN);
+    v_Edad IN Alumnos.Edad%TYPE, v_Telefono_Fijo IN Alumnos.Telefono_Fijo%TYPE, v_Telefono_Movil IN Alumnos.Telefono_Movil%TYPE,
+    v_Email IN Alumnos.Email%TYPE,v_Nombre_Padre_Madre IN Alumnos.Nombre_Padre_Madre%TYPE,
+    v_Localidad IN Alumnos.Localidad%TYPE, v_Id_Recibo IN Alumnos.Id_Recibo%TYPE, salidaEsperada BOOLEAN);
+    PROCEDURE Eliminar (nombrePrueba VARCHAR2, v_DNI_Alumno IN Alumnos.DNI_Alumno%TYPE, salidaEsperada BOOLEAN);
 END;
 /
 
@@ -78,92 +52,16 @@ CREATE OR REPLACE PACKAGE PCK_Profesores AS
     PROCEDURE Inicializar;
     PROCEDURE Consultar;
     PROCEDURE Insertar
-      (nombrePrueba VARCHAR2, v_DNI_Profesor IN Profesores.DNI_Profesor%TYPE, v_Nombre IN Profesores.Nombre%TYPE, v_Apellidos IN Profesores.Apellidos%TYPE,
-      v_Edad IN Profesores.Edad%TYPE, v_Localidad IN Profesores.Localidad%TYPE, v_Sueldo_Profesor IN Profesores.Sueldo_Profesor%TYPE, 
+      (nombrePrueba VARCHAR2, v_DNI_Profesor IN Profesores.DNI_Profesor%TYPE, v_Nombre IN Profesores.Nombre%TYPE, 
+      v_Apellidos IN Profesores.Apellidos%TYPE, v_Edad IN Profesores.Edad%TYPE,v_Telefono_Movil IN Profesores.Telefono_Movil%TYPE,
+      v_Telefono_Fijo IN Profesores.Telefono_Fijo%TYPE, v_Email IN Profesores.Email%TYPE, v_Localidad IN Profesores.Localidad%TYPE,
       v_Nivel_Ingles IN Profesores.Nivel_Ingles%TYPE, salidaEsperada BOOLEAN);
     PROCEDURE Actualizar
-    (nombrePrueba VARCHAR2, v_DNI_Profesor IN Profesores.DNI_Profesor%TYPE, v_Nombre IN Profesores.Nombre%TYPE, v_Apellidos IN Profesores.Apellidos%TYPE,
-      v_Edad IN Profesores.Edad%TYPE, v_Localidad IN Profesores.Localidad%TYPE, v_Sueldo_Profesor IN Profesores.Sueldo_Profesor%TYPE, 
+    (nombrePrueba VARCHAR2, v_DNI_Profesor IN Profesores.DNI_Profesor%TYPE, v_Nombre IN Profesores.Nombre%TYPE,
+      v_Apellidos IN Profesores.Apellidos%TYPE, v_Edad IN Profesores.Edad%TYPE,v_Telefono_Movil IN Profesores.Telefono_Movil%TYPE,
+      v_Telefono_Fijo IN Profesores.Telefono_Fijo%TYPE, v_Email IN Profesores.Email%TYPE, v_Localidad IN Profesores.Localidad%TYPE,
       v_Nivel_Ingles IN Profesores.Nivel_Ingles%TYPE, salidaEsperada BOOLEAN);
     PROCEDURE Eliminar (nombrePrueba VARCHAR2, v_DNI_Profesor IN Profesores.DNI_Profesor%TYPE, salidaEsperada BOOLEAN);
-END;
-/
-
---Tabla Contactos_Profesor
-CREATE OR REPLACE PACKAGE PCK_Contactos_Profesor AS
-  PROCEDURE Inicializar;
-  PROCEDURE Consultar;
-  PROCEDURE Insertar
-    (nombrePrueba VARCHAR2, v_Telefono IN CONTACTOS_PROFESOR.TELEFONO%TYPE, v_Email IN CONTACTOS_PROFESOR.EMAIL%TYPE,
-    v_Id_Contacto IN CONTACTOS_PROFESOR.ID_CONTACTO%TYPE, v_DNI_Profesor IN CONTACTOS_PROFESOR.DNI_PROFESOR%TYPE,
-    salidaEsperada BOOLEAN);
-  PROCEDURE Actualizar
-    (nombrePrueba VARCHAR2, v_Telefono IN CONTACTOS_PROFESOR.TELEFONO%TYPE, v_Email IN CONTACTOS_PROFESOR.EMAIL%TYPE,
-    v_Id_Contacto IN CONTACTOS_PROFESOR.ID_CONTACTO%TYPE, v_DNI_Profesor IN CONTACTOS_PROFESOR.DNI_PROFESOR%TYPE,
-    salidaEsperada BOOLEAN);
-  PROCEDURE Eliminar
-    (nombrePrueba VARCHAR2,  v_Id_Contacto IN CONTACTOS_PROFESOR.ID_CONTACTO%TYPE, salidaEsperada BOOLEAN);
-END;
-/
-
---Tabla Dueños:
-CREATE OR REPLACE PACKAGE PCK_Dueños AS
-    PROCEDURE Inicializar;
-    PROCEDURE Consultar;
-    PROCEDURE Insertar
-        (nombrePrueba VARCHAR2, v_DNI_Dueño IN Dueños.DNI_Dueño%TYPE, v_Nombre IN Dueños.Nombre%TYPE, v_Apellidos IN Dueños.Apellidos%TYPE, v_Edad IN Dueños.Edad%TYPE, v_Localidad IN Dueños.Localidad%TYPE, salidaEsperada BOOLEAN);
-    PROCEDURE Actualizar
-        (nombrePrueba VARCHAR2, v_DNI_Dueño IN Dueños.DNI_Dueño%TYPE, v_Nombre IN Dueños.Nombre%TYPE, v_Apellidos IN Dueños.Apellidos%TYPE, v_Edad IN Dueños.Edad%TYPE, v_Localidad IN Dueños.Localidad%TYPE, salidaEsperada BOOLEAN);
-    PROCEDURE Eliminar
-        (nombrePrueba VARCHAR2, v_DNI_Dueño IN Dueños.DNI_Dueño%TYPE, salidaEsperada BOOLEAN);
-END;
-/
-
---Tabla Contactos_Dueño
-CREATE OR REPLACE PACKAGE PCK_Contactos_Dueño AS
-  PROCEDURE Inicializar;
-  PROCEDURE Consultar;
-  PROCEDURE Insertar
-    (nombrePrueba VARCHAR2, v_Telefono IN CONTACTOS_DUEÑO.TELEFONO%TYPE, v_Email IN CONTACTOS_DUEÑO.EMAIL%TYPE,
-    v_Id_Contacto IN CONTACTOS_DUEÑO.ID_CONTACTO%TYPE, v_DNI_Dueño IN CONTACTOS_DUEÑO.DNI_DUEÑO%TYPE,
-    salidaEsperada BOOLEAN);
-  PROCEDURE Actualizar
-    (nombrePrueba VARCHAR2, v_Telefono IN CONTACTOS_DUEÑO.TELEFONO%TYPE, v_Email IN CONTACTOS_DUEÑO.EMAIL%TYPE,
-    v_Id_Contacto IN CONTACTOS_DUEÑO.ID_CONTACTO%TYPE, v_DNI_Dueño IN CONTACTOS_DUEÑO.DNI_DUEÑO%TYPE,
-    salidaEsperada BOOLEAN);
-  PROCEDURE Eliminar
-    (nombrePrueba VARCHAR2,  v_Id_Contacto IN CONTACTOS_DUEÑO.ID_CONTACTO%TYPE, salidaEsperada BOOLEAN);
-END;
-/
-
---Tabla Nivel Administrativo.
-CREATE OR REPLACE PACKAGE PCK_NivelAdm AS
-    PROCEDURE Inicializar;
-    PROCEDURE Consultar;
-    PROCEDURE Insertar 
-      (nombrePrueba VARCHAR2, v_DNI_Nivel_Admin IN nivelAdmin.DNI_Nivel_Admin%TYPE, v_Nombre IN nivelAdmin.Nombre%TYPE, v_Apellidos IN nivelAdmin.Apellidos%TYPE,
-      v_Edad IN nivelAdmin.Edad%TYPE, v_Localidad IN nivelAdmin.Localidad%TYPE, v_Sueldo_NivAdmin IN nivelAdmin.Sueldo_NivAdmin%TYPE, salidaEsperada BOOLEAN);
-    PROCEDURE Actualizar 
-      (nombrePrueba VARCHAR2, v_DNI_Nivel_Admin IN nivelAdmin.DNI_Nivel_Admin%TYPE, v_Nombre IN nivelAdmin.Nombre%TYPE, v_Apellidos IN nivelAdmin.Apellidos%TYPE,
-      v_Edad IN nivelAdmin.Edad%TYPE, v_Localidad IN nivelAdmin.Localidad%TYPE, v_Sueldo_NivAdmin IN nivelAdmin.Sueldo_NivAdmin%TYPE, salidaEsperada BOOLEAN);
-    PROCEDURE Eliminar (nombrePrueba VARCHAR2, v_DNI_Nivel_Admin IN nivelAdmin.DNI_Nivel_Admin%TYPE, salidaEsperada BOOLEAN);
-END;
-/
-
---Tabla Contactos_Nivel_Administrativo:
-CREATE OR REPLACE PACKAGE PCK_Contactos_NivelAdmin AS
-    PROCEDURE Inicializar;
-    PROCEDURE Consultar;
-    PROCEDURE Insertar
-     (nombrePrueba VARCHAR2, v_Telefono IN CONTACTOS_NIVELADMIN.TELEFONO%TYPE, v_Email IN CONTACTOS_NIVELADMIN.EMAIL%TYPE,
-      v_Id_Contacto IN CONTACTOS_NIVELADMIN.ID_CONTACTO%TYPE, v_DNI_Nivel_Admin IN CONTACTOS_NIVELADMIN.DNI_NIVEL_ADMIN%TYPE,
-      salidaEsperada BOOLEAN);
-    PROCEDURE Actualizar
-      (nombrePrueba VARCHAR2, v_Telefono IN CONTACTOS_NIVELADMIN.TELEFONO%TYPE, v_Email IN CONTACTOS_NIVELADMIN.EMAIL%TYPE,
-      v_Id_Contacto IN CONTACTOS_NIVELADMIN.ID_CONTACTO%TYPE, v_DNI_Nivel_Admin IN CONTACTOS_NIVELADMIN.DNI_NIVEL_ADMIN%TYPE,
-      salidaEsperada BOOLEAN);
-    PROCEDURE Eliminar
-      (nombrePrueba VARCHAR2, v_Id_Contacto IN CONTACTOS_NIVELADMIN.ID_CONTACTO%TYPE, salidaEsperada BOOLEAN);
 END;
 /
 
@@ -198,7 +96,7 @@ CREATE OR REPLACE PACKAGE PCK_Cursos_Alumnos AS
         (nombrePrueba VARCHAR2, v_Id_Curso_Alumno IN Cursos_Alumnos.Id_Curso_Alumno%TYPE, salidaEsperada BOOLEAN);
 END;
 /
-
+/*
 --Tabla Curso_Profesores.
 CREATE OR REPLACE PACKAGE PCK_CursoProfesores AS
     PROCEDURE Inicializar;
@@ -212,7 +110,7 @@ CREATE OR REPLACE PACKAGE PCK_CursoProfesores AS
     PROCEDURE Eliminar (nombrePrueba VARCHAR2, v_Id_Curso_Profesor IN Cursos_Profesores.Id_Curso_Profesor%TYPE, salidaEsperada BOOLEAN);
 END;
 /
-
+*/
 --Tabla Cursos:
 CREATE OR REPLACE PACKAGE PCK_Cursos AS
     PROCEDURE Inicializar;
@@ -233,9 +131,11 @@ CREATE OR REPLACE PACKAGE PCK_Academias AS
     PROCEDURE Inicializar;
     PROCEDURE Consultar;
     PROCEDURE Insertar
-        (nombrePrueba VARCHAR2, v_Lugar IN Academias.Lugar%TYPE, v_Aulas IN Academias.Aulas%TYPE, v_Id_Academia IN Academias.Id_Academia%TYPE, salidaEsperada BOOLEAN);
+        (nombrePrueba VARCHAR2, v_Lugar IN Academias.Lugar%TYPE, v_Aulas IN Academias.Aulas%TYPE, v_Id_Academia IN Academias.Id_Academia%TYPE,
+        v_Telefono IN Academias.Telefono%TYPE, salidaEsperada BOOLEAN);
     PROCEDURE Actualizar
-        (nombrePrueba VARCHAR2, v_Lugar IN Academias.Lugar%TYPE, v_Aulas IN Academias.Aulas%TYPE, v_Id_Academia IN Academias.Id_Academia%TYPE, salidaEsperada BOOLEAN);
+        (nombrePrueba VARCHAR2, v_Lugar IN Academias.Lugar%TYPE, v_Aulas IN Academias.Aulas%TYPE, v_Id_Academia IN Academias.Id_Academia%TYPE,
+        v_Telefono IN Academias.Telefono%TYPE, salidaEsperada BOOLEAN);
     PROCEDURE Eliminar
         (nombrePrueba VARCHAR2, v_Id_Academia IN Academias.Id_Academia%TYPE, salidaEsperada BOOLEAN);
 END;
@@ -277,7 +177,7 @@ PROCEDURE Consultar
       FETCH C INTO v_Recibos;
           DBMS_OUTPUT.PUT_LINE(RPAD('Id Recibo:', 25) || RPAD('Fecha Recibo:', 25) || RPAD('Pagado:', 25) || RPAD('Por Pagar:', 25)|| RPAD('Hermanos:', 25)
            || RPAD('Forma Pago:', 25) || RPAD('Cuenta Bancaria:', 25));
-          DBMS_OUTPUT.PUT_LINE(LPAD('-', 120, '-'));
+          DBMS_OUTPUT.PUT_LINE(LPAD('-', 175, '-'));
       WHILE C%FOUND LOOP
           DBMS_OUTPUT.PUT_LINE(RPAD(v_Recibos.Id_Recibo, 25) || RPAD(v_Recibos.Fecha_Recibo, 25) || RPAD(v_Recibos.Pagado, 25) || RPAD(v_Recibos.Por_Pagar, 25)
           || RPAD(v_Recibos.Hermanos, 25) || RPAD(v_Recibos.Forma_Pago, 25) || RPAD(v_Recibos.Cuenta_Bancaria, 25));
@@ -350,47 +250,60 @@ CURSOR C IS
     v_Salida BOOLEAN := TRUE;
     v_Alumnos Alumnos%ROWTYPE;
 PROCEDURE Inicializar
-IS
-BEGIN
-   DELETE FROM Alumnos;
-END Inicializar;
+    IS
+    BEGIN
+        DELETE FROM Alumnos;
+    END Inicializar;
 PROCEDURE Consultar
-IS
-BEGIN
-OPEN C;
-FETCH C INTO v_Alumnos;
-DBMS_OUTPUT.PUT_LINE(RPAD('DNI:', 25) || RPAD('Nombre:', 25) || RPAD('Apellidos:', 25) || RPAD('Edad:', 25) || RPAD('Localidad:', 25) || RPAD('Id Recibo:', 25));
-DBMS_OUTPUT.PUT_LINE(LPAD('-', 120, '-'));
-WHILE C%FOUND LOOP
-DBMS_OUTPUT.PUT_LINE(RPAD(v_Alumnos.DNI_Alumno, 25) || RPAD(v_Alumnos.Nombre, 25) || RPAD(v_Alumnos.Apellidos, 25) || RPAD(v_Alumnos.Edad, 25) ||
-RPAD(v_Alumnos.Localidad, 25) || RPAD(v_Alumnos.Id_Recibo, 25));
-FETCH C INTO v_Alumnos;
-END LOOP;
-CLOSE C;
-END Consultar;
+    IS
+    BEGIN
+    OPEN C;
+    FETCH C INTO v_Alumnos;
+    DBMS_OUTPUT.PUT_LINE(RPAD('DNI:', 25) || RPAD('Nombre:', 25) || RPAD('Apellidos:', 25) || RPAD('Edad:', 25) || 
+    RPAD('Teléfono Fijo:', 25) || RPAD('Teléfono Movil:', 25) || RPAD('Email:', 25) || RPAD('Nombre Padre o Madre:', 25) || RPAD('Localidad:', 25) 
+    || RPAD('Id Recibo:', 25));
+    DBMS_OUTPUT.PUT_LINE(LPAD('-', 150, '-'));
+    WHILE C%FOUND LOOP
+    DBMS_OUTPUT.PUT_LINE(RPAD(v_Alumnos.DNI_Alumno, 25) || RPAD(v_Alumnos.Nombre, 25) || RPAD(v_Alumnos.Apellidos, 25) || RPAD(v_Alumnos.Edad, 25) ||
+    RPAD(v_Alumnos.Telefono_Fijo, 25) || RPAD(v_Alumnos.Telefono_Movil) || RPAD(v_Alumnos.Email, 25) || RPAD(v_Alumnos.Nombre_Padre_Madre, 25) 
+    || RPAD(v_Alumnos.Localidad, 25) || RPAD(v_Alumnos.Id_Recibo, 25));
+    FETCH C INTO v_Alumnos;
+    END LOOP;
+    CLOSE C;
+    END Consultar;
 PROCEDURE Insertar (nombrePrueba VARCHAR2, v_DNI_Alumno IN Alumnos.DNI_Alumno%TYPE, v_Nombre IN Alumnos.Nombre%TYPE, v_Apellidos IN Alumnos.Apellidos%TYPE,
-        v_Edad IN Alumnos.Edad%TYPE, v_Localidad IN Alumnos.Localidad%TYPE, v_Id_Recibo IN Alumnos.Id_Recibo%TYPE, salidaEsperada BOOLEAN)
-IS
-BEGIN
-   INSERT INTO Alumnos (DNI_ALUMNO, NOMBRE, APELLIDOS, EDAD, LOCALIDAD, ID_RECIBO) VALUES (v_DNI_ALUMNO, v_NOMBRE, v_APELLIDOS, v_EDAD, v_LOCALIDAD, v_ID_RECIBO);
-   SELECT * INTO v_Alumnos FROM Alumnos WHERE DNI_ALUMNO = v_DNI_ALUMNO;
-   IF v_Alumnos.NOMBRE != v_NOMBRE AND v_Alumnos.APELLIDOS != v_APELLIDOS AND v_Alumnos.EDAD != v_EDAD AND v_Alumnos.LOCALIDAD != v_LOCALIDAD AND v_Alumnos.ID_RECIBO != v_ID_RECIBO
+        v_Edad IN Alumnos.Edad%TYPE, v_Telefono_Fijo IN Alumnos.Telefono_Fijo%TYPE, v_Telefono_Movil IN Alumnos.Telefono_Movil%TYPE, 
+        v_Email IN Alumnos.Email%TYPE, v_Nombre_Padre_Madre IN Alumnos.Nombre_Padre_Madre%TYPE, v_Localidad IN Alumnos.Localidad%TYPE,
+        v_Id_Recibo IN Alumnos.Id_Recibo%TYPE, salidaEsperada BOOLEAN)
+    IS
+    BEGIN
+        INSERT INTO Alumnos (DNI_ALUMNO, NOMBRE, APELLIDOS, EDAD, TELEFONO_FIJO, TELEFONO_MOVIL, EMAIL, NOMBRE_PADRE_MADRE, LOCALIDAD, ID_RECIBO)
+        VALUES (v_DNI_ALUMNO, v_NOMBRE, v_APELLIDOS, v_EDAD, v_TELEFONO_FIJO, v_TELEFONO_MOVIL, v_EMAIL, v_NOMBRE_PADRE_MADRE, v_LOCALIDAD, v_ID_RECIBO);
+        SELECT * INTO v_Alumnos FROM Alumnos WHERE DNI_ALUMNO = v_DNI_ALUMNO;
+        IF v_Alumnos.NOMBRE != v_NOMBRE AND v_Alumnos.APELLIDOS != v_APELLIDOS AND v_Alumnos.EDAD != v_EDAD AND v_Alumnos.TELEFONO_FIJO != v_TELEFONO_FIJO
+        AND v_Alumnos.TELEFONO_MOVIL != v_TELEFONO_MOVIL AND v_Alumnos.EMAIL != v_EMAIL AND v_Alumnos.NOMBRE_PADRE_MADRE != v_NOMBRE_PADRE_MADRE
+        AND v_Alumnos.LOCALIDAD != v_LOCALIDAD AND v_Alumnos.ID_RECIBO != v_ID_RECIBO
    THEN v_Salida := FALSE;
    END IF;
    COMMIT;
-   DBMS_OUTPUT.PUT_LINE(nombrePrueba || ': ' || ASSERT_EQUALS(v_Salida, salidaEsperada));
+        DBMS_OUTPUT.PUT_LINE(nombrePrueba || ': ' || ASSERT_EQUALS(v_Salida, salidaEsperada));
    EXCEPTION
       WHEN OTHERS THEN
           DBMS_OUTPUT.PUT_LINE(nombrePrueba || ': ' || ASSERT_EQUALS(FALSE, salidaEsperada));
           ROLLBACK;
-END Insertar;
+    END Insertar;
 PROCEDURE Actualizar (nombrePrueba VARCHAR2, v_DNI_Alumno IN Alumnos.DNI_Alumno%TYPE, v_Nombre IN Alumnos.Nombre%TYPE, v_Apellidos IN Alumnos.Apellidos%TYPE,
-    v_Edad IN Alumnos.Edad%TYPE, v_Localidad IN Alumnos.Localidad%TYPE, v_Id_Recibo IN Alumnos.Id_Recibo%TYPE, salidaEsperada BOOLEAN)
+    v_Edad IN Alumnos.Edad%TYPE, v_Telefono_Fijo IN Alumnos.Telefono_Fijo%TYPE, v_Telefono_Movil IN Alumnos.Telefono_Movil%TYPE, 
+    v_Email IN Alumnos.Email%TYPE, v_Nombre_Padre_Madre IN Alumnos.Nombre_Padre_Madre%TYPE, v_Localidad IN Alumnos.Localidad%TYPE,
+    v_Id_Recibo IN Alumnos.Id_Recibo%TYPE, salidaEsperada BOOLEAN)
 IS
 BEGIN
-UPDATE Alumnos SET NOMBRE = v_NOMBRE, APELLIDOS = v_APELLIDOS, EDAD = v_EDAD, LOCALIDAD = v_LOCALIDAD, ID_RECIBO = v_ID_RECIBO WHERE DNI_ALUMNO = v_DNI_ALUMNO;
+UPDATE Alumnos SET NOMBRE = v_NOMBRE, APELLIDOS = v_APELLIDOS, EDAD = v_EDAD, TELEFONO_FIJO = v_TELEFONO_FIJO, TELEFONO_MOVIL= v_TELEFONO_MOVIL,
+EMAIL = v_EMAIL, NOMBRE_PADRE_MADRE = v_NOMBRE_PADRE_MADRE,  LOCALIDAD = v_LOCALIDAD, ID_RECIBO = v_ID_RECIBO WHERE DNI_ALUMNO = v_DNI_ALUMNO;
 SELECT * INTO v_Alumnos FROM Alumnos WHERE DNI_ALUMNO = v_DNI_ALUMNO;
-IF v_Alumnos.NOMBRE != v_NOMBRE AND v_Alumnos.APELLIDOS != v_APELLIDOS AND v_Alumnos.EDAD != v_EDAD AND v_Alumnos.LOCALIDAD != v_LOCALIDAD AND v_Alumnos.ID_RECIBO != v_ID_RECIBO
+IF v_Alumnos.NOMBRE != v_NOMBRE AND v_Alumnos.APELLIDOS != v_APELLIDOS AND v_Alumnos.EDAD != v_EDAD 
+AND v_Alumnos.TELEFONO_FIJO != v_TELEFONO_FIJO AND v_Alumnos.TELEFONO_MOVIL != v_TELEFONO_MOVIL AND v_Alumnos.EMAIL != v_EMAIL 
+AND v_Alumnos.NOMBRE_PADRE_MADRE != NOMBRE_PADRE_MADRE AND v_Alumnos.LOCALIDAD != v_LOCALIDAD AND v_Alumnos.ID_RECIBO != v_ID_RECIBO
    THEN v_Salida := FALSE;
    END IF;
    COMMIT;
@@ -419,158 +332,6 @@ BEGIN
 END;
 /
 
---Tabla Contactos_Alumno:
-CREATE OR REPLACE PACKAGE BODY PCK_Contactos_Alumno
-    AS
-    CURSOR C IS
-        SELECT * FROM Contactos_Alumno;
-    v_Salida BOOLEAN := TRUE;
-    v_Contactos_Alumno Contactos_Alumno%ROWTYPE;
-PROCEDURE Inicializar
-    IS
-    BEGIN
-        DELETE FROM Contactos_Alumno;
-    END Inicializar;
-PROCEDURE Consultar
-IS
-BEGIN
-OPEN C;
-FETCH C INTO v_Contactos_Alumno;
-DBMS_OUTPUT.PUT_LINE(RPAD('DNI Alumno:', 25) || RPAD('Id Contacto:', 25) || RPAD('Teléfono:', 25) || RPAD('Email:', 25));
-DBMS_OUTPUT.PUT_LINE(LPAD('-', 120, '-'));
-WHILE C%FOUND LOOP
-DBMS_OUTPUT.PUT_LINE(RPAD(v_Contactos_Alumno.DNI_Alumno, 25) || RPAD(v_Contactos_Alumno.Id_Contacto, 25) || RPAD(v_Contactos_Alumno.Telefono, 25)
-|| RPAD(v_Contactos_Alumno.Email, 25));
-FETCH C INTO v_Contactos_Alumno;
-END LOOP;
-CLOSE C;
-END Consultar;
-PROCEDURE Insertar (nombrePrueba VARCHAR2, v_Telefono IN CONTACTOS_ALUMNO.TELEFONO%TYPE, v_Email IN CONTACTOS_ALUMNO.EMAIL%TYPE,
-v_Id_Contacto IN CONTACTOS_ALUMNO.ID_CONTACTO%TYPE, v_DNI_Alumno IN CONTACTOS_ALUMNO.DNI_ALUMNO%TYPE, salidaEsperada BOOLEAN)
-    IS
-    BEGIN
-        INSERT INTO Contactos_Alumno (TELEFONO,EMAIL,ID_CONTACTO,DNI_ALUMNO) VALUES (v_Telefono, v_Email, v_Id_Contacto, v_DNI_Alumno);
-        SELECT * INTO v_Contactos_Alumno FROM Contactos_Alumno WHERE Id_Contacto = v_Id_Contacto;
-        IF v_Contactos_Alumno.Telefono != v_Telefono AND v_Contactos_Alumno.Email != v_Email AND v_Contactos_Alumno.DNI_Alumno != v_DNI_Alumno THEN
-            v_Salida := FALSE;
-        END IF;
-        COMMIT;
-        DBMS_OUTPUT.PUT_LINE(nombrePrueba || ': ' || ASSERT_EQUALS(v_Salida, salidaEsperada));
-        EXCEPTION
-            WHEN OTHERS THEN
-                DBMS_OUTPUT.PUT_LINE(nombrePrueba || ': ' || ASSERT_EQUALS(FALSE, salidaEsperada));
-                ROLLBACK;
-    END Insertar;
-PROCEDURE Actualizar (nombrePrueba VARCHAR2, v_Telefono IN CONTACTOS_ALUMNO.TELEFONO%TYPE, v_Email IN CONTACTOS_ALUMNO.EMAIL%TYPE,
-v_Id_Contacto IN CONTACTOS_ALUMNO.ID_CONTACTO%TYPE, v_DNI_Alumno IN CONTACTOS_ALUMNO.DNI_ALUMNO%TYPE, salidaEsperada BOOLEAN)
-    IS
-    BEGIN
-    UPDATE Contactos_Alumno SET Telefono = v_Telefono, Email = v_Email, DNI_Alumno = v_DNI_Alumno WHERE Id_Contacto = v_Id_Contacto;
-     SELECT * INTO v_Contactos_Alumno FROM Contactos_Alumno WHERE Id_Contacto = v_Id_Contacto;
-        IF v_Contactos_Alumno.Telefono != v_Telefono AND v_Contactos_Alumno.Email != v_Email AND v_Contactos_Alumno.DNI_Alumno != v_DNI_Alumno THEN
-            v_Salida := FALSE;
-        END IF;
-        COMMIT;
-        DBMS_OUTPUT.PUT_LINE(nombrePrueba || ': ' || ASSERT_EQUALS(v_Salida, salidaEsperada));
-        EXCEPTION
-            WHEN OTHERS THEN
-                DBMS_OUTPUT.PUT_LINE(nombrePrueba || ': ' || ASSERT_EQUALS(FALSE, salidaEsperada));
-                ROLLBACK;
-    END Actualizar;
-PROCEDURE Eliminar (nombrePrueba VARCHAR2,  v_Id_Contacto IN CONTACTOS_ALUMNO.ID_CONTACTO%TYPE, salidaEsperada BOOLEAN)
-    IS
-        v_NumContactosAlumno NUMBER := 0;
-    BEGIN
-        DELETE FROM Contactos_Alumno WHERE Id_Contacto = v_Id_Contacto;
-        IF v_NumContactosAlumno != 0 THEN
-            v_Salida := FALSE;
-        END IF;
-        COMMIT;
-        DBMS_OUTPUT.PUT_LINE(nombrePrueba || ': ' || ASSERT_EQUALS(v_Salida, salidaEsperada));
-        EXCEPTION
-          WHEN OTHERS THEN
-              DBMS_OUTPUT.PUT_LINE(nombrePrueba || ': ' || ASSERT_EQUALS(FALSE, salidaEsperada));
-              ROLLBACK;
-    END Eliminar;
-END;
-/
-
---Tabla Familias_Alumno:
-CREATE OR REPLACE PACKAGE BODY PCK_Familias_Alumno
-AS
-    CURSOR C IS
-        SELECT * FROM Familias_Alumno;
-    v_Salida BOOLEAN := TRUE;
-    v_Familias_Alumno Familias_Alumno%ROWTYPE;
-PROCEDURE Inicializar
-    IS
-    BEGIN
-        DELETE FROM Familias_Alumno;
-    END Inicializar;
-PROCEDURE Consultar
-IS
-BEGIN
-OPEN C;
-FETCH C INTO v_Familias_Alumno;
-DBMS_OUTPUT.PUT_LINE(RPAD('Nombre Padre o Madre:', 25) || RPAD('Id Familia:', 25) || RPAD('DNI Alumno:', 25));
-DBMS_OUTPUT.PUT_LINE(LPAD('-', 120, '-'));
-WHILE C%FOUND LOOP
-DBMS_OUTPUT.PUT_LINE(RPAD(v_Familias_Alumno.Nombre_Padre_Madre, 25) || RPAD(v_Familias_Alumno.Id_Familia, 25) || RPAD(v_Familias_Alumno.DNI_Alumno, 25));
-FETCH C INTO v_Familias_Alumno;
-END LOOP;
-CLOSE C;
-END Consultar;
-PROCEDURE Insertar (nombrePrueba VARCHAR2, v_Nombre_Padre_Madre IN FAMILIAS_ALUMNO.NOMBRE_PADRE_MADRE%TYPE, v_Id_Familia IN FAMILIAS_ALUMNO.ID_FAMILIA%TYPE,
-    v_DNI_Alumno IN FAMILIAS_ALUMNO.DNI_ALUMNO%TYPE, salidaEsperada BOOLEAN)
-    IS
-    BEGIN
-        INSERT INTO Familias_Alumno (NOMBRE_PADRE_MADRE, ID_FAMILIA, DNI_ALUMNO) values (v_Nombre_Padre_Madre, v_Id_Familia, v_DNI_Alumno);
-        SELECT * INTO v_Familias_Alumno FROM Familias_Alumno WHERE Id_Familia = v_Id_Familia;
-        IF v_Familias_Alumno.Nombre_Padre_Madre != v_Nombre_Padre_Madre AND v_Familias_Alumno.DNI_ALUMNO != v_DNI_Alumno THEN 
-          v_Salida := FALSE;
-        END IF;
-        COMMIT;
-        DBMS_OUTPUT.PUT_LINE(nombrePrueba || ': ' || ASSERT_EQUALS(v_Salida, salidaEsperada));
-        EXCEPTION
-            WHEN OTHERS THEN
-                DBMS_OUTPUT.PUT_LINE(nombrePrueba || ': ' || ASSERT_EQUALS(FALSE, salidaEsperada));
-                ROLLBACK;
-        END Insertar;
-PROCEDURE Actualizar (nombrePrueba VARCHAR2, v_Nombre_Padre_Madre IN FAMILIAS_ALUMNO.NOMBRE_PADRE_MADRE%TYPE, v_Id_Familia IN FAMILIAS_ALUMNO.ID_FAMILIA%TYPE,
-    v_DNI_Alumno IN FAMILIAS_ALUMNO.DNI_ALUMNO%TYPE, salidaEsperada BOOLEAN)
-    IS
-    BEGIN
-    UPDATE Familias_Alumno SET Nombre_Padre_Madre = v_Nombre_Padre_Madre, DNI_Alumno = v_DNI_Alumno WHERE Id_Familia = v_Id_Familia;
-    SELECT * INTO v_Familias_Alumno FROM Familias_Alumno WHERE Id_Familia = v_Id_Familia;
-    IF v_Familias_Alumno.Nombre_Padre_Madre != v_Nombre_Padre_Madre AND v_Familias_Alumno.DNI_ALUMNO != v_DNI_Alumno THEN 
-          v_Salida := FALSE;
-     END IF;
-        COMMIT;
-        DBMS_OUTPUT.PUT_LINE(nombrePrueba || ': ' || ASSERT_EQUALS(v_Salida, salidaEsperada));
-        EXCEPTION
-            WHEN OTHERS THEN
-                DBMS_OUTPUT.PUT_LINE(nombrePrueba || ': ' || ASSERT_EQUALS(FALSE, salidaEsperada));
-                ROLLBACK;
-        END Actualizar;
-PROCEDURE Eliminar (nombrePrueba VARCHAR2, v_Id_Familia IN Familias_Alumno.Id_Familia%TYPE, salidaEsperada BOOLEAN)
-    IS
-        v_NumFamiliasAlumno NUMBER := 0;
-    BEGIN
-        DELETE FROM Familias_Alumno WHERE Id_Familia = v_Id_Familia;
-        SELECT COUNT(*) INTO v_NumFamiliasAlumno FROM Familias_Alumno WHERE Id_Familia = v_Id_Familia;
-        IF v_NumFamiliasAlumno != 0 THEN
-            v_Salida := FALSE;
-        END IF;
-        COMMIT;
-        DBMS_OUTPUT.PUT_LINE(nombrePrueba || ': ' || ASSERT_EQUALS(v_Salida, salidaEsperada));
-        EXCEPTION
-            WHEN OTHERS THEN
-                DBMS_OUTPUT.PUT_LINE(nombrePrueba || ': ' || ASSERT_EQUALS(FALSE, salidaEsperada));
-                ROLLBACK;
-   END Eliminar;
-END;
-/
-
 --Tabla Profesores:
 CREATE OR REPLACE PACKAGE BODY PCK_Profesores
 AS
@@ -588,24 +349,29 @@ IS
 BEGIN
 OPEN C;
 FETCH C INTO v_Profesores;
-DBMS_OUTPUT.PUT_LINE(RPAD('DNI:', 25) || RPAD('Nombre:', 25) || RPAD('Apellidos:', 25) || RPAD('Edad:', 25) || RPAD('Localidad:', 25)
- || RPAD('Sueldo:', 25) || RPAD('Nivel Ingles:', 25));
-DBMS_OUTPUT.PUT_LINE(LPAD('-', 120, '-'));
+DBMS_OUTPUT.PUT_LINE(RPAD('DNI:', 25) || RPAD('Nombre:', 25) || RPAD('Apellidos:', 25) || RPAD('Edad:', 25) || RPAD('Teléfono Movil:', 25) 
+|| RPAD('Teléfono Fijo:', 25) || RPAD('Email:', 25) || RPAD('Localidad:', 25) || RPAD('Nivel Ingles:', 25));
+DBMS_OUTPUT.PUT_LINE(LPAD('-', 175, '-'));
 WHILE C%FOUND LOOP
-DBMS_OUTPUT.PUT_LINE(RPAD(v_Profesores.DNI_Profesor, 25) || RPAD(v_Profesores.Nombre, 25) || RPAD(v_Profesores.Apellidos, 25) || RPAD(v_Profesores.Edad, 25) ||
-RPAD(v_Profesores.Localidad, 25) || RPAD(v_Profesores.Sueldo_Profesor, 25) || RPAD(v_Profesores.Nivel_Ingles, 25));
+DBMS_OUTPUT.PUT_LINE(RPAD(v_Profesores.DNI_Profesor, 25) || RPAD(v_Profesores.Nombre, 25) || RPAD(v_Profesores.Apellidos, 25) 
+|| RPAD(v_Profesores.Edad, 25) || RPAD(v_Profesores.Telefono_Movil, 25) || RPAD(v_Profesores.Telefono_Fijo) || RPAD(v_Profesores.Email, 25) ||
+RPAD(v_Profesores.Localidad, 25) || RPAD(v_Profesores.Nivel_Ingles, 25));
 FETCH C INTO v_Profesores;
 END LOOP;
 CLOSE C;
 END Consultar;
 PROCEDURE Insertar (nombrePrueba VARCHAR2, v_DNI_Profesor IN Profesores.DNI_Profesor%TYPE, v_Nombre IN Profesores.Nombre%TYPE, v_Apellidos IN Profesores.Apellidos%TYPE,
-      v_Edad IN Profesores.Edad%TYPE, v_Localidad IN Profesores.Localidad%TYPE, v_Sueldo_Profesor IN Profesores.Sueldo_Profesor%TYPE, 
-      v_Nivel_Ingles IN Profesores.Nivel_Ingles%TYPE, salidaEsperada BOOLEAN)
+      v_Edad IN Profesores.Edad%TYPE, v_Telefono_Movil IN Profesores.Telefono_Movil%TYPE, v_Telefono_Fijo IN Profesores.Telefono_Fijo%TYPE, 
+      v_Email IN Profesores.Email%TYPE, v_Localidad IN Profesores.Localidad%TYPE, v_Nivel_Ingles IN Profesores.Nivel_Ingles%TYPE, salidaEsperada BOOLEAN)
 IS
 BEGIN
-  INSERT INTO Profesores (DNI_PROFESOR, NOMBRE, APELLIDOS, EDAD, LOCALIDAD ,SUELDO_PROFESOR, NIVEL_INGLES) VALUES (v_DNI_PROFESOR, v_NOMBRE, v_APELLIDOS, v_EDAD, v_LOCALIDAD , v_SUELDO_PROFESOR, v_NIVEL_INGLES);
+  INSERT INTO Profesores (DNI_PROFESOR, NOMBRE, APELLIDOS, EDAD, TELEFONO_MOVIL, TELEFONO_FIJO, EMAIL, LOCALIDAD , NIVEL_INGLES) 
+  VALUES (v_DNI_PROFESOR, v_NOMBRE, v_APELLIDOS, v_EDAD, v_TELEFONO_MOVIL, v_TELEFONO_FIJO, v_EMAIL, v_LOCALIDAD,
+  v_NIVEL_INGLES);
   SELECT * INTO v_Profesores FROM Profesores WHERE DNI_PROFESOR = v_DNI_PROFESOR;
-  IF v_Profesores.NOMBRE != v_NOMBRE AND v_Profesores.APELLIDOS != v_APELLIDOS AND v_Profesores.EDAD != v_EDAD AND v_Profesores.LOCALIDAD != v_LOCALIDAD AND v_Profesores.SUELDO_PROFESOR != v_SUELDO_PROFESOR AND v_Profesores.NIVEL_INGLES != v_NIVEL_INGLES
+  IF v_Profesores.NOMBRE != v_NOMBRE AND v_Profesores.APELLIDOS != v_APELLIDOS AND v_Profesores.EDAD != v_EDAD 
+   AND v_Profesores.TELEFONO_MOVIL != v_TELEFONO_MOVIL AND v_Profesores.TELEFONO_FIJO != v_TELEFONO_FIJO AND v_Profesores.EMAIL != v_EMAIL
+   AND v_Profesores.LOCALIDAD != v_LOCALIDAD AND v_Profesores.NIVEL_INGLES != v_NIVEL_INGLES
    THEN v_Salida := FALSE;
    END IF;
    COMMIT;
@@ -616,13 +382,17 @@ BEGIN
           ROLLBACK;
 END Insertar;
 PROCEDURE Actualizar (nombrePrueba VARCHAR2, v_DNI_Profesor IN Profesores.DNI_Profesor%TYPE, v_Nombre IN Profesores.Nombre%TYPE, v_Apellidos IN Profesores.Apellidos%TYPE,
-      v_Edad IN Profesores.Edad%TYPE, v_Localidad IN Profesores.Localidad%TYPE, v_Sueldo_Profesor IN Profesores.Sueldo_Profesor%TYPE, 
+      v_Edad IN Profesores.Edad%TYPE, v_Telefono_Movil IN Profesores.Telefono_Movil%TYPE, v_Telefono_Fijo IN Profesores.Telefono_Fijo%TYPE, 
+      v_Email IN Profesores.Email%TYPE, v_Localidad IN Profesores.Localidad%TYPE, 
       v_Nivel_Ingles IN Profesores.Nivel_Ingles%TYPE, salidaEsperada BOOLEAN)
 IS
 BEGIN
-UPDATE Profesores SET NOMBRE = v_NOMBRE, APELLIDOS = v_APELLIDOS, EDAD = v_EDAD, LOCALIDAD = v_LOCALIDAD, SUELDO_PROFESOR = v_SUELDO_PROFESOR, NIVEL_INGLES = v_NIVEL_INGLES WHERE DNI_PROFESOR = v_DNI_PROFESOR;
+UPDATE Profesores SET NOMBRE = v_NOMBRE, APELLIDOS = v_APELLIDOS, EDAD = v_EDAD,
+TELEFONO_MOVIL = v_TELEFONO_MOVIL, TELEFONO_FIJO = v_TELEFONO_FIJO, EMAIL = v_EMAIL, LOCALIDAD = v_LOCALIDAD, NIVEL_INGLES = v_NIVEL_INGLES WHERE DNI_PROFESOR = v_DNI_PROFESOR;
 SELECT * INTO v_Profesores FROM Profesores WHERE DNI_PROFESOR = v_DNI_PROFESOR;
- IF v_Profesores.NOMBRE != v_NOMBRE AND v_Profesores.APELLIDOS != v_APELLIDOS AND v_Profesores.EDAD != v_EDAD AND v_Profesores.LOCALIDAD != v_LOCALIDAD AND v_Profesores.SUELDO_PROFESOR != v_SUELDO_PROFESOR AND v_Profesores.NIVEL_INGLES != v_NIVEL_INGLES
+ IF v_Profesores.NOMBRE != v_NOMBRE AND v_Profesores.APELLIDOS != v_APELLIDOS AND v_Profesores.EDAD != v_EDAD 
+  AND v_Profesores.TELEFONO_MOVIL != v_TELEFONO_MOVIL AND v_Profesores.TELEFONO_FIJO != v_TELEFONO_FIJO AND v_Profesores.EMAIL != v_EMAIL
+  AND v_Profesores.LOCALIDAD != v_LOCALIDAD AND v_Profesores.NIVEL_INGLES != v_NIVEL_INGLES
    THEN v_Salida := FALSE;
    END IF;
    COMMIT;
@@ -651,390 +421,6 @@ BEGIN
 END;
 /
 
---Tabla Contacto Profesor
-CREATE OR REPLACE PACKAGE BODY PCK_Contactos_Profesor
-    AS
-    CURSOR C IS
-        SELECT * FROM Contactos_Profesor;
-    v_Salida BOOLEAN := TRUE;
-    v_Contactos_Profesor Contactos_Profesor%ROWTYPE;
-PROCEDURE Inicializar
-    IS
-    BEGIN
-        DELETE FROM Contactos_Profesor;
-    END Inicializar;
-PROCEDURE Consultar
-IS
-BEGIN
-OPEN C;
-FETCH C INTO v_Contactos_Profesor;
-DBMS_OUTPUT.PUT_LINE(RPAD('DNI Profesor:', 25) || RPAD('Id Contacto:', 25) || RPAD('Teléfono:', 25) || RPAD('Email:', 25));
-DBMS_OUTPUT.PUT_LINE(LPAD('-', 120, '-'));
-WHILE C%FOUND LOOP
-DBMS_OUTPUT.PUT_LINE(RPAD(v_Contactos_Profesor.DNI_Profesor, 25) || RPAD(v_Contactos_Profesor.Id_Contacto, 25) || RPAD(v_Contactos_Profesor.Telefono, 25)
-|| RPAD(v_Contactos_Profesor.Email, 25));
-FETCH C INTO v_Contactos_Profesor;
-END LOOP;
-CLOSE C;
-END Consultar;
-PROCEDURE Insertar (nombrePrueba VARCHAR2, v_Telefono IN CONTACTOS_PROFESOR.TELEFONO%TYPE, v_Email IN CONTACTOS_PROFESOR.EMAIL%TYPE,
-v_Id_Contacto IN CONTACTOS_PROFESOR.ID_CONTACTO%TYPE, v_DNI_Profesor IN CONTACTOS_PROFESOR.DNI_PROFESOR%TYPE, salidaEsperada BOOLEAN)
-    IS
-    BEGIN
-        INSERT INTO Contactos_Profesor (TELEFONO,EMAIL,ID_CONTACTO,DNI_PROFESOR) VALUES (v_Telefono, v_Email, v_Id_Contacto, v_DNI_Profesor);
-        SELECT * INTO v_Contactos_Profesor FROM Contactos_Profesor WHERE Id_Contacto = v_Id_Contacto;
-        IF v_Contactos_Profesor.Telefono != v_Telefono AND v_Contactos_Profesor.Email != v_Email AND v_Contactos_Profesor.DNI_Profesor != v_DNI_Profesor THEN
-            v_Salida := FALSE;
-        END IF;
-        COMMIT;
-        DBMS_OUTPUT.PUT_LINE(nombrePrueba || ': ' || ASSERT_EQUALS(v_Salida, salidaEsperada));
-        EXCEPTION
-            WHEN OTHERS THEN
-                DBMS_OUTPUT.PUT_LINE(nombrePrueba || ': ' || ASSERT_EQUALS(FALSE, salidaEsperada));
-                ROLLBACK;
-    END Insertar;
-PROCEDURE Actualizar (nombrePrueba VARCHAR2, v_Telefono IN CONTACTOS_PROFESOR.TELEFONO%TYPE, v_Email IN CONTACTOS_PROFESOR.EMAIL%TYPE,
-v_Id_Contacto IN CONTACTOS_PROFESOR.ID_CONTACTO%TYPE, v_DNI_Profesor IN CONTACTOS_PROFESOR.DNI_PROFESOR%TYPE, salidaEsperada BOOLEAN)
-    IS
-    BEGIN
-    UPDATE Contactos_Profesor SET Telefono = v_Telefono, Email = v_Email, DNI_Profesor = v_DNI_Profesor WHERE Id_Contacto = v_Id_Contacto;
-     SELECT * INTO v_Contactos_Profesor FROM Contactos_Profesor WHERE Id_Contacto = v_Id_Contacto;
-        IF v_Contactos_Profesor.Telefono != v_Telefono AND v_Contactos_Profesor.Email != v_Email AND v_Contactos_Profesor.DNI_Profesor != v_DNI_Profesor THEN
-            v_Salida := FALSE;
-        END IF;
-        COMMIT;
-        DBMS_OUTPUT.PUT_LINE(nombrePrueba || ': ' || ASSERT_EQUALS(v_Salida, salidaEsperada));
-        EXCEPTION
-            WHEN OTHERS THEN
-                DBMS_OUTPUT.PUT_LINE(nombrePrueba || ': ' || ASSERT_EQUALS(FALSE, salidaEsperada));
-                ROLLBACK;
-    END Actualizar;
-PROCEDURE Eliminar (nombrePrueba VARCHAR2,  v_Id_Contacto IN CONTACTOS_PROFESOR.ID_CONTACTO%TYPE, salidaEsperada BOOLEAN)
-    IS
-        v_NumContactosProfesor NUMBER := 0;
-    BEGIN
-        DELETE FROM Contactos_Profesor WHERE Id_Contacto = v_Id_Contacto;
-        IF v_NumContactosProfesor != 0 THEN
-            v_Salida := FALSE;
-        END IF;
-        COMMIT;
-        DBMS_OUTPUT.PUT_LINE(nombrePrueba || ': ' || ASSERT_EQUALS(v_Salida, salidaEsperada));
-        EXCEPTION
-          WHEN OTHERS THEN
-              DBMS_OUTPUT.PUT_LINE(nombrePrueba || ': ' || ASSERT_EQUALS(FALSE, salidaEsperada));
-              ROLLBACK;
-    END Eliminar;
-END;
-/
-
---Tabla Dueños:
-CREATE OR REPLACE PACKAGE BODY PCK_Dueños
-AS
-    CURSOR C IS
-        SELECT * FROM Dueños;
-    v_Salida BOOLEAN := TRUE;
-    v_Dueños Dueños%ROWTYPE;
-PROCEDURE inicializar
-    IS
-    BEGIN
-        DELETE FROM Dueños;
-    END inicializar;
-PROCEDURE Consultar
-IS
-BEGIN
-OPEN C;
-FETCH C INTO v_Dueños;
-DBMS_OUTPUT.PUT_LINE(RPAD('DNI:', 25) || RPAD('Nombre:', 25) || RPAD('Apellidos:', 25) || RPAD('Edad:', 25) || RPAD('Localidad:', 25));
-DBMS_OUTPUT.PUT_LINE(LPAD('-', 120, '-'));
-WHILE C%FOUND LOOP
-DBMS_OUTPUT.PUT_LINE(RPAD(v_Dueños.DNI_Dueño, 25) || RPAD(v_Dueños.Nombre, 25) || RPAD(v_Dueños.Apellidos, 25) || RPAD(v_Dueños.Edad, 25) ||
-RPAD(v_Dueños.Localidad, 25));
-FETCH C INTO v_Dueños;
-END LOOP;
-CLOSE C;
-END Consultar;
-PROCEDURE insertar (nombrePrueba VARCHAR2, v_DNI_Dueño IN Dueños.DNI_Dueño%TYPE, v_Nombre IN Dueños.Nombre%TYPE, 
-v_Apellidos IN Dueños.Apellidos%TYPE, v_Edad IN Dueños.Edad%TYPE, v_Localidad IN Dueños.Localidad%TYPE, salidaEsperada BOOLEAN)
-      IS
-      BEGIN
-          INSERT INTO Dueños(DNI_DUEÑO, NOMBRE, APELLIDOS, EDAD, LOCALIDAD) 
-          VALUES (v_DNI_Dueño, v_Nombre, v_Apellidos, v_Edad, v_Localidad);
-          SELECT * INTO v_Dueños FROM Dueños WHERE DNI_Dueño = v_DNI_Dueño;
-          IF(v_Dueños.Nombre != v_Nombre AND v_Dueños.Apellidos != v_Apellidos AND v_Dueños.Edad != v_Edad AND v_Dueños.Localidad != v_Localidad) THEN
-              v_Salida := FALSE;
-          END IF;
-          COMMIT;
-          DBMS_OUTPUT.PUT_LINE(nombrePrueba || ':' || ASSERT_EQUALS(v_Salida, salidaEsperada));
-          EXCEPTION
-              WHEN OTHERS THEN
-                  DBMS_OUTPUT.PUT_LINE(nombrePrueba || ':' || ASSERT_EQUALS(FALSE, salidaEsperada));
-                  ROLLBACK;
-      END insertar;
-PROCEDURE actualizar (nombrePrueba VARCHAR2, v_DNI_Dueño IN Dueños.DNI_Dueño%TYPE, v_Nombre IN Dueños.Nombre%TYPE, 
-v_Apellidos IN Dueños.Apellidos%TYPE, v_Edad IN Dueños.Edad%TYPE, v_Localidad IN Dueños.Localidad%TYPE, salidaEsperada BOOLEAN)
-      IS
-      BEGIN
-          UPDATE Dueños SET Nombre = v_Nombre, Apellidos = v_Apellidos, Edad = v_Edad, Localidad = v_Localidad WHERE DNI_Dueño = v_DNI_Dueño;
-          SELECT * INTO v_Dueños FROM Dueños WHERE DNI_Dueño = v_DNI_Dueño;
-          IF(v_Dueños.Nombre != v_Nombre AND v_Dueños.Apellidos != v_Apellidos AND v_Dueños.Edad != v_Edad AND v_Dueños.Localidad != v_Localidad) THEN
-              v_Salida := FALSE;
-          END IF;
-          COMMIT;
-          DBMS_OUTPUT.PUT_LINE(nombrePrueba || ':' || ASSERT_EQUALS(v_Salida, salidaEsperada));
-          EXCEPTION
-              WHEN OTHERS THEN
-                  DBMS_OUTPUT.PUT_LINE(nombrePrueba || ':' || ASSERT_EQUALS(FALSE, salidaEsperada));
-                  ROLLBACK;
-      END actualizar;
-PROCEDURE eliminar (nombrePrueba VARCHAR2, v_DNI_Dueño IN Dueños.DNI_Dueño%TYPE, salidaEsperada BOOLEAN)
-      IS
-          v_NumDueños NUMBER := 0;
-      BEGIN
-          DELETE FROM Dueños WHERE DNI_Dueño = v_DNI_Dueño;
-          SELECT COUNT(*) INTO v_NumDueños FROM Dueños WHERE DNI_Dueño = v_DNI_Dueño;
-          IF (v_NumDueños != 0) THEN
-              v_Salida := FALSE;
-          END IF;
-          COMMIT;
-          DBMS_OUTPUT.PUT_LINE(nombrePrueba || ':' || ASSERT_EQUALS(v_Salida, salidaEsperada));
-          EXCEPTION
-              WHEN OTHERS THEN
-                  DBMS_OUTPUT.PUT_LINE(nombrePrueba || ':' || ASSERT_EQUALS(FALSE, salidaEsperada));
-                  ROLLBACK;
-      END eliminar;
-END;
-/
-
---Tabla Contacto Dueño
-CREATE OR REPLACE PACKAGE BODY PCK_Contactos_Dueño
-    AS
-    CURSOR C IS
-        SELECT * FROM Contactos_Dueño;
-    v_Salida BOOLEAN := TRUE;
-    v_Contactos_Dueño Contactos_Dueño%ROWTYPE;
-PROCEDURE Inicializar
-    IS
-    BEGIN
-        DELETE FROM Contactos_Dueño;
-    END Inicializar;
-PROCEDURE Consultar
-IS
-BEGIN
-OPEN C;
-FETCH C INTO v_Contactos_Dueño;
-DBMS_OUTPUT.PUT_LINE(RPAD('DNI Dueño:', 25) || RPAD('Id Contacto:', 25) || RPAD('Teléfono:', 25) || RPAD('Email:', 25));
-DBMS_OUTPUT.PUT_LINE(LPAD('-', 120, '-'));
-WHILE C%FOUND LOOP
-DBMS_OUTPUT.PUT_LINE(RPAD(v_Contactos_Dueño.DNI_Dueño, 25) || RPAD(v_Contactos_Dueño.Id_Contacto, 25) || RPAD(v_Contactos_Dueño.Telefono, 25)
-|| RPAD(v_Contactos_Dueño.Email, 25));
-FETCH C INTO v_Contactos_Dueño;
-END LOOP;
-CLOSE C;
-END Consultar;
-PROCEDURE Insertar (nombrePrueba VARCHAR2, v_Telefono IN CONTACTOS_DUEÑO.TELEFONO%TYPE, v_Email IN CONTACTOS_DUEÑO.EMAIL%TYPE,
-v_Id_Contacto IN CONTACTOS_DUEÑO.ID_CONTACTO%TYPE, v_DNI_Dueño IN CONTACTOS_DUEÑO.DNI_DUEÑO%TYPE, salidaEsperada BOOLEAN)
-    IS
-    BEGIN
-        INSERT INTO Contactos_Dueño (TELEFONO,EMAIL,ID_CONTACTO,DNI_DUEÑO) VALUES (v_Telefono, v_Email, v_Id_Contacto, v_DNI_Dueño);
-        SELECT * INTO v_Contactos_Dueño FROM Contactos_Dueño WHERE Id_Contacto = v_Id_Contacto;
-        IF v_Contactos_Dueño.Telefono != v_Telefono AND v_Contactos_Dueño.Email != v_Email AND v_Contactos_Dueño.DNI_Dueño != v_DNI_Dueño THEN
-            v_Salida := FALSE;
-        END IF;
-        COMMIT;
-        DBMS_OUTPUT.PUT_LINE(nombrePrueba || ': ' || ASSERT_EQUALS(v_Salida, salidaEsperada));
-        EXCEPTION
-            WHEN OTHERS THEN
-                DBMS_OUTPUT.PUT_LINE(nombrePrueba || ': ' || ASSERT_EQUALS(FALSE, salidaEsperada));
-                ROLLBACK;
-    END Insertar;
-PROCEDURE Actualizar (nombrePrueba VARCHAR2, v_Telefono IN CONTACTOS_DUEÑO.TELEFONO%TYPE, v_Email IN CONTACTOS_DUEÑO.EMAIL%TYPE,
-v_Id_Contacto IN CONTACTOS_DUEÑO.ID_CONTACTO%TYPE, v_DNI_Dueño IN CONTACTOS_DUEÑO.DNI_DUEÑO%TYPE, salidaEsperada BOOLEAN)
-    IS
-    BEGIN
-    UPDATE Contactos_Dueño SET Telefono = v_Telefono, Email = v_Email, DNI_Dueño = v_DNI_Dueño WHERE Id_Contacto = v_Id_Contacto;
-     SELECT * INTO v_Contactos_Dueño FROM Contactos_Dueño WHERE Id_Contacto = v_Id_Contacto;
-        IF v_Contactos_Dueño.Telefono != v_Telefono AND v_Contactos_Dueño.Email != v_Email AND v_Contactos_Dueño.DNI_Dueño != v_DNI_Dueño THEN
-            v_Salida := FALSE;
-        END IF;
-        COMMIT;
-        DBMS_OUTPUT.PUT_LINE(nombrePrueba || ': ' || ASSERT_EQUALS(v_Salida, salidaEsperada));
-        EXCEPTION
-            WHEN OTHERS THEN
-                DBMS_OUTPUT.PUT_LINE(nombrePrueba || ': ' || ASSERT_EQUALS(FALSE, salidaEsperada));
-                ROLLBACK;
-    END Actualizar;
-PROCEDURE Eliminar (nombrePrueba VARCHAR2,  v_Id_Contacto IN CONTACTOS_DUEÑO.ID_CONTACTO%TYPE, salidaEsperada BOOLEAN)
-    IS
-        v_NumContactosDueño NUMBER := 0;
-    BEGIN
-        DELETE FROM Contactos_Dueño WHERE Id_Contacto = v_Id_Contacto;
-        IF v_NumContactosDueño != 0 THEN
-            v_Salida := FALSE;
-        END IF;
-        COMMIT;
-        DBMS_OUTPUT.PUT_LINE(nombrePrueba || ': ' || ASSERT_EQUALS(v_Salida, salidaEsperada));
-        EXCEPTION
-          WHEN OTHERS THEN
-              DBMS_OUTPUT.PUT_LINE(nombrePrueba || ': ' || ASSERT_EQUALS(FALSE, salidaEsperada));
-              ROLLBACK;
-    END Eliminar;
-END;
-/
-
---Cuerpo NivelAdmin
-CREATE OR REPLACE PACKAGE BODY PCK_NivelAdm
-AS
-CURSOR C IS
-    SELECT * FROM nivelAdmin;
-    v_Salida BOOLEAN := TRUE;
-    v_nivelAdmin nivelAdmin%ROWTYPE;
-PROCEDURE Inicializar
-IS
-BEGIN
-   DELETE FROM nivelAdmin;
-END Inicializar;
-PROCEDURE Consultar
-IS
-BEGIN
-OPEN C;
-FETCH C INTO v_nivelAdmin;
-DBMS_OUTPUT.PUT_LINE(RPAD('DNI:', 25) || RPAD('Nombre:', 25) || RPAD('Apellidos:', 25) || RPAD('Edad:', 25) || RPAD('Localidad:', 25) || RPAD('Sueldo:', 25));
-DBMS_OUTPUT.PUT_LINE(LPAD('-', 120, '-'));
-WHILE C%FOUND LOOP
-DBMS_OUTPUT.PUT_LINE(RPAD(v_nivelAdmin.DNI_Nivel_Admin, 25) || RPAD(v_nivelAdmin.Nombre, 25) || RPAD(v_nivelAdmin.Apellidos, 25) || RPAD(v_nivelAdmin.Edad, 25) ||
-RPAD(v_nivelAdmin.Localidad, 25) || RPAD(v_nivelAdmin.Sueldo_NivAdmin, 25));
-FETCH C INTO v_nivelAdmin;
-END LOOP;
-CLOSE C;
-END Consultar;
-PROCEDURE Insertar (nombrePrueba VARCHAR2, v_DNI_Nivel_Admin IN nivelAdmin.DNI_Nivel_Admin%TYPE, v_Nombre IN nivelAdmin.Nombre%TYPE, v_Apellidos IN nivelAdmin.Apellidos%TYPE,
-      v_Edad IN nivelAdmin.Edad%TYPE, v_Localidad IN nivelAdmin.Localidad%TYPE, v_Sueldo_NivAdmin IN nivelAdmin.Sueldo_NivAdmin%TYPE, salidaEsperada BOOLEAN)
-IS
-BEGIN
-INSERT INTO NivelAdmin (DNI_NIVEL_ADMIN, NOMBRE, APELLIDOS, EDAD, LOCALIDAD ,SUELDO_NIVADMIN) VALUES (v_DNI_NIVEL_ADMIN, v_NOMBRE, v_APELLIDOS, v_EDAD, v_LOCALIDAD , v_SUELDO_NIVADMIN);
-SELECT * INTO v_nivelAdmin FROM nivelAdmin WHERE DNI_NIVEL_ADMIN = v_DNI_NIVEL_ADMIN;
-IF v_nivelAdmin.NOMBRE != v_NOMBRE AND v_nivelAdmin.APELLIDOS != v_APELLIDOS AND v_nivelAdmin.EDAD != v_EDAD AND v_nivelAdmin.LOCALIDAD != v_LOCALIDAD AND v_nivelAdmin.SUELDO_NIVADMIN != v_SUELDO_NIVADMIN
-   THEN v_Salida := FALSE;
-   END IF;
-   COMMIT;
-   DBMS_OUTPUT.PUT_LINE(nombrePrueba || ': ' || ASSERT_EQUALS(v_Salida, salidaEsperada));
-   EXCEPTION
-      WHEN OTHERS THEN
-          DBMS_OUTPUT.PUT_LINE(nombrePrueba || ': ' || ASSERT_EQUALS(FALSE, salidaEsperada));
-          ROLLBACK;
-END Insertar;
-PROCEDURE Actualizar (nombrePrueba VARCHAR2, v_DNI_Nivel_Admin IN nivelAdmin.DNI_Nivel_Admin%TYPE, v_Nombre IN nivelAdmin.Nombre%TYPE, v_Apellidos IN nivelAdmin.Apellidos%TYPE,
-      v_Edad IN nivelAdmin.Edad%TYPE, v_Localidad IN nivelAdmin.Localidad%TYPE, v_Sueldo_NivAdmin IN nivelAdmin.Sueldo_NivAdmin%TYPE, salidaEsperada BOOLEAN)
-IS
-BEGIN
-UPDATE nivelAdmin SET NOMBRE = v_NOMBRE, APELLIDOS = v_APELLIDOS, EDAD = v_EDAD, LOCALIDAD = v_LOCALIDAD, SUELDO_NIVADMIN = v_SUELDO_NIVADMIN WHERE DNI_NIVEL_ADMIN = v_DNI_NIVEL_ADMIN;
-SELECT * INTO v_nivelAdmin FROM nivelAdmin WHERE DNI_NIVEL_ADMIN = v_DNI_NIVEL_ADMIN;
-IF v_nivelAdmin.NOMBRE != v_NOMBRE AND v_nivelAdmin.APELLIDOS != v_APELLIDOS AND v_nivelAdmin.EDAD != v_EDAD AND v_nivelAdmin.LOCALIDAD != v_LOCALIDAD AND v_nivelAdmin.SUELDO_NIVADMIN != v_SUELDO_NIVADMIN
-   THEN v_Salida := FALSE;
-   END IF;
-   COMMIT;
-   DBMS_OUTPUT.PUT_LINE(nombrePrueba || ': ' || ASSERT_EQUALS(v_Salida, salidaEsperada));
-   EXCEPTION
-      WHEN OTHERS THEN
-          DBMS_OUTPUT.PUT_LINE(nombrePrueba || ': ' || ASSERT_EQUALS(FALSE, salidaEsperada));
-          ROLLBACK;
-END Actualizar;
-PROCEDURE Eliminar (nombrePrueba VARCHAR2, v_DNI_Nivel_Admin IN nivelAdmin.DNI_Nivel_Admin%TYPE, salidaEsperada BOOLEAN)
-IS
-      v_NumNivelAdmin NUMBER := 0;
-BEGIN
-      DELETE FROM nivelAdmin WHERE DNI_NIVEL_ADMIN = v_DNI_NIVEL_ADMIN;
-      SELECT COUNT (*) INTO v_NumNivelAdmin FROM nivelAdmin WHERE DNI_NIVEL_ADMIN = v_DNI_NIVEL_ADMIN;
-      IF v_NumNivelAdmin != 0 THEN 
-          v_Salida := FALSE;
-          END IF;
-          COMMIT;
-            DBMS_OUTPUT.PUT_LINE(nombrePrueba || ': ' || ASSERT_EQUALS(v_Salida, salidaEsperada));
-              EXCEPTION
-                WHEN OTHERS THEN
-                    DBMS_OUTPUT.PUT_LINE(nombrePrueba || ': ' || ASSERT_EQUALS(FALSE, salidaEsperada));
-                    ROLLBACK;
-      END Eliminar;
-END;
-/
-
---Tabla Contacto Nivel Administrativo
-CREATE OR REPLACE PACKAGE BODY PCK_Contactos_NivelAdmin
-    AS
-    CURSOR C IS
-        SELECT * FROM Contactos_nivelAdmin;
-    v_Salida BOOLEAN := TRUE;
-    v_Contactos_nivelAdmin Contactos_nivelAdmin%ROWTYPE;
-PROCEDURE Inicializar
-    IS
-    BEGIN
-        DELETE FROM Contactos_nivelAdmin;
-    END Inicializar;
-PROCEDURE Consultar
-IS
-BEGIN
-OPEN C;
-FETCH C INTO v_Contactos_nivelAdmin;
-DBMS_OUTPUT.PUT_LINE(RPAD('DNI Nivel Admin:', 25) || RPAD('Id Contacto:', 25) || RPAD('Teléfono:', 25) || RPAD('Email:', 25));
-DBMS_OUTPUT.PUT_LINE(LPAD('-', 120, '-'));
-WHILE C%FOUND LOOP
-DBMS_OUTPUT.PUT_LINE(RPAD(v_Contactos_nivelAdmin.DNI_Nivel_Admin, 25) || RPAD(v_Contactos_nivelAdmin.Id_Contacto, 25) || RPAD(v_Contactos_nivelAdmin.Telefono, 25)
-|| RPAD(v_Contactos_nivelAdmin.Email, 25));
-FETCH C INTO v_Contactos_nivelAdmin;
-END LOOP;
-CLOSE C;
-END Consultar;
-PROCEDURE Insertar (nombrePrueba VARCHAR2, v_Telefono IN CONTACTOS_NIVELADMIN.TELEFONO%TYPE, v_Email IN CONTACTOS_NIVELADMIN.EMAIL%TYPE,
-v_Id_Contacto IN CONTACTOS_NIVELADMIN.ID_CONTACTO%TYPE, v_DNI_Nivel_Admin IN CONTACTOS_NIVELADMIN.DNI_NIVEL_ADMIN%TYPE, salidaEsperada BOOLEAN)
-    IS
-    BEGIN
-        INSERT INTO Contactos_nivelAdmin (TELEFONO,EMAIL,ID_CONTACTO,DNI_NIVEL_ADMIN) VALUES (v_Telefono, v_Email, v_Id_Contacto, v_DNI_Nivel_Admin);
-        SELECT * INTO v_Contactos_nivelAdmin FROM Contactos_nivelAdmin WHERE Id_Contacto = v_Id_Contacto;
-        IF v_Contactos_nivelAdmin.Telefono != v_Telefono AND v_Contactos_nivelAdmin.Email != v_Email 
-        AND v_Contactos_nivelAdmin.DNI_Nivel_Admin != v_DNI_Nivel_Admin THEN v_Salida := FALSE;
-        END IF;
-        COMMIT;
-        DBMS_OUTPUT.PUT_LINE(nombrePrueba || ': ' || ASSERT_EQUALS(v_Salida, salidaEsperada));
-        EXCEPTION
-            WHEN OTHERS THEN
-                DBMS_OUTPUT.PUT_LINE(nombrePrueba || ': ' || ASSERT_EQUALS(FALSE, salidaEsperada));
-                ROLLBACK;
-    END Insertar;
-PROCEDURE Actualizar (nombrePrueba VARCHAR2, v_Telefono IN CONTACTOS_NIVELADMIN.TELEFONO%TYPE, v_Email IN CONTACTOS_NIVELADMIN.EMAIL%TYPE,
-v_Id_Contacto IN CONTACTOS_NIVELADMIN.ID_CONTACTO%TYPE, v_DNI_Nivel_Admin IN CONTACTOS_NIVELADMIN.DNI_NIVEL_ADMIN%TYPE, salidaEsperada BOOLEAN)
-    IS
-    BEGIN
-    UPDATE Contactos_nivelAdmin SET Telefono = v_Telefono, Email = v_Email, DNI_Nivel_Admin = v_DNI_Nivel_Admin WHERE Id_Contacto = v_Id_Contacto;
-     SELECT * INTO v_Contactos_nivelAdmin FROM Contactos_nivelAdmin WHERE Id_Contacto = v_Id_Contacto;
-        IF v_Contactos_nivelAdmin.Telefono != v_Telefono AND v_Contactos_nivelAdmin.Email != v_Email
-        AND v_Contactos_nivelAdmin.DNI_Nivel_Admin != v_DNI_Nivel_Admin THEN
-            v_Salida := FALSE;
-        END IF;
-        COMMIT;
-        DBMS_OUTPUT.PUT_LINE(nombrePrueba || ': ' || ASSERT_EQUALS(v_Salida, salidaEsperada));
-        EXCEPTION
-            WHEN OTHERS THEN
-                DBMS_OUTPUT.PUT_LINE(nombrePrueba || ': ' || ASSERT_EQUALS(FALSE, salidaEsperada));
-                ROLLBACK;
-    END Actualizar;
-PROCEDURE Eliminar (nombrePrueba VARCHAR2,  v_Id_Contacto IN CONTACTOS_NIVELADMIN.ID_CONTACTO%TYPE, salidaEsperada BOOLEAN)
-    IS
-        v_NumContactosNivelAdmin NUMBER := 0;
-    BEGIN
-        DELETE FROM Contactos_nivelAdmin WHERE Id_Contacto = v_Id_Contacto;
-        IF v_NumContactosNivelAdmin != 0 THEN
-            v_Salida := FALSE;
-        END IF;
-        COMMIT;
-        DBMS_OUTPUT.PUT_LINE(nombrePrueba || ': ' || ASSERT_EQUALS(v_Salida, salidaEsperada));
-        EXCEPTION
-          WHEN OTHERS THEN
-              DBMS_OUTPUT.PUT_LINE(nombrePrueba || ': ' || ASSERT_EQUALS(FALSE, salidaEsperada));
-              ROLLBACK;
-    END Eliminar;
-END;
-/
-
 -- Tabla Horarios:
 CREATE OR REPLACE PACKAGE BODY PCK_Horarios
 AS
@@ -1053,8 +439,8 @@ BEGIN
 OPEN C;
 FETCH C INTO v_Horarios;
 DBMS_OUTPUT.PUT_LINE(RPAD('Id Curso:', 25) || RPAD('Id Horario:', 25) || RPAD('Hora Inicio:', 25) || RPAD('Hora Fin:', 25) 
-|| RPAD('Dia:', 25) || RPAD('DNI Profesor:', 25) || RPAD('DNI Alumno:', 25));
-DBMS_OUTPUT.PUT_LINE(LPAD('-', 120, '-'));
+|| RPAD('Dia:', 25) || RPAD('DNI:',25));
+DBMS_OUTPUT.PUT_LINE(LPAD('-', 150, '-'));
 WHILE C%FOUND LOOP
 DBMS_OUTPUT.PUT_LINE(RPAD(v_Horarios.Id_Curso, 25) || RPAD(v_Horarios.Id_Horario, 25) || RPAD(v_Horarios.Hora_Inicio, 25)
 || RPAD(v_Horarios.Hora_Fin, 25) || RPAD(v_Horarios.Dia, 25) || RPAD(v_Horarios.DNI_Profesor, 25) || RPAD(v_Horarios.DNI_Alumno, 25));
@@ -1134,7 +520,7 @@ BEGIN
 OPEN C;
 FETCH C INTO v_Cursos_Alumnos;
 DBMS_OUTPUT.PUT_LINE(RPAD('DNI Alumno:', 25) || RPAD('Id Curso Alumno:', 25) || RPAD('Fecha Alta:', 25) || RPAD('Fecha Baja:', 25) || RPAD('Id Curso:', 25));
-DBMS_OUTPUT.PUT_LINE(LPAD('-', 120, '-'));
+DBMS_OUTPUT.PUT_LINE(LPAD('-', 125, '-'));
 WHILE C%FOUND LOOP
 DBMS_OUTPUT.PUT_LINE(RPAD(v_Cursos_Alumnos.DNI_Alumno, 25) || RPAD(v_Cursos_Alumnos.Id_Curso_Alumno, 25) || RPAD(v_Cursos_Alumnos.Fecha_Alta, 25) || RPAD(v_Cursos_Alumnos.Fecha_Baja, 25) || RPAD(v_Cursos_Alumnos.Id_Curso, 25));
 FETCH C INTO v_Cursos_Alumnos;
@@ -1192,7 +578,7 @@ BEGIN
       END Eliminar;
 END;
 /
-
+/*
 --Tabla Curso_Profesor:
 CREATE OR REPLACE PACKAGE BODY PCK_CursoProfesores
 AS
@@ -1211,7 +597,7 @@ BEGIN
 OPEN C;
 FETCH C INTO v_Cursos_Profesores;
 DBMS_OUTPUT.PUT_LINE(RPAD('DNI Profesor:', 25) || RPAD('Id Curso Profesor:', 25) || RPAD('Id Curso:', 25));
-DBMS_OUTPUT.PUT_LINE(LPAD('-', 120, '-'));
+DBMS_OUTPUT.PUT_LINE(LPAD('-', 75, '-'));
 WHILE C%FOUND LOOP
 DBMS_OUTPUT.PUT_LINE(RPAD(v_Cursos_Profesores.DNI_Profesor, 25) || RPAD(v_Cursos_Profesores.Id_Curso_Profesor, 25) || RPAD(v_Cursos_Profesores.Id_Curso, 25));
 FETCH C INTO v_Cursos_Profesores;
@@ -1269,7 +655,7 @@ PROCEDURE eliminar (nombrePrueba VARCHAR2, v_Id_Curso_Profesor IN Cursos_Profeso
       END eliminar;
 END;
 /
-
+*/
 --Tabla Cursos:
 CREATE OR REPLACE PACKAGE BODY PCK_Cursos
 AS
@@ -1288,7 +674,7 @@ BEGIN
 OPEN C;
 FETCH C INTO v_Cursos;
 DBMS_OUTPUT.PUT_LINE(RPAD('Id Curso:', 25) ||  RPAD('Fecha Inicio:', 25) || RPAD('Fecha Fin:', 25) || RPAD('Número de alumnos:', 25) || RPAD('Academia:', 25));
-DBMS_OUTPUT.PUT_LINE(LPAD('-', 120, '-'));
+DBMS_OUTPUT.PUT_LINE(LPAD('-', 125, '-'));
 WHILE C%FOUND LOOP
 DBMS_OUTPUT.PUT_LINE(RPAD(v_Cursos.Id_Curso, 25) ||  RPAD(v_Cursos.Fecha_Inicio, 25) || RPAD(v_Cursos.Fecha_Fin, 25) || RPAD(v_Cursos.Num_Alumnos, 25) || RPAD(v_Cursos.Id_Academia, 25));
 FETCH C INTO v_Cursos;
@@ -1364,21 +750,22 @@ IS
 BEGIN
 OPEN C;
 FETCH C INTO v_Academias;
-DBMS_OUTPUT.PUT_LINE(RPAD('Id Academia:', 25) || RPAD('Lugar:', 25) || RPAD('Numero de aulas:', 25));
-DBMS_OUTPUT.PUT_LINE(LPAD('-', 120, '-'));
+DBMS_OUTPUT.PUT_LINE(RPAD('Id Academia:', 25) || RPAD('Lugar:', 25) || RPAD('Numero de aulas:', 25) || RPAD('Teléfono:', 25));
+DBMS_OUTPUT.PUT_LINE(LPAD('-', 100, '-'));
 WHILE C%FOUND LOOP
-DBMS_OUTPUT.PUT_LINE(RPAD(v_Academias.Id_Academia, 25) || RPAD(v_Academias.Lugar, 25) || RPAD(v_Academias.Aulas, 25));
+DBMS_OUTPUT.PUT_LINE(RPAD(v_Academias.Id_Academia, 25) || RPAD(v_Academias.Lugar, 25) || RPAD(v_Academias.Aulas, 25) || RPAD(v_Academias.Telefono, 25));
 FETCH C INTO v_Academias;
 END LOOP;
 CLOSE C;
 END Consultar;
-PROCEDURE insertar (nombrePrueba VARCHAR2, v_Lugar IN Academias.Lugar%TYPE, v_Aulas IN Academias.Aulas%TYPE, v_Id_Academia IN Academias.Id_Academia%TYPE, salidaEsperada BOOLEAN)
+PROCEDURE Insertar (nombrePrueba VARCHAR2, v_Lugar IN Academias.Lugar%TYPE, v_Aulas IN Academias.Aulas%TYPE, v_Id_Academia IN Academias.Id_Academia%TYPE,
+v_Telefono IN Academias.Telefono%TYPE,salidaEsperada BOOLEAN)
       IS
       BEGIN
-          INSERT INTO Academias(LUGAR, AULAS, ID_ACADEMIA) 
-          VALUES (v_Lugar, v_Aulas, v_Id_Academia);
+          INSERT INTO Academias(LUGAR, AULAS, ID_ACADEMIA, TELEFONO) 
+          VALUES (v_Lugar, v_Aulas, v_Id_Academia, v_Telefono);
           SELECT * INTO v_Academias FROM Academias WHERE Id_Academia = v_Id_Academia;
-          IF(v_Academias.Lugar != v_Lugar AND v_Academias.Aulas != v_Aulas) THEN
+          IF(v_Academias.Lugar != v_Lugar AND v_Academias.Aulas != v_Aulas AND v_Academias.Telefono != v_Telefono) THEN
               v_Salida := FALSE;
           END IF;
           COMMIT;
@@ -1388,12 +775,13 @@ PROCEDURE insertar (nombrePrueba VARCHAR2, v_Lugar IN Academias.Lugar%TYPE, v_Au
                   DBMS_OUTPUT.PUT_LINE(nombrePrueba || ':' || ASSERT_EQUALS(FALSE, salidaEsperada));
                   ROLLBACK;
       END insertar;
-PROCEDURE actualizar (nombrePrueba VARCHAR2, v_Lugar IN Academias.Lugar%TYPE, v_Aulas IN Academias.Aulas%TYPE, v_Id_Academia IN Academias.Id_Academia%TYPE, salidaEsperada BOOLEAN)
+PROCEDURE Actualizar (nombrePrueba VARCHAR2, v_Lugar IN Academias.Lugar%TYPE, v_Aulas IN Academias.Aulas%TYPE, v_Id_Academia IN Academias.Id_Academia%TYPE,
+v_Telefono IN Academias.Telefono%TYPE, salidaEsperada BOOLEAN)
       IS
       BEGIN
-          UPDATE Academias SET Lugar = v_Lugar, Aulas = v_Aulas, Id_Academia = v_Id_Academia WHERE Id_Academia = v_Id_Academia;
+          UPDATE Academias SET Lugar = v_Lugar, Aulas = v_Aulas, Id_Academia = v_Id_Academia, Telefono = v_Telefono WHERE Id_Academia = v_Id_Academia;
           SELECT * INTO v_Academias FROM Academias WHERE Id_Academia = v_Id_Academia;
-          IF(v_Academias.Lugar != v_Lugar AND v_Academias.Aulas != v_Aulas) THEN
+          IF(v_Academias.Lugar != v_Lugar AND v_Academias.Aulas != v_Aulas AND v_Academias.Telefono != v_Telefono) THEN
               v_Salida := FALSE;
           END IF;
           COMMIT;
@@ -1403,7 +791,7 @@ PROCEDURE actualizar (nombrePrueba VARCHAR2, v_Lugar IN Academias.Lugar%TYPE, v_
                   DBMS_OUTPUT.PUT_LINE(nombrePrueba || ':' || ASSERT_EQUALS(FALSE, salidaEsperada));
                   ROLLBACK;
       END actualizar;
-PROCEDURE eliminar (nombrePrueba VARCHAR2, v_Id_Academia IN Academias.Id_Academia%TYPE, salidaEsperada BOOLEAN)
+PROCEDURE Eliminar (nombrePrueba VARCHAR2, v_Id_Academia IN Academias.Id_Academia%TYPE, salidaEsperada BOOLEAN)
       IS
           v_NumAcademias NUMBER := 0;
       BEGIN
@@ -1439,12 +827,12 @@ IS
 BEGIN
 OPEN C;
 FETCH C INTO v_Examenes;
-DBMS_OUTPUT.PUT_LINE(RPAD('Id Curso:', 25) || RPAD('Id Examen:', 25) || RPAD('Nivel Examen:', 25) || RPAD('Tipo Examen:', 50) || RPAD('Fecha Pago:', 25)
+DBMS_OUTPUT.PUT_LINE(RPAD('Id Curso:', 25) || RPAD('Id Examen:', 25) || RPAD('Nivel Examen:', 25) || RPAD('Tipo Examen:', 25) || RPAD('Fecha Pago:', 25)
 || RPAD('Fecha Examen:', 25)|| RPAD('Lugar:', 25));
-DBMS_OUTPUT.PUT_LINE(LPAD('-', 120, '-'));
+DBMS_OUTPUT.PUT_LINE(LPAD('-', 175, '-'));
 WHILE C%FOUND LOOP
-DBMS_OUTPUT.PUT_LINE(RPAD(v_Examenes.Id_Curso, 25) || RPAD(v_Examenes.Id_Examen, 25) || RPAD(v_Examenes.Nivel_Examen, 25) || RPAD(v_Examenes.Tipo_Examen, 50)
-|| RPAD(v_Examenes.Fecha_Pago, 50) || RPAD(v_Examenes.Fecha, 50) || RPAD(v_Examenes.Lugar, 25));
+DBMS_OUTPUT.PUT_LINE(RPAD(v_Examenes.Id_Curso, 25) || RPAD(v_Examenes.Id_Examen, 25) || RPAD(v_Examenes.Nivel_Examen, 25) || RPAD(v_Examenes.Tipo_Examen, 25)
+|| RPAD(v_Examenes.Fecha_Pago, 25) || RPAD(v_Examenes.Fecha, 25) || RPAD(v_Examenes.Lugar, 25));
 FETCH C INTO v_Examenes;
 END LOOP;
 CLOSE C;
