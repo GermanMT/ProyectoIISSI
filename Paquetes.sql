@@ -96,21 +96,7 @@ CREATE OR REPLACE PACKAGE PCK_Cursos_Alumnos AS
         (nombrePrueba VARCHAR2, v_Id_Curso_Alumno IN Cursos_Alumnos.Id_Curso_Alumno%TYPE, salidaEsperada BOOLEAN);
 END;
 /
-/*
---Tabla Curso_Profesores.
-CREATE OR REPLACE PACKAGE PCK_CursoProfesores AS
-    PROCEDURE Inicializar;
-    PROCEDURE Consultar;
-    PROCEDURE Insertar 
-      (nombrePrueba VARCHAR2, v_Id_Curso_Profesor IN Cursos_Profesores.Id_Curso_Profesor%TYPE, 
-      v_DNI_Profesor IN Cursos_Profesores.DNI_Profesor%TYPE, v_Id_Curso IN Cursos_Profesores.Id_Curso%TYPE, salidaEsperada BOOLEAN);
-    PROCEDURE Actualizar 
-      (nombrePrueba VARCHAR2, v_Id_Curso_Profesor IN Cursos_Profesores.Id_Curso_Profesor%TYPE, 
-      v_DNI_Profesor IN Cursos_Profesores.DNI_Profesor%TYPE, v_Id_Curso IN Cursos_Profesores.Id_Curso%TYPE, salidaEsperada BOOLEAN);
-    PROCEDURE Eliminar (nombrePrueba VARCHAR2, v_Id_Curso_Profesor IN Cursos_Profesores.Id_Curso_Profesor%TYPE, salidaEsperada BOOLEAN);
-END;
-/
-*/
+
 --Tabla Cursos:
 CREATE OR REPLACE PACKAGE PCK_Cursos AS
     PROCEDURE Inicializar;
@@ -578,84 +564,7 @@ BEGIN
       END Eliminar;
 END;
 /
-/*
---Tabla Curso_Profesor:
-CREATE OR REPLACE PACKAGE BODY PCK_CursoProfesores
-AS
-    CURSOR C IS
-        SELECT * FROM Cursos_Profesores;
-    v_Salida BOOLEAN := TRUE;
-    v_Cursos_Profesores Cursos_Profesores%ROWTYPE;
-PROCEDURE inicializar
-    IS
-    BEGIN
-        DELETE FROM Cursos_Profesores;
-    END inicializar;
-PROCEDURE Consultar
-IS
-BEGIN
-OPEN C;
-FETCH C INTO v_Cursos_Profesores;
-DBMS_OUTPUT.PUT_LINE(RPAD('DNI Profesor:', 25) || RPAD('Id Curso Profesor:', 25) || RPAD('Id Curso:', 25));
-DBMS_OUTPUT.PUT_LINE(LPAD('-', 75, '-'));
-WHILE C%FOUND LOOP
-DBMS_OUTPUT.PUT_LINE(RPAD(v_Cursos_Profesores.DNI_Profesor, 25) || RPAD(v_Cursos_Profesores.Id_Curso_Profesor, 25) || RPAD(v_Cursos_Profesores.Id_Curso, 25));
-FETCH C INTO v_Cursos_Profesores;
-END LOOP;
-CLOSE C;
-END Consultar;
-PROCEDURE insertar (nombrePrueba VARCHAR2, v_Id_Curso_Profesor IN Cursos_Profesores.Id_Curso_Profesor%TYPE, 
-v_DNI_Profesor IN Cursos_Profesores.DNI_Profesor%TYPE, v_Id_Curso IN Cursos_Profesores.Id_Curso%TYPE, salidaEsperada BOOLEAN)
-      IS
-      BEGIN
-          INSERT INTO Cursos_Profesores(ID_CURSO_PROFESOR, DNI_PROFESOR, ID_CURSO) 
-          VALUES (v_Id_Curso_Profesor, v_DNI_Profesor, v_Id_Curso);
-          SELECT * INTO v_Cursos_Profesores FROM Cursos_Profesores WHERE Id_Curso_Profesor = v_Id_Curso_Profesor;
-          IF(v_Cursos_Profesores.Id_Curso_Profesor != v_Id_Curso_Profesor AND v_Cursos_Profesores.DNI_Profesor != v_DNI_Profesor AND v_Cursos_Profesores.Id_Curso != v_Id_Curso) THEN
-              v_Salida := FALSE;
-          END IF;
-          COMMIT;
-          DBMS_OUTPUT.PUT_LINE(nombrePrueba || ':' || ASSERT_EQUALS(v_Salida, salidaEsperada));
-          EXCEPTION
-              WHEN OTHERS THEN
-                  DBMS_OUTPUT.PUT_LINE(nombrePrueba || ':' || ASSERT_EQUALS(FALSE, salidaEsperada));
-                  ROLLBACK;
-      END insertar;
-PROCEDURE actualizar (nombrePrueba VARCHAR2, v_Id_Curso_Profesor IN Cursos_Profesores.Id_Curso_Profesor%TYPE, 
-v_DNI_Profesor IN Cursos_Profesores.DNI_Profesor%TYPE, v_Id_Curso IN Cursos_Profesores.Id_Curso%TYPE, salidaEsperada BOOLEAN)
-      IS
-      BEGIN
-          UPDATE Cursos_Profesores SET Id_Curso_Profesor = v_Id_Curso_Profesor, DNI_Profesor = v_DNI_Profesor, Id_Curso = v_Id_Curso WHERE Id_Curso_Profesor = v_Id_Curso_Profesor;
-          SELECT * INTO v_Cursos_Profesores FROM Cursos_Profesores WHERE Id_Curso_Profesor = v_Id_Curso_Profesor;
-          IF(v_Cursos_Profesores.Id_Curso_Profesor != v_Id_Curso_Profesor AND v_Cursos_Profesores.DNI_Profesor != v_DNI_Profesor AND v_Cursos_Profesores.Id_Curso != v_Id_Curso) THEN
-              v_Salida := FALSE;
-          END IF;
-          COMMIT;
-          DBMS_OUTPUT.PUT_LINE(nombrePrueba || ':' || ASSERT_EQUALS(v_Salida, salidaEsperada));
-          EXCEPTION
-              WHEN OTHERS THEN
-                  DBMS_OUTPUT.PUT_LINE(nombrePrueba || ':' || ASSERT_EQUALS(FALSE, salidaEsperada));
-                  ROLLBACK;
-      END actualizar;
-PROCEDURE eliminar (nombrePrueba VARCHAR2, v_Id_Curso_Profesor IN Cursos_Profesores.Id_Curso_Profesor%TYPE, salidaEsperada BOOLEAN)
-      IS
-          v_NumCursosProfesores NUMBER := 0;
-      BEGIN
-          DELETE FROM Cursos_Profesores WHERE Id_Curso_Profesor = v_Id_Curso_Profesor;
-          SELECT COUNT(*) INTO v_NumCursosProfesores FROM Cursos_Profesores WHERE Id_Curso_Profesor = v_Id_Curso_Profesor;
-          IF (v_NumCursosProfesores != 0) THEN
-              v_Salida := FALSE;
-          END IF;
-          COMMIT;
-          DBMS_OUTPUT.PUT_LINE(nombrePrueba || ':' || ASSERT_EQUALS(v_Salida, salidaEsperada));
-          EXCEPTION
-              WHEN OTHERS THEN
-                  DBMS_OUTPUT.PUT_LINE(nombrePrueba || ':' || ASSERT_EQUALS(FALSE, salidaEsperada));
-                  ROLLBACK;
-      END eliminar;
-END;
-/
-*/
+
 --Tabla Cursos:
 CREATE OR REPLACE PACKAGE BODY PCK_Cursos
 AS
