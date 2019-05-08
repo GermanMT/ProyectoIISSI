@@ -17,11 +17,11 @@ CREATE OR REPLACE PACKAGE PCK_Recibos AS
     PROCEDURE Inicializar;
     PROCEDURE Consultar;
     PROCEDURE Insertar 
-      (nombre_Prueba VARCHAR2, v_Id_Recibo IN Recibos.Id_Recibo%TYPE, v_Fecha_Recibo IN Recibos.Fecha_Recibo%TYPE, v_Pagado IN Recibos.Pagado%TYPE,
+      (nombre_Prueba VARCHAR2, v_Id_Recibo IN Recibos.Id_Recibo%TYPE, v_Fecha_Recibo IN Recibos.Fecha_Recibo%TYPE,
       v_Por_Pagar IN Recibos.Por_Pagar%TYPE, v_Hermanos IN Recibos.Hermanos%TYPE, v_Forma_Pago IN Recibos.Forma_Pago%TYPE,
       v_Cuenta_Bancaria IN Recibos.Cuenta_Bancaria%TYPE, salidaEsperada BOOLEAN);
     PROCEDURE Actualizar
-      (nombre_Prueba VARCHAR2, v_Id_Recibo IN Recibos.Id_Recibo%TYPE, v_Fecha_Recibo IN Recibos.Fecha_Recibo%TYPE, v_Pagado IN Recibos.Pagado%TYPE,
+      (nombre_Prueba VARCHAR2, v_Id_Recibo IN Recibos.Id_Recibo%TYPE, v_Fecha_Recibo IN Recibos.Fecha_Recibo%TYPE,
       v_Por_Pagar IN Recibos.Por_Pagar%TYPE, v_Hermanos IN Recibos.Hermanos%TYPE, v_Forma_Pago IN Recibos.Forma_Pago%TYPE,
       v_Cuenta_Bancaria IN Recibos.Cuenta_Bancaria%TYPE, salidaEsperada BOOLEAN);
     PROCEDURE eliminar
@@ -175,25 +175,25 @@ PROCEDURE Consultar
     BEGIN
       OPEN C;
       FETCH C INTO v_Recibos;
-          DBMS_OUTPUT.PUT_LINE(RPAD('Id Recibo:', 25) || RPAD('Fecha Recibo:', 25) || RPAD('Pagado:', 25) || RPAD('Por Pagar:', 25)|| RPAD('Hermanos:', 25)
+          DBMS_OUTPUT.PUT_LINE(RPAD('Id Recibo:', 25) || RPAD('Fecha Recibo:', 25) || RPAD('Por Pagar:', 25)|| RPAD('Hermanos:', 25)
            || RPAD('Forma Pago:', 25) || RPAD('Cuenta Bancaria:', 25));
           DBMS_OUTPUT.PUT_LINE(LPAD('-', 175, '-'));
       WHILE C%FOUND LOOP
-          DBMS_OUTPUT.PUT_LINE(RPAD(v_Recibos.Id_Recibo, 25) || RPAD(v_Recibos.Fecha_Recibo, 25) || RPAD(v_Recibos.Pagado, 25) || RPAD(v_Recibos.Por_Pagar, 25)
+          DBMS_OUTPUT.PUT_LINE(RPAD(v_Recibos.Id_Recibo, 25) || RPAD(v_Recibos.Fecha_Recibo, 25) || RPAD(v_Recibos.Por_Pagar, 25)
           || RPAD(v_Recibos.Hermanos, 25) || RPAD(v_Recibos.Forma_Pago, 25) || RPAD(v_Recibos.Cuenta_Bancaria, 25));
       FETCH C INTO v_Recibos;
       END LOOP;
       CLOSE C;
 END Consultar;
 PROCEDURE Insertar (nombre_Prueba VARCHAR2, v_Id_Recibo IN Recibos.Id_Recibo%TYPE, v_Fecha_Recibo IN Recibos.Fecha_Recibo%TYPE, 
-v_Pagado IN Recibos.Pagado%TYPE, v_Por_Pagar IN Recibos.Por_Pagar%TYPE, v_Hermanos IN Recibos.Hermanos%TYPE,
+v_Por_Pagar IN Recibos.Por_Pagar%TYPE, v_Hermanos IN Recibos.Hermanos%TYPE,
 v_Forma_Pago IN Recibos.Forma_Pago%TYPE, v_Cuenta_Bancaria IN Recibos.Cuenta_Bancaria%TYPE, salidaEsperada BOOLEAN)
       IS
       BEGIN
-          INSERT INTO Recibos(ID_RECIBO, FECHA_RECIBO, PAGADO, POR_PAGAR,HERMANOS, FORMA_PAGO, CUENTA_BANCARIA) 
-          VALUES (v_Id_Recibo, v_Fecha_Recibo, v_Pagado, v_Por_Pagar, v_Hermanos, v_Forma_Pago, v_Cuenta_Bancaria);
+          INSERT INTO Recibos(ID_RECIBO, FECHA_RECIBO, POR_PAGAR,HERMANOS, FORMA_PAGO, CUENTA_BANCARIA) 
+          VALUES (v_Id_Recibo, v_Fecha_Recibo, v_Por_Pagar, v_Hermanos, v_Forma_Pago, v_Cuenta_Bancaria);
           SELECT * INTO v_Recibos FROM Recibos WHERE Id_Recibo = v_Id_Recibo;
-          IF(v_Recibos.Fecha_Recibo != v_Fecha_Recibo AND v_Recibos.Pagado != v_Pagado AND v_Recibos.Por_Pagar != v_Por_Pagar
+          IF(v_Recibos.Fecha_Recibo != v_Fecha_Recibo AND v_Recibos.Por_Pagar != v_Por_Pagar
            AND v_Recibos.Hermanos != v_Hermanos AND v_Recibos.Forma_Pago != v_Forma_Pago) AND v_Recibos.Cuenta_Bancaria != v_Cuenta_Bancaria THEN
               v_Salida := FALSE;
           END IF;
@@ -205,14 +205,14 @@ v_Forma_Pago IN Recibos.Forma_Pago%TYPE, v_Cuenta_Bancaria IN Recibos.Cuenta_Ban
                   ROLLBACK;
       END Insertar;
 PROCEDURE Actualizar (nombre_Prueba VARCHAR2, v_Id_Recibo IN Recibos.Id_Recibo%TYPE, v_Fecha_Recibo IN Recibos.Fecha_Recibo%TYPE, 
-v_Pagado IN Recibos.Pagado%TYPE, v_Por_Pagar IN Recibos.Por_Pagar%TYPE, v_Hermanos IN Recibos.Hermanos%TYPE,
+v_Por_Pagar IN Recibos.Por_Pagar%TYPE, v_Hermanos IN Recibos.Hermanos%TYPE,
 v_Forma_Pago IN Recibos.Forma_Pago%TYPE, v_Cuenta_Bancaria IN Recibos.Cuenta_Bancaria%TYPE, salidaEsperada BOOLEAN)
       IS
       BEGIN
-          UPDATE Recibos SET Fecha_Recibo = v_Fecha_Recibo, Pagado = v_Pagado, Por_Pagar = v_Por_Pagar, Hermanos = v_Hermanos, Forma_Pago = v_Forma_Pago , Cuenta_Bancaria = v_Cuenta_Bancaria 
+          UPDATE Recibos SET Fecha_Recibo = v_Fecha_Recibo, Por_Pagar = v_Por_Pagar, Hermanos = v_Hermanos, Forma_Pago = v_Forma_Pago , Cuenta_Bancaria = v_Cuenta_Bancaria 
           WHERE Id_Recibo = v_Id_Recibo;
           SELECT * INTO v_Recibos FROM Recibos WHERE Id_Recibo = v_Id_Recibo;
-          IF(v_Recibos.Fecha_Recibo != v_Fecha_Recibo AND v_Recibos.Pagado != v_Pagado AND v_Recibos.Por_Pagar != v_Por_Pagar  AND v_Recibos.Hermanos != v_Hermanos 
+          IF(v_Recibos.Fecha_Recibo != v_Fecha_Recibo AND v_Recibos.Por_Pagar != v_Por_Pagar  AND v_Recibos.Hermanos != v_Hermanos 
           AND v_Recibos.Forma_Pago != v_Forma_Pago AND v_Recibos.Cuenta_Bancaria != v_Cuenta_Bancaria) THEN
               v_Salida := FALSE;
           END IF;
