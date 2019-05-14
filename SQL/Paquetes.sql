@@ -37,11 +37,15 @@ CREATE OR REPLACE PACKAGE PCK_Alumnos AS
         (nombrePrueba VARCHAR2, v_DNI_Alumno IN Alumnos.DNI_Alumno%TYPE, v_Nombre IN Alumnos.Nombre%TYPE, v_Apellidos IN Alumnos.Apellidos%TYPE,
         v_Edad IN Alumnos.Edad%TYPE, v_Telefono_Fijo IN Alumnos.Telefono_Fijo%TYPE, v_Telefono_Movil IN Alumnos.Telefono_Movil%TYPE,
         v_Email IN Alumnos.Email%TYPE,v_Nombre_Padre_Madre IN Alumnos.Nombre_Padre_Madre%TYPE,
-        v_Localidad IN Alumnos.Localidad%TYPE, v_Id_Recibo IN Alumnos.Id_Recibo%TYPE, salidaEsperada BOOLEAN);
+        v_Usuario IN Alumnos.Usuario%TYPE,
+        v_Pass IN Alumnos.Pass%TYPE,
+        v_Localidad IN Alumnos.Localidad%TYPE,v_Id_Recibo IN Alumnos.Id_Recibo%TYPE, salidaEsperada BOOLEAN);
     PROCEDURE Actualizar
     (nombrePrueba VARCHAR2, v_DNI_Alumno IN Alumnos.DNI_Alumno%TYPE, v_Nombre IN Alumnos.Nombre%TYPE, v_Apellidos IN Alumnos.Apellidos%TYPE,
     v_Edad IN Alumnos.Edad%TYPE, v_Telefono_Fijo IN Alumnos.Telefono_Fijo%TYPE, v_Telefono_Movil IN Alumnos.Telefono_Movil%TYPE,
     v_Email IN Alumnos.Email%TYPE,v_Nombre_Padre_Madre IN Alumnos.Nombre_Padre_Madre%TYPE,
+    v_Usuario IN Alumnos.Usuario%TYPE,
+    v_Pass IN Alumnos.Pass%TYPE,
     v_Localidad IN Alumnos.Localidad%TYPE, v_Id_Recibo IN Alumnos.Id_Recibo%TYPE, salidaEsperada BOOLEAN);
     PROCEDURE Eliminar (nombrePrueba VARCHAR2, v_DNI_Alumno IN Alumnos.DNI_Alumno%TYPE, salidaEsperada BOOLEAN);
 END;
@@ -246,12 +250,14 @@ PROCEDURE Consultar
     OPEN C;
     FETCH C INTO v_Alumnos;
     DBMS_OUTPUT.PUT_LINE(RPAD('DNI:', 25) || RPAD('Nombre:', 25) || RPAD('Apellidos:', 25) || RPAD('Edad:', 25) || 
-    RPAD('Teléfono Fijo:', 25) || RPAD('Teléfono Movil:', 25) || RPAD('Email:', 25) || RPAD('Nombre Padre o Madre:', 25) || RPAD('Localidad:', 25) 
-    || RPAD('Id Recibo:', 25));
+    RPAD('Teléfono Fijo:', 25) || RPAD('Teléfono Movil:', 25) || RPAD('Email:', 25) || RPAD('Nombre Padre o Madre:', 25) 
+    || RPAD('Usuario:', 25) || RPAD('Contraseña:', 25) 
+    || RPAD('Localidad:', 25) || RPAD('Id Recibo:', 25));
     DBMS_OUTPUT.PUT_LINE(LPAD('-', 150, '-'));
     WHILE C%FOUND LOOP
     DBMS_OUTPUT.PUT_LINE(RPAD(v_Alumnos.DNI_Alumno, 25) || RPAD(v_Alumnos.Nombre, 25) || RPAD(v_Alumnos.Apellidos, 25) || RPAD(v_Alumnos.Edad, 25) ||
-    RPAD(v_Alumnos.Telefono_Fijo, 25) || RPAD(v_Alumnos.Telefono_Movil, 25) || RPAD(v_Alumnos.Email, 25) || RPAD(v_Alumnos.Nombre_Padre_Madre, 25) 
+    RPAD(v_Alumnos.Telefono_Fijo, 25) || RPAD(v_Alumnos.Telefono_Movil, 25) || RPAD(v_Alumnos.Email, 25) || RPAD(v_Alumnos.Nombre_Padre_Madre, 25)
+    || RPAD(v_Alumnos.Usuario, 25) || RPAD(v_Alumnos.Pass, 25)
     || RPAD(v_Alumnos.Localidad, 25) || RPAD(v_Alumnos.Id_Recibo, 25));
     FETCH C INTO v_Alumnos;
     END LOOP;
@@ -259,15 +265,20 @@ PROCEDURE Consultar
     END Consultar;
 PROCEDURE Insertar (nombrePrueba VARCHAR2, v_DNI_Alumno IN Alumnos.DNI_Alumno%TYPE, v_Nombre IN Alumnos.Nombre%TYPE, v_Apellidos IN Alumnos.Apellidos%TYPE,
         v_Edad IN Alumnos.Edad%TYPE, v_Telefono_Fijo IN Alumnos.Telefono_Fijo%TYPE, v_Telefono_Movil IN Alumnos.Telefono_Movil%TYPE, 
-        v_Email IN Alumnos.Email%TYPE, v_Nombre_Padre_Madre IN Alumnos.Nombre_Padre_Madre%TYPE, v_Localidad IN Alumnos.Localidad%TYPE,
+        v_Email IN Alumnos.Email%TYPE, v_Nombre_Padre_Madre IN Alumnos.Nombre_Padre_Madre%TYPE,
+        v_Usuario IN Alumnos.Usuario%TYPE, v_Pass IN Alumnos.Pass%TYPE,
+        v_Localidad IN Alumnos.Localidad%TYPE,
         v_Id_Recibo IN Alumnos.Id_Recibo%TYPE, salidaEsperada BOOLEAN)
     IS
     BEGIN
-        INSERT INTO Alumnos (DNI_ALUMNO, NOMBRE, APELLIDOS, EDAD, TELEFONO_FIJO, TELEFONO_MOVIL, EMAIL, NOMBRE_PADRE_MADRE, LOCALIDAD, ID_RECIBO)
-        VALUES (v_DNI_ALUMNO, v_NOMBRE, v_APELLIDOS, v_EDAD, v_TELEFONO_FIJO, v_TELEFONO_MOVIL, v_EMAIL, v_NOMBRE_PADRE_MADRE, v_LOCALIDAD, v_ID_RECIBO);
+        INSERT INTO Alumnos (DNI_ALUMNO, NOMBRE, APELLIDOS, EDAD, TELEFONO_FIJO, TELEFONO_MOVIL, EMAIL, NOMBRE_PADRE_MADRE,
+        USUARIO, PASS, LOCALIDAD, ID_RECIBO)
+        VALUES (v_DNI_ALUMNO, v_NOMBRE, v_APELLIDOS, v_EDAD, v_TELEFONO_FIJO, v_TELEFONO_MOVIL, v_EMAIL, v_NOMBRE_PADRE_MADRE,
+        v_USUARIO, v_PASS,v_LOCALIDAD, v_ID_RECIBO);
         SELECT * INTO v_Alumnos FROM Alumnos WHERE DNI_ALUMNO = v_DNI_ALUMNO;
         IF v_Alumnos.NOMBRE != v_NOMBRE AND v_Alumnos.APELLIDOS != v_APELLIDOS AND v_Alumnos.EDAD != v_EDAD AND v_Alumnos.TELEFONO_FIJO != v_TELEFONO_FIJO
         AND v_Alumnos.TELEFONO_MOVIL != v_TELEFONO_MOVIL AND v_Alumnos.EMAIL != v_EMAIL AND v_Alumnos.NOMBRE_PADRE_MADRE != v_NOMBRE_PADRE_MADRE
+        AND v_Alumnos.USUARIO != v_USUARIO AND v_Alumnos.PASS != v_PASS
         AND v_Alumnos.LOCALIDAD != v_LOCALIDAD AND v_Alumnos.ID_RECIBO != v_ID_RECIBO
    THEN v_Salida := FALSE;
    END IF;
@@ -280,16 +291,22 @@ PROCEDURE Insertar (nombrePrueba VARCHAR2, v_DNI_Alumno IN Alumnos.DNI_Alumno%TY
     END Insertar;
 PROCEDURE Actualizar (nombrePrueba VARCHAR2, v_DNI_Alumno IN Alumnos.DNI_Alumno%TYPE, v_Nombre IN Alumnos.Nombre%TYPE, v_Apellidos IN Alumnos.Apellidos%TYPE,
     v_Edad IN Alumnos.Edad%TYPE, v_Telefono_Fijo IN Alumnos.Telefono_Fijo%TYPE, v_Telefono_Movil IN Alumnos.Telefono_Movil%TYPE, 
-    v_Email IN Alumnos.Email%TYPE, v_Nombre_Padre_Madre IN Alumnos.Nombre_Padre_Madre%TYPE, v_Localidad IN Alumnos.Localidad%TYPE,
+    v_Email IN Alumnos.Email%TYPE, v_Nombre_Padre_Madre IN Alumnos.Nombre_Padre_Madre%TYPE,
+    v_Usuario IN Alumnos.Usuario%TYPE, v_Pass IN Alumnos.Pass%TYPE,
+    v_Localidad IN Alumnos.Localidad%TYPE,
     v_Id_Recibo IN Alumnos.Id_Recibo%TYPE, salidaEsperada BOOLEAN)
 IS
 BEGIN
 UPDATE Alumnos SET NOMBRE = v_NOMBRE, APELLIDOS = v_APELLIDOS, EDAD = v_EDAD, TELEFONO_FIJO = v_TELEFONO_FIJO, TELEFONO_MOVIL= v_TELEFONO_MOVIL,
-EMAIL = v_EMAIL, NOMBRE_PADRE_MADRE = v_NOMBRE_PADRE_MADRE,  LOCALIDAD = v_LOCALIDAD, ID_RECIBO = v_ID_RECIBO WHERE DNI_ALUMNO = v_DNI_ALUMNO;
+EMAIL = v_EMAIL, NOMBRE_PADRE_MADRE = v_NOMBRE_PADRE_MADRE,
+USUARIO = v_USUARIO, PASS = v_PASS,
+LOCALIDAD = v_LOCALIDAD, ID_RECIBO = v_ID_RECIBO WHERE DNI_ALUMNO = v_DNI_ALUMNO;
 SELECT * INTO v_Alumnos FROM Alumnos WHERE DNI_ALUMNO = v_DNI_ALUMNO;
 IF v_Alumnos.NOMBRE != v_NOMBRE AND v_Alumnos.APELLIDOS != v_APELLIDOS AND v_Alumnos.EDAD != v_EDAD 
 AND v_Alumnos.TELEFONO_FIJO != v_TELEFONO_FIJO AND v_Alumnos.TELEFONO_MOVIL != v_TELEFONO_MOVIL AND v_Alumnos.EMAIL != v_EMAIL 
-AND v_Alumnos.NOMBRE_PADRE_MADRE != v_NOMBRE_PADRE_MADRE AND v_Alumnos.LOCALIDAD != v_LOCALIDAD AND v_Alumnos.ID_RECIBO != v_ID_RECIBO
+AND v_Alumnos.NOMBRE_PADRE_MADRE != v_NOMBRE_PADRE_MADRE 
+AND v_Alumnos.USUARIO != v_USUARIO AND v_Alumnos.PASS != v_PASS
+AND v_Alumnos.LOCALIDAD != v_LOCALIDAD AND v_Alumnos.ID_RECIBO != v_ID_RECIBO
    THEN v_Salida := FALSE;
    END IF;
    COMMIT;
@@ -317,6 +334,7 @@ BEGIN
       END Eliminar;
 END;
 /
+
 
 --Tabla Profesores:
 CREATE OR REPLACE PACKAGE BODY PCK_Profesores

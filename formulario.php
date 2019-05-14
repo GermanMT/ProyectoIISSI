@@ -3,13 +3,18 @@
 
 	// Si no existen datos del formulario en la sesión, se crea una entrada con valores por defecto
 	if (!isset($_SESSION['formulario'])) {
-		$formulario['nif'] = "";
-		$formulario['nombre'] = "";
-		$formulario['apellidos'] = "";
-		$formulario['perfil'] = "ALUMNO";
-		$formulario['fechaNacimiento'] = "";
-		$formulario['email'] = "";
-		$formulario['pass'] = "";
+		$formulario['DNI'] = "";
+		$formulario['Nombre'] = "";
+		$formulario['Apellidos'] = "";
+		$formulario['Edad'] = "";
+		$formulario['Localidad'] = "";
+		$formulario['Telefono Movil'] = "";
+		$formulario['Telefono Fijo'] = "";
+		$formulario['Email'] = "";
+		$formulario['Nombre Padre o Madre'] = "";
+		$formulario['Usuario'] = "";
+		$formulario['Pass'] = "";
+
 	
 		$_SESSION['formulario'] = $formulario;
 	}
@@ -26,7 +31,7 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="CSS/biblio.css" />
+  <link rel="stylesheet" type="text/css" href="CSS/styleIISSI.css" />
     <script src="js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
   <title>Alta de Usuarios</title>
 </head>
@@ -51,12 +56,12 @@
 		onsubmit = "return validateForm()" >
 		<p><i>Los campos obligatorios están marcados con </i><em>*</em></p>
 		<fieldset><legend>Datos personales</legend>
-			<div></div><label for="nif">NIF<em>*</em></label>
-			<input id="nif" name="nif" type="text" placeholder="12345678X" pattern="^[0-9]{8}[A-Z]" title="Ocho dígitos seguidos de una letra mayúscula" value="<?php echo $formulario['nif'];?>" required>
+			<div></div><label for="DNI">DNI<em>*</em></label>
+			<input id="DNI" name="DNI" type="text" placeholder="12345678X" pattern="^[0-9]{8}[A-Z]" title="Ocho dígitos seguidos de una letra mayúscula" value="<?php echo $formulario['DNI'];?>" required>
 			</div>
 
-			<div><label for="nombre">Nombre:<em>*</em></label>
-			<input id="nombre" name="nombre" type="text" size="40" value="<?php echo $formulario['nombre'];?>" required/>
+			<div><label for="Nombre">Nombre:<em>*</em></label>
+			<input id="Nombre" name="Nombre" type="text" size="40" value="<?php echo $formulario['Nombre'];?>" required/>
 			</div>
 
 			<div><label for="apellidos">Apellidos:</label>
