@@ -2,8 +2,7 @@
 	session_start();
 
 	require_once("gestionBD.php");
-	require_once("gestionarUsuarios.php");
-
+	
 	// Si no existen datos del formulario en la sesión, se crea una entrada con valores por defecto
 	if (!isset($_SESSION['formulario'])) {
 		$formulario['DNI'] = "";
@@ -117,7 +116,7 @@
 			<div><label for="confirmpass">Confirmar Password: </label>
 			<input type="password" name="confirmpass" id="confirmpass" placeholder="Confirmación de contraseña" required
 			oninput = "if(!passwordConfirmation()) this.setCustomValidity('Password y confirmación diferentes')
-					else this.setCustomVAlidity('')"
+					else this.setCustomValidity('')"
 			/>
 			</div>
 		</fieldset>
