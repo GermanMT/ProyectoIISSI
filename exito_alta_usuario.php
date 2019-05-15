@@ -11,7 +11,7 @@
 		$_SESSION["errores"] = null;
 	}
 	else 
-		Header("Location: formulario.php");	
+		Header("Location: form_alta_usuario.php");	
 
 	$conexion = crearConexionBD(); 
 
@@ -40,7 +40,7 @@
 		<?php } else { ?>
 				<h1>El usuario ya existe en la base de datos.</h1>
 				<div >	
-					Pulsa <a href="formulario.php">aquí</a> para volver al formulario.
+					Pulsa <a href="form_alta_usuario.php">aquí</a> para volver al formulario.
 				</div>
 		<?php } ?>
 
