@@ -39,10 +39,11 @@ Telefono_Movil CHAR(9) NOT NULL,
 Telefono_Fijo CHAR(9),
 Email VARCHAR2(50),
 Nombre_Padre_Madre VARCHAR(20),
+Usuario VARCHAR2(20) NOT NULL,
+Pass VARCHAR2(20) NOT NULL,
 PRIMARY KEY (DNI_Alumno),
 FOREIGN KEY(Id_Recibo) REFERENCES Recibos
 );
-
 
 CREATE TABLE Profesores(
 DNI_Profesor CHAR(9) NOT NULL,
