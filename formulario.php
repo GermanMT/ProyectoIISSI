@@ -1,6 +1,9 @@
 <?php
 	session_start();
 
+	require_once("gestionBD.php");
+	require_once("gestionarUsuarios.php");
+
 	// Si no existen datos del formulario en la sesión, se crea una entrada con valores por defecto
 	if (!isset($_SESSION['formulario'])) {
 		$formulario['DNI'] = "";
@@ -25,6 +28,9 @@
 	// Si hay errores de validación, hay que mostrarlos y marcar los campos (El estilo viene dado y ya se explicará)
 	if (isset($_SESSION["errores"]))
 		$errores = $_SESSION["errores"];
+
+		// Creamos una conexión con la BD
+		$conexion = crearConexionBD();
 ?>
 
 <!DOCTYPE html>
@@ -32,7 +38,7 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="CSS/styleIISSI.css" />
-    <script src="js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
+	<script src="js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
   <title>Alta de Usuarios</title>
 </head>
 
@@ -52,8 +58,7 @@
 	?>
 	
 	<!-- EJERCICIO 3: invocar la validación de formulario en Javascript antes de enviarlo -->
-	<form id="altaUsuario" method="get" action="validacion_alta_usuario.php">
-		onsubmit = "return validateForm()" >
+	<form id="altaUsuario" method="get" action="validacion_alta_usuario.php" onsubmit="return validateForm()">
 		<p><i>Los campos obligatorios están marcados con </i><em>*</em></p>
 		<fieldset><legend>Datos personales</legend>
 			<div></div><label for="DNI">DNI<em>*</em></label>
@@ -64,44 +69,50 @@
 			<input id="Nombre" name="Nombre" type="text" size="40" value="<?php echo $formulario['Nombre'];?>" required/>
 			</div>
 
-			<div><label for="apellidos">Apellidos:</label>
-			<input id="apellidos" name="apellidos" type="text" size="80" value="<?php echo $formulario['apellidos'];?>"/>
+			<div><label for="Apellidos">Apellidos:</label>
+			<input id="Apellidos" name="Apellidos" type="text" size="80" value="<?php echo $formulario['Apellidos'];?>"/>
 			</div>
 
-			<div><label>Perfil:</label>
-			<label>
-				<input name="perfil" type="radio" value="ALUMNO" <?php if($formulario['perfil']=='ALUMNO') echo ' checked ';?>/>
-				Alumno</label>
-			<label>
-				<input name="perfil" type="radio" value="PDI" <?php if($formulario['perfil']=='PDI') echo ' checked ';?>/>
-				PDI</label>
-			<label>
-				<input name="perfil" type="radio" value="PAS" <?php if($formulario['perfil']=='PAS') echo ' checked ';?>/>
-				PAS</label>
+			<div><label for="Edad">Edad:</label>
+			<input id="Edad" name="Edad" type="text" value="<?php echo $formulario['Edad'];?>"/>
 			</div>
 
-			<div><label for="fechaNacimiento">Fecha de nacimiento:</label>
-			<input type="date" id="fechaNacimiento" name="fechaNacimiento" value="<?php echo $formulario['fechaNacimiento'];?>"/>
+			<div><label for="Localidad">Localidad:</label>
+			<input id="Localidad" name="Localidad" type="text" value="<?php echo $formulario['Localidad'];?>"/>
 			</div>
 
-			<div><label for="email">Email:<em>*</em></label>
-			<input id="email" name="email"  type="email" placeholder="usuario@dominio.extension" value="<?php echo $formulario['email'];?>" required/><br>
+			<div><label for="Telefono Movil">Teléfono Móvil:</label>
+			<input id="Telefono Movil" name="Telefono Movil" type="text" value="<?php echo $formulario['Telefono Movil'];?>"/>
 			</div>
+
+			<div><label for="Telefono Fijo">Telefono Fijo:</label>
+			<input id="Telefono Fijo" name="Telefono Fijo" type="text" value="<?php echo $formulario['Telefono Fijo'];?>"/>
+			</div>
+
+			<div><label for="Email">Email:<em>*</em></label>
+			<input id="Email" name="Email"  type="email" placeholder="usuario@dominio.extension" value="<?php echo $formulario['Email'];?>" required/><br>
+			</div>
+
+			<div><label for="Nombre Padre o Madre">Nombre Padre o Madre:</label>
+			<input id="Nombre Padre o Madre" name="Nombre Padre o Madre" type="text" value="<?php echo $formulario['Nombre Padre o Madre'];?>"/>
+			</div>
+
 		</fieldset>
 
 		<fieldset><legend>Datos de cuenta</legend>
-			<div><label for="pass">Password:<em>*</em></label>
+
+			<div><label for="Usuario">Nombre Usuario:<em>*</em></label>
+				<input id="Usuario" name="Usuario" type="text" size="20" value="<?php echo $formulario['Usuario'];?>" />
+			</div>
+			<div><label for="Pass">Password:<em>*</em></label>
                 <!-- EJERCICIO 2 apartados B y C -->
-				<input type="password" name="pass" id="pass" required placeholder="Mínimo 8 caracteres entre letras y dígitos" 
+				<input type="password" name="Pass" id="Pass" required placeholder="Mínimo 8 caracteres entre letras y dígitos" 
 				onkeyup= "document.getElementById('fortaleza').innerText = 
 				passwordStrength(this.value)"
 				/>
 				
 				<span id ="fortaleza"></span>
 				
-                <!-- EJERCICIO 4 -->
-                
-                <!-- FIN DE EJERCICIO 4 -->
 			</div>
 			<div><label for="confirmpass">Confirmar Password: </label>
 			<input type="password" name="confirmpass" id="confirmpass" placeholder="Confirmación de contraseña" required
@@ -115,5 +126,8 @@
 
 	</form>
 	
+	<?php
+		cerrarConexionBD($conexion);
+	?>
 	</body>
 </html>
