@@ -5,18 +5,18 @@
  	include_once("gestionarUsuarios.php");
 	
 	if (isset($_POST['submit'])){
-		$email= $_POST['email'];
-		$pass = $_POST['pass'];
+		$Usuario= $_POST['Usuario'];
+		$Pass = $_POST['Pass'];
 
 		$conexion = crearConexionBD();
-		$num_usuarios = consultarUsuario($conexion,$email,$pass);
+		$num_usuarios = consultarUsuario($conexion,$Usuario,$Pass);
 		cerrarConexionBD($conexion);	
 	
 		if ($num_usuarios == 0)
 			$login = "error";	
 		else {
-			$_SESSION['login'] = $email;
-			Header("Location: index.php");
+			$_SESSION['login'] = $Usuario;
+		/*	Header("Location: index.php"); */
 		}	
 	}
 
@@ -46,8 +46,8 @@
 	
 	<!-- The HTML login form -->
 	<form action="login.php" method="post">
-		<div><label for="email">Email: </label><input type="text" name="email" id="email" /></div>
-		<div><label for="pass">Contraseña: </label><input type="password" name="pass" id="pass" /></div>
+		<div><label for="Usuario">Usuario: </label><input type="text" name="Usuario" id="Usuario" /></div>
+		<div><label for="Pass">Contraseña: </label><input type="password" name="Pass" id="Pass" /></div>
 		<input type="submit" name="submit" value="submit" />
 	</form>
 		
