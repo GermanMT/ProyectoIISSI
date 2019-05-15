@@ -27,6 +27,7 @@
 		return true;
 	} catch(PDOException $e) {
 		return false;
+		$e->getMessage();
 		// Si queremos visualizar la excepción durante la depuración: $e->getMessage();
     }
 }

@@ -114,12 +114,17 @@
 				<span id ="fortaleza"></span>
 				
 			</div>
-			<div><label for="confirmpass">Confirmar Password: </label>
+			<div><label for="confirmpass">Confirmar Password:<em>*</em></label>
 			<input type="password" name="confirmpass" id="confirmpass" placeholder="Confirmación de contraseña" required
 			oninput = "if(!passwordConfirmation()) this.setCustomValidity('Password y confirmación diferentes')
-					else this.setCustomVAlidity('')"
+					else this.setCustomValidity('')"
 			/>
+			<!--
+			<div><label for="confirmpass">Confirmar Password: </label>
+			<input type="password" name="confirmpass" id="confirmpass" placeholder="Confirmación de contraseña" required/>
 			</div>
+			</div>
+		-->
 		</fieldset>
 
 		<div><input type="submit" value="Enviar" /></div>
