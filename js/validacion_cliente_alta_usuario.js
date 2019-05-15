@@ -11,7 +11,7 @@
 
 	// EJERCICIO 3.1: Comprobar la restricciones del password y aplicar clases CSS mediante JQuery
 	function passwordValidation(){
-		var password = document.getElementById("pass");
+		var password = document.getElementById("Pass");
 		var pwd = password.value;
 		var valid = true;
 
@@ -37,7 +37,7 @@
 	// EJERCICIO 3.2: Campos de contraseña y confirmación de contraseña iguales
 	function passwordConfirmation(){
 		// Obtenemos el campo de password y su valor
-        var password = document.getElementById("pass");
+        var password = document.getElementById("Pass");
 		var pwd = password.value;
 		// Obtenemos el campo de confirmación de password y su valor
 		var passconfirm = document.getElementById("confirmpass");
@@ -78,7 +78,7 @@
 	
 	// EJERCICIO 4: Coloreado del campo de contraseña según su fortaleza
 	function passwordColor(){
-		var passField = document.getElementById("pass");
+		var passField = document.getElementById("Pass");
 		var strength = passwordStrength(passField.value);
 		
 		if(!isNaN(strength)){

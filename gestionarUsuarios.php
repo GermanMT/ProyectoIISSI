@@ -9,15 +9,20 @@
  function alta_usuario($conexion,$usuario) {
 
 	try {
-		$consulta = "CALL INSERTAR_ALUMNO(:nif, :nombre, :ape, :fec, :email, :pass, :perfil)";
+		$consulta = "CALL INSERTAR_ALUMNO(:DNI_Alumno,:Nombre,:Apellidos,:Edad,:Localidad,:Telefono_Movil,:Telefono_Fijo,:Email,:Nombre_Padre_Madre,:Usuario,:Pass)";
 		$stmt=$conexion->prepare($consulta);
-		$stmt->bindParam(':nif',$usuario["nif"]);
-		$stmt->bindParam(':nombre',$usuario["nombre"]);
-		$stmt->bindParam(':ape',$usuario["apellidos"]);
-		$stmt->bindParam(':fec',$fechaNacimiento);
-		$stmt->bindParam(':email',$usuario["email"]);
-		$stmt->bindParam(':pass',$usuario["pass"]);
-		$stmt->bindParam(':perfil',$usuario["perfil"]);
+		$stmt->bindParam(':DNI_Alumno',$usuario["DNI"]);
+		$stmt->bindParam(':Nombre',$usuario["Nombre"]);
+		$stmt->bindParam(':Apellidos',$usuario["Apellidos"]);
+		$stmt->bindParam(':Edad',$usuario["Edad"]);
+		$stmt->bindParam(':Localidad',$usuario["Localidad"]);
+		$stmt->bindParam(':Telefono_Movil',$usuario["Telefono Movil"]);
+		$stmt->bindParam(':Telefono_Fijo',$usuario["Telefono Fijo"]);
+		$stmt->bindParam(':Email',$usuario["Email"]);
+		$stmt->bindParam(':Nombre_Padre_Madre',$usuario["Nombre Padre o Madre"]);
+		$stmt->bindParam(':Usuario',$usuario["Usuario"]);
+		$stmt->bindParam(':Pass',$usuario["Pass"]);
+		
 		$stmt->execute();
 		return true;
 	} catch(PDOException $e) {
@@ -26,11 +31,11 @@
     }
 }
   
-function consultarUsuario($conexion,$email,$pass) {
- 	$consulta = "SELECT COUNT(*) AS TOTAL FROM USUARIOS WHERE EMAIL=:email AND PASS=:pass";
+function consultarUsuario($conexion,$Usuario,$Pass) {
+ 	$consulta = "SELECT COUNT(*) AS TOTAL FROM USUARIOS WHERE Usuario=:Usuario AND PASS=:pass";
 	$stmt = $conexion->prepare($consulta);
-	$stmt->bindParam(':email',$email);
-	$stmt->bindParam(':pass',$pass);
+	$stmt->bindParam(':Usuario',$Usuario);
+	$stmt->bindParam(':Pass',$Pass);
 	$stmt->execute();
 	return $stmt->fetchColumn();
 }
