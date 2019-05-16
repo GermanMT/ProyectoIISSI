@@ -38,6 +38,27 @@ COMMIT;
 END;
 /
 
+CREATE OR REPLACE PROCEDURE INSERTAR_RECIBO
+  (p_Id_Recibo IN Recibos.Id_Recibo%TYPE,
+   P_Fecha_Recibo IN Recibos.Fecha_Recibo%TYPE,
+   P_Por_Pagar IN Recibos.Por_Pagar%TYPE,
+   P_Cuenta_Bancaria IN Recibos.Cuenta_Bancaria%TYPE,
+   P_Hermanos IN Recibos.Hermanos%TYPE,
+   P_DNI_Alumno IN Recibos.DNI_Alumno%TYPE,
+   P_Forma_Pago IN Recibos.Forma_Pago%TYPE
+   ) IS
+BEGIN
+  INSERT INTO Recibos(Id_Recibo,Fecha_Recibo,Por_Pagar,Cuenta_Bancaria,Hermanos,DNI_Alumno,Forma_Pago)
+  VALUES (p_Id_Recibo,P_Fecha_Recibo,P_Por_Pagar,P_Cuenta_Bancaria,P_Hermanos,P_DNI_Alumno,P_Forma_Pago);
+END;
+/
+
+BEGIN
+INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/05/29',500.00,  '', 0, '21015236K', 'efectivo');
+COMMIT;
+END;
+/
+
 --Procedimiento del Requisito Funcional 1:
 create or replace PROCEDURE Cuota_Mensual (v_DNI_Alumno IN Alumnos.DNI_Alumno%TYPE)
 IS

@@ -8,7 +8,7 @@ DROP TABLE Recibos;
 DROP TABLE Alumnos;
 DROP TABLE Academias;
 
---Creación de tablas:
+--Creaciï¿½n de tablas:
 CREATE TABLE Academias(
 Lugar VARCHAR2(20) NOT NULL,
 Aulas INTEGER NOT NULL,
@@ -30,7 +30,6 @@ Nombre_Padre_Madre VARCHAR(20),
 Usuario VARCHAR2(20) NOT NULL,
 Pass VARCHAR2(20) NOT NULL,
 PRIMARY KEY (DNI_Alumno)
-<<<<<<< HEAD
 );
 
 CREATE TABLE Recibos(
@@ -41,11 +40,10 @@ Cuenta_Bancaria CHAR(24),
 Hermanos NUMBER(2,0) NOT NULL,
 DNI_Alumno CHAR(9) NOT NULL,
 Forma_Pago VARCHAR2(30) 
-          CHECK (Forma_Pago IN('domiciliaciónBancaria', 'efectivo', 'tarjetaCredito')) NOT NULL,
+          CHECK (Forma_Pago IN('domiciliaciï¿½nBancaria', 'efectivo', 'tarjetaCredito')) NOT NULL,
 PRIMARY KEY(Id_Recibo),
 FOREIGN KEY(DNI_Alumno) REFERENCES Alumnos
-=======
->>>>>>> e81559ed6bd891fc71c283fd838dd8fa5b2a1d2c
+
 );
 
 CREATE TABLE Recibos(
@@ -56,7 +54,7 @@ Cuenta_Bancaria CHAR(24),
 Hermanos NUMBER(2,0) NOT NULL,
 DNI_Alumno CHAR(9) NOT NULL,
 Forma_Pago VARCHAR2(30) 
-          CHECK (Forma_Pago IN('domiciliaciónBancaria', 'efectivo', 'tarjetaCredito')) NOT NULL,
+          CHECK (Forma_Pago IN('domiciliaciï¿½nBancaria', 'efectivo', 'tarjetaCredito')) NOT NULL,
 PRIMARY KEY(Id_Recibo),
 FOREIGN KEY(DNI_Alumno) REFERENCES Alumnos
 );
