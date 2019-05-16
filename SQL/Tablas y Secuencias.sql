@@ -30,27 +30,11 @@ Nombre_Padre_Madre VARCHAR(20),
 Usuario VARCHAR2(20) NOT NULL,
 Pass VARCHAR2(20) NOT NULL,
 PRIMARY KEY (DNI_Alumno)
-<<<<<<< HEAD
-=======
 );
 
 CREATE TABLE Recibos(
 Id_Recibo INTEGER NOT NULL,
-Fecha_Recibo date NOT NULL,
-Por_Pagar INTEGER,
-Cuenta_Bancaria CHAR(24),
-Hermanos NUMBER(2,0) NOT NULL,
-DNI_Alumno CHAR(9) NOT NULL,
-Forma_Pago VARCHAR2(30) 
-          CHECK (Forma_Pago IN('domiciliaciónBancaria', 'efectivo', 'tarjetaCredito')) NOT NULL,
-PRIMARY KEY(Id_Recibo),
-FOREIGN KEY(DNI_Alumno) REFERENCES Alumnos
->>>>>>> parent of 453b3b6... Revert "Merge branch 'master' of https://github.com/GermanMT/ProyectoIISSI"
-);
-
-CREATE TABLE Recibos(
-Id_Recibo INTEGER NOT NULL,
-Fecha_Recibo VARCHAR2(30) NOT NULL,
+Fecha_Recibo VARCHAR2(20) NOT NULL,
 Por_Pagar INTEGER,
 Cuenta_Bancaria CHAR(24),
 Hermanos NUMBER(2,0) NOT NULL,
@@ -61,7 +45,7 @@ PRIMARY KEY(Id_Recibo),
 FOREIGN KEY(DNI_Alumno) REFERENCES Alumnos
 );
 
-SELECT * FROM RECIBOS, ALUMNOS WHERE (RECIBOS.DNI_ALUMNO = ALUMNOS.DNI_ALUMNO);
+--SELECT * FROM RECIBOS, ALUMNOS WHERE (RECIBOS.DNI_ALUMNO = ALUMNOS.DNI_ALUMNO);
 
 CREATE TABLE Profesores(
 DNI_Profesor CHAR(9) NOT NULL,
