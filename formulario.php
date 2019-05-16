@@ -10,10 +10,10 @@
 		$formulario['Apellidos'] = "";
 		$formulario['Edad'] = "";
 		$formulario['Localidad'] = "";
-		$formulario['Telefono Movil'] = "";
-		$formulario['Telefono Fijo'] = "";
+		$formulario['TelefonoMovil'] = "";
+		$formulario['TelefonoFijo'] = "";
 		$formulario['Email'] = "";
-		$formulario['Nombre Padre o Madre'] = "";
+		$formulario['NombrePadreMadre'] = "";
 		$formulario['Usuario'] = "";
 		$formulario['Pass'] = "";
 
@@ -56,8 +56,8 @@
   		}
 	?>
 	
-	<!-- EJERCICIO 3: invocar la validación de formulario en Javascript antes de enviarlo -->
-	<form id="altaUsuario" method="get" action="validacion_alta_usuario.php" onsubmit="return validateForm()">
+	<!-- Detrás de "POST"   action="validacion_alta_usuario.php" -->
+	<form id="formulario" method="POST" onsubmit="return validateForm()">
 		<p><i>Los campos obligatorios están marcados con </i><em>*</em></p>
 		<fieldset><legend>Datos personales</legend>
 			<div></div><label for="DNI">DNI<em>*</em></label>
@@ -80,20 +80,20 @@
 			<input id="Localidad" name="Localidad" type="text" value="<?php echo $formulario['Localidad'];?>"/>
 			</div>
 
-			<div><label for="Telefono Movil">Teléfono Móvil:</label>
-			<input id="Telefono Movil" name="Telefono Movil" type="text" value="<?php echo $formulario['Telefono Movil'];?>"/>
+			<div><label for="TelefonoMovil">Teléfono Móvil:</label>
+			<input id="TelefonoMovil" name="TelefonoMovil" type="text" value="<?php echo $formulario['TelefonoMovil'];?>"/>
 			</div>
 
-			<div><label for="Telefono Fijo">Telefono Fijo:</label>
-			<input id="Telefono Fijo" name="Telefono Fijo" type="text" value="<?php echo $formulario['Telefono Fijo'];?>"/>
+			<div><label for="TelefonoFijo">Telefono Fijo:</label>
+			<input id="TelefonoFijo" name="TelefonoFijo" type="text" value="<?php echo $formulario['TelefonoFijo'];?>"/>
 			</div>
 
 			<div><label for="Email">Email:<em>*</em></label>
 			<input id="Email" name="Email"  type="email" placeholder="usuario@dominio.extension" value="<?php echo $formulario['Email'];?>" required/><br>
 			</div>
 
-			<div><label for="Nombre Padre o Madre">Nombre Padre o Madre:</label>
-			<input id="Nombre Padre o Madre" name="Nombre Padre o Madre" type="text" value="<?php echo $formulario['Nombre Padre o Madre'];?>"/>
+			<div><label for="NombrePadreMadre">Nombre Padre o Madre:</label>
+			<input id="NombrePadreMadre" name="NombrePadreMadre" type="text" value="<?php echo $formulario['NombrePadreMadre'];?>"/>
 			</div>
 
 		</fieldset>
@@ -104,7 +104,7 @@
 				<input id="Usuario" name="Usuario" type="text" size="20" value="<?php echo $formulario['Usuario'];?>" />
 			</div>
 			<div><label for="Pass">Password:<em>*</em></label>
-                <!-- EJERCICIO 2 apartados B y C -->
+                
 				<input type="password" name="Pass" id="Pass" required placeholder="Mínimo 8 caracteres entre letras y dígitos" 
 				onkeyup= "document.getElementById('fortaleza').innerText = 
 				passwordStrength(this.value)"
@@ -113,15 +113,19 @@
 				<span id ="fortaleza"></span>
 				
 			</div>
-			<div><label for="confirmpass">Confirmar Password: </label>
+		<!--<div><label for="confirmpass">Confirmar Password: </label>
 			<input type="password" name="confirmpass" id="confirmpass" placeholder="Confirmación de contraseña" required
 			oninput = "if(!passwordConfirmation()) this.setCustomValidity('Password y confirmación diferentes')
 					else this.setCustomValidity('')"
 			/>
 			</div>
+-->
+			<div><label for="confirmpass">Confirmar Password: </label>
+			<input type="password" name="confirmpass" id="confirmpass" placeholder="Confirmación de contraseña" required/>
+			</div>
 		</fieldset>
 
-		<div><input type="submit" value="Enviar" /></div>
+		<div><input type="submit" value="Enviar" formaction="accionAltaRegistro.php" /></div>
 
 	</form>
 	
