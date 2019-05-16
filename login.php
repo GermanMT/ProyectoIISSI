@@ -1,15 +1,15 @@
-﻿<?php
+<?php
 	session_start();
   	
   	include_once("gestionBD.php");
  	include_once("gestionarUsuarios.php");
 	
 	if (isset($_POST['submit'])){
-		$usuario= $_POST['usuario'];
-		$pass = $_POST['pass'];
+		$Usuario= $_POST['Usuario'];
+		$Pass = $_POST['Pass'];
 
 		$conexion = crearConexionBD();
-		$num_usuarios = consultarUsuario($conexion,$usuario,$pass);
+		$num_usuarios = consultarUsuario($conexion,$Usuario,$Pass);
 		cerrarConexionBD($conexion);	
 	
 		if ($num_usuarios == 0)
@@ -46,8 +46,8 @@
 	
 	<!-- The HTML login form -->
 	<form action="login.php" method="post">
-		<div><label for="usuario">Usuario: </label><input type="text" name="usuario" id="usuario" /></div>
-		<div><label for="pass">Contraseña: </label><input type="password" name="pass" id="pass" /></div>
+		<div><label for="Usuario">Usuario: </label><input type="text" name="Usuario" id="Usuario" /></div>
+		<div><label for="Pass">Contraseña: </label><input type="password" name="Pass" id="Pass" /></div>
 		<input type="submit" name="submit" value="submit" />
 	</form>
 		

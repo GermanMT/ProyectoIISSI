@@ -156,7 +156,6 @@ ul.menus li ul{
     background-size:100%;
     float: left;
     width: 100%;
-
 }
 .bottom_content{
     margin: 0 auto;
@@ -186,7 +185,7 @@ ul.menus li ul{
 }
 .right_content_box{
     padding-top: 50px;
-    padding-bottom: 50px;
+    padding-bottom: 700px;
     float: right;
     width: 40%;
     }

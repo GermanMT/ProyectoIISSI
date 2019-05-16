@@ -4,6 +4,7 @@ CREATE OR REPLACE PROCEDURE INSERTAR_ALUMNO
    P_APE IN Alumnos.Apellidos%TYPE,
    P_EDAD IN Alumnos.Edad%TYPE,
    P_LOCALIDAD IN Alumnos.Localidad%TYPE,
+   P_RECIBO IN Alumnos.Id_Recibo%TYPE,
    P_MOVIL IN Alumnos.Telefono_Movil%TYPE,
    P_FIJO IN Alumnos.Telefono_Fijo%TYPE,
    P_EMAIL IN Alumnos.Email%TYPE,
@@ -12,14 +13,8 @@ CREATE OR REPLACE PROCEDURE INSERTAR_ALUMNO
    P_PASS IN Alumnos.Pass%TYPE
    ) IS
 BEGIN
-  INSERT INTO Alumnos(DNI_Alumno,Nombre,Apellidos,Edad,Localidad,Telefono_Movil,Telefono_Fijo,Email,Nombre_Padre_Madre,Usuario,Pass)
-  VALUES (P_DNI,P_NOM,P_APE,P_EDAD,P_LOCALIDAD,P_MOVIL,P_FIJO,P_EMAIL,P_PADMAD,P_USUARIO,P_PASS);
-END;
-/
-
-BEGIN
-INSERTAR_ALUMNO('21015236K','Antonio German','Márquez','21', 'El Repilado', '619527721', '954841642', 'antonio-german-1@hotmail.com', 'Jose Enrique', 'GermanOctavo', '19german15');
-COMMIT;
+  INSERT INTO Alumnos(DNI_Alumno,Nombre,Apellidos,Edad,Localidad,Id_Recibo,Telefono_Movil,Telefono_Fijo,Email,Nombre_Padre_Madre,Usuario,Pass)
+  VALUES (P_DNI,P_NOM,P_APE,P_EDAD,P_LOCALIDAD,P_RECIBO,P_MOVIL,P_FIJO,P_EMAIL,P_PADMAD,P_USUARIO,P_PASS);
 END;
 /
 

@@ -1,59 +1,40 @@
-!SESSION 2019-05-13 20:17:26.545 -----------------------------------------------
-eclipse.buildId=unknown
-java.version=1.8.0_201
-java.vendor=Oracle Corporation
-BootLoader constants: OS=win32, ARCH=x86, WS=win32, NL=es_ES
-Command-line arguments:  -os win32 -ws win32 -arch x86
 
-!ENTRY org.eclipse.core.resources 4 567 2019-05-13 20:17:29.725
-!MESSAGE Workspace restored, but some problems occurred.
-!SUBENTRY 1 org.eclipse.core.resources 4 567 2019-05-13 20:17:29.725
-!MESSAGE Could not read metadata for 'ProyectoIISSI'.
+!ENTRY org.eclipse.core.resources 4 1 2019-05-13 20:28:28.432
+!MESSAGE Problems occurred while refreshing local changes
+!SUBENTRY 1 org.eclipse.core.resources 4 1 2019-05-13 20:28:28.432
+!MESSAGE Problems occurred while refreshing local changes
 !STACK 1
-org.eclipse.core.internal.resources.ResourceException: The project description file (.project) for 'ProyectoIISSI' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
-	at org.eclipse.core.internal.localstore.FileSystemResourceManager.read(FileSystemResourceManager.java:901)
-	at org.eclipse.core.internal.resources.SaveManager.restoreMetaInfo(SaveManager.java:904)
-	at org.eclipse.core.internal.resources.SaveManager.restoreMetaInfo(SaveManager.java:884)
-	at org.eclipse.core.internal.resources.SaveManager.restore(SaveManager.java:735)
-	at org.eclipse.core.internal.resources.SaveManager.startup(SaveManager.java:1587)
-	at org.eclipse.core.internal.resources.Workspace.startup(Workspace.java:2399)
-	at org.eclipse.core.internal.resources.Workspace.open(Workspace.java:2156)
-	at org.eclipse.core.resources.ResourcesPlugin.start(ResourcesPlugin.java:467)
-	at org.eclipse.osgi.internal.framework.BundleContextImpl$3.run(BundleContextImpl.java:779)
-	at org.eclipse.osgi.internal.framework.BundleContextImpl$3.run(BundleContextImpl.java:1)
-	at java.security.AccessController.doPrivileged(Native Method)
-	at org.eclipse.osgi.internal.framework.BundleContextImpl.startActivator(BundleContextImpl.java:772)
-	at org.eclipse.osgi.internal.framework.BundleContextImpl.start(BundleContextImpl.java:729)
-	at org.eclipse.osgi.internal.framework.EquinoxBundle.startWorker0(EquinoxBundle.java:933)
-	at org.eclipse.osgi.internal.framework.EquinoxBundle$EquinoxModule.startWorker(EquinoxBundle.java:309)
-	at org.eclipse.osgi.container.Module.doStart(Module.java:581)
-	at org.eclipse.osgi.container.Module.start(Module.java:449)
-	at org.eclipse.osgi.framework.util.SecureAction.start(SecureAction.java:468)
-	at org.eclipse.osgi.internal.hooks.EclipseLazyStarter.postFindLocalClass(EclipseLazyStarter.java:103)
-	at org.eclipse.osgi.internal.loader.classpath.ClasspathManager.findLocalClass(ClasspathManager.java:529)
-	at org.eclipse.osgi.internal.loader.ModuleClassLoader.findLocalClass(ModuleClassLoader.java:328)
-	at org.eclipse.osgi.internal.loader.BundleLoader.findLocalClass(BundleLoader.java:368)
-	at org.eclipse.osgi.internal.loader.sources.SingleSourcePackage.loadClass(SingleSourcePackage.java:36)
-	at org.eclipse.osgi.internal.loader.BundleLoader.findClassInternal(BundleLoader.java:442)
-	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:395)
-	at org.eclipse.osgi.internal.loader.BundleLoader.findClass(BundleLoader.java:387)
-	at org.eclipse.osgi.internal.loader.ModuleClassLoader.loadClass(ModuleClassLoader.java:150)
-	at java.lang.ClassLoader.loadClass(ClassLoader.java:357)
-	at com.aptana.rcp.IDEApplication.start(IDEApplication.java:126)
-	at org.eclipse.equinox.internal.app.EclipseAppHandle.run(EclipseAppHandle.java:196)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.runApplication(EclipseAppLauncher.java:134)
-	at org.eclipse.core.runtime.internal.adaptor.EclipseAppLauncher.start(EclipseAppLauncher.java:104)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:388)
-	at org.eclipse.core.runtime.adaptor.EclipseStarter.run(EclipseStarter.java:243)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
-	at java.lang.reflect.Method.invoke(Method.java:498)
-	at org.eclipse.equinox.launcher.Main.invokeFramework(Main.java:653)
-	at org.eclipse.equinox.launcher.Main.basicRun(Main.java:590)
-	at org.eclipse.equinox.launcher.Main.run(Main.java:1499)
-!SUBENTRY 2 org.eclipse.core.resources 4 567 2019-05-13 20:17:29.725
+org.eclipse.core.internal.resources.ResourceException: Errors occurred while refreshing resources with the local file system.
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refreshResource(FileSystemResourceManager.java:974)
+	at org.eclipse.core.internal.localstore.FileSystemResourceManager.refresh(FileSystemResourceManager.java:954)
+	at org.eclipse.core.internal.resources.Resource.refreshLocal(Resource.java:1560)
+	at org.eclipse.core.internal.refresh.RefreshJob.runInWorkspace(RefreshJob.java:163)
+	at org.eclipse.core.internal.resources.InternalWorkspaceJob.run(InternalWorkspaceJob.java:39)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:56)
+Contains: The project description file (.project) for 'ProyectoIISSI' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+!SUBENTRY 2 org.eclipse.core.resources 4 271 2019-05-13 20:28:28.432
+!MESSAGE Errors occurred while refreshing resources with the local file system.
+!SUBENTRY 3 org.eclipse.core.resources 4 567 2019-05-13 20:28:28.433
 !MESSAGE The project description file (.project) for 'ProyectoIISSI' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
 
-!ENTRY org.eclipse.core.resources 4 567 2019-05-13 20:18:08.880
-!MESSAGE The project description file (.project) for 'ProyectoIISSI' is missing.  This file contains important information about the project.  The project will not function properly until this file is restored.
+!ENTRY org.eclipse.ui.ide 4 4 2019-05-13 20:29:08.224
+!MESSAGE Problems saving workspace
+
+!ENTRY org.eclipse.ui.ide 4 1 2019-05-13 20:29:08.224
+!MESSAGE Problems occurred while trying to save the state of the workbench.
+!SUBENTRY 1 org.eclipse.core.resources 4 568 2019-05-13 20:29:08.224
+!MESSAGE Could not write metadata for '/IISSI'.
+!STACK 0
+java.io.FileNotFoundException: C:\Users\alvar\OneDrive - UNIVERSIDAD DE SEVILLA\Documentos\GitHub\ProyectoIISSI\.metadata\.plugins\org.eclipse.core.resources\.projects\IISSI\.markers (El sistema no puede encontrar la ruta especificada)
+	at java.io.FileOutputStream.open0(Native Method)
+	at java.io.FileOutputStream.open(FileOutputStream.java:270)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:213)
+	at java.io.FileOutputStream.<init>(FileOutputStream.java:162)
+	at org.eclipse.core.internal.localstore.SafeFileOutputStream.<init>(SafeFileOutputStream.java:51)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSave(SaveManager.java:1657)
+	at org.eclipse.core.internal.resources.SaveManager.visitAndSave(SaveManager.java:1739)
+	at org.eclipse.core.internal.resources.SaveManager.save(SaveManager.java:1199)
+	at org.eclipse.core.internal.resources.Workspace.save(Workspace.java:2283)
+	at org.eclipse.core.internal.resources.Workspace.save(Workspace.java:2272)
+	at com.aptana.rcp.IDEWorkbenchAdvisor$4.run(IDEWorkbenchAdvisor.java:514)
+	at org.eclipse.jface.operation.ModalContext$ModalContextThread.run(ModalContext.java:119)
