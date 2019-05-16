@@ -42,7 +42,7 @@
 	?>
 
 	<article class="recibo">
-			<?php echo "<B>" . $fila["DNI_ALUMNO"] . "</B>, ".$fila["FECHA_RECIBO"] . ", " . $fila["POR_PAGAR"]; ?>
+			<?php echo $fila["DNI_ALUMNO"] . ", ".$fila["FECHA_RECIBO"] . ", " . $fila["POR_PAGAR"]; ?>
 	</article>
 
 	<?php } ?>

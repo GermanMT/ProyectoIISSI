@@ -39,7 +39,7 @@ END;
 /
 
 BEGIN
-INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/05/29',500.00,  '', 0, '21015236K', 'efectivo');
+INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/05/29',500.00, '', 0, '21015236K', 'efectivo');
 COMMIT;
 END;
 /
