@@ -33,7 +33,7 @@
 }
   
 function consultarUsuario($conexion,$Usuario,$Pass) {
- 	$consulta = "SELECT COUNT(*) AS TOTAL FROM USUARIOS WHERE Usuario=:Usuario AND PASS=:pass";
+ 	$consulta = "SELECT COUNT(*) AS TOTAL FROM Alumnos WHERE Usuario=:Usuario AND PASS=:pass";
 	$stmt = $conexion->prepare($consulta);
 	$stmt->bindParam(':Usuario',$Usuario);
 	$stmt->bindParam(':Pass',$Pass);
