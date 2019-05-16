@@ -37,14 +37,25 @@
     </div>
     <main>
 
+	<table style="width:25%">
+		<tr>
+	    <th>DNI</th>
+	    <th>Fecha del recibo</th> 
+	    <th>Importe</th>
+	  </tr>
+	</table>
+	
 	<?php
 		foreach($filas as $fila) {
 	?>
-
-	<article class="recibo">
-			<?php echo $fila["DNI_ALUMNO"] . ", ".$fila["FECHA_RECIBO"] . ", " . $fila["POR_PAGAR"]; ?>
-	</article>
-
+	
+	<table style="width:25%">
+	  <tr>
+	    <td><?php echo $fila["DNI_ALUMNO"]; ?></td>
+		<td><?php echo $fila["FECHA_RECIBO"]; ?></td>
+		<td><?php echo $fila["POR_PAGAR"]; ?></td>
+	  </tr>
+	</table>
 	<?php } ?>
 	</main>
 </body>
