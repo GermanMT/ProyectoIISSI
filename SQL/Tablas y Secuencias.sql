@@ -4,8 +4,8 @@ DROP TABLE Horarios;
 DROP TABLE Cursos_Alumnos;
 DROP TABLE Cursos;
 DROP TABLE Profesores;
-DROP TABLE Alumnos;
 DROP TABLE Recibos;
+DROP TABLE Alumnos;
 DROP TABLE Academias;
 
 --Creación de tablas:
@@ -17,33 +17,51 @@ Telefono CHAR(9),
 PRIMARY KEY(Id_Academia)
 );
 
-CREATE TABLE Recibos(
-Id_Recibo INTEGER NOT NULL,
-Fecha_Recibo date NOT NULL,
-Por_Pagar INTEGER,
-Cuenta_Bancaria CHAR(24),
-Hermanos NUMBER(2,0) NOT NULL,
-Forma_Pago VARCHAR2(30) 
-          CHECK (Forma_Pago IN('domiciliaciónBancaria', 'efectivo', 'tarjetaCredito')) NOT NULL,
-PRIMARY KEY(Id_Recibo)
-);
-
 CREATE TABLE Alumnos(
 DNI_Alumno CHAR(9) NOT NULL,
 Nombre VARCHAR2(20) NOT NULL,
 Apellidos VARCHAR2(20) NOT NULL,
 Edad NUMBER(4),
 Localidad VARCHAR2(20),
-Id_Recibo INTEGER NOT NULL,
 Telefono_Movil CHAR(9) NOT NULL,
 Telefono_Fijo CHAR(9),
 Email VARCHAR2(50),
 Nombre_Padre_Madre VARCHAR(20),
 Usuario VARCHAR2(20) NOT NULL,
 Pass VARCHAR2(20) NOT NULL,
-PRIMARY KEY (DNI_Alumno),
-FOREIGN KEY(Id_Recibo) REFERENCES Recibos
+PRIMARY KEY (DNI_Alumno)
+<<<<<<< HEAD
 );
+
+CREATE TABLE Recibos(
+Id_Recibo INTEGER NOT NULL,
+Fecha_Recibo date NOT NULL,
+Por_Pagar INTEGER,
+Cuenta_Bancaria CHAR(24),
+Hermanos NUMBER(2,0) NOT NULL,
+DNI_Alumno CHAR(9) NOT NULL,
+Forma_Pago VARCHAR2(30) 
+          CHECK (Forma_Pago IN('domiciliaciónBancaria', 'efectivo', 'tarjetaCredito')) NOT NULL,
+PRIMARY KEY(Id_Recibo),
+FOREIGN KEY(DNI_Alumno) REFERENCES Alumnos
+=======
+>>>>>>> e81559ed6bd891fc71c283fd838dd8fa5b2a1d2c
+);
+
+CREATE TABLE Recibos(
+Id_Recibo INTEGER NOT NULL,
+Fecha_Recibo VARCHAR2(30) NOT NULL,
+Por_Pagar INTEGER,
+Cuenta_Bancaria CHAR(24),
+Hermanos NUMBER(2,0) NOT NULL,
+DNI_Alumno CHAR(9) NOT NULL,
+Forma_Pago VARCHAR2(30) 
+          CHECK (Forma_Pago IN('domiciliaciónBancaria', 'efectivo', 'tarjetaCredito')) NOT NULL,
+PRIMARY KEY(Id_Recibo),
+FOREIGN KEY(DNI_Alumno) REFERENCES Alumnos
+);
+
+SELECT * FROM RECIBOS, ALUMNOS WHERE (RECIBOS.DNI_ALUMNO = ALUMNOS.DNI_ALUMNO);
 
 CREATE TABLE Profesores(
 DNI_Profesor CHAR(9) NOT NULL,
