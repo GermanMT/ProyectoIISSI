@@ -15,11 +15,10 @@
 		if ($num_usuarios == 0)
 			$login = "error";	
 		else {
-			$_SESSION['login'] = $Usuario;
-		/*	Header("Location: index.php"); */
+			$_SESSION['login'] = $usuario;
+			Header("Location: vistaUsuario.php"); 
 		}	
 	}
-
 ?>
 
 <!DOCTYPE html>
