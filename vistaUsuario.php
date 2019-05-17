@@ -3,12 +3,14 @@
 
 	require_once("gestionBD.php");
 	require_once("gestionarRecibos.php");
+	require_once("gestionarHorariosAlumnos.php");
 	
 	if (!isset($_SESSION['login']))
 		Header("Location: login.php");
 	else {
 		$conexion = crearConexionBD();
-		$filas = consultarTodosRecibos($conexion);
+		$filas1 = consultarTodosRecibos($conexion);
+		$filas2 = consultarTodosHorarios($conexion);
 		cerrarConexionBD($conexion);
 	}
 ?>
@@ -37,6 +39,7 @@
     </div>
     <main>
 
+    <!-- Mostrar los recibos del alumno -->
 	<table style="width:25%">
 		<tr>
 	    <th>DNI</th>
@@ -46,7 +49,7 @@
 	</table>
 	
 	<?php
-		foreach($filas as $fila) {
+		foreach($filas1 as $fila) {
 	?>
 	
 	<table style="width:25%">
@@ -57,6 +60,29 @@
 	  </tr>
 	</table>
 	<?php } ?>
+	
+	<!-- Mostrar los horarios del alumno -->
+	<table style="width:25%">
+		<tr>
+	    <th>Día</th>
+	    <th>Hora de inicio</th> 
+	    <th>Hora de fin</th>
+	  </tr>
+	</table>
+	
+	<?php
+		foreach($filas2 as $fila) {
+	?>
+	
+	<table style="width:25%">
+	  <tr>
+	    <td><?php echo $fila["DIA"]; ?></td>
+		<td><?php echo $fila["HORA_INICIO"]; ?></td>
+		<td><?php echo $fila["HORA_FIN"]; ?></td>
+	  </tr>
+	</table>
+	<?php } ?>
+	
 	</main>
 </body>
 </html>

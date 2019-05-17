@@ -1,6 +1,8 @@
 --Borrado de tablas:
 DROP TABLE Examenes;
-DROP TABLE Horarios;
+DROP TABLE Horario_Alumno;
+DROP TABLE Horario_Profesor;
+DROP TABLE Horario_Curso;
 DROP TABLE Cursos_Alumnos;
 DROP TABLE Cursos;
 DROP TABLE Profesores;
@@ -83,17 +85,35 @@ FOREIGN KEY(DNI_Alumno) REFERENCES Alumnos,
 FOREIGN KEY(Id_Curso) REFERENCES Cursos
 );
 
-CREATE TABLE Horarios(
+CREATE TABLE Horario_Alumno(
+Hora_Inicio CHAR(8) NOT NULL,
+Hora_Fin CHAR(8) NOT NULL,
+Dia VARCHAR2(40) NOT NULL,
+Id_Horario INTEGER NOT NULL,
+DNI_Alumno CHAR(9),
+PRIMARY KEY(Id_Horario),
+FOREIGN KEY(DNI_Alumno) REFERENCES Alumnos
+);
+
+SELECT * FROM HORARIO_ALUMNO, ALUMNOS WHERE (HORARIO_ALUMNO.DNI_ALUMNO = ALUMNOS.DNI_ALUMNO);
+
+CREATE TABLE Horario_Profesor(
 Hora_Inicio CHAR(8) NOT NULL,
 Hora_Fin CHAR(8) NOT NULL,
 Dia VARCHAR2(40) NOT NULL,
 Id_Horario INTEGER NOT NULL,
 DNI_Profesor CHAR(9),
-DNI_Alumno CHAR(9),
+PRIMARY KEY(Id_Horario),
+FOREIGN KEY(DNI_Profesor) REFERENCES Profesores
+);
+
+CREATE TABLE Horario_Curso(
+Hora_Inicio CHAR(8) NOT NULL,
+Hora_Fin CHAR(8) NOT NULL,
+Dia VARCHAR2(40) NOT NULL,
+Id_Horario INTEGER NOT NULL,
 Id_Curso INTEGER NOT NULL,
 PRIMARY KEY(Id_Horario),
-FOREIGN KEY(DNI_Profesor) REFERENCES Profesores,
-FOREIGN KEY(DNI_Alumno) REFERENCES Alumnos,
 FOREIGN KEY(Id_Curso) REFERENCES Cursos
 );
 
@@ -131,7 +151,9 @@ ALTER TABLE Profesores ADD CONSTRAINT CK_Telefono_Movil_Profesor
       CHECK (REGEXP_LIKE(Telefono_Movil, '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]'));
 
 --Horario
-ALTER TABLE Horarios ADD CONSTRAINT CK_Horario CHECK (Hora_Inicio < Hora_Fin);
+ALTER TABLE Horario_Alumno ADD CONSTRAINT CK_Horario_Alumno CHECK (Hora_Inicio < Hora_Fin);
+ALTER TABLE Horario_Profesor ADD CONSTRAINT CK_Horario_Profesor CHECK (Hora_Inicio < Hora_Fin);
+ALTER TABLE Horario_Curso ADD CONSTRAINT CK_Horario_Curso CHECK (Hora_Inicio < Hora_Fin);
 ALTER TABLE Cursos_Alumnos ADD CONSTRAINT CK_Fechas CHECK (TO_DATE(Fecha_Alta, 'DD/MM/YYYY') < TO_DATE(Fecha_Baja, 'DD/MM/YYYY'));
 ALTER TABLE Cursos ADD CONSTRAINT CK_Fechas_Cursos CHECK (TO_DATE(Fecha_Inicio, 'DD/MM/YYYY') < TO_DATE(Fecha_Fin, 'DD/MM/YYYY'));
 
@@ -144,7 +166,9 @@ ALTER TABLE Profesores ADD CONSTRAINT CK_Sueldo_Prof CHECK(Sueldo_Profesor > 0);
 --Borrado de secuencias:
 DROP SEQUENCE SEC_Academias;
 DROP SEQUENCE SEC_Cursos;
-DROP SEQUENCE SEC_Horarios;
+DROP SEQUENCE SEC_Horario_Alumno;
+DROP SEQUENCE SEC_Horario_Profesor;
+DROP SEQUENCE SEC_Horario_Curso;
 DROP SEQUENCE SEC_Cursos_Alumnos;
 DROP SEQUENCE SEC_Examenes;
 DROP SEQUENCE SEC_Recibos;
@@ -160,7 +184,17 @@ INCREMENT BY 1
 START WITH 1
 MAXVALUE 9999;
 
-CREATE SEQUENCE SEC_Horarios 
+CREATE SEQUENCE SEC_Horario_Alumno
+INCREMENT BY 1 
+START WITH 1 
+MAXVALUE 9999;
+
+CREATE SEQUENCE SEC_Horario_Profesor
+INCREMENT BY 1 
+START WITH 1 
+MAXVALUE 9999;
+
+CREATE SEQUENCE SEC_Horario_Curso
 INCREMENT BY 1 
 START WITH 1 
 MAXVALUE 9999;
