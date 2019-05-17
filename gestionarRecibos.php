@@ -5,7 +5,7 @@
      * #	de Recibos de la capa de acceso a datos 	           #
      * #===========================================================#
      */
-	function consultarTodosHorarios($conexion) {
+	function consultarTodosRecibos($conexion) {
 		$consulta = "SELECT * FROM RECIBOS, ALUMNOS"
 			. " WHERE (RECIBOS.DNI_ALUMNO = ALUMNOS.DNI_ALUMNO)"
 			. " ORDER BY Id_Recibo";
