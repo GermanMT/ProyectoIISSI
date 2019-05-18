@@ -1,15 +1,15 @@
 <?php
-  /*
+    /*
      * #===========================================================#
-     * #	Este fichero contiene las funciones de gestión
-     * #	de usuarios de la capa de acceso a datos
-     * #==========================================================#
+     * #	Este fichero contiene las funciones de gestión         #
+     * #	de usuarios de la capa de acceso a datos               #
+     * #===========================================================#
      */
 
  function alta_alumno($conexion,$usuario) {
 
 	try {
-		$consulta = "INSERT INTO Alumnos (DNI_Alumno,Nombre,Apellidos,Edad,Localidad,Telefono_Movil,Telefono_Fijo,Email,Nombre_Padre_Madre,Usuario,Pass)";
+		$consulta = "INSERT INTO Usuarios (DNI_Usuario,Nombre,Apellidos,Edad,Localidad,Telefono_Movil,Telefono_Fijo,Email,Nombre_Padre_Madre,Usuario,Pass)";
 		$stmt=$conexion->prepare($consulta);
 		$stmt->bindParam(':DNI',$usuario["DNI"]);
 		$stmt->bindParam(':Nombre',$usuario["Nombre"]);
@@ -32,7 +32,7 @@
 }
   
 function consultarUsuario($conexion,$Usuario,$Pass) {
- 	$consulta = "SELECT COUNT(*) AS TOTAL FROM Alumnos WHERE Usuario=:Usuario AND PASS=:pass";
+ 	$consulta = "SELECT COUNT(*) AS TOTAL FROM Usuarios WHERE Usuario=:Usuario AND PASS=:pass";
 	$stmt = $conexion->prepare($consulta);
 	$stmt->bindParam(':Usuario',$Usuario);
 	$stmt->bindParam(':Pass',$Pass);

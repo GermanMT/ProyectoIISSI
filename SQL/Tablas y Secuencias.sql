@@ -5,9 +5,9 @@ DROP TABLE Horario_Profesor;
 DROP TABLE Horario_Curso;
 DROP TABLE Cursos_Alumnos;
 DROP TABLE Cursos;
-DROP TABLE Profesores;
+--DROP TABLE Profesores;
 DROP TABLE Recibos;
-DROP TABLE Alumnos;
+DROP TABLE Usuarios;
 DROP TABLE Academias;
 
 --Creación de tablas:
@@ -19,8 +19,8 @@ Telefono CHAR(9),
 PRIMARY KEY(Id_Academia)
 );
 
-CREATE TABLE Alumnos(
-DNI_Alumno CHAR(9) NOT NULL,
+CREATE TABLE Usuarios(
+DNI_Usuario CHAR(9) NOT NULL,
 Nombre VARCHAR2(20) NOT NULL,
 Apellidos VARCHAR2(20) NOT NULL,
 Edad NUMBER(4),
@@ -31,7 +31,9 @@ Email VARCHAR2(50),
 Nombre_Padre_Madre VARCHAR(20),
 Usuario VARCHAR2(20) NOT NULL,
 Pass VARCHAR2(20) NOT NULL,
-PRIMARY KEY (DNI_Alumno)
+TipoUsuario VARCHAR2(30) 
+          CHECK (TipoUsuario IN('Alumno', 'Profesor', 'Admin')) NOT NULL,
+PRIMARY KEY (DNI_Usuario)
 );
 
 CREATE TABLE Recibos(
@@ -40,15 +42,14 @@ Fecha_Recibo VARCHAR2(20) NOT NULL,
 Por_Pagar INTEGER,
 Cuenta_Bancaria CHAR(24),
 Hermanos NUMBER(2,0) NOT NULL,
-DNI_Alumno CHAR(9) NOT NULL,
+DNI_Usuario CHAR(9) NOT NULL,
 Forma_Pago VARCHAR2(30) 
           CHECK (Forma_Pago IN('domiciliaciónBancaria', 'efectivo', 'tarjetaCredito')) NOT NULL,
 PRIMARY KEY(Id_Recibo),
-FOREIGN KEY(DNI_Alumno) REFERENCES Alumnos
+FOREIGN KEY(DNI_Usuario) REFERENCES Usuarios
 );
 
---SELECT * FROM RECIBOS, ALUMNOS WHERE (RECIBOS.DNI_ALUMNO = ALUMNOS.DNI_ALUMNO);
-
+/*
 CREATE TABLE Profesores(
 DNI_Profesor CHAR(9) NOT NULL,
 Nombre VARCHAR2(20) NOT NULL,
@@ -63,6 +64,7 @@ Telefono_Fijo CHAR(9),
 Email VARCHAR2(50),
 PRIMARY KEY(DNI_Profesor)
 );
+*/
 
 CREATE TABLE Cursos(
 Fecha_Inicio DATE NOT NULL,
@@ -78,10 +80,10 @@ CREATE TABLE Cursos_Alumnos(
 Fecha_Alta DATE NOT NULL,
 Fecha_Baja DATE,
 Id_Curso_Alumno INTEGER NOT NULL,
-DNI_Alumno CHAR(9) NOT NULL,
+DNI_Usuario CHAR(9) NOT NULL,
 Id_Curso INTEGER NOT NULL,
 PRIMARY KEY(Id_Curso_Alumno),
-FOREIGN KEY(DNI_Alumno) REFERENCES Alumnos,
+FOREIGN KEY(DNI_Usuario) REFERENCES Usuarios,
 FOREIGN KEY(Id_Curso) REFERENCES Cursos
 );
 
@@ -90,21 +92,19 @@ Hora_Inicio CHAR(8) NOT NULL,
 Hora_Fin CHAR(8) NOT NULL,
 Dia VARCHAR2(40) NOT NULL,
 Id_Horario INTEGER NOT NULL,
-DNI_Alumno CHAR(9),
+DNI_Usuario CHAR(9),
 PRIMARY KEY(Id_Horario),
-FOREIGN KEY(DNI_Alumno) REFERENCES Alumnos
+FOREIGN KEY(DNI_Usuario) REFERENCES Usuarios
 );
-
-SELECT * FROM HORARIO_ALUMNO, ALUMNOS WHERE (HORARIO_ALUMNO.DNI_ALUMNO = ALUMNOS.DNI_ALUMNO);
 
 CREATE TABLE Horario_Profesor(
 Hora_Inicio CHAR(8) NOT NULL,
 Hora_Fin CHAR(8) NOT NULL,
 Dia VARCHAR2(40) NOT NULL,
 Id_Horario INTEGER NOT NULL,
-DNI_Profesor CHAR(9),
+DNI_Usuario CHAR(9),
 PRIMARY KEY(Id_Horario),
-FOREIGN KEY(DNI_Profesor) REFERENCES Profesores
+FOREIGN KEY(DNI_Usuario) REFERENCES Usuarios
 );
 
 CREATE TABLE Horario_Curso(
@@ -135,19 +135,13 @@ FOREIGN KEY(Id_Curso) REFERENCES Cursos
 
 --Restricciones de tablas
 --DNI
-ALTER TABLE Alumnos ADD CONSTRAINT CK_DNI_Alumnos
-      CHECK (REGEXP_LIKE(DNI_Alumno, '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][A-Z]'));
-ALTER TABLE Profesores ADD CONSTRAINT CK_DNI_Profesores
-      CHECK (REGEXP_LIKE(DNI_Profesor, '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][A-Z]'));
+ALTER TABLE Usuarios ADD CONSTRAINT CK_DNI_Usuarios
+      CHECK (REGEXP_LIKE(DNI_Usuario, '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][A-Z]'));
 
 --Telefono 
-ALTER TABLE Alumnos ADD CONSTRAINT CK_Telefono_Fijo_Alumnos 
+ALTER TABLE Usuarios ADD CONSTRAINT CK_Telefono_Fijo_Usuarios 
       CHECK (REGEXP_LIKE(Telefono_Fijo, '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]'));
-ALTER TABLE Alumnos ADD CONSTRAINT CK_Telefono_Movil_Alumnos 
-      CHECK (REGEXP_LIKE(Telefono_Movil, '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]'));
-ALTER TABLE Profesores ADD CONSTRAINT CK_Telefono_Fijo_Profesor 
-      CHECK (REGEXP_LIKE(Telefono_Fijo, '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]'));
-ALTER TABLE Profesores ADD CONSTRAINT CK_Telefono_Movil_Profesor 
+ALTER TABLE Usuarios ADD CONSTRAINT CK_Telefono_Movil_Usuarios 
       CHECK (REGEXP_LIKE(Telefono_Movil, '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]'));
 
 --Horario
@@ -159,9 +153,8 @@ ALTER TABLE Cursos ADD CONSTRAINT CK_Fechas_Cursos CHECK (TO_DATE(Fecha_Inicio, 
 
 -- Sueldo/Edad/aulas
 ALTER TABLE Academias ADD CONSTRAINT CK_Aulas CHECK(aulas > 0);
-ALTER TABLE Alumnos ADD CONSTRAINT CK_Edad_Alum CHECK(edad > 0);
-ALTER TABLE Profesores ADD CONSTRAINT CK_Edad_Prof CHECK(edad > 0);
-ALTER TABLE Profesores ADD CONSTRAINT CK_Sueldo_Prof CHECK(Sueldo_Profesor > 0);
+ALTER TABLE Usuarios ADD CONSTRAINT CK_Edad_Usuarios CHECK(edad > 0);
+--ALTER TABLE Profesores ADD CONSTRAINT CK_Sueldo_Prof CHECK(Sueldo_Profesor > 0);
 
 --Borrado de secuencias:
 DROP SEQUENCE SEC_Academias;

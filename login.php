@@ -7,16 +7,25 @@
 	if (isset($_POST['submit'])){
 		$usuario= $_POST['usuario'];
 		$pass = $_POST['pass'];
-
+		$tipoUsuario = $_POST['tipoUsuario'];
+		
 		$conexion = crearConexionBD();
-		$num_usuarios = consultarUsuario($conexion,$usuario,$pass);
+		$num_usuarios = consultarUsuario($conexion,$usuario,$pass,$tipoUsuario);
 		cerrarConexionBD($conexion);	
 	
 		if ($num_usuarios == 0)
 			$login = "error";	
 		else {
-			$_SESSION['login'] = $usuario;
-			Header("Location: vistaUsuario.php"); 
+			if($tipoUsuario == 'Alumno'){
+				$_SESSION['login'] = $usuario;
+				Header("Location: vistaUsuario.php"); 
+			}else if($tipoUsuario == 'Profesor'){
+				// $_SESSION['login'] = $usuario;
+				// Header("Location: vistaAdmin.php"); 
+			}else if($tipoUsuario == 'Admin'){
+				$_SESSION['login'] = $usuario;
+				Header("Location: vistaAdmin.php"); 
+			}
 		}	
 	}
 ?>
@@ -47,6 +56,17 @@
 	<form action="login.php" method="post">
 		<div><label for="usuario">Usuario: </label><input type="text" name="usuario" id="usuario" /></div>
 		<div><label for="pass">Contraseña: </label><input type="password" name="pass" id="pass" /></div>
+		<div><label>Perfil:</label>
+			<label>
+				<input name="tipoUsuario" type="radio" value="Alumno" <?php if($formulario['perfil']=='Alumno') echo ' checked ';?>/>
+				Alumno</label>
+			<label>
+				<input name="tipoUsuario" type="radio" value="Profesor" <?php if($formulario['perfil']=='Profesor') echo ' checked ';?>/>
+				Profesor</label>
+			<label>
+				<input name="tipoUsuario" type="radio" value="Admin" <?php if($formulario['perfil']=='Admin') echo ' checked ';?>/>
+				Admin</label>
+		</div>
 		<input type="submit" name="submit" value="submit" />
 	</form>
 		

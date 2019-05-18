@@ -54,7 +54,7 @@
 	
 	<table style="width:25%">
 	  <tr>
-	    <td><?php echo $fila["DNI_ALUMNO"]; ?></td>
+	    <td><?php echo $fila["DNI_USUARIO"]; ?></td>
 		<td><?php echo $fila["FECHA_RECIBO"]; ?></td>
 		<td><?php echo $fila["POR_PAGAR"]; ?></td>
 	  </tr>

@@ -12,22 +12,23 @@ END;
 /
 
 --Insertar Alumno:
-CREATE OR REPLACE PROCEDURE INSERTAR_ALUMNO 
-  (P_DNI IN Alumnos.DNI_Alumno%TYPE,
-   P_NOM IN Alumnos.Nombre%TYPE,
-   P_APE IN Alumnos.Apellidos%TYPE,
-   P_EDAD IN Alumnos.Edad%TYPE,
-   P_LOCALIDAD IN Alumnos.Localidad%TYPE,
-   P_MOVIL IN Alumnos.Telefono_Movil%TYPE,
-   P_FIJO IN Alumnos.Telefono_Fijo%TYPE,
-   P_EMAIL IN Alumnos.Email%TYPE,
-   P_PADMAD IN Alumnos.Nombre_Padre_Madre%TYPE,
-   P_USUARIO IN Alumnos.Usuario%TYPE,
-   P_PASS IN Alumnos.Pass%TYPE
+CREATE OR REPLACE PROCEDURE INSERTAR_USUARIO
+  (P_DNI IN Usuarios.DNI_Usuario%TYPE,
+   P_NOM IN Usuarios.Nombre%TYPE,
+   P_APE IN Usuarios.Apellidos%TYPE,
+   P_EDAD IN Usuarios.Edad%TYPE,
+   P_LOCALIDAD IN Usuarios.Localidad%TYPE,
+   P_MOVIL IN Usuarios.Telefono_Movil%TYPE,
+   P_FIJO IN Usuarios.Telefono_Fijo%TYPE,
+   P_EMAIL IN Usuarios.Email%TYPE,
+   P_PADMAD IN Usuarios.Nombre_Padre_Madre%TYPE,
+   P_USUARIO IN Usuarios.Usuario%TYPE,
+   P_PASS IN Usuarios.Pass%TYPE,
+   P_TipoUsuario IN Usuarios.TipoUsuario%TYPE
    ) IS
 BEGIN
-  INSERT INTO Alumnos(DNI_Alumno,Nombre,Apellidos,Edad,Localidad,Telefono_Movil,Telefono_Fijo,Email,Nombre_Padre_Madre,Usuario,Pass)
-  VALUES (P_DNI,P_NOM,P_APE,P_EDAD,P_LOCALIDAD,P_MOVIL,P_FIJO,P_EMAIL,P_PADMAD,P_USUARIO,P_PASS);
+  INSERT INTO Usuarios(DNI_Usuario,Nombre,Apellidos,Edad,Localidad,Telefono_Movil,Telefono_Fijo,Email,Nombre_Padre_Madre,Usuario,Pass,TipoUsuario)
+  VALUES (P_DNI,P_NOM,P_APE,P_EDAD,P_LOCALIDAD,P_MOVIL,P_FIJO,P_EMAIL,P_PADMAD,P_USUARIO,P_PASS,P_TipoUsuario);
 END;
 /
 
@@ -50,12 +51,12 @@ CREATE OR REPLACE PROCEDURE INSERTAR_CURSO_ALUMNO
   (P_Fecha_Alta IN Cursos_Alumnos.Fecha_Alta%TYPE,
   P_Fecha_Baja IN Cursos_Alumnos.Fecha_Baja%TYPE,
   P_Id_Curso_Alumno IN Cursos_Alumnos.Id_Curso_Alumno%TYPE,
-  P_DNI_Alumno IN Cursos_Alumnos.DNI_Alumno%TYPE,
+  P_DNI_Usuario IN Cursos_Alumnos.DNI_Usuario%TYPE,
   P_Id_Curso IN Cursos_Alumnos.Id_Curso%TYPE
   ) IS
 BEGIN
-  INSERT INTO Cursos_Alumnos(Fecha_Alta,Fecha_Baja,Id_Curso_Alumno,DNI_Alumno,Id_Curso)
-  VALUES (P_Fecha_Alta,P_Fecha_Baja,P_Id_Curso_Alumno,P_DNI_Alumno,P_Id_Curso);
+  INSERT INTO Cursos_Alumnos(Fecha_Alta,Fecha_Baja,Id_Curso_Alumno,DNI_Usuario,Id_Curso)
+  VALUES (P_Fecha_Alta,P_Fecha_Baja,P_Id_Curso_Alumno,P_DNI_Usuario,P_Id_Curso);
 END;
 /
 
@@ -81,11 +82,11 @@ CREATE OR REPLACE PROCEDURE INSERTAR_HORARIO_ALUMNO
    P_Hora_Fin IN Horario_Alumno.Hora_Fin%TYPE,
    P_Dia IN Horario_Alumno.Dia%TYPE,
    P_Id_Horario IN Horario_Alumno.Id_Horario%TYPE,
-   P_DNI_Alumno IN Horario_Alumno.DNI_Alumno%TYPE
+   P_DNI_Usuario IN Horario_Alumno.DNI_Usuario%TYPE
    ) IS
 BEGIN
-  INSERT INTO Horario_Alumno(Hora_Inicio,Hora_Fin,Dia,Id_Horario,DNI_Alumno)
-  VALUES (P_Hora_Inicio,P_Hora_Fin,P_Dia,P_Id_Horario,P_DNI_Alumno);
+  INSERT INTO Horario_Alumno(Hora_Inicio,Hora_Fin,Dia,Id_Horario,DNI_Usuario)
+  VALUES (P_Hora_Inicio,P_Hora_Fin,P_Dia,P_Id_Horario,P_DNI_Usuario);
 END;
 /
 
@@ -109,15 +110,16 @@ CREATE OR REPLACE PROCEDURE INSERTAR_HORARIO_PROFESOR
    P_Hora_Fin IN Horario_Profesor.Hora_Fin%TYPE,
    P_Dia IN Horario_Profesor.Dia%TYPE,
    P_Id_Horario IN Horario_Profesor.Id_Horario%TYPE,
-   P_DNI_Profesor IN Horario_Profesor.DNI_Profesor%TYPE
+   P_DNI_Usuario IN Horario_Profesor.DNI_Usuario%TYPE
    ) IS
 BEGIN
-  INSERT INTO Horario_Profesor(Hora_Inicio,Hora_Fin,Dia,Id_Horario,DNI_Profesor)
-  VALUES (P_Hora_Inicio,P_Hora_Fin,P_Dia,P_Id_Horario,P_DNI_Profesor);
+  INSERT INTO Horario_Profesor(Hora_Inicio,Hora_Fin,Dia,Id_Horario,DNI_Usuario)
+  VALUES (P_Hora_Inicio,P_Hora_Fin,P_Dia,P_Id_Horario,P_DNI_Usuario);
 END;
 /
 
 --Insertar Profesor:
+/*
 CREATE OR REPLACE PROCEDURE INSERTAR_HORARIO_PROFESOR
   (P_DNI_Profesor IN Profesores.DNI_Profesor%TYPE,
    P_Nombre IN Profesores.Nombre%TYPE,
@@ -135,6 +137,7 @@ BEGIN
   VALUES (P_DNI_Profesor,P_Nombre,P_Apellidos,P_Edad,P_Localidad,P_Sueldo_Profesor,P_Nivel_Ingles,P_Telefono_Movil,P_Telefono_Fijo,P_Email);
 END;
 /
+*/
 
 --Insertar Recibo:
 CREATE OR REPLACE PROCEDURE INSERTAR_RECIBO
@@ -143,11 +146,11 @@ CREATE OR REPLACE PROCEDURE INSERTAR_RECIBO
    P_Por_Pagar IN Recibos.Por_Pagar%TYPE,
    P_Cuenta_Bancaria IN Recibos.Cuenta_Bancaria%TYPE,
    P_Hermanos IN Recibos.Hermanos%TYPE,
-   P_DNI_Alumno IN Recibos.DNI_Alumno%TYPE,
+   P_DNI_Usuario IN Recibos.DNI_Usuario%TYPE,
    P_Forma_Pago IN Recibos.Forma_Pago%TYPE
    ) IS
 BEGIN
-  INSERT INTO Recibos(Id_Recibo,Fecha_Recibo,Por_Pagar,Cuenta_Bancaria,Hermanos,DNI_Alumno,Forma_Pago)
-  VALUES (P_Id_Recibo,P_Fecha_Recibo,P_Por_Pagar,P_Cuenta_Bancaria,P_Hermanos,P_DNI_Alumno,P_Forma_Pago);
+  INSERT INTO Recibos(Id_Recibo,Fecha_Recibo,Por_Pagar,Cuenta_Bancaria,Hermanos,DNI_Usuario,Forma_Pago)
+  VALUES (P_Id_Recibo,P_Fecha_Recibo,P_Por_Pagar,P_Cuenta_Bancaria,P_Hermanos,P_DNI_Usuario,P_Forma_Pago);
 END;
 /
