@@ -19,7 +19,7 @@ END;
 /
 
 BEGIN
-INSERTAR_ALUMNO('21015236K','Antonio German','Márquez','21', 'El Repilado', '619527721', '954841642', 'antonio-german-1@hotmail.com', 'Jose Enrique', 'GermanOctavo', '19german15');
+INSERTAR_ALUMNO('49385388H','Jose Antonio','Macias','20', 'La Puebla De Cazalla', '611227721', '954841552', 'josanfcs98@hotmail.com', 'Jose Enrique', 'JosanFCS', 'holita20');
 COMMIT;
 END;
 /

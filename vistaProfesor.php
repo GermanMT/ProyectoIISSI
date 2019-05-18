@@ -2,16 +2,17 @@
 	session_start();
 
 	require_once("gestionBD.php");
-	require_once("gestionarTablaAdmin.php");
+	require_once("gestionarHorario.php");
 	
 	if (!isset($_SESSION['login']))
 		Header("Location: login.php");
 	else {
 		$conexion = crearConexionBD();
-		$filas = consultarTablaAdmin($conexion);
+		$filas = consultarTodosHorarios($conexion);
 		cerrarConexionBD($conexion);
 	}
 ?>
+
 
 <html>
     <head>
@@ -57,33 +58,22 @@
                     </ul>
                 </div>
                 <div class="body_content">
-                    <p><h1>Bienvenido</h1></p>
+                    <p><h1>Horario de tus grupos:</h1></p>
                     <div class="bottom_content">
                 </div>
                 </div>
-                <table style="width:25%">
-                	
-  <!-- Mostrar la tabla de la vista Admin -->
-		<tr>
-	    <th>Cursos</th>
-	    <th>Numero de alumnos</th> 
-	    <th>Profesor</th>
-	  </tr>
-	</table>
-	
+                
+                <main>
+
 	<?php
-		foreach($filas1 as $fila) {
+		foreach($filas as $fila) {
 	?>
-	
-	<table style="width:25%">
-	  <tr>
-	    <td><?php echo $fila["ID_CURSO"]; ?></td>
-		<td><?php echo $fila["NUM_ALUMNOS"]; ?></td>
-		<td><?php echo $fila["NOMBRE"]; ?></td>
-	  </tr>
-	</table>
+
+	<article class="libro">
+			<?php echo "<B>" . $fila["Dia"] . "</B>, <EM>written by</EM> ".$fila["Hora_Inicio"] . ", " . $fila["Hora_Fin"] . ", " . $fila["Id_Curso"]; ?>
+	</article>
+
 	<?php } ?>
-	
-	</main>
-</body>
+</main>
+        </body>
 </html>
