@@ -6,8 +6,8 @@
      * #===========================================================#
      */
 	function consultarTodosHorarios($conexion) {
-		$consulta = "SELECT * FROM HORARIO_ALUMNO, ALUMNOS"
-			. " WHERE (HORARIO_ALUMNO.DNI_ALUMNO = ALUMNOS.DNI_ALUMNO)";
+		$consulta = "SELECT * FROM HORARIO_ALUMNO, USUARIOS"
+			. " WHERE (HORARIO_ALUMNO.DNI_USUARIO = Usuarios.DNI_USUARIO)";
 	    return $conexion->query($consulta);
 	} 
 ?>
