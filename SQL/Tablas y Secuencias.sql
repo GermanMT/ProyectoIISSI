@@ -5,7 +5,6 @@ DROP TABLE Horario_Profesor;
 DROP TABLE Horario_Curso;
 DROP TABLE Cursos_Alumnos;
 DROP TABLE Cursos;
---DROP TABLE Profesores;
 DROP TABLE Recibos;
 DROP TABLE Usuarios;
 DROP TABLE Academias;
@@ -48,23 +47,6 @@ Forma_Pago VARCHAR2(30)
 PRIMARY KEY(Id_Recibo),
 FOREIGN KEY(DNI_Usuario) REFERENCES Usuarios
 );
-
-/*
-CREATE TABLE Profesores(
-DNI_Profesor CHAR(9) NOT NULL,
-Nombre VARCHAR2(20) NOT NULL,
-Apellidos VARCHAR2(40) NOT NULL,
-Edad NUMBER(4),
-Localidad VARCHAR2(20),
-Sueldo_Profesor NUMBER(10,2) NOT NULL,
-Nivel_Ingles CHAR(2) 
-            CHECK (Nivel_Ingles IN('B1', 'B2', 'C1', 'C2')) NOT NULL,
-Telefono_Movil CHAR(9) NOT NULL,
-Telefono_Fijo CHAR(9),
-Email VARCHAR2(50),
-PRIMARY KEY(DNI_Profesor)
-);
-*/
 
 CREATE TABLE Cursos(
 Fecha_Inicio DATE NOT NULL,

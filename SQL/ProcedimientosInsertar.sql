@@ -118,27 +118,6 @@ BEGIN
 END;
 /
 
---Insertar Profesor:
-/*
-CREATE OR REPLACE PROCEDURE INSERTAR_HORARIO_PROFESOR
-  (P_DNI_Profesor IN Profesores.DNI_Profesor%TYPE,
-   P_Nombre IN Profesores.Nombre%TYPE,
-   P_Apellidos IN Profesores.Apellidos%TYPE,
-   P_Edad IN Profesores.Edad%TYPE,
-   P_Localidad IN Profesores.Localidad%TYPE,
-   P_Sueldo_Profesor IN Profesores.Sueldo_Profesor%TYPE,
-   P_Nivel_Ingles IN Profesores.Nivel_Ingles%TYPE,
-   P_Telefono_Movil IN Profesores.Telefono_Movil%TYPE,
-   P_Telefono_Fijo IN Profesores.Telefono_Fijo%TYPE,
-   P_Email IN Profesores.Email%TYPE
-   ) IS
-BEGIN
-  INSERT INTO Profesores(DNI_Profesor,Nombre,Apellidos,Edad,Localidad,Sueldo_Profesor,Nivel_Ingles,Telefono_Movil,Telefono_Fijo,Email)
-  VALUES (P_DNI_Profesor,P_Nombre,P_Apellidos,P_Edad,P_Localidad,P_Sueldo_Profesor,P_Nivel_Ingles,P_Telefono_Movil,P_Telefono_Fijo,P_Email);
-END;
-/
-*/
-
 --Insertar Recibo:
 CREATE OR REPLACE PROCEDURE INSERTAR_RECIBO
   (P_Id_Recibo IN Recibos.Id_Recibo%TYPE,
