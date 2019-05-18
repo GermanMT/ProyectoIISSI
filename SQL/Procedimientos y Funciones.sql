@@ -1,3 +1,4 @@
+--Insertar Alumno:
 CREATE OR REPLACE PROCEDURE INSERTAR_ALUMNO 
   (P_DNI IN Alumnos.DNI_Alumno%TYPE,
    P_NOM IN Alumnos.Nombre%TYPE,
@@ -23,8 +24,9 @@ COMMIT;
 END;
 /
 
+--Insertar Recibo:
 CREATE OR REPLACE PROCEDURE INSERTAR_RECIBO
-  (p_Id_Recibo IN Recibos.Id_Recibo%TYPE,
+  (P_Id_Recibo IN Recibos.Id_Recibo%TYPE,
    P_Fecha_Recibo IN Recibos.Fecha_Recibo%TYPE,
    P_Por_Pagar IN Recibos.Por_Pagar%TYPE,
    P_Cuenta_Bancaria IN Recibos.Cuenta_Bancaria%TYPE,
@@ -34,12 +36,39 @@ CREATE OR REPLACE PROCEDURE INSERTAR_RECIBO
    ) IS
 BEGIN
   INSERT INTO Recibos(Id_Recibo,Fecha_Recibo,Por_Pagar,Cuenta_Bancaria,Hermanos,DNI_Alumno,Forma_Pago)
-  VALUES (p_Id_Recibo,P_Fecha_Recibo,P_Por_Pagar,P_Cuenta_Bancaria,P_Hermanos,P_DNI_Alumno,P_Forma_Pago);
+  VALUES (P_Id_Recibo,P_Fecha_Recibo,P_Por_Pagar,P_Cuenta_Bancaria,P_Hermanos,P_DNI_Alumno,P_Forma_Pago);
 END;
 /
 
 BEGIN
-INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/05/29',500.00, '', 0, '21015236K', 'efectivo');
+INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/05/06',500.00, '', 0, '21015236K', 'efectivo');
+INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/06/06',500.00, '', 0, '21015236K', 'efectivo');
+INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/07/06',500.00, '', 0, '21015236K', 'efectivo');
+INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/08/06',500.00, '', 0, '21015236K', 'efectivo');
+INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/09/06',500.00, '', 0, '21015236K', 'efectivo');
+INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/10/06',500.00, '', 0, '21015236K', 'efectivo');
+COMMIT;
+END;
+/
+
+--Insertar Horario_Alumno:
+CREATE OR REPLACE PROCEDURE INSERTAR_HORARIO_ALUMNO
+  (P_Hora_Inicio IN Horario_Alumno.Hora_Inicio%TYPE,
+   P_Hora_Fin IN Horario_Alumno.Hora_Fin%TYPE,
+   P_Dia IN Horario_Alumno.Dia%TYPE,
+   P_Id_Horario IN Horario_Alumno.Id_Horario%TYPE,
+   P_DNI_Alumno IN Horario_Alumno.DNI_Alumno%TYPE
+   ) IS
+BEGIN
+  INSERT INTO Horario_Alumno(Hora_Inicio,Hora_Fin,Dia,Id_Horario,DNI_Alumno)
+  VALUES (P_Hora_Inicio,P_Hora_Fin,P_Dia,P_Id_Horario,P_DNI_Alumno);
+END;
+/
+
+BEGIN
+INSERTAR_HORARIO_ALUMNO('12:00', '14:00','Lunes', SEC_Horario_Alumno.NEXTVAL, '21015236K');
+INSERTAR_HORARIO_ALUMNO('17:00', '19:00','Miercoles', SEC_Horario_Alumno.NEXTVAL, '21015236K');
+INSERTAR_HORARIO_ALUMNO('12:00', '14:00','Viernes', SEC_Horario_Alumno.NEXTVAL, '21015236K');
 COMMIT;
 END;
 /
