@@ -8,7 +8,7 @@
 		Header("Location: login.php");
 	else {
 		$conexion = crearConexionBD();
-		$filas = consultarTodosLibros($conexion);
+		$filas = consultarTodosHorarios($conexion);
 		cerrarConexionBD($conexion);
 	}
 ?>
