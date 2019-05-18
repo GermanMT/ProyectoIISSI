@@ -104,17 +104,17 @@ END;
 /
 
 --Triger de la Regla de Negocio 2:
-CREATE OR REPLACE TRIGGER Pago_Mensual
+/*CREATE OR REPLACE TRIGGER Pago_Mensual
 BEFORE INSERT ON Recibos
 FOR EACH ROW
 DECLARE
     v_Fecha_Recibo DATE := :NEW.Fecha_Recibo;
 BEGIN
-    IF(v_Fecha_Recibo > TO_DATE(07,'DD')) THEN
+    IF(v_Fecha_Recibo < TO_DATE(07,'DD')) THEN
         RAISE_APPLICATION_ERROR(-20003,'El pago mensual debe realizarse con una semana de antelación.');
     END IF;
 END;
-/
+/*/
 
 --Triger de la Regla de Negocio 3:
 CREATE OR REPLACE TRIGGER Num_Alumnos

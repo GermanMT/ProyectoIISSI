@@ -18,10 +18,10 @@
 		else {
 			if($tipoUsuario == 'Alumno'){
 				$_SESSION['login'] = $usuario;
-				Header("Location: vistaUsuario.php"); 
+				Header("Location: vistaAlumno.php"); 
 			}else if($tipoUsuario == 'Profesor'){
-				// $_SESSION['login'] = $usuario;
-				// Header("Location: vistaAdmin.php"); 
+				$_SESSION['login'] = $usuario;
+				Header("Location: vistaProfesor.php"); 
 			}else if($tipoUsuario == 'Admin'){
 				$_SESSION['login'] = $usuario;
 				Header("Location: vistaAdmin.php"); 
