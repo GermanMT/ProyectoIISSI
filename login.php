@@ -58,13 +58,13 @@
 		<div><label for="pass">Contraseña: </label><input type="password" name="pass" id="pass" /></div>
 		<div><label>Perfil:</label>
 			<label>
-				<input name="tipoUsuario" type="radio" value="Alumno" <?php if($formulario['perfil']=='Alumno') echo ' checked ';?>/>
+				<input name="tipoUsuario" type="radio" value="Alumno"/>
 				Alumno</label>
 			<label>
-				<input name="tipoUsuario" type="radio" value="Profesor" <?php if($formulario['perfil']=='Profesor') echo ' checked ';?>/>
+				<input name="tipoUsuario" type="radio" value="Profesor"/>
 				Profesor</label>
 			<label>
-				<input name="tipoUsuario" type="radio" value="Admin" <?php if($formulario['perfil']=='Admin') echo ' checked ';?>/>
+				<input name="tipoUsuario" type="radio" value="Admin"/>
 				Admin</label>
 		</div>
 		<input type="submit" name="submit" value="submit" />
