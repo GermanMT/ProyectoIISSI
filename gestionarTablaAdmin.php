@@ -22,6 +22,19 @@
 	    }
 	}
 	
+	function modificarUsuario($conexion,$DNI_Usuario,$NOMBRE,$APELLIDOS) {
+	try {
+		$stmt=$conexion->prepare('CALL MODIFICAR_TITULO(:DNI_Usuario,:NOMBRE,:APELLIDOS)');
+		$stmt->bindParam(':DNI_Usuario',$DNI_Usuario);
+		$stmt->bindParam(':NOMBRE',$NOMBRE);
+		$stmt->bindParam(':APELLIDOS',$APELLIDOS);
+		$stmt->execute();
+		return "";
+	} catch(PDOException $e) {
+		return $e->getMessage();
+    }
+}
+	
 	function consultarProfesores($conexion) {
 		$consulta = "SELECT * FROM Usuarios"
 			. " WHERE (Usuarios.TipoUsuario = 'Profesor')";
