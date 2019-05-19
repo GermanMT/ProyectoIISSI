@@ -139,6 +139,8 @@ END;
 --Quitar Alumno: 
 CREATE OR REPLACE PROCEDURE QUITAR_USUARIO (DNI_Usuario_A_QUITAR IN Usuarios.DNI_Usuario%TYPE) AS
 BEGIN
+    DELETE FROM Horario_Alumno WHERE DNI_Usuario = DNI_Usuario_A_QUITAR;
+    DELETE FROM Recibos WHERE DNI_Usuario = DNI_Usuario_A_QUITAR;
     DELETE FROM Usuarios WHERE DNI_Usuario = DNI_Usuario_A_QUITAR;
 END;
 /
