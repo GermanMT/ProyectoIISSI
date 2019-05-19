@@ -2,14 +2,14 @@
 	session_start();	
 	
 	if (isset($_SESSION["usuario"])) {
-		$usuario = $_SESSION["usuario"];
+		$libro = $_SESSION["usuario"];
 		unset($_SESSION["usuario"]);
 		
 		require_once("gestionBD.php");
 		require_once("gestionarTablaAdmin.php");
 		
 		$conexion = crearConexionBD();		
-		$excepcion = quitarUsuario($conexion,$usuario["DNI_Usuario"]);
+		$excepcion = modificarUsuario($conexion,$usuario["DNI_Usuario"],$usuario["NOMBRE"],$usuario["APELLIDOS"]);
 		cerrarConexionBD($conexion);
 			
 		if ($excepcion<>"") {
@@ -17,7 +17,8 @@
 			$_SESSION["destino"] = "vistaAdmin.php";
 			Header("Location: excepcion.php");
 		}
-		else Header("Location: vistaAdmin.php");
-	}
+		else
+			Header("Location: vistaAdmin.php");
+	} 
 	else Header("Location: vistaAdmin.php"); // Se ha tratado de acceder directamente a este PHP
 ?>
