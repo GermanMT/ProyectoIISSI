@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 	session_start();
 
 	require_once("gestionBD.php");
@@ -37,18 +37,13 @@
         </div>
     </div>
     <main>
-
-    <!-- Mostrar los recibos del alumno -->
-    <div class="body_content">
-        <p><h1>Recibos</h1></p>
-    </div>
-    
+    	
+    	<!-- Mostrar los horarios del alumno -->
 	<table style="width:25%">
 		<tr>
-	    <th>DNI</th>
-	    <th>Fecha del recibo</th> 
-	    <th>Importe</th>
-	    <th>¿Pagado?</th>
+	    <th>Día</th>
+	    <th>Hora de inicio</th> 
+	    <th>Hora de fin</th>
 	  </tr>
 	</table>
 	
@@ -58,21 +53,14 @@
 	
 	<table style="width:25%">
 	  <tr>
-
-	    <td><?php echo $fila["DNI_USUARIO"]; ?></td>
-		<td><?php echo $fila["FECHA_RECIBO"]; ?></td>
-		<td><?php echo $fila["POR_PAGAR"]; ?></td>
-		<td><?php echo $fila["PAGADO"]; ?></td>
+	    <td><?php echo $fila["DIA"]; ?></td>
+		<td><?php echo $fila["HORA_INICIO"]; ?></td>
+		<td><?php echo $fila["HORA_FIN"]; ?></td>
 	  </tr>
 	</table>
 	<?php } ?>
-	
-	<!-- Mostrar los horarios del alumno -->
-	
-	<div class="body_content">
-        <p><h1>Horario</h1></p>
-    </div>
-    
+
+    <!-- Mostrar los recibos del alumno -->
 	<table style="width:25%">
 		<tr>
 	    <th>DNI</th>

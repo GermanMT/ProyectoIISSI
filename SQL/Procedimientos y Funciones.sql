@@ -51,6 +51,27 @@ COMMIT;
 END;
 /
 
+--Insertar Horario_Alumno:
+CREATE OR REPLACE PROCEDURE INSERTAR_HORARIO_ALUMNO
+  (P_Hora_Inicio IN Horario_Alumno.Hora_Inicio%TYPE,
+   P_Hora_Fin IN Horario_Alumno.Hora_Fin%TYPE,
+   P_Dia IN Horario_Alumno.Dia%TYPE,
+   P_Id_Horario IN Horario_Alumno.Id_Horario%TYPE,
+   P_DNI_Alumno IN Horario_Alumno.DNI_Alumno%TYPE
+   ) IS
+BEGIN
+  INSERT INTO Horario_Alumno(Hora_Inicio,Hora_Fin,Dia,Id_Horario,DNI_Alumno)
+  VALUES (P_Hora_Inicio,P_Hora_Fin,P_Dia,P_Id_Horario,P_DNI_Alumno);
+END;
+/
+
+BEGIN
+INSERTAR_HORARIO_ALUMNO('12:00', '14:00','Lunes', SEC_Horario_Alumno.NEXTVAL, '21015236K');
+INSERTAR_HORARIO_ALUMNO('17:00', '19:00','Miercoles', SEC_Horario_Alumno.NEXTVAL, '21015236K');
+INSERTAR_HORARIO_ALUMNO('12:00', '14:00','Viernes', SEC_Horario_Alumno.NEXTVAL, '21015236K');
+COMMIT;
+END;
+/
 
 --Procedimiento del Requisito Funcional 1:
 create or replace PROCEDURE Cuota_Mensual (v_DNI_Alumno IN Alumnos.DNI_Alumno%TYPE)
@@ -162,6 +183,50 @@ OPEN C;
     DBMS_OUTPUT.PUT_LINE(RPAD(v_Cursos.Id_Curso,30) || RPAD(v_Cursos.Fecha_Inicio, 30) || RPAD(v_Cursos.Fecha_Fin, 30) || RPAD(v_Cursos.Num_Alumnos, 30));
   END IF;
   FETCH C INTO v_Cursos;
+  END LOOP;
+  CLOSE C;
+END;
+/
+
+--Procedimiento del Requisito Funcional 6:
+create or replace PROCEDURE Horario_Profesor (v_DNI_Profesor IN Profesores.DNI_Profesor%TYPE)
+IS
+  CURSOR C IS
+    SELECT DNI_Profesor, Hora_Inicio, Hora_Fin, Dia FROM Horarios NATURAL JOIN Profesores WHERE DNI_Profesor = v_DNI_Profesor;
+    v_Horarios C%ROWTYPE;
+BEGIN
+  OPEN C;
+  FETCH C INTO v_Horarios;
+    DBMS_OUTPUT.PUT_LINE(RPAD('DNI del Profesor: ', 20) || RPAD('Hora de Inicio: ', 20) || RPAD('Hora de Fin: ', 20) || RPAD('Dia: ', 20));
+  WHILE C%FOUND LOOP
+    IF(v_Horarios.DNI_Profesor = null) THEN
+    DBMS_OUTPUT.PUT_LINE('No hay curso de profesores creados');
+    ELSE
+    DBMS_OUTPUT.PUT_LINE(RPAD(v_Horarios.DNI_Profesor, 20) || RPAD(v_Horarios.Hora_Inicio, 20) || RPAD(v_Horarios.Hora_Fin, 20) || RPAD(v_Horarios.Dia, 20));
+    END IF;
+  FETCH C INTO v_Horarios;
+  END LOOP;
+  CLOSE C;
+END;
+/
+
+--Procedimiento del Requisito Funcional 7:
+create or replace PROCEDURE Horario_Alumno (v_DNI_Alumno IN Horarios.DNI_Alumno%TYPE)
+IS
+  CURSOR C IS
+    SELECT DNI_Alumno, Hora_Inicio, Hora_Fin, Dia FROM Horarios NATURAL JOIN Alumnos WHERE DNI_Alumno = v_DNI_Alumno;
+    v_Horarios C%ROWTYPE;
+BEGIN
+  OPEN C;
+  FETCH C INTO v_Horarios;
+  DBMS_OUTPUT.PUT_LINE(RPAD('DNI del Alumno: ', 30) || RPAD('Hora de Inicio: ', 30) || RPAD('Hora de Fin: ', 30) || RPAD('Dia: ', 30));
+  WHILE C%FOUND LOOP
+    IF(v_Horarios.DNI_Alumno = null) THEN
+    DBMS_OUTPUT.PUT_LINE('No hay curso de alumnos creados');
+    ELSE
+    DBMS_OUTPUT.PUT_LINE(RPAD(v_Horarios.DNI_Alumno, 30) || RPAD(v_Horarios.Hora_Inicio, 30) || RPAD(v_Horarios.Hora_Fin, 30) || RPAD(v_Horarios.Dia, 30));
+    END IF;
+  FETCH C INTO v_Horarios;
   END LOOP;
   CLOSE C;
 END;
