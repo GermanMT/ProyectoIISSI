@@ -53,7 +53,7 @@
 	</table>
 	
 	<?php
-		foreach($filas2 as $fila) {
+		foreach($filas1 as $fila) {
 	?>
 	
 	<table style="width:25%">
@@ -82,7 +82,7 @@
 	</table>
 	
 	<?php
-		foreach($filas1 as $fila) {
+		foreach($filas2 as $fila) {
 	?>
 	
 	<table style="width:25%">
