@@ -110,12 +110,33 @@ CREATE OR REPLACE PROCEDURE INSERTAR_HORARIO_PROFESOR
    P_Hora_Fin IN Horario_Profesor.Hora_Fin%TYPE,
    P_Dia IN Horario_Profesor.Dia%TYPE,
    P_Id_Horario IN Horario_Profesor.Id_Horario%TYPE,
-   P_DNI_Usuario IN Horario_Profesor.DNI_Usuario%TYPE,
-   P_Id_Curso IN Horario_Profesor.Id_Curso%TYPE
+    P_Id_Curso IN Horario_Profesor.Id_Curso%TYPE,
+   P_DNI_Usuario IN Horario_Profesor.DNI_Usuario%TYPE
+  
    ) IS
 BEGIN
-  INSERT INTO Horario_Profesor(Hora_Inicio,Hora_Fin,Dia,Id_Horario,DNI_Usuario,Id_Curso)
-  VALUES (P_Hora_Inicio,P_Hora_Fin,P_Dia,P_Id_Horario,P_DNI_Usuario,P_Id_Curso);
+  INSERT INTO Horario_Profesor(Hora_Inicio,Hora_Fin,Dia,Id_Horario,Id_Curso,DNI_Usuario)
+  VALUES (P_Hora_Inicio,P_Hora_Fin,P_Dia,P_Id_Horario,P_Id_Curso,P_DNI_Usuario);
+END;
+/
+
+--Insertar Profesor:
+/*
+CREATE OR REPLACE PROCEDURE INSERTAR_HORARIO_PROFESOR
+  (P_DNI_Profesor IN Profesores.DNI_Profesor%TYPE,
+   P_Nombre IN Profesores.Nombre%TYPE,
+   P_Apellidos IN Profesores.Apellidos%TYPE,
+   P_Edad IN Profesores.Edad%TYPE,
+   P_Localidad IN Profesores.Localidad%TYPE,
+   P_Sueldo_Profesor IN Profesores.Sueldo_Profesor%TYPE,
+   P_Nivel_Ingles IN Profesores.Nivel_Ingles%TYPE,
+   P_Telefono_Movil IN Profesores.Telefono_Movil%TYPE,
+   P_Telefono_Fijo IN Profesores.Telefono_Fijo%TYPE,
+   P_Email IN Profesores.Email%TYPE
+   ) IS
+BEGIN
+  INSERT INTO Profesores(DNI_Profesor,Nombre,Apellidos,Edad,Localidad,Sueldo_Profesor,Nivel_Ingles,Telefono_Movil,Telefono_Fijo,Email)
+  VALUES (P_DNI_Profesor,P_Nombre,P_Apellidos,P_Edad,P_Localidad,P_Sueldo_Profesor,P_Nivel_Ingles,P_Telefono_Movil,P_Telefono_Fijo,P_Email);
 END;
 /
 
