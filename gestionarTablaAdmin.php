@@ -2,7 +2,7 @@
     /*
      * #===========================================================#
      * #	Este fichero contiene las funciones de gestión     	   #	 
-     * #	de horarios de alumnos de la capa de acceso a datos    #
+     * #	de un administrador de la capa de acceso a datos       #
      * #===========================================================#
      */
 	function consultarAlumnos($conexion) {
@@ -13,8 +13,8 @@
 	
 	function quitarUsuario($conexion,$DNI_Usuario) {
 		try {
-			$stmt=$conexion->prepare('CALL QUITAR_USUARIO(:DNI_Usuario)');
-			$stmt->bindParam(':DNI_Usuario',$DNI_Usuario);
+			$stmt=$conexion->prepare('CALL QUITAR_USUARIO(:DNI_USUARIO)');
+			$stmt->bindParam(':DNI_USUARIO',$DNI_Usuario);
 			$stmt->execute();
 			return "";
 		} catch(PDOException $e) {
