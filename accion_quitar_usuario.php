@@ -6,10 +6,10 @@
 		unset($_SESSION["usuario"]);
 		
 		require_once("gestionBD.php");
-		require_once("gestionarLibros.php");
+		require_once("gestionarTablaAdmin.php");
 		
 		$conexion = crearConexionBD();		
-		$excepcion = quitarUsuario($conexion,$usuario["DNI_Usuario"]);
+		$excepcion = quitarUsuario($conexion,$usuario["DNI_USUARIO"]);
 		cerrarConexionBD($conexion);
 			
 		if ($excepcion<>"") {

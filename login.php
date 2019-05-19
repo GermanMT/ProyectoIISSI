@@ -73,7 +73,6 @@
 	<p>¿No estás registrado? <a href="formulario.php">¡Registrate!</a></p>
 </main>
 
-
 </body>
 </html>
 
