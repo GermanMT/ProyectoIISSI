@@ -67,8 +67,8 @@ PRIMARY KEY(DNI_Profesor)
 */
 
 CREATE TABLE Cursos(
-Fecha_Inicio DATE NOT NULL,
-Fecha_Fin DATE,
+Fecha_Inicio VARCHAR2(20) NOT NULL,
+Fecha_Fin VARCHAR2(20),
 Num_Alumnos NUMBER(10,0),
 Id_Curso INTEGER NOT NULL,
 Id_Academia INTEGER NOT NULL,
@@ -77,8 +77,8 @@ FOREIGN KEY(Id_Academia) REFERENCES Academias
 );
 
 CREATE TABLE Cursos_Alumnos(
-Fecha_Alta DATE NOT NULL,
-Fecha_Baja DATE,
+Fecha_Alta VARCHAR2(20) NOT NULL,
+Fecha_Baja VARCHAR2(20),
 Id_Curso_Alumno INTEGER NOT NULL,
 DNI_Usuario CHAR(9) NOT NULL,
 Id_Curso INTEGER NOT NULL,
@@ -97,14 +97,18 @@ PRIMARY KEY(Id_Horario),
 FOREIGN KEY(DNI_Usuario) REFERENCES Usuarios
 );
 
+
+
 CREATE TABLE Horario_Profesor(
 Hora_Inicio CHAR(8) NOT NULL,
 Hora_Fin CHAR(8) NOT NULL,
 Dia VARCHAR2(40) NOT NULL,
 Id_Horario INTEGER NOT NULL,
+Id_Curso INTEGER NOT NULL,
 DNI_Usuario CHAR(9),
 PRIMARY KEY(Id_Horario),
-FOREIGN KEY(DNI_Usuario) REFERENCES Usuarios
+FOREIGN KEY(DNI_Usuario) REFERENCES Usuarios,
+FOREIGN KEY(Id_Curso) REFERENCES Cursos
 );
 
 CREATE TABLE Horario_Curso(

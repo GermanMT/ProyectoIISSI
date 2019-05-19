@@ -40,11 +40,16 @@
     <main>
 
     <!-- Mostrar los recibos del alumno -->
+    <div class="body_content">
+        <p><h1>Recibos</h1></p>
+    </div>
+    
 	<table style="width:25%">
 		<tr>
 	    <th>DNI</th>
 	    <th>Fecha del recibo</th> 
 	    <th>Importe</th>
+	    <th>¿Pagado?</th>
 	  </tr>
 	</table>
 	
@@ -57,11 +62,17 @@
 	    <td><?php echo $fila["DNI_USUARIO"]; ?></td>
 		<td><?php echo $fila["FECHA_RECIBO"]; ?></td>
 		<td><?php echo $fila["POR_PAGAR"]; ?></td>
+		<td><?php echo $fila["PAGADO"]; ?></td>
 	  </tr>
 	</table>
 	<?php } ?>
 	
 	<!-- Mostrar los horarios del alumno -->
+	
+	<div class="body_content">
+        <p><h1>Horario</h1></p>
+    </div>
+    
 	<table style="width:25%">
 		<tr>
 	    <th>Día</th>

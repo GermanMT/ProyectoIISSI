@@ -2,19 +2,16 @@
 	session_start();
 
 	require_once("gestionBD.php");
-	require_once("gestionarHorarioProfesor.php");
 	require_once("gestionarCurso.php");
 	
 	if (!isset($_SESSION['login']))
 		Header("Location: login.php");
 	else {
 		$conexion = crearConexionBD();
-		$filas1 = consultarTodosHorariosProfesor($conexion);
-		$filas2 = consultarTodosCursosProfesor($conexion);
+		$filas1 = consultarTodosCursosProfesor($conexion);
 		cerrarConexionBD($conexion);
 	}
 ?>
-
 
 <html>
     <head>
@@ -39,18 +36,18 @@
     </div>
 
     <div class="body_content">
-        <p><h1>Bienvenido</h1></p>
+        <p><h1>Esta es la página de los alumnos del curso:</h1></p>
     </div>
-                
-                <main>
-                	<!--Mostrar tabla de horarios de un profesor-->
-
+    
+ <main>
+ 	
+<!--Mostar tabla de los cursos-->
+	
 	<table style="width:25%">
 		<tr>
-	    <th>Dia</th>
-	    <th>Hora de Inicio</th> 
-	    <th>Hora de Fin</th>
-	    <th>Curso</th>
+	    <th>Nombre</th>
+	    <th>Apellidos</th> 
+	    <th>DNI</th>
 	  </tr>
 	</table>
 	
@@ -60,14 +57,12 @@
 	
 	<table style="width:25%">
 	  <tr>
-	    <td><?php echo $fila["DIA"]; ?></td>
-		<td><?php echo $fila["HORA_INICIO"]; ?></td>
-		<td><?php echo $fila["HORA_FIN"]; ?></td>
-		<td><a href="vistaCurso.php"><?php echo $fila["ID_CURSO"]; ?></a></td>
+	    <td><?php echo $fila["NOMBRE"]; ?></td>
+		<td><?php echo $fila["APELLIDOS"]; ?></td>
+		<td><?php echo $fila["DNI_USUARIO"]; ?></td>
 	  </tr>
 	</table>
 	<?php } ?>
-	
 </main>
         </body>
 </html>

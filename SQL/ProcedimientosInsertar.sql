@@ -110,11 +110,13 @@ CREATE OR REPLACE PROCEDURE INSERTAR_HORARIO_PROFESOR
    P_Hora_Fin IN Horario_Profesor.Hora_Fin%TYPE,
    P_Dia IN Horario_Profesor.Dia%TYPE,
    P_Id_Horario IN Horario_Profesor.Id_Horario%TYPE,
+    P_Id_Curso IN Horario_Profesor.Id_Curso%TYPE,
    P_DNI_Usuario IN Horario_Profesor.DNI_Usuario%TYPE
+  
    ) IS
 BEGIN
-  INSERT INTO Horario_Profesor(Hora_Inicio,Hora_Fin,Dia,Id_Horario,DNI_Usuario)
-  VALUES (P_Hora_Inicio,P_Hora_Fin,P_Dia,P_Id_Horario,P_DNI_Usuario);
+  INSERT INTO Horario_Profesor(Hora_Inicio,Hora_Fin,Dia,Id_Horario,Id_Curso,DNI_Usuario)
+  VALUES (P_Hora_Inicio,P_Hora_Fin,P_Dia,P_Id_Horario,P_Id_Curso,P_DNI_Usuario);
 END;
 /
 
