@@ -134,3 +134,10 @@ BEGIN
   VALUES (P_Id_Recibo,P_Fecha_Recibo,P_Por_Pagar,P_Cuenta_Bancaria,P_Hermanos,P_DNI_Usuario,P_Forma_Pago);
 END;
 /
+
+--Quitar Alumno: 
+CREATE OR REPLACE PROCEDURE QUITAR_USUARIO (DNI_Usuario_A_QUITAR IN Usuarios.DNI_Usuario%TYPE) AS
+BEGIN
+    DELETE FROM Usuarios WHERE DNI_Usuario = DNI_Usuario_A_QUITAR;
+END;
+/
