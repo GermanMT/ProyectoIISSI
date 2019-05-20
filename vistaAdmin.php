@@ -21,11 +21,11 @@
 
 <html>
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-        <title>VistaAdmin</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
         <link rel="stylesheet" href="CSS/styleIISSI.css">
         <script type="text/javascript" src="./js/boton.js"></script>
+        <title>VistaAdmin</title>
     </head>
     <body>
         <div class="header">
@@ -64,10 +64,6 @@
 					<div>
 						<input id="DNI_USUARIO" name="DNI_USUARIO"
 							type="hidden" value="<?php echo $fila["DNI_USUARIO"]; ?>"/>
-						<input id="NOMBRE" name="NOMBRE"
-							type="hidden" value="<?php echo $fila["NOMBRE"]; ?>"/>
-						<input id="APELLIDOS" name="APELLIDOS"
-							type="hidden" value="<?php echo $fila["APELLIDOS"]; ?>"/>
 						<input id="EDAD" name="EDAD"
 							type="hidden" value="<?php echo $fila["EDAD"]; ?>"/>
 						<input id="LOCALIDAD" name="LOCALIDAD"
@@ -88,10 +84,15 @@
 							type="hidden" value="<?php echo $fila["TIPOUSUARIO"]; ?>"/>
 							
 	
-					<?php if (isset($usuario) and ($usuario["DNI_USUARIO"] == $usuario["DNI_USUARIO"])) { ?>
+					<?php if (isset($usuario) and ($usuario["DNI_USUARIO"] == $fila["DNI_USUARIO"])) { ?>
 							<!-- Editando alumno -->
-							<h3><input id="DNI_USUARIO" name="DNI_USUARIO" type="text" value="<?php echo $fila["DNI_USUARIO"]; ?>"/></h3>
-							<h4><?php echo $fila["DNI_USUARIO"];?></h4>
+							<table style="width:25%">
+								<tr>
+								   	<td><h4><?php echo $fila["DNI_USUARIO"];?></h4></td>
+								    <td><h3><input id="NOMBRE" name="NOMBRE" type="text" value="<?php echo $fila["NOMBRE"]; ?>"/></h3></td>
+								    <td><h3><input id="APELLIDOS" name="APELLIDOS" type="text" value="<?php echo $fila["APELLIDOS"]; ?>"/></h3></td>
+								</tr>
+							</table>
 					<?php } else { ?>
 						<!-- Mostrando alumno -->
 						<input id="DNI_USUARIO" name="DNI_USUARIO" type="hidden" value="<?php echo $fila["DNI_USUARIO"]; ?>"/>
@@ -107,15 +108,15 @@
 					
 					<div id="botones_fila">
 						<?php if (isset($usuario) and ($usuario["DNI_USUARIO"] == $fila["DNI_USUARIO"])) { ?>
-							<button id="grabar" name="grabar" type="submit" class="editar_fila">
+							<button id="grabar" name="grabar" type="submit">
 								<img src="images/bag_menuito.bmp" class="editar_fila" alt="Guardar modificación">
 							</button>
 						<?php } else { ?>
-							<button id="editar" name="editar" type="submit" class="editar_fila">
+							<button id="editar" name="editar" type="submit">
 								<img src="images/pencil_menuito.bmp" class="editar_fila" alt="Editar Alumno">
 							</button>
 						<?php } ?>
-							<button id="borrar" name="borrar" type="submit" class="editar_fila">
+							<button id="borrar" name="borrar" type="submit">
 								<img src="images/remove_menuito.bmp" class="editar_fila" alt="Borrar Alumno">
 							</button>
 					</div>

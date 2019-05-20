@@ -24,7 +24,7 @@
 	
 	function modificarUsuario($conexion,$DNI_Usuario,$NOMBRE,$APELLIDOS) {
 		try {
-			$stmt=$conexion->prepare('CALL MODIFICAR_TITULO(:DNI_Usuario,:NOMBRE,:APELLIDOS)');
+			$stmt=$conexion->prepare('CALL MODIFICAR_USUARIO(:DNI_Usuario,:NOMBRE,:APELLIDOS)');
 			$stmt->bindParam(':DNI_Usuario',$DNI_Usuario);
 			$stmt->bindParam(':NOMBRE',$NOMBRE);
 			$stmt->bindParam(':APELLIDOS',$APELLIDOS);
