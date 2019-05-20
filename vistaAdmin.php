@@ -46,7 +46,7 @@
 	    </div>             
                 	
 		<!-- Mostrar alumnos de la academia -->
-	  	<table style="width:25%">
+		<table style="width:25%">
 			<tr>
 		    	<th>DNI del alumno</th>
 		    	<th>Nombre</th>
@@ -58,20 +58,16 @@
 			foreach($filas1 as $fila) {
 		?>
 		
-		<table style="width:25%">
-			<tr>
-		    	<td><?php echo $fila["DNI_USUARIO"]; ?></td>
-		    	<td><?php echo $fila["NOMBRE"]; ?></td>
-		    	<td><?php echo $fila["APELLIDOS"]; ?></td>
-		    </tr>
-		</table>
-		
 		<article>
 			<form method="post" action="controladorUsuario.php">
 				<div>
 					<div>
 						<input id="DNI_USUARIO" name="DNI_USUARIO"
 							type="hidden" value="<?php echo $fila["DNI_USUARIO"]; ?>"/>
+						<input id="NOMBRE" name="NOMBRE"
+							type="hidden" value="<?php echo $fila["NOMBRE"]; ?>"/>
+						<input id="APELLIDOS" name="APELLIDOS"
+							type="hidden" value="<?php echo $fila["APELLIDOS"]; ?>"/>
 						<input id="EDAD" name="EDAD"
 							type="hidden" value="<?php echo $fila["EDAD"]; ?>"/>
 						<input id="LOCALIDAD" name="LOCALIDAD"
@@ -92,12 +88,21 @@
 							type="hidden" value="<?php echo $fila["TIPOUSUARIO"]; ?>"/>
 							
 	
-					<?php
-						if (isset($usuario) and ($usuario["DNI_USUARIO"] == $usuario["DNI_USUARIO"])) { ?>
-							<!-- Editando título -->
+					<?php if (isset($usuario) and ($usuario["DNI_USUARIO"] == $usuario["DNI_USUARIO"])) { ?>
+							<!-- Editando alumno -->
 							<h3><input id="DNI_USUARIO" name="DNI_USUARIO" type="text" value="<?php echo $fila["DNI_USUARIO"]; ?>"/></h3>
 							<h4><?php echo $fila["DNI_USUARIO"];?></h4>
-					<?php }	?>
+					<?php } else { ?>
+						<!-- Mostrando alumno -->
+						<input id="DNI_USUARIO" name="DNI_USUARIO" type="hidden" value="<?php echo $fila["DNI_USUARIO"]; ?>"/>
+						<table style="width:25%">
+							<tr>
+							   	<td><?php echo $fila["DNI_USUARIO"]; ?></td>
+							    <td><?php echo $fila["NOMBRE"]; ?></td>
+							    <td><?php echo $fila["APELLIDOS"]; ?></td>
+							</tr>
+						</table>
+					<?php } ?>
 					</div>
 					
 					<div id="botones_fila">
