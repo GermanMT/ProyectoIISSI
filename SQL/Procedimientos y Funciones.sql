@@ -1,19 +1,19 @@
-CREATE OR REPLACE PROCEDURE INSERTAR_ALUMNO 
-  (P_DNI IN Alumnos.DNI_Alumno%TYPE,
-   P_NOM IN Alumnos.Nombre%TYPE,
-   P_APE IN Alumnos.Apellidos%TYPE,
-   P_EDAD IN Alumnos.Edad%TYPE,
-   P_LOCALIDAD IN Alumnos.Localidad%TYPE,
-   P_MOVIL IN Alumnos.Telefono_Movil%TYPE,
-   P_FIJO IN Alumnos.Telefono_Fijo%TYPE,
-   P_EMAIL IN Alumnos.Email%TYPE,
-   P_PADMAD IN Alumnos.Nombre_Padre_Madre%TYPE,
-   P_USUARIO IN Alumnos.Usuario%TYPE,
-   P_PASS IN Alumnos.Pass%TYPE
+create or replace PROCEDURE INSERTAR_ALUMNO 
+  (P_DNI_Alumno IN Alumnos.DNI_Alumno%TYPE,
+   P_Nombre IN Alumnos.Nombre%TYPE,
+   P_Apellidos IN Alumnos.Apellidos%TYPE,
+   P_Edad IN Alumnos.Edad%TYPE,
+   P_Localidad IN Alumnos.Localidad%TYPE,
+   P_TelefonoMovil IN Alumnos.Telefono_Movil%TYPE,
+   P_TelefonoFijo IN Alumnos.Telefono_Fijo%TYPE,
+   P_Email IN Alumnos.Email%TYPE,
+   P_NombrePadreMadre IN Alumnos.Nombre_Padre_Madre%TYPE,
+   P_Usuario IN Alumnos.Usuario%TYPE,
+   P_Pass IN Alumnos.Pass%TYPE
    ) IS
 BEGIN
   INSERT INTO Alumnos(DNI_Alumno,Nombre,Apellidos,Edad,Localidad ,Telefono_Movil,Telefono_Fijo,Email,Nombre_Padre_Madre,Usuario,Pass)
-  VALUES (P_DNI,P_NOM,P_APE,P_EDAD,P_LOCALIDAD,P_MOVIL,P_FIJO,P_EMAIL,P_PADMAD,P_USUARIO,P_PASS);
+  VALUES (P_DNI_Alumno,P_Nombre,P_Apellidos,P_Edad,P_Localidad,P_TelefonoMovil,P_TelefonoFijo,P_Email,P_NombrePadreMadre,P_Usuario,P_Pass);
 END;
 /
 
