@@ -9,12 +9,15 @@ END;
 BEGIN
 INSERTAR_USUARIO('21015236K','Antonio German','Márquez','21', 'El Repilado', '619527721', '954841642', 'antonio-german-1@hotmail.com', 'Jose Enrique', 'GermanOctavo', '19german15','Alumno');
 INSERTAR_USUARIO('67843287L','Jose Antonio','Macias Portillo','20', 'La Puebla de Cazalla', '619527721', '954841642', 'jose-antonio@hotmail.com', 'Gustavo', 'Josan', '123456','Alumno');
-INSERTAR_USUARIO('75867742J','Alavaro','Frias Balbuena','22', 'Arahal', '619527721', '954841642', 'alvaro-231@hotmail.com', 'Pedro', 'AlavaroFB7', '123456','Alumno');
+INSERTAR_USUARIO('75867742J','Alvaro','Frias Balbuena','22', 'Arahal', '619527721', '954841642', 'alvaro-231@hotmail.com', 'Pedro', 'AlavaroFB7', '123456','Alumno');
 INSERTAR_USUARIO('11111111K','Admin','Admin','1', 'Arahal', '698765432', '123456789', 'academia@hotmail.com', 'Jose Enrique', 'Admin', 'administrador','Admin');
 INSERTAR_USUARIO('49385388H','Jose Antonio','Macias','20', 'La Puebla De Cazalla', '619525521', '954822642', 'josanfcs98@hotmail.com', 'Jose Enrique', 'JosanFCS', 'holita20','Profesor');
 COMMIT;
 END;
 /
+
+BEGIN
+MODIFICAR_USUARIO ('21015236K'
 
 BEGIN
 QUITAR_USUARIO('21015236K');

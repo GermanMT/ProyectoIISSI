@@ -46,11 +46,18 @@
 	    </div>             
                 	
 		<!-- Mostrar alumnos de la academia -->
+		<p><h1>Alumnos:</h1></p>
 		<table style="width:25%">
 			<tr>
 		    	<th>DNI del alumno</th>
 		    	<th>Nombre</th>
 		    	<th>Apellidos</th>
+		    	<th>Edad</th>
+		    	<th>Localidad</th>
+		    	<th>Telefono Movil</th>
+		    	<th>Telefono Fijo</th>
+		    	<th>Email</th>
+		    	<th>Tutor Legal</th>
 		    </tr>
 		</table>
 		
@@ -64,6 +71,10 @@
 					<div>
 						<input id="DNI_USUARIO" name="DNI_USUARIO"
 							type="hidden" value="<?php echo $fila["DNI_USUARIO"]; ?>"/>
+						<input id="NOMBRE" name="NOMBRE"
+							type="hidden" value="<?php echo $fila["NOMBRE"]; ?>"/>
+						<input id="APELLIDOS" name="APELLIDOS"
+							type="hidden" value="<?php echo $fila["APELLIDOS"]; ?>"/>
 						<input id="EDAD" name="EDAD"
 							type="hidden" value="<?php echo $fila["EDAD"]; ?>"/>
 						<input id="LOCALIDAD" name="LOCALIDAD"
@@ -91,6 +102,12 @@
 								   	<td><h4><?php echo $fila["DNI_USUARIO"];?></h4></td>
 								    <td><h3><input id="NOMBRE" name="NOMBRE" type="text" value="<?php echo $fila["NOMBRE"]; ?>"/></h3></td>
 								    <td><h3><input id="APELLIDOS" name="APELLIDOS" type="text" value="<?php echo $fila["APELLIDOS"]; ?>"/></h3></td>
+								    <td><h3><input id="EDAD" name="EDAD" type="text" value="<?php echo $fila["EDAD"]; ?>"/></h3></td>
+								    <td><h3><input id="LOCALIDAD" name="LOCALIDAD" type="text" value="<?php echo $fila["LOCALIDAD"]; ?>"/></h3></td>
+								    <td><h3><input id="TELEFONO_MOVIL" name="TELEFONO_MOVIL" type="text" value="<?php echo $fila["TELEFONO_MOVIL"]; ?>"/></h3></td>
+								    <td><h3><input id="TELEFONO_FIJO" name="TELEFONO_FIJO" type="text" value="<?php echo $fila["TELEFONO_FIJO"]; ?>"/></h3></td>
+								    <td><h3><input id="EMAIL" name="EMAIL" type="text" value="<?php echo $fila["EMAIL"]; ?>"/></h3></td>
+								    <td><h3><input id="NOMBRE_PADRE_MADRE" name="NOMBRE_PADRE_MADRE" type="text" value="<?php echo $fila["NOMBRE_PADRE_MADRE"]; ?>"/></h3></td>
 								</tr>
 							</table>
 					<?php } else { ?>
@@ -101,6 +118,12 @@
 							   	<td><?php echo $fila["DNI_USUARIO"]; ?></td>
 							    <td><?php echo $fila["NOMBRE"]; ?></td>
 							    <td><?php echo $fila["APELLIDOS"]; ?></td>
+							    <td><?php echo $fila["EDAD"]; ?></td>
+							    <td><?php echo $fila["LOCALIDAD"]; ?></td>
+							    <td><?php echo $fila["TELEFONO_MOVIL"]; ?></td>
+							    <td><?php echo $fila["TELEFONO_FIJO"]; ?></td>
+							    <td><?php echo $fila["EMAIL"]; ?></td>
+							    <td><?php echo $fila["NOMBRE_PADRE_MADRE"]; ?></td>
 							</tr>
 						</table>
 					<?php } ?>
@@ -120,15 +143,19 @@
 								<img src="images/remove_menuito.bmp" class="editar_fila" alt="Borrar Alumno">
 							</button>
 					</div>
-					<?php } ?>
 				</div>
 			</form>
 		</article>
+		
+		<?php } ?>
 			
 		<!-- Mostrar profesores de la academia -->
+		<p><h1>Profesores:</h1></p>
 	  	<table style="width:25%">
 			<tr>
-		    	<th>Profesores</th>
+		    	<th>DNI del Profesor</th>
+		    	<th>Nombre</th>
+		    	<th>Apellidos</th>
 		    </tr>
 		</table>
 		
