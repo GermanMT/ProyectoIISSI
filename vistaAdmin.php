@@ -124,6 +124,7 @@
 							    <td><?php echo $fila["TELEFONO_FIJO"]; ?></td>
 							    <td><?php echo $fila["EMAIL"]; ?></td>
 							    <td><?php echo $fila["NOMBRE_PADRE_MADRE"]; ?></td>
+							    <td><a href="gestionRecibos.php">Recibos del Alumno</a></td>
 							</tr>
 						</table>
 					<?php } ?>
