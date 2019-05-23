@@ -156,6 +156,7 @@ ul.menus li ul{
     background-size:100%;
     float: left;
     width: 100%;
+
 }
 .bottom_content{
     margin: 0 auto;
@@ -185,7 +186,7 @@ ul.menus li ul{
 }
 .right_content_box{
     padding-top: 50px;
-    padding-bottom: 700px;
+    padding-bottom: 50px;
     float: right;
     width: 40%;
     }
@@ -208,6 +209,16 @@ ul.menus li ul{
     margin: 0px 5px;
     line-height: 24px;
 }
+
+/*------------Botones-------------------------*/
+.editar_fila{
+	border:0px;
+	margin:3px;
+	padding:0px;
+	float: right;	/* Los botones de acci�n de cada libro aparecer�n en la parte derecha */
+
+}
+
 
 /*------------Quienes Somos-------------------*/
 .left_content_box_qs{

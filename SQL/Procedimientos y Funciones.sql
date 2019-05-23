@@ -17,8 +17,15 @@ BEGIN
 END;
 /
 
+BEGIN
+INSERTAR_ALUMNO('49385388H','Jose Antonio','Macias','20', 'La Puebla De Cazalla', '611227721', '954841552', 'josanfcs98@hotmail.com', 'Jose Enrique', 'JosanFCS', 'holita20');
+COMMIT;
+END;
+/
+
+--Insertar Recibo:
 CREATE OR REPLACE PROCEDURE INSERTAR_RECIBO
-  (p_Id_Recibo IN Recibos.Id_Recibo%TYPE,
+  (P_Id_Recibo IN Recibos.Id_Recibo%TYPE,
    P_Fecha_Recibo IN Recibos.Fecha_Recibo%TYPE,
    P_Por_Pagar IN Recibos.Por_Pagar%TYPE,
    P_Cuenta_Bancaria IN Recibos.Cuenta_Bancaria%TYPE,
@@ -28,36 +35,21 @@ CREATE OR REPLACE PROCEDURE INSERTAR_RECIBO
    ) IS
 BEGIN
   INSERT INTO Recibos(Id_Recibo,Fecha_Recibo,Por_Pagar,Cuenta_Bancaria,Hermanos,DNI_Alumno,Forma_Pago)
-  VALUES (p_Id_Recibo,P_Fecha_Recibo,P_Por_Pagar,P_Cuenta_Bancaria,P_Hermanos,P_DNI_Alumno,P_Forma_Pago);
+  VALUES (P_Id_Recibo,P_Fecha_Recibo,P_Por_Pagar,P_Cuenta_Bancaria,P_Hermanos,P_DNI_Alumno,P_Forma_Pago);
 END;
 /
 
 BEGIN
-INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/05/29',500.00,  '', 0, '21015236K', 'efectivo');
+INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/05/06',500.00, '', 0, '21015236K', 'efectivo');
+INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/06/06',500.00, '', 0, '21015236K', 'efectivo');
+INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/07/06',500.00, '', 0, '21015236K', 'efectivo');
+INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/08/06',500.00, '', 0, '21015236K', 'efectivo');
+INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/09/06',500.00, '', 0, '21015236K', 'efectivo');
+INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/10/06',500.00, '', 0, '21015236K', 'efectivo');
 COMMIT;
 END;
 /
 
-CREATE OR REPLACE PROCEDURE INSERTAR_RECIBO
-  (p_Id_Recibo IN Recibos.Id_Recibo%TYPE,
-   P_Fecha_Recibo IN Recibos.Fecha_Recibo%TYPE,
-   P_Por_Pagar IN Recibos.Por_Pagar%TYPE,
-   P_Cuenta_Bancaria IN Recibos.Cuenta_Bancaria%TYPE,
-   P_Hermanos IN Recibos.Hermanos%TYPE,
-   P_DNI_Alumno IN Recibos.DNI_Alumno%TYPE,
-   P_Forma_Pago IN Recibos.Forma_Pago%TYPE
-   ) IS
-BEGIN
-  INSERT INTO Recibos(Id_Recibo,Fecha_Recibo,Por_Pagar,Cuenta_Bancaria,Hermanos,DNI_Alumno,Forma_Pago)
-  VALUES (p_Id_Recibo,P_Fecha_Recibo,P_Por_Pagar,P_Cuenta_Bancaria,P_Hermanos,P_DNI_Alumno,P_Forma_Pago);
-END;
-/
-
-BEGIN
-INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/05/29',500.00,  '', 0, '21015236K', 'efectivo');
-COMMIT;
-END;
-/
 
 --Procedimiento del Requisito Funcional 1:
 create or replace PROCEDURE Cuota_Mensual (v_DNI_Alumno IN Alumnos.DNI_Alumno%TYPE)
@@ -169,50 +161,6 @@ OPEN C;
     DBMS_OUTPUT.PUT_LINE(RPAD(v_Cursos.Id_Curso,30) || RPAD(v_Cursos.Fecha_Inicio, 30) || RPAD(v_Cursos.Fecha_Fin, 30) || RPAD(v_Cursos.Num_Alumnos, 30));
   END IF;
   FETCH C INTO v_Cursos;
-  END LOOP;
-  CLOSE C;
-END;
-/
-
---Procedimiento del Requisito Funcional 6:
-create or replace PROCEDURE Horario_Profesor (v_DNI_Profesor IN Profesores.DNI_Profesor%TYPE)
-IS
-  CURSOR C IS
-    SELECT DNI_Profesor, Hora_Inicio, Hora_Fin, Dia FROM Horarios NATURAL JOIN Profesores WHERE DNI_Profesor = v_DNI_Profesor;
-    v_Horarios C%ROWTYPE;
-BEGIN
-  OPEN C;
-  FETCH C INTO v_Horarios;
-    DBMS_OUTPUT.PUT_LINE(RPAD('DNI del Profesor: ', 20) || RPAD('Hora de Inicio: ', 20) || RPAD('Hora de Fin: ', 20) || RPAD('Dia: ', 20));
-  WHILE C%FOUND LOOP
-    IF(v_Horarios.DNI_Profesor = null) THEN
-    DBMS_OUTPUT.PUT_LINE('No hay curso de profesores creados');
-    ELSE
-    DBMS_OUTPUT.PUT_LINE(RPAD(v_Horarios.DNI_Profesor, 20) || RPAD(v_Horarios.Hora_Inicio, 20) || RPAD(v_Horarios.Hora_Fin, 20) || RPAD(v_Horarios.Dia, 20));
-    END IF;
-  FETCH C INTO v_Horarios;
-  END LOOP;
-  CLOSE C;
-END;
-/
-
---Procedimiento del Requisito Funcional 7:
-create or replace PROCEDURE Horario_Alumno (v_DNI_Alumno IN Horarios.DNI_Alumno%TYPE)
-IS
-  CURSOR C IS
-    SELECT DNI_Alumno, Hora_Inicio, Hora_Fin, Dia FROM Horarios NATURAL JOIN Alumnos WHERE DNI_Alumno = v_DNI_Alumno;
-    v_Horarios C%ROWTYPE;
-BEGIN
-  OPEN C;
-  FETCH C INTO v_Horarios;
-  DBMS_OUTPUT.PUT_LINE(RPAD('DNI del Alumno: ', 30) || RPAD('Hora de Inicio: ', 30) || RPAD('Hora de Fin: ', 30) || RPAD('Dia: ', 30));
-  WHILE C%FOUND LOOP
-    IF(v_Horarios.DNI_Alumno = null) THEN
-    DBMS_OUTPUT.PUT_LINE('No hay curso de alumnos creados');
-    ELSE
-    DBMS_OUTPUT.PUT_LINE(RPAD(v_Horarios.DNI_Alumno, 30) || RPAD(v_Horarios.Hora_Inicio, 30) || RPAD(v_Horarios.Hora_Fin, 30) || RPAD(v_Horarios.Dia, 30));
-    END IF;
-  FETCH C INTO v_Horarios;
   END LOOP;
   CLOSE C;
 END;

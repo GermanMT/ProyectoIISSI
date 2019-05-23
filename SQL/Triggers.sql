@@ -10,13 +10,35 @@ BEGIN
 END;
 /
 
-CREATE OR REPLACE TRIGGER TR_Horarios
-BEFORE INSERT ON Horarios
+CREATE OR REPLACE TRIGGER TR_Horario_Profesor
+BEFORE INSERT ON Horario_Profesor
 FOR EACH ROW
 DECLARE
      valorSec NUMBER := 0;
 BEGIN
-     SELECT SEC_Horarios.CURRVAL INTO valorSec FROM DUAL;
+     SELECT SEC_Horario_Profesor.CURRVAL INTO valorSec FROM DUAL;
+     :NEW.Id_Horario := valorSec;
+END;
+/
+
+CREATE OR REPLACE TRIGGER TR_Horario_Curso
+BEFORE INSERT ON Horario_Curso
+FOR EACH ROW
+DECLARE
+     valorSec NUMBER := 0;
+BEGIN
+     SELECT SEC_Horario_Curso.CURRVAL INTO valorSec FROM DUAL;
+     :NEW.Id_Horario := valorSec;
+END;
+/
+
+CREATE OR REPLACE TRIGGER TR_Horario_Alumno
+BEFORE INSERT ON Horario_Alumno
+FOR EACH ROW
+DECLARE
+     valorSec NUMBER := 0;
+BEGIN
+     SELECT SEC_Horario_Alumno.CURRVAL INTO valorSec FROM DUAL;
      :NEW.Id_Horario := valorSec;
 END;
 /
@@ -82,17 +104,17 @@ END;
 /
 
 --Triger de la Regla de Negocio 2:
-CREATE OR REPLACE TRIGGER Pago_Mensual
+/*CREATE OR REPLACE TRIGGER Pago_Mensual
 BEFORE INSERT ON Recibos
 FOR EACH ROW
 DECLARE
     v_Fecha_Recibo DATE := :NEW.Fecha_Recibo;
 BEGIN
-    IF(v_Fecha_Recibo > TO_DATE(07,'DD')) THEN
+    IF(v_Fecha_Recibo < TO_DATE(07,'DD')) THEN
         RAISE_APPLICATION_ERROR(-20003,'El pago mensual debe realizarse con una semana de antelación.');
     END IF;
 END;
-/
+/*/
 
 --Triger de la Regla de Negocio 3:
 CREATE OR REPLACE TRIGGER Num_Alumnos

@@ -6,9 +6,9 @@
      * #===========================================================#
      */
 	function consultarTodosRecibos($conexion) {
-		$consulta = "SELECT * FROM RECIBOS, ALUMNOS"
-			. " WHERE (RECIBOS.DNI_ALUMNO = ALUMNOS.DNI_ALUMNO)";
-			// . " ORDER BY Id_Recibo";
+		$consulta = "SELECT * FROM RECIBOS, USUARIOS"
+			. " WHERE (RECIBOS.DNI_USUARIO = Usuarios.DNI_USUARIO)"
+			. " ORDER BY Id_Recibo";
 	    return $conexion->query($consulta);
 	} 
 ?>
