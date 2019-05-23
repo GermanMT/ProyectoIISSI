@@ -127,12 +127,13 @@ CREATE OR REPLACE PROCEDURE INSERTAR_RECIBO
    P_Por_Pagar IN Recibos.Por_Pagar%TYPE,
    P_Cuenta_Bancaria IN Recibos.Cuenta_Bancaria%TYPE,
    P_Hermanos IN Recibos.Hermanos%TYPE,
+   P_Pagado IN Recibos.Pagado%TYPE,
    P_DNI_Usuario IN Recibos.DNI_Usuario%TYPE,
    P_Forma_Pago IN Recibos.Forma_Pago%TYPE
    ) IS
 BEGIN
-  INSERT INTO Recibos(Id_Recibo,Fecha_Recibo,Por_Pagar,Cuenta_Bancaria,Hermanos,DNI_Usuario,Forma_Pago)
-  VALUES (P_Id_Recibo,P_Fecha_Recibo,P_Por_Pagar,P_Cuenta_Bancaria,P_Hermanos,P_DNI_Usuario,P_Forma_Pago);
+  INSERT INTO Recibos(Id_Recibo,Fecha_Recibo,Por_Pagar,Cuenta_Bancaria,Hermanos,Pagado,DNI_Usuario,Forma_Pago)
+  VALUES (P_Id_Recibo,P_Fecha_Recibo,P_Por_Pagar,P_Cuenta_Bancaria,P_Hermanos,P_Pagado,P_DNI_Usuario,P_Forma_Pago);
 END;
 /
 

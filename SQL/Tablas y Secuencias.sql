@@ -41,9 +41,10 @@ Fecha_Recibo VARCHAR2(20) NOT NULL,
 Por_Pagar INTEGER,
 Cuenta_Bancaria CHAR(24),
 Hermanos NUMBER(2,0) NOT NULL,
+Pagado VARCHAR2(30) CHECK(Pagado IN('Si','No')) NOT NULL,
 DNI_Usuario CHAR(9) NOT NULL,
 Forma_Pago VARCHAR2(30) 
-          CHECK (Forma_Pago IN('domiciliaciónBancaria', 'efectivo', 'tarjetaCredito')) NOT NULL,
+          CHECK(Forma_Pago IN('domiciliaciónBancaria', 'efectivo', 'tarjetaCredito')) NOT NULL,
 PRIMARY KEY(Id_Recibo),
 FOREIGN KEY(DNI_Usuario) REFERENCES Usuarios
 );
