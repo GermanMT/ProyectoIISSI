@@ -39,7 +39,7 @@ CREATE TABLE Usuarios(
 DNI_Usuario CHAR(9) NOT NULL,
 Nombre VARCHAR2(20) NOT NULL,
 Apellidos VARCHAR2(20) NOT NULL,
-Edad NUMBER(2),
+Edad NUMBER(4),
 Localidad VARCHAR2(20),
 Telefono_Movil CHAR(9) NOT NULL,
 Telefono_Fijo CHAR(9),

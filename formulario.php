@@ -17,6 +17,7 @@
 		$formulario['NombrePadreMadre'] = "";
 		$formulario['Usuario'] = "";
 		$formulario['Pass'] = "";
+		$formulario['TipoUsuario'] = "Alumno";
 
 		$_SESSION['formulario'] = $formulario;
 	}
@@ -61,7 +62,7 @@
 		<p><i>Los campos obligatorios están marcados con </i><em>*</em></p>
 		<fieldset><legend>Datos personales</legend>
 			<div></div><label for="DNI">DNI<em>*</em></label>
-			<input id="DNI_Alumno" name="DNI_Alumno" type="text" placeholder="12345678X" pattern="^[0-9]{8}[A-Z]" title="Ocho dígitos seguidos de una letra mayúscula" 
+			<input id="DNI_Usuario" name="DNI_Usuario" type="text" placeholder="12345678X" pattern="^[0-9]{8}[A-Z]" title="Ocho dígitos seguidos de una letra mayúscula" 
 			value="<?php echo $formulario['DNI'];?>" required>
 			</div>
 
@@ -95,6 +96,13 @@
 
 			<div><label for="NombrePadreMadre">Nombre Padre o Madre:</label>
 			<input id="NombrePadreMadre" name="NombrePadreMadre" type="text" value="<?php echo $formulario['NombrePadreMadre'];?>"/>
+			</div>
+
+			<div><label>TipoUsuario:</label>
+			<label>
+				<input name="TipoUsuario" type="radio" value="ALUMNO" <?php if($formulario['TipoUsuario']=='ALUMNO') echo ' checked ';?>/>
+				Alumno</label>
+			
 			</div>
 
 		</fieldset>
