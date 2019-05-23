@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	session_start();
 
 	require_once("gestionBD.php");
@@ -46,8 +46,10 @@
 	    </div>             
                 	
 		<!-- Mostrar alumnos de la academia -->
+
 		<p><h1>Alumnos:</h1></p>
 		<table style="width:25%">
+
 			<tr>
 		    	<th>DNI del alumno</th>
 		    	<th>Nombre</th>
@@ -60,21 +62,24 @@
 		    	<th>Tutor Legal</th>
 		    </tr>
 		</table>
-		
+		-->
 		<?php
 			foreach($filas1 as $fila) {
 		?>
+		 
 		
+
 		<article>
 			<form method="post" action="controladorUsuario.php">
 				<div>
 					<div>
-						<input id="DNI_USUARIO" name="DNI_USUARIO"
+							
+						<!-- <input id="DNI_USUARIO" name="DNI_USUARIO"
 							type="hidden" value="<?php echo $fila["DNI_USUARIO"]; ?>"/>
 						<input id="NOMBRE" name="NOMBRE"
 							type="hidden" value="<?php echo $fila["NOMBRE"]; ?>"/>
 						<input id="APELLIDOS" name="APELLIDOS"
-							type="hidden" value="<?php echo $fila["APELLIDOS"]; ?>"/>
+							type="hidden" value="<?php echo $fila["APELLIDOS"]; ?>"/> -->
 						<input id="EDAD" name="EDAD"
 							type="hidden" value="<?php echo $fila["EDAD"]; ?>"/>
 						<input id="LOCALIDAD" name="LOCALIDAD"
@@ -128,6 +133,7 @@
 								</tr>
 							</table>
 					<?php } ?>
+
 					</div>
 					
 					<div id="botones_fila">
@@ -147,8 +153,10 @@
 				</div>
 			</form>
 		</article>
+
 		
 		<?php } ?>
+
 			
 		<!-- Mostrar profesores de la academia -->
 		<p><h1>Profesores:</h1></p>

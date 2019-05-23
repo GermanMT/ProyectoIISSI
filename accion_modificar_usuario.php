@@ -9,7 +9,9 @@
 		require_once("gestionarTablaAdmin.php");
 		
 		$conexion = crearConexionBD();		
+
 		$excepcion = modificarUsuario($conexion,$usuario["DNI_USUARIO"],$usuario["NOMBRE"],$usuario["APELLIDOS"],$usuario["EDAD"],$usuario["LOCALIDAD"],$usuario["TELEFONO_MOVIL"],$usuario["TELEFONO_FIJO"],$usuario["EMAIL"],$usuario["NOMBRE_PADRE_MADRE"]);
+
 		cerrarConexionBD($conexion);
 			
 		if ($excepcion<>"") {

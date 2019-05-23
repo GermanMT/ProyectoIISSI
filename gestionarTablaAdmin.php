@@ -1,4 +1,4 @@
-<?php
+﻿<?php
     /*
      * #===========================================================#
      * #	Este fichero contiene las funciones de gestión     	   #	 
@@ -40,6 +40,7 @@
 			return $e->getMessage();
 	    }
 	}
+
 	
 	function consultarProfesores($conexion) {
 		$consulta = "SELECT * FROM Usuarios"
