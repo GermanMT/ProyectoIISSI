@@ -65,7 +65,7 @@ if (count($errores) > 0) {
 	}
 	if ($usuario["Email"] == "") {
 		$errores[] = "El email no puede estar vacío";
-	} 
+	}
 	if ($usuario["TelefonoMovil"] == "" or !is_numeric($usuario["TelefonoMovil"]) or strlen($usuario["TelefonoMovil"]) < 9) {
 		$errores[] = "El teléfono móvil no es correcto";
 	}
