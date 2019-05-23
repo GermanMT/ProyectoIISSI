@@ -1,7 +1,8 @@
 <?php
 	session_start();
 
-	require_once("gestionBD.php");
+	require_once ('gestionBD.php');
+	require_once ("gestionarUsuarios.php");
 	
 	// Si no existen datos del formulario en la sesión, se crea una entrada con valores por defecto
 	if (!isset($_SESSION['formulario'])) {
@@ -17,7 +18,6 @@
 		$formulario['Usuario'] = "";
 		$formulario['Pass'] = "";
 
-	
 		$_SESSION['formulario'] = $formulario;
 	}
 	// Si ya existían valores, los cogemos para inicializar el formulario
@@ -28,8 +28,7 @@
 	if (isset($_SESSION["errores"]))
 		$errores = $_SESSION["errores"];
 
-		// Creamos una conexión con la BD
-		$conexion = crearConexionBD();
+	
 ?>
 
 <!DOCTYPE html>
@@ -37,7 +36,8 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="CSS/styleIISSI.css" />
-	<script src="js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
+	<!--<script src="js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
+  -->
   <title>Alta de Usuarios</title>
 </head>
 
@@ -56,20 +56,21 @@
   		}
 	?>
 	
-	<!-- Detrás de "POST"   action="validacion_alta_usuario.php" -->
-	<form id="formulario" method="POST" onsubmit="return validateForm()">
+	<!-- Detrás de "POST"   action="validacion_alta_usuario.php" onsubmit="return validateForm()" -->
+	<form id="formulario" class="formulario" method="get" novalidate>
 		<p><i>Los campos obligatorios están marcados con </i><em>*</em></p>
 		<fieldset><legend>Datos personales</legend>
 			<div></div><label for="DNI">DNI<em>*</em></label>
-			<input id="DNI" name="DNI" type="text" placeholder="12345678X" pattern="^[0-9]{8}[A-Z]" title="Ocho dígitos seguidos de una letra mayúscula" value="<?php echo $formulario['DNI'];?>" required>
+			<input id="DNI_Alumno" name="DNI_Alumno" type="text" placeholder="12345678X" pattern="^[0-9]{8}[A-Z]" title="Ocho dígitos seguidos de una letra mayúscula" 
+			value="<?php echo $formulario['DNI'];?>" required>
 			</div>
 
 			<div><label for="Nombre">Nombre:<em>*</em></label>
-			<input id="Nombre" name="Nombre" type="text" size="40" value="<?php echo $formulario['Nombre'];?>" required/>
+			<input id="Nombre" name="Nombre" type="text" size="30" value="<?php echo $formulario['Nombre'];?>" required/>
 			</div>
 
 			<div><label for="Apellidos">Apellidos:</label>
-			<input id="Apellidos" name="Apellidos" type="text" size="80" value="<?php echo $formulario['Apellidos'];?>"/>
+			<input id="Apellidos" name="Apellidos" type="text" size="50" value="<?php echo $formulario['Apellidos'];?>"/>
 			</div>
 
 			<div><label for="Edad">Edad:</label>
@@ -104,8 +105,7 @@
 				<input id="Usuario" name="Usuario" type="text" size="20" value="<?php echo $formulario['Usuario'];?>" />
 			</div>
 			<div><label for="Pass">Password:<em>*</em></label>
-                
-				<input type="password" name="Pass" id="Pass" required placeholder="Mínimo 8 caracteres entre letras y dígitos" 
+				<input type="password" name="Pass" id="Pass"  value="<?php echo $formulario['Pass'];?>" required placeholder="Mínimo 8 caracteres entre letras y dígitos" 
 				onkeyup= "document.getElementById('fortaleza').innerText = 
 				passwordStrength(this.value)"
 				/>
@@ -129,8 +129,5 @@
 
 	</form>
 	
-	<?php
-		cerrarConexionBD($conexion);
-	?>
 	</body>
 </html>

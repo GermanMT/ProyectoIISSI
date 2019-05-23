@@ -9,7 +9,7 @@ DROP TABLE Recibos;
 DROP TABLE Usuarios;
 DROP TABLE Academias;
 
---Creación de tablas:
+--Creaciï¿½n de tablas:
 CREATE TABLE Academias(
 Lugar VARCHAR2(20) NOT NULL,
 Aulas INTEGER NOT NULL,
@@ -18,11 +18,28 @@ Telefono CHAR(9),
 PRIMARY KEY(Id_Academia)
 );
 
+/*
+CREATE TABLE Alumnos(
+DNI_Alumno CHAR(9) NOT NULL,
+Nombre VARCHAR2(20) NOT NULL,
+Apellidos VARCHAR2(20) NOT NULL,
+Edad NUMBER(4),
+Localidad VARCHAR2(20),
+Telefono_Movil CHAR(9) NOT NULL,
+Telefono_Fijo CHAR(9),
+Email VARCHAR2(50),
+Nombre_Padre_Madre VARCHAR(20),
+Usuario VARCHAR2(20) NOT NULL,
+Pass VARCHAR2(20) NOT NULL,
+PRIMARY KEY (DNI_Alumno)
+);
+*/
+
 CREATE TABLE Usuarios(
 DNI_Usuario CHAR(9) NOT NULL,
 Nombre VARCHAR2(20) NOT NULL,
 Apellidos VARCHAR2(20) NOT NULL,
-Edad NUMBER(4),
+Edad NUMBER(2),
 Localidad VARCHAR2(20),
 Telefono_Movil CHAR(9) NOT NULL,
 Telefono_Fijo CHAR(9),
@@ -37,15 +54,16 @@ PRIMARY KEY (DNI_Usuario)
 
 CREATE TABLE Recibos(
 Id_Recibo INTEGER NOT NULL,
-Fecha_Recibo VARCHAR2(20) NOT NULL,
+Fecha_Recibo VARCHAR2(30) NOT NULL,
 Por_Pagar INTEGER,
 Pagado VARCHAR(20)
        CHECK (Pagado IN('Si', 'No')) NOT NULL,
 Cuenta_Bancaria CHAR(24),
 Hermanos NUMBER(2,0) NOT NULL,
+Pagado VARCHAR2(30) CHECK(Pagado IN('Si','No')) NOT NULL,
 DNI_Usuario CHAR(9) NOT NULL,
 Forma_Pago VARCHAR2(30) 
-          CHECK (Forma_Pago IN('domiciliaciónBancaria', 'efectivo', 'tarjetaCredito')) NOT NULL,
+          CHECK(Forma_Pago IN('domiciliaciónBancaria', 'efectivo', 'tarjetaCredito')) NOT NULL,
 PRIMARY KEY(Id_Recibo),
 FOREIGN KEY(DNI_Usuario) REFERENCES Usuarios
 );
