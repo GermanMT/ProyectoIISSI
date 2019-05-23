@@ -97,8 +97,6 @@ PRIMARY KEY(Id_Horario),
 FOREIGN KEY(DNI_Usuario) REFERENCES Usuarios
 );
 
-
-
 CREATE TABLE Horario_Profesor(
 Hora_Inicio CHAR(8) NOT NULL,
 Hora_Fin CHAR(8) NOT NULL,

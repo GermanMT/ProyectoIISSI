@@ -4,12 +4,15 @@
   	include_once("gestionBD.php");
  	include_once("gestionarUsuarios.php");
 	
+	require_once("conseguirDNI.php");
+	
 	if (isset($_POST['submit'])){
 		$usuario= $_POST['usuario'];
 		$pass = $_POST['pass'];
 		$tipoUsuario = $_POST['tipoUsuario'];
 		
 		$conexion = crearConexionBD();
+		$DNI_Usuario = consultarDNI($conexion,$usuario,$pass);
 		$num_usuarios = consultarUsuario($conexion,$usuario,$pass,$tipoUsuario);
 		cerrarConexionBD($conexion);	
 	
@@ -18,10 +21,15 @@
 		else {
 			if($tipoUsuario == 'Alumno'){
 				$_SESSION['login'] = $usuario;
-				Header("Location: vistaAlumno.php"); 
+				foreach($DNI_Usuario as $DNI){
+					Header("Location: vistaAlumno.php?var=". base64_encode($DNI["DNI_USUARIO"])); 
+				}
+				// <?php echo $fila["DNI_USUARIO"]; 
 			}else if($tipoUsuario == 'Profesor'){
 				$_SESSION['login'] = $usuario;
-				Header("Location: vistaProfesor.php"); 
+				foreach($DNI_Usuario as $DNI){
+					Header("Location: vistaProfesor.php?var=". base64_encode($DNI["DNI_USUARIO"])); 
+				}
 			}else if($tipoUsuario == 'Admin'){
 				$_SESSION['login'] = $usuario;
 				Header("Location: vistaAdmin.php"); 
@@ -75,4 +83,3 @@
 
 </body>
 </html>
-
