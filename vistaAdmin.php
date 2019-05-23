@@ -112,21 +112,21 @@
 							</table>
 					<?php } else { ?>
 						<!-- Mostrando alumno -->
-						<input id="DNI_USUARIO" name="DNI_USUARIO" type="hidden" value="<?php echo $fila["DNI_USUARIO"]; ?>"/>
-						<table style="width:25%">
-							<tr>
-							   	<td><?php echo $fila["DNI_USUARIO"]; ?></td>
-							    <td><?php echo $fila["NOMBRE"]; ?></td>
-							    <td><?php echo $fila["APELLIDOS"]; ?></td>
-							    <td><?php echo $fila["EDAD"]; ?></td>
-							    <td><?php echo $fila["LOCALIDAD"]; ?></td>
-							    <td><?php echo $fila["TELEFONO_MOVIL"]; ?></td>
-							    <td><?php echo $fila["TELEFONO_FIJO"]; ?></td>
-							    <td><?php echo $fila["EMAIL"]; ?></td>
-							    <td><?php echo $fila["NOMBRE_PADRE_MADRE"]; ?></td>
-							    <td><a href="gestionRecibos.php">Recibos del Alumno</a></td>
-							</tr>
-						</table>
+							<input id="DNI_USUARIO" name="DNI_USUARIO" type="hidden" value="<?php echo $fila["DNI_USUARIO"]; ?>"/>
+							<table style="width:25%">
+								<tr>
+								   	<td><?php echo $fila["DNI_USUARIO"]; ?></td>
+								    <td><?php echo $fila["NOMBRE"]; ?></td>
+								    <td><?php echo $fila["APELLIDOS"]; ?></td>
+								    <td><?php echo $fila["EDAD"]; ?></td>
+								    <td><?php echo $fila["LOCALIDAD"]; ?></td>
+								    <td><?php echo $fila["TELEFONO_MOVIL"]; ?></td>
+								    <td><?php echo $fila["TELEFONO_FIJO"]; ?></td>
+								    <td><?php echo $fila["EMAIL"]; ?></td>
+								    <td><?php echo $fila["NOMBRE_PADRE_MADRE"]; ?></td>
+								    <td><a href="gestionRecibos.php">Recibos del Alumno</a></td>
+								</tr>
+							</table>
 					<?php } ?>
 					</div>
 					
@@ -212,20 +212,20 @@
 								</tr>
 							</table>
 					<?php } else { ?>
-						<!-- Mostrando profesor -->
-						<input id="DNI_USUARIO" name="DNI_USUARIO" type="hidden" value="<?php echo $fila["DNI_USUARIO"]; ?>"/>
-						<table style="width:25%">
-							<tr>
-							   	<td><?php echo $fila["DNI_USUARIO"]; ?></td>
-							    <td><?php echo $fila["NOMBRE"]; ?></td>
-							    <td><?php echo $fila["APELLIDOS"]; ?></td>
-							    <td><?php echo $fila["EDAD"]; ?></td>
-							    <td><?php echo $fila["LOCALIDAD"]; ?></td>
-							    <td><?php echo $fila["TELEFONO_MOVIL"]; ?></td>
-							    <td><?php echo $fila["TELEFONO_FIJO"]; ?></td>
-							    <td><?php echo $fila["EMAIL"]; ?></td>
-							</tr>
-						</table>
+							<!-- Mostrando profesor -->
+							<input id="DNI_USUARIO" name="DNI_USUARIO" type="hidden" value="<?php echo $fila["DNI_USUARIO"]; ?>"/>
+							<table style="width:25%">
+								<tr>
+								   	<td><?php echo $fila["DNI_USUARIO"]; ?></td>
+								    <td><?php echo $fila["NOMBRE"]; ?></td>
+								    <td><?php echo $fila["APELLIDOS"]; ?></td>
+								    <td><?php echo $fila["EDAD"]; ?></td>
+								    <td><?php echo $fila["LOCALIDAD"]; ?></td>
+								    <td><?php echo $fila["TELEFONO_MOVIL"]; ?></td>
+								    <td><?php echo $fila["TELEFONO_FIJO"]; ?></td>
+								    <td><?php echo $fila["EMAIL"]; ?></td>
+								</tr>
+							</table>
 					<?php } ?>
 					</div>
 					
