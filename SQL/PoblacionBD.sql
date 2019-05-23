@@ -4,8 +4,7 @@ INSERTAR_ACADEMIA('Arahal','5',SEC_Academias.NEXTVAL,'698765432');
 COMMIT;
 END;
 /
-
---Inserciones de usuarios: 
+--Insercion de usuarios:
 BEGIN
 INSERTAR_USUARIO('21015236K','Antonio German','Márquez','21', 'El Repilado', '619527721', '954841642', 'antonio-german-1@hotmail.com', 'Jose Enrique', 'GermanOctavo', '19german15','Alumno');
 INSERTAR_USUARIO('67843287L','Jose Antonio','Macias Portillo','20', 'La Puebla de Cazalla', '619527721', '954841642', 'jose-antonio@hotmail.com', 'Gustavo', 'Josan', '123456','Alumno');
@@ -16,8 +15,9 @@ COMMIT;
 END;
 /
 
+--Insercciones de cursos:
 BEGIN
-QUITAR_USUARIO('49385388H');
+INSERTAR_CURSO('12/06/2018', '24/09/2018','10', SEC_Cursos.NEXTVAL, 1);
 COMMIT;
 END;
 /
@@ -41,24 +41,32 @@ COMMIT;
 END;
 /
 
+--Inserciones de cursos de alumnos
+BEGIN
+INSERTAR_CURSO_ALUMNO('13/04/2018','13/09/2018',SEC_Cursos_Alumnos.NEXTVAL,'21015236K',SEC_Cursos.CURRVAL);
+INSERTAR_CURSO_ALUMNO('13/05/2018','13/10/2018',SEC_Cursos_Alumnos.NEXTVAL,'67843287L',SEC_Cursos.CURRVAL);
+INSERTAR_CURSO_ALUMNO('13/06/2018','13/11/2018',SEC_Cursos_Alumnos.NEXTVAL,'75867742J',SEC_Cursos.CURRVAL);
+COMMIT;
+END;
+/
 
 --Inserciones de Horario para profesor:
 BEGIN
-INSERTAR_HORARIO_PROFESOR('16:00', '18:00', 'Martes',SEC_Horario_Profesor.NEXTVAL,SEC_Cursos.CURRVAL,'49385388H');
-INSERTAR_HORARIO_PROFESOR('17:00', '19:00', 'Miercoles',SEC_Horario_Profesor.NEXTVAL,SEC_Cursos.CURRVAL,'49385388H');
-INSERTAR_HORARIO_PROFESOR('15:00', '17:00', 'Jueves',SEC_Horario_Profesor.NEXTVAL,SEC_Cursos.CURRVAL,'49385388H');
+INSERTAR_HORARIO_PROFESOR('16:00', '18:00', 'Martes',SEC_Horario_Profesor.NEXTVAL,SEC_Cursos.CURRVAL,'67843287L');
+INSERTAR_HORARIO_PROFESOR('17:00', '19:00', 'Miercoles',SEC_Horario_Profesor.NEXTVAL,SEC_Cursos.CURRVAL,'21015236K');
+INSERTAR_HORARIO_PROFESOR('15:00', '17:00', 'Jueves',SEC_Horario_Profesor.NEXTVAL,SEC_Cursos.CURRVAL,'75867742J');
 COMMIT;
 END;
 /
 
 --Inserciones de recibos:
 BEGIN
-INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/05/06',500.00, '', 0, '21015236K', 'efectivo');
-INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/06/06',500.00, '', 0, '21015236K', 'efectivo');
-INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/07/06',500.00, '', 0, '21015236K', 'efectivo');
-INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/08/06',500.00, '', 0, '21015236K', 'efectivo');
-INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/09/06',500.00, '', 0, '21015236K', 'efectivo');
-INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/10/06',500.00, '', 0, '21015236K', 'efectivo');
+INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/05/06',500.00,'Si', '', 0, '21015236K', 'efectivo');
+INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/06/06',500.00,'Si', '', 0, '21015236K', 'efectivo');
+INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/07/06',500.00,'Si', '', 0, '21015236K', 'efectivo');
+INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/08/06',500.00,'Si', '', 0, '21015236K', 'efectivo');
+INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/09/06',500.00,'Si', '', 0, '21015236K', 'efectivo');
+INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/10/06',500.00,'No', '', 0, '21015236K', 'efectivo');
 COMMIT;
 END;
 /

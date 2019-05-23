@@ -19,7 +19,7 @@
 		
 		if (isset($_REQUEST["editar"])) Header("Location: vistaAdmin.php"); 
 		else if (isset($_REQUEST["grabar"])) Header("Location: accion_modificar_usuario.php");
-		else  if (isset($_REQUEST["borrar"]))  Header("Location: accion_quitar_usuario.php"); 
+		else  /*if (isset($_REQUEST["borrar"])) */ Header("Location: accion_quitar_usuario.php"); 
 	}
 	else {
 		Header("Location: vistaAdmin.php");

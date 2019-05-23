@@ -120,25 +120,62 @@ BEGIN
 END;
 /
 
+--Insertar Profesor:
+/*
+CREATE OR REPLACE PROCEDURE INSERTAR_HORARIO_PROFESOR
+  (P_DNI_Profesor IN Profesores.DNI_Profesor%TYPE,
+   P_Nombre IN Profesores.Nombre%TYPE,
+   P_Apellidos IN Profesores.Apellidos%TYPE,
+   P_Edad IN Profesores.Edad%TYPE,
+   P_Localidad IN Profesores.Localidad%TYPE,
+   P_Sueldo_Profesor IN Profesores.Sueldo_Profesor%TYPE,
+   P_Nivel_Ingles IN Profesores.Nivel_Ingles%TYPE,
+   P_Telefono_Movil IN Profesores.Telefono_Movil%TYPE,
+   P_Telefono_Fijo IN Profesores.Telefono_Fijo%TYPE,
+   P_Email IN Profesores.Email%TYPE
+   ) IS
+BEGIN
+  INSERT INTO Profesores(DNI_Profesor,Nombre,Apellidos,Edad,Localidad,Sueldo_Profesor,Nivel_Ingles,Telefono_Movil,Telefono_Fijo,Email)
+  VALUES (P_DNI_Profesor,P_Nombre,P_Apellidos,P_Edad,P_Localidad,P_Sueldo_Profesor,P_Nivel_Ingles,P_Telefono_Movil,P_Telefono_Fijo,P_Email);
+END;
+/
+*/
 --Insertar Recibo:
 CREATE OR REPLACE PROCEDURE INSERTAR_RECIBO
   (P_Id_Recibo IN Recibos.Id_Recibo%TYPE,
    P_Fecha_Recibo IN Recibos.Fecha_Recibo%TYPE,
    P_Por_Pagar IN Recibos.Por_Pagar%TYPE,
+   P_Pagado IN Recibos.Pagado%TYPE,
    P_Cuenta_Bancaria IN Recibos.Cuenta_Bancaria%TYPE,
    P_Hermanos IN Recibos.Hermanos%TYPE,
    P_DNI_Usuario IN Recibos.DNI_Usuario%TYPE,
    P_Forma_Pago IN Recibos.Forma_Pago%TYPE
    ) IS
 BEGIN
-  INSERT INTO Recibos(Id_Recibo,Fecha_Recibo,Por_Pagar,Cuenta_Bancaria,Hermanos,DNI_Usuario,Forma_Pago)
-  VALUES (P_Id_Recibo,P_Fecha_Recibo,P_Por_Pagar,P_Cuenta_Bancaria,P_Hermanos,P_DNI_Usuario,P_Forma_Pago);
+  INSERT INTO Recibos(Id_Recibo,Fecha_Recibo,Por_Pagar,Pagado,Cuenta_Bancaria,Hermanos,DNI_Usuario,Forma_Pago)
+  VALUES (P_Id_Recibo,P_Fecha_Recibo,P_Por_Pagar,P_Pagado,P_Cuenta_Bancaria,P_Hermanos,P_DNI_Usuario,P_Forma_Pago);
 END;
 /
 
 --Quitar Alumno: 
 CREATE OR REPLACE PROCEDURE QUITAR_USUARIO (DNI_Usuario_A_QUITAR IN Usuarios.DNI_Usuario%TYPE) AS
 BEGIN
+    DELETE FROM Horario_Alumno WHERE DNI_Usuario = DNI_Usuario_A_QUITAR;
+    DELETE FROM Recibos WHERE DNI_Usuario = DNI_Usuario_A_QUITAR;
     DELETE FROM Usuarios WHERE DNI_Usuario = DNI_Usuario_A_QUITAR;
 END;
 /
+
+--Modificar Alumno:
+CREATE OR REPLACE PROCEDURE MODIFICAR_USUARIO 
+(DNI_USU_A_MOD IN USUARIOS.DNI_USUARIO%TYPE,
+ NOM_USU_A_MOD IN USUARIOS.NOMBRE%TYPE,
+ APE_USU_A_MOD IN USUARIOS.APELLIDOS%TYPE) IS
+BEGIN
+  UPDATE USUARIOS
+  SET NOMBRE=NOM_USU_A_MOD, APELLIDOS=APE_USU_A_MOD
+  WHERE DNI_USUARIO = DNI_USU_A_MOD;
+  
+END;
+
+

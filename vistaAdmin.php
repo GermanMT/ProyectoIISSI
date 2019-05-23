@@ -46,32 +46,34 @@
 	    </div>             
                 	
 		<!-- Mostrar alumnos de la academia -->
-	  	<table style="width:25%">
+	  	<!-- <table style="width:25%">
 			<tr>
 		    	<th>DNI del alumno</th>
 		    	<th>Nombre</th>
 		    	<th>Apellidos</th>
 		    </tr>
 		</table>
-		
+		-->
 		<?php
 			foreach($filas1 as $fila) {
 		?>
+		 
 		
-		<table style="width:25%">
-			<tr>
-		    	<td><?php echo $fila["DNI_USUARIO"]; ?></td>
-		    	<td><?php echo $fila["NOMBRE"]; ?></td>
-		    	<td><?php echo $fila["APELLIDOS"]; ?></td>
-		    </tr>
-		</table>
 		
 		<article>
 			<form method="post" action="controladorUsuario.php">
 				<div>
 					<div>
+						
 						<input id="DNI_USUARIO" name="DNI_USUARIO"
 							type="hidden" value="<?php echo $fila["DNI_USUARIO"]; ?>"/>
+							
+						<!-- <input id="DNI_USUARIO" name="DNI_USUARIO"
+							type="hidden" value="<?php echo $fila["DNI_USUARIO"]; ?>"/>
+						<input id="NOMBRE" name="NOMBRE"
+							type="hidden" value="<?php echo $fila["NOMBRE"]; ?>"/>
+						<input id="APELLIDOS" name="APELLIDOS"
+							type="hidden" value="<?php echo $fila["APELLIDOS"]; ?>"/> -->
 						<input id="EDAD" name="EDAD"
 							type="hidden" value="<?php echo $fila["EDAD"]; ?>"/>
 						<input id="LOCALIDAD" name="LOCALIDAD"
@@ -95,9 +97,39 @@
 					<?php
 						if (isset($usuario) and ($usuario["DNI_USUARIO"] == $usuario["DNI_USUARIO"])) { ?>
 							<!-- Editando título -->
-							<h3><input id="DNI_USUARIO" name="DNI_USUARIO" type="text" value="<?php echo $fila["DNI_USUARIO"]; ?>"/></h3>
-							<h4><?php echo $fila["DNI_USUARIO"];?></h4>
-					<?php }	?>
+						<!--	<h3><input id="DNI_USUARIO" name="DNI_USUARIO" type="text" value="<?php echo $fila["DNI_USUARIO"]; ?>"/></h3> -->
+							<h3><input id="NOMBRE" name="NOMBRE" type="text" value="<?php echo $fila["NOMBRE"]; ?>"/></h3>
+							<h3><input id="APELLIDOS" name="APELLIDOS" type="text" value="<?php echo $fila["APELLIDOS"]; ?>"/></h3>
+							<h4><?php echo $fila["NOMBRE"] . " " . $fila["APELLIDOS"];?></h4>
+					<?php }	else {	?>
+					
+					<!-- mostrando título -->
+
+						<input id="DNI_USUARIO" name="DNI_USUARIO" 
+							type="hidden" value="<?php echo $fila["DNI_USUARIO"]; ?>"/>
+                        <input id="NOMBRE" name="NOMBRE"
+                            type="hidden" value="<?php echo $fila["NOMBRE"]; ?>"/>
+                        <input id="APELLIDOS" name="APELLIDOS"
+                            type="hidden" value="<?php echo $fila["APELLIDOS"]; ?>"/>
+
+                        <div><b><?php echo $fila["DNI_USUARIO"]; ?></b></div>
+
+                        <div><em><?php echo $fila["NOMBRE"] . " " . $fila["APELLIDOS"]; ?></em></div>
+                        
+                        
+					
+						
+				<table style="width:25%">
+						<tr>
+				    		<td><?php echo $fila["DNI_USUARIO"]; ?></td>
+				    		<td><?php echo $fila["NOMBRE"]; ?></td>
+				    		<td><?php echo $fila["APELLIDOS"]; ?></td>
+				  	   </tr>
+				</table> -->
+
+						
+
+				<?php } ?>
 					</div>
 					
 					<div id="botones_fila">
@@ -114,10 +146,11 @@
 								<img src="images/remove_menuito.bmp" class="editar_fila" alt="Borrar Alumno">
 							</button>
 					</div>
-					<?php } ?>
 				</div>
 			</form>
 		</article>
+		<?php } ?>
+		
 			
 		<!-- Mostrar profesores de la academia -->
 	  	<table style="width:25%">

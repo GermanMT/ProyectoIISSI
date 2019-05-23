@@ -2,14 +2,14 @@
 	session_start();	
 	
 	if (isset($_SESSION["usuario"])) {
-		$libro = $_SESSION["usuario"];
+		$usuario = $_SESSION["usuario"];
 		unset($_SESSION["usuario"]);
 		
 		require_once("gestionBD.php");
 		require_once("gestionarTablaAdmin.php");
 		
 		$conexion = crearConexionBD();		
-		$excepcion = modificarUsuario($conexion,$usuario["DNI_Usuario"],$usuario["NOMBRE"],$usuario["APELLIDOS"]);
+		$excepcion = modificarUsuario($conexion,$usuario["DNI_USUARIO"],$usuario["NOMBRE"],$usuario["APELLIDOS"]);
 		cerrarConexionBD($conexion);
 			
 		if ($excepcion<>"") {
