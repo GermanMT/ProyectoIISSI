@@ -145,7 +145,6 @@ CREATE OR REPLACE PROCEDURE INSERTAR_RECIBO
   (P_Id_Recibo IN Recibos.Id_Recibo%TYPE,
    P_Fecha_Recibo IN Recibos.Fecha_Recibo%TYPE,
    P_Por_Pagar IN Recibos.Por_Pagar%TYPE,
-   P_Pagado IN Recibos.Pagado%TYPE,
    P_Cuenta_Bancaria IN Recibos.Cuenta_Bancaria%TYPE,
    P_Hermanos IN Recibos.Hermanos%TYPE,
    P_Pagado IN Recibos.Pagado%TYPE,

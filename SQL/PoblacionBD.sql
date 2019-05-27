@@ -19,8 +19,6 @@ END;
 BEGIN
 INSERTAR_CURSO('12/06/2018', '24/09/2018','10', SEC_Cursos.NEXTVAL, 1);
 
-INSERTAR_USUARIO('49385388H','Jose Antonio','Macias','20', 'La Puebla De Cazalla', '619525521', '954822642', 'josanfcs98@hotmail.com', '', 'JosanFCS', 'holita20','Profesor');
-
 COMMIT;
 END;
 /
@@ -65,12 +63,12 @@ END;
 
 --Inserciones de recibos:
 BEGIN
-INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/05/06',500.00, '', 0, 'Si', '21015236K', 'efectivo');
-INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/06/06',500.00, '', 0, 'Si', '21015236K', 'efectivo');
-INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/07/06',500.00, '', 0, 'Si', '21015236K', 'efectivo');
-INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/08/06',500.00, '', 0, 'Si', '21015236K', 'efectivo');
-INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/09/06',500.00, '', 0, 'Si', '21015236K', 'efectivo');
-INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/10/06',500.00, '', 0, 'No', '67843287L', 'efectivo');
+INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/05/06','50', '', 0, 'Si', '21015236K', 'efectivo');
+INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/06/06','50', '', 0, 'Si', '21015236K', 'efectivo');
+INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/07/06','50', '', 0, 'Si', '21015236K', 'efectivo');
+INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/08/06','50', '', 0, 'Si', '21015236K', 'efectivo');
+INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/09/06','50', '', 0, 'Si', '21015236K', 'efectivo');
+INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/10/06','50', '', 0, 'No', '67843287L', 'efectivo');
 COMMIT;
 END;
 /

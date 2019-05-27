@@ -40,7 +40,7 @@
 	            </div>
 	        </div>
 	    </div>
-                
+            <main>    
 	    <div class="body_content">
 	    	<p><h1>Bienvenido</h1></p>
 	    </div>             
@@ -62,7 +62,7 @@
 		    	<th>Tutor Legal</th>
 		    </tr>
 		</table>
-		-->
+		
 		<?php
 			foreach($filas1 as $fila) {
 		?>
@@ -129,7 +129,7 @@
 								    <td><?php echo $fila["TELEFONO_FIJO"]; ?></td>
 								    <td><?php echo $fila["EMAIL"]; ?></td>
 								    <td><?php echo $fila["NOMBRE_PADRE_MADRE"]; ?></td>
-								    <td><a href="gestionRecibos.php?var= <?php echo base64_encode($fila["DNI_USUARIO"]);?>">Recibos del Alumno</a></td>
+								    <td><a href="vistaRecibos.php?var= <?php echo base64_encode($fila["DNI_USUARIO"]);?>">Recibos del Alumno</a></td>
 								</tr>
 							</table>
 					<?php } ?>
