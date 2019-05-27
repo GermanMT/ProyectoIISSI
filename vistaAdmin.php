@@ -40,7 +40,7 @@
 	            </div>
 	        </div>
 	    </div>
-            <main>    
+                
 	    <div class="body_content">
 	    	<p><h1>Bienvenido</h1></p>
 	    </div>             
