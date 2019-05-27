@@ -39,8 +39,6 @@ CREATE TABLE Recibos(
 Id_Recibo INTEGER NOT NULL,
 Fecha_Recibo VARCHAR2(30) NOT NULL,
 Por_Pagar INTEGER,
-Pagado VARCHAR(20)
-       CHECK (Pagado IN('Si', 'No')) NOT NULL,
 Cuenta_Bancaria CHAR(24),
 Hermanos NUMBER(2,0) NOT NULL,
 DNI_Usuario CHAR(9) NOT NULL,
