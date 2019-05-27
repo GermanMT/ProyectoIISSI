@@ -11,7 +11,6 @@
 		$conexion = crearConexionBD();
 		$DNI = base64_decode($_GET['var']);
 		$filas1 = consultarTodosHorariosProfesor($conexion,$DNI);
-		$filas2 = consultarTodosCursosProfesor($conexion,$DNI);
 		cerrarConexionBD($conexion);
 	}
 ?>
@@ -64,7 +63,7 @@
 	    <td><?php echo $fila["DIA"]; ?></td>
 		<td><?php echo $fila["HORA_INICIO"]; ?></td>
 		<td><?php echo $fila["HORA_FIN"]; ?></td>
-		<td><a href="vistaCurso.php?var=<?php echo base64_encode($fila["DNI_USUARIO"]);?>"><?php echo $fila["ID_CURSO"]; ?></a></td>
+		<td><a href="vistaCurso.php?var=<?php echo base64_encode($fila["ID_CURSO"]);?>"><?php echo $fila["ID_CURSO"]; ?></a></td>
 	  </tr>
 	</table>
 	<?php } ?>
