@@ -134,7 +134,6 @@ CREATE OR REPLACE PROCEDURE INSERTAR_RECIBO
 BEGIN
   INSERT INTO Recibos(Id_Recibo,Fecha_Recibo,Por_Pagar,Cuenta_Bancaria,Hermanos,Pagado,DNI_Usuario,Forma_Pago)
   VALUES (P_Id_Recibo,P_Fecha_Recibo,P_Por_Pagar,P_Cuenta_Bancaria,P_Hermanos,P_Pagado,P_DNI_Usuario,P_Forma_Pago);
-
 END;
 /
 
