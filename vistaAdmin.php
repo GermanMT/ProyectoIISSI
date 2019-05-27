@@ -249,6 +249,10 @@
 		
 		<?php } ?>
 		
+		<a href="formularioProfesor.php">Añade un profesor</a>
+
+		<a href="formularioCurso.php">Añade un curso</a>
+
 		</main>
 	</body>
 </html>
