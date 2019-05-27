@@ -1,27 +1,25 @@
-create or replace PROCEDURE INSERTAR_ALUMNO 
-  (P_DNI_Alumno IN Alumnos.DNI_Alumno%TYPE,
-   P_Nombre IN Alumnos.Nombre%TYPE,
-   P_Apellidos IN Alumnos.Apellidos%TYPE,
-   P_Edad IN Alumnos.Edad%TYPE,
-   P_Localidad IN Alumnos.Localidad%TYPE,
-   P_TelefonoMovil IN Alumnos.Telefono_Movil%TYPE,
-   P_TelefonoFijo IN Alumnos.Telefono_Fijo%TYPE,
-   P_Email IN Alumnos.Email%TYPE,
-   P_NombrePadreMadre IN Alumnos.Nombre_Padre_Madre%TYPE,
-   P_Usuario IN Alumnos.Usuario%TYPE,
-   P_Pass IN Alumnos.Pass%TYPE
+create or replace PROCEDURE INSERTAR_USUARIO 
+  (P_DNI_Usuario IN Usuarios.DNI_Usuario%TYPE,
+   P_Nombre IN Usuarios.Nombre%TYPE,
+   P_Apellidos IN Usuarios.Apellidos%TYPE,
+   P_Edad IN Usuarios.Edad%TYPE,
+   P_Localidad IN Usuarios.Localidad%TYPE,
+   P_TelefonoMovil IN Usuarios.Telefono_Movil%TYPE,
+   P_TelefonoFijo IN Usuarios.Telefono_Fijo%TYPE,
+   P_Email IN Usuarios.Email%TYPE,
+   P_NombrePadreMadre IN Usuarios.Nombre_Padre_Madre%TYPE,
+   P_Usuario IN Usuarios.Usuario%TYPE,
+   P_Pass IN Usuarios.Pass%TYPE,
+   P_TipoUsuario IN Usuarios.TipoUsuario%TYPE
    ) IS
 BEGIN
-  INSERT INTO Alumnos(DNI_Alumno,Nombre,Apellidos,Edad,Localidad ,Telefono_Movil,Telefono_Fijo,Email,Nombre_Padre_Madre,Usuario,Pass)
-  VALUES (P_DNI_Alumno,P_Nombre,P_Apellidos,P_Edad,P_Localidad,P_TelefonoMovil,P_TelefonoFijo,P_Email,P_NombrePadreMadre,P_Usuario,P_Pass);
+  INSERT INTO Usuarios(DNI_Usuario,Nombre,Apellidos,Edad,Localidad ,Telefono_Movil,Telefono_Fijo,Email,Nombre_Padre_Madre,Usuario,Pass, TipoUsuario)
+  VALUES (P_DNI_Usuario,P_Nombre,P_Apellidos,P_Edad,P_Localidad,P_TelefonoMovil,P_TelefonoFijo,P_Email,P_NombrePadreMadre,P_Usuario,P_Pass,P_TipoUsuario);
 END;
 /
 
-BEGIN
-INSERTAR_ALUMNO('49385388H','Jose Antonio','Macias','20', 'La Puebla De Cazalla', '611227721', '954841552', 'josanfcs98@hotmail.com', 'Jose Enrique', 'JosanFCS', 'holita20');
-COMMIT;
-END;
-/
+
+CALL INSERTAR_Usuario('49385388H','Jose Antonio','Macias','20', 'La Puebla De Cazalla', '611227721', '954841552', 'josanfcs98@hotmail.com', 'Jose Enrique', 'JosanFCS', 'holita20', 'Alumno');
 
 --Insertar Recibo:
 CREATE OR REPLACE PROCEDURE INSERTAR_RECIBO

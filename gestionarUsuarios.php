@@ -8,9 +8,9 @@
 
  function alta_alumno($conexion,$usuario) {
 	try {
-		$consulta = "CALL INSERTAR_ALUMNO(:DNI_Alumno, :Nombre, :Apellidos, :Edad, :Localidad, :TelefonoMovil,:TelefonoFijo, :Email, :NombrePadreMadre, :Usuario, :Pass)";
+		$consulta = "CALL INSERTAR_USUARIO(:DNI_Usuario, :Nombre, :Apellidos, :Edad, :Localidad, :TelefonoMovil,:TelefonoFijo, :Email, :NombrePadreMadre, :Usuario, :Pass, :TipoUsuario)";
 		$stmt=$conexion->prepare($consulta);
-		$stmt->bindParam(':DNI_Alumno',$usuario["DNI_Alumno"]);
+		$stmt->bindParam(':DNI_Usuario',$usuario["DNI_Usuario"]);
 		$stmt->bindParam(':Nombre',$usuario["Nombre"]);
 		$stmt->bindParam(':Apellidos',$usuario["Apellidos"]);
 		$stmt->bindParam(':Edad',$usuario["Edad"]);
@@ -21,6 +21,7 @@
 		$stmt->bindParam(':NombrePadreMadre',$usuario["NombrePadreMadre"]);
 		$stmt->bindParam(':Usuario',$usuario["Usuario"]);
 		$stmt->bindParam(':Pass',$usuario["Pass"]);
+		$stmt->bindParam(':TipoUsuario',$usuario["TipoUsuario"]);
 		
 		$stmt->execute();
 		return true;

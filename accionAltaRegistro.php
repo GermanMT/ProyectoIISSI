@@ -8,7 +8,7 @@ require_once ("gestionBD.php");
 
 //Se comprueba que hemos llegado aquí por el formulario de matriculación y en tal caso se mete en la variable $usuario los datos del formulario, en caso contrario, se redirige a la página de matriculación
 if (isset($_SESSION["formulario"])) {
-	$usuario["DNI_Alumno"] = $_REQUEST["DNI_Alumno"];
+	$usuario["DNI_Usuario"] = $_REQUEST["DNI_Usuario"];
 	$usuario["Nombre"] = $_REQUEST["Nombre"];
 	$usuario["Apellidos"] = $_REQUEST["Apellidos"];
 	$usuario["Edad"] = $_REQUEST["Edad"];
@@ -20,6 +20,7 @@ if (isset($_SESSION["formulario"])) {
 	$usuario["Usuario"] = $_REQUEST["Usuario"];
 	$usuario["Pass"] = $_REQUEST["Pass"];
 	$usuario["confirmpass"] = $_REQUEST["confirmpass"];
+	$usuario["TipoUsuario"] = $_REQUEST["TipoUsuario"];
 	
 } else {
 	header('Location: formulario.php');
@@ -51,10 +52,10 @@ if (count($errores) > 0) {
  function validacionRegistro($conexion, $usuario) {
 	$errores = array();
 	
-	if ($usuario["DNI_Alumno"] == "") {
+	if ($usuario["DNI_Usuario"] == "") {
 		$errores[] = "El DNI no puede estar vacío";
-	} else if (!preg_match("/^[0-9]{8}[A-Z]$/", $usuario["DNI_Alumno"])) {
-		$errores[] = "El DNI debe contener 8 números y una letra mayúscula: " . $usuario["DNI_Alumno"] . "";
+	} else if (!preg_match("/^[0-9]{8}[A-Z]$/", $usuario["DNI_Usuario"])) {
+		$errores[] = "El DNI debe contener 8 números y una letra mayúscula: " . $usuario["DNI_Usuario"] . "";
 	}
 	
 	if ($usuario["Nombre"] == "" || !preg_match("/^[A-Za-záéíóúÁÉÍÓÚ\s]+$/", $usuario["Nombre"])) {

@@ -2,13 +2,12 @@
     /*
      * #===========================================================#
      * #	Este fichero contiene las funciones de gestión     	   #	 
-     * #	de Recibos de la capa de acceso a datos 	           #
+     * #	de DNI de la capa de acceso a datos 	               #
      * #===========================================================#
      */
-	function consultarTodosRecibos($conexion,$DNI) {
-		$consulta = "SELECT * FROM RECIBOS"
-			. " WHERE (RECIBOS.DNI_USUARIO = '".$DNI."')"
-			. " ORDER BY Id_Recibo";
+	function consultarDNI($conexion,$usuario,$pass) {
+		$consulta = "SELECT DNI_USUARIO FROM USUARIOS"
+			. " WHERE (USUARIOS.USUARIO = '".$usuario."' AND USUARIOS.PASS = '".$pass."')";
 	    return $conexion->query($consulta);
 	} 
 ?>

@@ -39,7 +39,7 @@ CREATE TABLE Usuarios(
 DNI_Usuario CHAR(9) NOT NULL,
 Nombre VARCHAR2(20) NOT NULL,
 Apellidos VARCHAR2(20) NOT NULL,
-Edad NUMBER(2),
+Edad NUMBER(4),
 Localidad VARCHAR2(20),
 Telefono_Movil CHAR(9) NOT NULL,
 Telefono_Fijo CHAR(9),
@@ -98,8 +98,6 @@ DNI_Usuario CHAR(9),
 PRIMARY KEY(Id_Horario),
 FOREIGN KEY(DNI_Usuario) REFERENCES Usuarios
 );
-
-
 
 CREATE TABLE Horario_Profesor(
 Hora_Inicio CHAR(8) NOT NULL,

@@ -9,8 +9,9 @@
 		Header("Location: login.php");
 	else {
 		$conexion = crearConexionBD();
-		$filas2 = consultarTodosRecibos($conexion);
-		$filas1 = consultarTodosHorarios($conexion);
+		$DNI = base64_decode($_GET['var']);
+		$filas2 = consultarTodosRecibos($conexion,$DNI);
+		$filas1 = consultarTodosHorarios($conexion,$DNI);
 		cerrarConexionBD($conexion);
 	}
 ?>
@@ -58,7 +59,6 @@
 	
 	<table style="width:25%">
 	  <tr>
-
 	    <td><?php echo $fila["DNI_USUARIO"]; ?></td>
 		<td><?php echo $fila["FECHA_RECIBO"]; ?></td>
 		<td><?php echo $fila["POR_PAGAR"]; ?></td>
