@@ -11,7 +11,7 @@ BEGIN
 END;
 /
 
---Insertar Alumno:
+--Insertar Usuario:
 create or replace PROCEDURE INSERTAR_USUARIO 
   (P_DNI_Usuario IN Usuarios.DNI_Usuario%TYPE,
    P_Nombre IN Usuarios.Nombre%TYPE,
