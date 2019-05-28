@@ -30,8 +30,8 @@ Email VARCHAR2(50),
 Nombre_Padre_Madre VARCHAR(20),
 Usuario VARCHAR2(20) NOT NULL,
 Pass VARCHAR2(20) NOT NULL,
-TipoUsuario VARCHAR2(30) 
-          CHECK (TipoUsuario IN('Alumno', 'Profesor', 'Admin')) NOT NULL,
+TipoUsuario VARCHAR2(30)
+          CHECK (TipoUsuario IN('Alumno', 'Profesor', 'Admin')) NOT NULL UNIQUE,
 PRIMARY KEY (DNI_Usuario)
 );
 
