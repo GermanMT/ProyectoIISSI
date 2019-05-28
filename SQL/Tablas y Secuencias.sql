@@ -19,7 +19,7 @@ Nombre_Padre_Madre VARCHAR(20),
 Usuario VARCHAR2(20) NOT NULL,
 Pass VARCHAR2(20) NOT NULL,
 TipoUsuario VARCHAR2(30)
-          CHECK (TipoUsuario IN('Alumno', 'Profesor', 'Admin')) NOT NULL,
+          CHECK (TipoUsuario IN('Alumno', 'Profesor', 'Admin')) NOT NULL ,
 PRIMARY KEY (DNI_Usuario)
 );
 
