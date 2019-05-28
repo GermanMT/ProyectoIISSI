@@ -1,4 +1,4 @@
-<?php
+﻿<?php
     /*
      * #===========================================================#
      * #	Este fichero contiene las funciones de gestión     	   #	 

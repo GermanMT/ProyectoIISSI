@@ -14,11 +14,11 @@
 		
 		$_SESSION["recibos"] = $recibo;
 		
-		if (isset($_REQUEST["editar"])) Header("Location: vistaRecibos.php"); 
-		else if (isset($_REQUEST["grabar"])) Header("Location: accion_modificar_recibo.php");
+		if (isset($_REQUEST["editar"])) Header("Location: vistaRecibos.php?var=" . $_REQUEST["DNI"]); 
+		else if (isset($_REQUEST["grabar"])) Header("Location: accion_modificar_recibo.php?var=" . $_REQUEST["DNI"]);
 		
 	}
 	else {
-		Header("Location: vistaRecibos.php");
+		Header("Location: vistaRecibos.php?var=" . $_REQUEST["DNI"]);
 	}
 ?>

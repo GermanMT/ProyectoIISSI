@@ -1,16 +1,3 @@
---Insertar Academia:
-CREATE OR REPLACE PROCEDURE INSERTAR_ACADEMIA
-  (P_Lugar IN Academias.Lugar%TYpe,
-  P_Aulas IN Academias.Aulas%TYpe,
-  P_Id_Academia IN Academias.Id_Academia%TYpe,
-  P_Telefono IN Academias.Telefono%TYpe
-  ) IS
-BEGIN
-  INSERT INTO Academias(Lugar,Aulas,Id_Academia,Telefono)
-  VALUES (P_Lugar,P_Aulas,P_Id_Academia,P_Telefono);
-END;
-/
-
 --Insertar Usuario:
 create or replace PROCEDURE INSERTAR_USUARIO 
   (P_DNI_Usuario IN Usuarios.DNI_Usuario%TYPE,
@@ -36,43 +23,14 @@ END;
 CREATE OR REPLACE PROCEDURE INSERTAR_CURSO 
   (P_Fecha_Inicio IN Cursos.Fecha_Inicio%TYPE,
   P_Fecha_Fin IN Cursos.Fecha_Fin%TYPE,
-  P_Num_Alumnos IN Cursos.Num_Alumnos%TYPE,
+  P_Tipo_Examen IN Cursos.Tipo_Examen%TYPE,
+  P_Nivel_Examen IN Cursos.Nivel_Examen%TYPE,
   P_Id_Curso IN Cursos.Id_Curso%TYPE,
-  P_Id_Academia IN Cursos.Id_Academia%TYPE
+  P_DNI_Usuario IN Cursos.DNI_Usuario%TYPE
   ) IS
 BEGIN
-  INSERT INTO Cursos(Fecha_Inicio,Fecha_Fin,Num_Alumnos,Id_Curso,Id_Academia)
-  VALUES (P_Fecha_Inicio,P_Fecha_Fin,P_Num_Alumnos,P_Id_Curso,P_Id_Academia);
-END;
-/
-
---Insertar Curso_Alumno:
-CREATE OR REPLACE PROCEDURE INSERTAR_CURSO_ALUMNO
-  (P_Fecha_Alta IN Cursos_Alumnos.Fecha_Alta%TYPE,
-  P_Fecha_Baja IN Cursos_Alumnos.Fecha_Baja%TYPE,
-  P_Id_Curso_Alumno IN Cursos_Alumnos.Id_Curso_Alumno%TYPE,
-  P_DNI_Usuario IN Cursos_Alumnos.DNI_Usuario%TYPE,
-  P_Id_Curso IN Cursos_Alumnos.Id_Curso%TYPE
-  ) IS
-BEGIN
-  INSERT INTO Cursos_Alumnos(Fecha_Alta,Fecha_Baja,Id_Curso_Alumno,DNI_Usuario,Id_Curso)
-  VALUES (P_Fecha_Alta,P_Fecha_Baja,P_Id_Curso_Alumno,P_DNI_Usuario,P_Id_Curso);
-END;
-/
-
---Insertar Examen:
-CREATE OR REPLACE PROCEDURE INSERTAR_EXAMEN
-  (P_Tipo_Examen IN Examenes.Tipo_Examen%TYPE,
-  P_Nivel_Examen IN Examenes.Nivel_Examen%TYPE,
-  P_Fecha_Pago IN Examenes.Fecha_Pago%TYPE,
-  P_Lugar IN Examenes.Lugar%TYPE,
-  P_Fecha IN Examenes.Fecha%TYPE,
-  P_Id_Curso IN Examenes.Id_Curso%TYPE,
-  P_Id_Examen IN Examenes.Id_Examen%TYPE
-  ) IS
-BEGIN
-  INSERT INTO Examenes(Tipo_Examen,Nivel_Examen,Fecha_Pago,Lugar,Fecha,Id_Curso,Id_Examen)
-  VALUES (P_Tipo_Examen,P_Nivel_Examen,P_Fecha_Pago,P_Lugar,P_Fecha,P_Id_Curso,P_Id_Examen);
+  INSERT INTO Cursos(Fecha_Inicio,Fecha_Fin,Tipo_Examen,Nivel_Examen, Id_Curso,DNI_Usuario)
+  VALUES (P_Fecha_Inicio, P_Fecha_Fin, P_Tipo_Examen, P_Nivel_Examen, P_Id_Curso,P_DNI_Usuario);
 END;
 /
 
@@ -82,11 +40,12 @@ CREATE OR REPLACE PROCEDURE INSERTAR_HORARIO_ALUMNO
    P_Hora_Fin IN Horario_Alumno.Hora_Fin%TYPE,
    P_Dia IN Horario_Alumno.Dia%TYPE,
    P_Id_Horario IN Horario_Alumno.Id_Horario%TYPE,
-   P_DNI_Usuario IN Horario_Alumno.DNI_Usuario%TYPE
+   P_DNI_Usuario IN Horario_Alumno.DNI_Usuario%TYPE,
+   P_Id_Curso IN Horario_Alumno.Id_Curso%TYPE
    ) IS
 BEGIN
-  INSERT INTO Horario_Alumno(Hora_Inicio,Hora_Fin,Dia,Id_Horario,DNI_Usuario)
-  VALUES (P_Hora_Inicio,P_Hora_Fin,P_Dia,P_Id_Horario,P_DNI_Usuario);
+  INSERT INTO Horario_Alumno(Hora_Inicio,Hora_Fin,Dia,Id_Horario,DNI_Usuario,Id_Curso)
+  VALUES (P_Hora_Inicio,P_Hora_Fin,P_Dia,P_Id_Horario,P_DNI_Usuario,P_Id_Curso);
 END;
 /
 
@@ -110,9 +69,8 @@ CREATE OR REPLACE PROCEDURE INSERTAR_HORARIO_PROFESOR
    P_Hora_Fin IN Horario_Profesor.Hora_Fin%TYPE,
    P_Dia IN Horario_Profesor.Dia%TYPE,
    P_Id_Horario IN Horario_Profesor.Id_Horario%TYPE,
-    P_Id_Curso IN Horario_Profesor.Id_Curso%TYPE,
+   P_Id_Curso IN Horario_Profesor.Id_Curso%TYPE,
    P_DNI_Usuario IN Horario_Profesor.DNI_Usuario%TYPE
-  
    ) IS
 BEGIN
   INSERT INTO Horario_Profesor(Hora_Inicio,Hora_Fin,Dia,Id_Horario,Id_Curso,DNI_Usuario)
@@ -170,7 +128,7 @@ CREATE OR REPLACE PROCEDURE MODIFICAR_RECIBO
 IDR_REC_A_MOD IN RECIBOS.ID_RECIBO%TYPE) IS
 BEGIN
   UPDATE RECIBOS
-  SET PAGADO=PAG_REC_A_MOD, ID_RECIBO=IDR_REC_A_MOD
+  SET PAGADO=PAG_REC_A_MOD
   WHERE ID_RECIBO = IDR_REC_A_MOD;
 END;
 /

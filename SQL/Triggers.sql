@@ -43,28 +43,6 @@ BEGIN
 END;
 /
 
-CREATE OR REPLACE TRIGGER TR_CursosAlumnos
-BEFORE INSERT ON Cursos_Alumnos
-FOR EACH ROW
-DECLARE
-     valorSec NUMBER := 0;
-BEGIN
-     SELECT SEC_Cursos_Alumnos.CURRVAL INTO valorSec FROM DUAL;
-     :NEW.Id_Curso_Alumno := valorSec;
-END;
-/
-
-CREATE OR REPLACE TRIGGER TR_Examenes
-BEFORE INSERT ON Examenes
-FOR EACH ROW
-DECLARE
-     valorSec NUMBER := 0;
-BEGIN
-     SELECT SEC_Examenes.CURRVAL INTO valorSec FROM DUAL;
-     :NEW.Id_Examen := valorSec;
-END;
-/
-
 CREATE OR REPLACE TRIGGER TR_Recibos
 BEFORE INSERT ON Recibos
 FOR EACH ROW
@@ -75,18 +53,7 @@ BEGIN
      :NEW.Id_Recibo := valorSec;
 END;
 /
-
-CREATE OR REPLACE TRIGGER TR_Academias
-BEFORE INSERT ON Academias
-FOR EACH ROW
-DECLARE
-     valorSec NUMBER := 0;
-BEGIN
-     SELECT SEC_Academias.CURRVAL INTO valorSec FROM DUAL;
-     :NEW.Id_Academia := valorSec;
-END;
-/
-
+/*
 --Triger de la Regla de Negocio 1(HACER CAMBIO CON LOS TELEFONOS):
 CREATE OR REPLACE TRIGGER Datos_Necesarios1
 BEFORE INSERT ON Alumnos
@@ -114,7 +81,7 @@ BEGIN
         RAISE_APPLICATION_ERROR(-20003,'El pago mensual debe realizarse con una semana de antelación.');
     END IF;
 END;
-/*/
+/
 
 --Triger de la Regla de Negocio 3:
 CREATE OR REPLACE TRIGGER Num_Alumnos

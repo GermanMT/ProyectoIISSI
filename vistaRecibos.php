@@ -1,4 +1,4 @@
-<?php  
+<?php 
 	$v1=base64_decode($_GET['var']);
 
 	session_start();
@@ -93,7 +93,8 @@
 			<form method="post" action="controladorRecibo.php">
 				<div>
 					<div>
-							
+						<input id="DNI" name="DNI"
+							type="hidden" value="<?php echo base64_encode($v1); ?>"/>	
 						<input id="ID_RECIBO" name="ID_RECIBO"
 							type="hidden" value="<?php echo $fila["ID_RECIBO"]; ?>"/>
 						<input id="FECHA_RECIBO" name="FECHA_RECIBO"
