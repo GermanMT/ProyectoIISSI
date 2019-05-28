@@ -8,9 +8,17 @@ END;
 BEGIN
 INSERTAR_USUARIO('21015236K','Antonio German','Márquez','21', 'El Repilado', '619527721', '954841642', 'antonio-german-1@hotmail.com', 'Jose Enrique', 'GermanOctavo', '19german15','Alumno');
 INSERTAR_USUARIO('67843287L','Jose Antonio','Macias Portillo','20', 'La Puebla de Cazalla', '619527721', '954841642', 'jose-antonio@hotmail.com', 'Gustavo', 'Josan', '123456','Alumno');
-INSERTAR_USUARIO('75867742J','Alvaro','Frias Balbuena','22', 'Arahal', '619527721', '954841642', 'alvaro-231@hotmail.com', 'Pedro', 'Alvarofb7', '123456','Alumno');
+INSERTAR_USUARIO('75867742J','Alvaro','Frias Balbuena','22', 'Arahal', '619527721', '954841642', 'alvaro-231@hotmail.com', 'Pedro', 'AlavaroFB7', '123456','Alumno');
 INSERTAR_USUARIO('11111111K','Admin','Admin','1', 'Arahal', '698765432', '123456789', 'academia@hotmail.com', 'Jose Enrique', 'Admin', 'administrador','Admin');
 INSERTAR_USUARIO('49385388H','Jose Antonio','Macias','20', 'La Puebla De Cazalla', '619525521', '954822642', 'josanfcs98@hotmail.com', '', 'JosanFCS', 'holita20','Profesor');
+COMMIT;
+END;
+/
+
+--Insercciones de cursos:
+BEGIN
+INSERTAR_CURSO('12/06/2018', '24/09/2018','10', SEC_Cursos.NEXTVAL, 1);
+
 COMMIT;
 END;
 /
@@ -37,7 +45,7 @@ END;
 
 --Inserciones de cursos de alumnos
 BEGIN
-INSERTAR_CURSO_ALUMNO('13/04/2018','13/09/2018',SEC_Cursos_Alumnos.NEXTVAL,'21015236K',1);
+INSERTAR_CURSO_ALUMNO('13/04/2018','13/09/2018',SEC_Cursos_Alumnos.NEXTVAL,'21015236K',SEC_Cursos.CURRVAL);
 INSERTAR_CURSO_ALUMNO('13/05/2018','13/10/2018',SEC_Cursos_Alumnos.NEXTVAL,'67843287L',SEC_Cursos.CURRVAL);
 INSERTAR_CURSO_ALUMNO('13/06/2018','13/11/2018',SEC_Cursos_Alumnos.NEXTVAL,'75867742J',SEC_Cursos.CURRVAL);
 COMMIT;
@@ -55,16 +63,15 @@ END;
 
 --Inserciones de recibos:
 BEGIN
-INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/05/06','50', '', '0', 'Si', '21015236K', 'efectivo');
-INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/06/06','50', '', '0', 'Si', '21015236K', 'efectivo');
-INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/07/06','50', '', '0', 'Si', '21015236K', 'efectivo');
-INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/08/06','50', '', '0', 'Si', '21015236K', 'efectivo');
-INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/09/06','50', '', '0', 'Si', '21015236K', 'efectivo');
-INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/10/06','50', '', '0', 'No', '21015236K', 'efectivo');
-INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/10/06','50', '', '0', 'No', '67843287L', 'efectivo');
+INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/05/06','50', '', 0, 'Si', '21015236K', 'efectivo');
+INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/06/06','50', '', 0, 'Si', '21015236K', 'efectivo');
+INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/07/06','50', '', 0, 'Si', '21015236K', 'efectivo');
+INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/08/06','50', '', 0, 'Si', '21015236K', 'efectivo');
+INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/09/06','50', '', 0, 'Si', '21015236K', 'efectivo');
+INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/10/06','50', '', 0, 'No', '67843287L', 'efectivo');
 COMMIT;
 END;
 /
 
---SELECT DNI_USUARIO FROM USUARIOS WHERE (USUARIOS.USUARIO = 'GermanOctavo' AND USUARIOS.PASS = '19german15');
---SELECT * FROM RECIBOS WHERE (RECIBOS.DNI_USUARIO = '21015236K');
+SELECT DNI_USUARIO FROM USUARIOS WHERE (USUARIOS.USUARIO = 'GermanOctavo' AND USUARIOS.PASS = '19german15');
+SELECT * FROM RECIBOS WHERE (RECIBOS.DNI_USUARIO = '21015236K');

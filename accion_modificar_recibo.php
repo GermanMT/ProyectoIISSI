@@ -10,7 +10,7 @@
 		
 		$conexion = crearConexionBD();		
 
-		$excepcion = modificarRecibo($conexion,$recibo["PAGADO"]);
+		$excepcion = modificarRecibo($conexion,$recibo["ID_RECIBO"],$recibo["PAGADO"]);
 
 		cerrarConexionBD($conexion);
 			
