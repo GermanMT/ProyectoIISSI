@@ -116,12 +116,11 @@
 					min="1" max="<?php echo $total_registros; ?>"	
 					value="<?php echo $pag_tam?>" autofocus="autofocus" />	
 				entradas de <?php echo $total_registros?>	
-				<input type="submit" value="Cambiar">
+				<input type="submit" class="boton_personalizado" value="Cambiar">
 			</form>
 		</nav>          
                 	
 		<!-- Mostrar alumnos de la academia -->
-
 		<div align="center"><p><h1>Alumnos:</h1></p></div>
 		<table align="center" border="1" style="width:auto; height:20px;">
 
@@ -244,7 +243,7 @@
 					min="1" max="<?php echo $total_registros2; ?>"	
 					value="<?php echo $pag_tam2?>" autofocus="autofocus" />	
 				entradas de <?php echo $total_registros2?>	
-				<input type="submit" value="Cambiar">
+				<input type="submit" class="boton_personalizado" value="Cambiar">
 			</form>
 		</nav> 
 			

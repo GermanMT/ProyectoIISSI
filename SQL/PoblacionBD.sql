@@ -44,7 +44,7 @@ INSERTAR_USUARIO('78907890T','Antonio Jesus','Márquez','30', 'Carmona', '6195277
 INSERTAR_USUARIO('75867742J','Alvaro','Frias Balbuena','21', 'Arahal', '619527721', '954841642', 'alvaro-231@hotmail.com', 'Pedro', 'Alvarofb7', '123456','Alumno');
 INSERTAR_USUARIO('11111111K','Admin','Admin','1', 'Arahal', '698765432', '123456789', 'academia@hotmail.com', 'Jose Enrique', 'Admin', 'administrador','Admin');
 INSERTAR_USUARIO('49385388H','Jose Antonio','Macias','50', 'La Puebla De Cazalla', '619525521', '954822642', 'josanfcs98@hotmail.com', '', 'JosanFCS', 'holita20','Profesor');
-INSERTAR_USUARIO('49385378H','Pedro','Macias Portillo','45', 'La Puebla De Cazalla', '619525521', '954822642', 'josanfcs98@hotmail.com', '', 'JosanFCS', 'holita20','Profesor');
+INSERTAR_USUARIO('49385378H','Pedro','Macias Portillo','45', 'La Puebla De Cazalla', '619525521', '954822642', 'josanfcs98@hotmail.com', '', 'JosanFCS2', 'holita20','Profesor');
 COMMIT;
 END;
 /

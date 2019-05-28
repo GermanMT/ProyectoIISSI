@@ -19,10 +19,11 @@
 	} 
 
 
-function modificarRecibo($conexion,$PAGADO) {
+function modificarRecibo($conexion,$ID_RECIBO,$PAGADO) {
 		try {
-			$stmt=$conexion->prepare('CALL MODIFICAR_RECIBO(:PAGADO)');
+			$stmt=$conexion->prepare('CALL MODIFICAR_RECIBO(:ID_RECIBO, :PAGADO)');
 			$stmt->bindParam(':PAGADO',$PAGADO);
+			$stmt->bindParam(':ID_RECIBO',$ID_RECIBO);
 			$stmt->execute();
 			return "";
 		} catch(PDOException $e) {
