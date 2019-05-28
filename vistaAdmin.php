@@ -3,6 +3,7 @@
 
 	require_once("gestionBD.php");
 	require_once("gestionarTablaAdmin.php");
+	require_once("paginacionConsulta.php");
 	
 	if (!isset($_SESSION['login']))
 		Header("Location: login.php");
@@ -12,9 +13,65 @@
 			unset($_SESSION["usuario"]);
 		}
 		
+		// Paginacion Alumnos
+		if (isset($_SESSION["paginacion"]))
+			$paginacion = $_SESSION["paginacion"];
+		
+		$pagina_seleccionada = isset($_GET["PAG_NUM"]) ? (int)$_GET["PAG_NUM"] : (isset($paginacion) ? (int)$paginacion["PAG_NUM"] : 1);
+		$pag_tam = isset($_GET["PAG_TAM"]) ? (int)$_GET["PAG_TAM"] : (isset($paginacion) ? (int)$paginacion["PAG_TAM"] : 5);
+	
+		if ($pagina_seleccionada < 1) 		$pagina_seleccionada = 1;
+		if ($pag_tam < 1) 		$pag_tam = 5;
+	
+		unset($_SESSION["paginacion"]);
+	
 		$conexion = crearConexionBD();
-		$filas1 = consultarAlumnos($conexion);
-		$filas2 = consultarProfesores($conexion);
+	
+		$query = "SELECT * FROM Usuarios"
+			. " WHERE (Usuarios.TipoUsuario = 'Alumno')";
+	
+		$total_registros = total_consulta($conexion, $query);
+		$total_paginas = (int)($total_registros / $pag_tam);
+	
+		if ($total_registros % $pag_tam > 0)		$total_paginas++;
+	
+		if ($pagina_seleccionada > $total_paginas)		$pagina_seleccionada = $total_paginas;
+	
+		$paginacion["PAG_NUM"] = $pagina_seleccionada;
+		$paginacion["PAG_TAM"] = $pag_tam;
+		$_SESSION["paginacion"] = $paginacion;
+	
+		$filas1 = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
+		
+		// Paginación Profesores
+		if (isset($_SESSION["paginacion"]))
+			$paginacion2 = $_SESSION["paginacion"];
+		
+		$pagina_seleccionada2 = isset($_GET["PAG_NUM2"]) ? (int)$_GET["PAG_NUM2"] : (isset($paginacion2) ? (int)$paginacion2["PAG_NUM2"] : 1);
+		$pag_tam2 = isset($_GET["PAG_TAM2"]) ? (int)$_GET["PAG_TAM2"] : (isset($paginacion2) ? (int)$paginacion2["PAG_TAM2"] : 5);
+	
+		if ($pagina_seleccionada2 < 1) 		$pagina_seleccionada2 = 1;
+		if ($pag_tam2 < 1) 		$pag_tam2 = 5;
+	
+		unset($_SESSION["paginacion"]);
+	
+		$conexion = crearConexionBD();
+	
+		$query2 = "SELECT * FROM Usuarios"
+			. " WHERE (Usuarios.TipoUsuario = 'Profesor')";
+	
+		$total_registros2 = total_consulta($conexion, $query2);
+		$total_paginas2 = (int)($total_registros2 / $pag_tam2);
+	
+		if ($total_registros2 % $pag_tam2 > 0)		$total_paginas2++;
+	
+		if ($pagina_seleccionada2 > $total_paginas2)		$pagina_seleccionada2 = $total_paginas2;
+	
+		$paginacion2["PAG_NUM2"] = $pagina_seleccionada2;
+		$paginacion2["PAG_TAM2"] = $pag_tam2;
+		$_SESSION["paginacion"] = $paginacion2;
+	
+		$filas2 = consulta_paginada($conexion, $query2, $pagina_seleccionada2, $pag_tam2);
 		cerrarConexionBD($conexion);
 	}
 ?>
@@ -40,15 +97,33 @@
 	            </div>
 	        </div>
 	    </div>
-            <main>    
-	    <div class="body_content">
-	    	<p><h1>Bienvenido</h1></p>
-	    </div>             
+        <main>  
+	    
+	    <nav>
+			<div align="center" style="margin-top: 15px;">
+				<?php
+					for( $pagina = 1; $pagina <= $total_paginas; $pagina++ )
+						if ( $pagina == $pagina_seleccionada) { 	?>
+							<span class="current"><?php echo $pagina; ?></span>
+				<?php }	else { ?>
+							<a href="vistaAdmin.php?PAG_NUM=<?php echo $pagina; ?>&PAG_TAM=<?php echo $pag_tam; ?>"><?php echo $pagina; ?></a>
+				<?php } ?>
+			</div>
+			<form align="center" method="get" action="vistaAdmin.php">	
+				<input id="PAG_NUM" name="PAG_NUM" type="hidden" value="<?php echo $pagina_seleccionada?>"/>	
+				Mostrando	
+				<input id="PAG_TAM" name="PAG_TAM" type="number"	
+					min="1" max="<?php echo $total_registros; ?>"	
+					value="<?php echo $pag_tam?>" autofocus="autofocus" />	
+				entradas de <?php echo $total_registros?>	
+				<input type="submit" value="Cambiar">
+			</form>
+		</nav>          
                 	
 		<!-- Mostrar alumnos de la academia -->
 
-		<p><h1>Alumnos:</h1></p>
-		<table style="width:25%">
+		<div align="center"><p><h1>Alumnos:</h1></p></div>
+		<table align="center" border="1" style="width:auto; height:20px;">
 
 			<tr>
 		    	<th>DNI del alumno</th>
@@ -61,7 +136,6 @@
 		    	<th>Email</th>
 		    	<th>Tutor Legal</th>
 		    </tr>
-		</table>
 		<?php
 			foreach($filas1 as $fila) {
 		?>
@@ -71,14 +145,13 @@
 		<article>
 			<form method="post" action="controladorUsuario.php">
 				<div>
-					<div>
-							
-						<!-- <input id="DNI_USUARIO" name="DNI_USUARIO"
+					<div>		
+						<input id="DNI_USUARIO" name="DNI_USUARIO"
 							type="hidden" value="<?php echo $fila["DNI_USUARIO"]; ?>"/>
 						<input id="NOMBRE" name="NOMBRE"
 							type="hidden" value="<?php echo $fila["NOMBRE"]; ?>"/>
 						<input id="APELLIDOS" name="APELLIDOS"
-							type="hidden" value="<?php echo $fila["APELLIDOS"]; ?>"/> -->
+							type="hidden" value="<?php echo $fila["APELLIDOS"]; ?>"/>
 						<input id="EDAD" name="EDAD"
 							type="hidden" value="<?php echo $fila["EDAD"]; ?>"/>
 						<input id="LOCALIDAD" name="LOCALIDAD"
@@ -101,23 +174,20 @@
 	
 					<?php if (isset($usuario) and ($usuario["DNI_USUARIO"] == $fila["DNI_USUARIO"])) { ?>
 							<!-- Editando alumno -->
-							<table style="width:25%">
-								<tr>
-								   	<td><h4><?php echo $fila["DNI_USUARIO"];?></h4></td>
-								    <td><h3><input id="NOMBRE" name="NOMBRE" type="text" value="<?php echo $fila["NOMBRE"]; ?>"/></h3></td>
-								    <td><h3><input id="APELLIDOS" name="APELLIDOS" type="text" value="<?php echo $fila["APELLIDOS"]; ?>"/></h3></td>
-								    <td><h3><input id="EDAD" name="EDAD" type="text" value="<?php echo $fila["EDAD"]; ?>"/></h3></td>
-								    <td><h3><input id="LOCALIDAD" name="LOCALIDAD" type="text" value="<?php echo $fila["LOCALIDAD"]; ?>"/></h3></td>
-								    <td><h3><input id="TELEFONO_MOVIL" name="TELEFONO_MOVIL" type="text" value="<?php echo $fila["TELEFONO_MOVIL"]; ?>"/></h3></td>
-								    <td><h3><input id="TELEFONO_FIJO" name="TELEFONO_FIJO" type="text" value="<?php echo $fila["TELEFONO_FIJO"]; ?>"/></h3></td>
-								    <td><h3><input id="EMAIL" name="EMAIL" type="text" value="<?php echo $fila["EMAIL"]; ?>"/></h3></td>
-								    <td><h3><input id="NOMBRE_PADRE_MADRE" name="NOMBRE_PADRE_MADRE" type="text" value="<?php echo $fila["NOMBRE_PADRE_MADRE"]; ?>"/></h3></td>
-								</tr>
-							</table>
+							<tr>
+								<td><h4><?php echo $fila["DNI_USUARIO"];?></h4></td>
+								<td><h3><input id="NOMBRE" name="NOMBRE" type="text" value="<?php echo $fila["NOMBRE"]; ?>"/></h3></td>
+								<td><h3><input id="APELLIDOS" name="APELLIDOS" type="text" value="<?php echo $fila["APELLIDOS"]; ?>"/></h3></td>
+								<td><h3><input id="EDAD" name="EDAD" type="text" value="<?php echo $fila["EDAD"]; ?>"/></h3></td>
+								<td><h3><input id="LOCALIDAD" name="LOCALIDAD" type="text" value="<?php echo $fila["LOCALIDAD"]; ?>"/></h3></td>
+								<td><h3><input id="TELEFONO_MOVIL" name="TELEFONO_MOVIL" type="text" value="<?php echo $fila["TELEFONO_MOVIL"]; ?>"/></h3></td>
+								<td><h3><input id="TELEFONO_FIJO" name="TELEFONO_FIJO" type="text" value="<?php echo $fila["TELEFONO_FIJO"]; ?>"/></h3></td>
+								<td><h3><input id="EMAIL" name="EMAIL" type="text" value="<?php echo $fila["EMAIL"]; ?>"/></h3></td>
+								<td><h3><input id="NOMBRE_PADRE_MADRE" name="NOMBRE_PADRE_MADRE" type="text" value="<?php echo $fila["NOMBRE_PADRE_MADRE"]; ?>"/></h3></td>
+							</tr>
 					<?php } else { ?>
 						<!-- Mostrando alumno -->
 							<input id="DNI_USUARIO" name="DNI_USUARIO" type="hidden" value="<?php echo $fila["DNI_USUARIO"]; ?>"/>
-							<table style="width:25%">
 								<tr>
 								   	<td><?php echo $fila["DNI_USUARIO"]; ?></td>
 								    <td><?php echo $fila["NOMBRE"]; ?></td>
@@ -129,25 +199,25 @@
 								    <td><?php echo $fila["EMAIL"]; ?></td>
 								    <td><?php echo $fila["NOMBRE_PADRE_MADRE"]; ?></td>
 								    <td><a href="vistaRecibos.php?var= <?php echo base64_encode($fila["DNI_USUARIO"]);?>">Recibos del Alumno</a></td>
-								</tr>
-							</table>
 					<?php } ?>
-
 					</div>
 					
-					<div id="botones_fila">
-						<?php if (isset($usuario) and ($usuario["DNI_USUARIO"] == $fila["DNI_USUARIO"])) { ?>
-							<button id="grabar" name="grabar" type="submit">
-								<img src="images/bag_menuito.bmp" class="editar_fila" alt="Guardar modificación">
-							</button>
-						<?php } else { ?>
-							<button id="editar" name="editar" type="submit">
-								<img src="images/pencil_menuito.bmp" class="editar_fila" alt="Editar Alumno">
-							</button>
-						<?php } ?>
-							<button id="borrar" name="borrar" type="submit">
-								<img src="images/remove_menuito.bmp" class="editar_fila" alt="Borrar Alumno">
-							</button>
+					<div>
+							<td>
+							<?php if (isset($usuario) and ($usuario["DNI_USUARIO"] == $fila["DNI_USUARIO"])) { ?>
+								<button id="grabar" name="grabar" class="boton_personalizado" type="submit">
+									<p>Guardar modificación</p>
+								</button>
+							<?php } else { ?>
+								<button id="editar" name="editar" class="boton_personalizado" type="submit">
+									<p>Editar Alumno</p>
+								</button>
+							<?php } ?>
+								<button id="borrar" name="borrar" class="boton_personalizado" type="submit">
+									<p>Borrar Alumno</p>
+								</button>
+							</td>
+						</tr>
 					</div>
 				</div>
 			</form>
@@ -155,11 +225,32 @@
 
 		
 		<?php } ?>
-
+		</table>
+		
+		<nav>
+			<div align="center" style="margin-top: 15px;">
+				<?php
+					for( $pagina2 = 1; $pagina2 <= $total_paginas2; $pagina2++ )
+						if ( $pagina2 == $pagina_seleccionada2) { 	?>
+							<span class="current"><?php echo $pagina2; ?></span>
+				<?php }	else { ?>
+							<a href="vistaAdmin.php?PAG_NUM2=<?php echo $pagina2; ?>&PAG_TAM2=<?php echo $pag_tam2; ?>"><?php echo $pagina2; ?></a>
+				<?php } ?>
+			</div>
+			<form align="center" method="get" action="vistaAdmin.php">	
+				<input id="PAG_NUM2" name="PAG_NUM2" type="hidden" value="<?php echo $pagina_seleccionada2?>"/>	
+				Mostrando	
+				<input id="PAG_TAM2" name="PAG_TAM2" type="number"	
+					min="1" max="<?php echo $total_registros2; ?>"	
+					value="<?php echo $pag_tam2?>" autofocus="autofocus" />	
+				entradas de <?php echo $total_registros2?>	
+				<input type="submit" value="Cambiar">
+			</form>
+		</nav> 
 			
 		<!-- Mostrar profesores de la academia -->
-		<p><h1>Profesores:</h1></p>
-	  	<table style="width:25%">
+		<div align="center"><p><h1>Profesores:</h1></p></div>
+	  	<table align="center" border="1" style="width:auto; height:20px;">
 			<tr>
 		    	<th>DNI del Profesor</th>
 		    	<th>Nombre</th>
@@ -170,7 +261,6 @@
 		    	<th>Telefono Fijo</th>
 		    	<th>Email</th>
 		    </tr>
-		</table>
 		
 		<?php
 			foreach($filas2 as $fila) {
@@ -205,23 +295,20 @@
 							
 	
 					<?php if (isset($usuario) and ($usuario["DNI_USUARIO"] == $fila["DNI_USUARIO"])) { ?>
-							<!-- Editando profesor -->
-							<table style="width:25%">
-								<tr>
-								   	<td><h4><?php echo $fila["DNI_USUARIO"];?></h4></td>
-								    <td><h3><input id="NOMBRE" name="NOMBRE" type="text" value="<?php echo $fila["NOMBRE"]; ?>"/></h3></td>
-								    <td><h3><input id="APELLIDOS" name="APELLIDOS" type="text" value="<?php echo $fila["APELLIDOS"]; ?>"/></h3></td>
-								    <td><h3><input id="EDAD" name="EDAD" type="text" value="<?php echo $fila["EDAD"]; ?>"/></h3></td>
-								    <td><h3><input id="LOCALIDAD" name="LOCALIDAD" type="text" value="<?php echo $fila["LOCALIDAD"]; ?>"/></h3></td>
-								    <td><h3><input id="TELEFONO_MOVIL" name="TELEFONO_MOVIL" type="text" value="<?php echo $fila["TELEFONO_MOVIL"]; ?>"/></h3></td>
-								    <td><h3><input id="TELEFONO_FIJO" name="TELEFONO_FIJO" type="text" value="<?php echo $fila["TELEFONO_FIJO"]; ?>"/></h3></td>
-								    <td><h3><input id="EMAIL" name="EMAIL" type="text" value="<?php echo $fila["EMAIL"]; ?>"/></h3></td>
-								</tr>
-							</table>
+						<!-- Editando profesor -->
+							<tr>
+								<td><h4><?php echo $fila["DNI_USUARIO"];?></h4></td>
+								<td><h3><input id="NOMBRE" name="NOMBRE" type="text" value="<?php echo $fila["NOMBRE"]; ?>"/></h3></td>
+								<td><h3><input id="APELLIDOS" name="APELLIDOS" type="text" value="<?php echo $fila["APELLIDOS"]; ?>"/></h3></td>
+								<td><h3><input id="EDAD" name="EDAD" type="text" value="<?php echo $fila["EDAD"]; ?>"/></h3></td>
+								<td><h3><input id="LOCALIDAD" name="LOCALIDAD" type="text" value="<?php echo $fila["LOCALIDAD"]; ?>"/></h3></td>
+								<td><h3><input id="TELEFONO_MOVIL" name="TELEFONO_MOVIL" type="text" value="<?php echo $fila["TELEFONO_MOVIL"]; ?>"/></h3></td>
+								<td><h3><input id="TELEFONO_FIJO" name="TELEFONO_FIJO" type="text" value="<?php echo $fila["TELEFONO_FIJO"]; ?>"/></h3></td>
+								<td><h3><input id="EMAIL" name="EMAIL" type="text" value="<?php echo $fila["EMAIL"]; ?>"/></h3></td>
+							</tr>
 					<?php } else { ?>
-							<!-- Mostrando profesor -->
+						<!-- Mostrando profesor -->
 							<input id="DNI_USUARIO" name="DNI_USUARIO" type="hidden" value="<?php echo $fila["DNI_USUARIO"]; ?>"/>
-							<table style="width:25%">
 								<tr>
 								   	<td><?php echo $fila["DNI_USUARIO"]; ?></td>
 								    <td><?php echo $fila["NOMBRE"]; ?></td>
@@ -230,35 +317,37 @@
 								    <td><?php echo $fila["LOCALIDAD"]; ?></td>
 								    <td><?php echo $fila["TELEFONO_MOVIL"]; ?></td>
 								    <td><?php echo $fila["TELEFONO_FIJO"]; ?></td>
-								    <td><?php echo $fila["EMAIL"]; ?></td>
-								</tr>
-							</table>
+								    <td><?php echo $fila["EMAIL"]; ?></td>					
 					<?php } ?>
 					</div>
 					
-					<div id="botones_fila">
-						<?php if (isset($usuario) and ($usuario["DNI_USUARIO"] == $fila["DNI_USUARIO"])) { ?>
-							<button id="grabar" name="grabar" type="submit">
-								<img src="images/bag_menuito.bmp" class="editar_fila" alt="Guardar modificación">
-							</button>
-						<?php } else { ?>
-							<button id="editar" name="editar" type="submit">
-								<img src="images/pencil_menuito.bmp" class="editar_fila" alt="Editar Alumno">
-							</button>
-						<?php } ?>
-							<button id="borrar" name="borrar" type="submit">
-								<img src="images/remove_menuito.bmp" class="editar_fila" alt="Borrar Alumno">
-							</button>
+					<div>
+							<td>
+							<?php if (isset($usuario) and ($usuario["DNI_USUARIO"] == $fila["DNI_USUARIO"])) { ?>
+								<button id="grabar" name="grabar" class="boton_personalizado" type="submit">
+									<p>Guardar modificación</p>
+								</button>
+							<?php } else { ?>
+								<button id="editar" name="editar" class="boton_personalizado" type="submit">
+									<p>Editar Profesor</p>
+								</button>
+							<?php } ?>
+								<button id="borrar" name="borrar" class="boton_personalizado" type="submit">
+									<p>Borrar Profesor</p>
+								</button>
+							</td>
+						</tr>
 					</div>
 				</div>
 			</form>
 		</article>
 		
 		<?php } ?>
-		
-		<a href="formularioProfesor.php">Añade un profesor</a>
-
-		<a href="formularioCurso.php">Añade un curso</a>
+		</table>
+		<div align="center" style="margin-top: 15px;">
+			<a href="formularioProfesor.php">Añade un profesor</a>
+			<a href="formularioCurso.php">Añade un curso</a>
+		</div>
 
 		</main>
 	</body>
