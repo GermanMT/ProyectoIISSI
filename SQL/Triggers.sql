@@ -1,45 +1,12 @@
 --Triggers asociados a secuencias:
-CREATE OR REPLACE TRIGGER TR_Cursos
-BEFORE INSERT ON Cursos
+CREATE OR REPLACE TRIGGER TR_Horario_Curso
+BEFORE INSERT ON Horario_Curso
 FOR EACH ROW
 DECLARE
      valorSec NUMBER := 0;
 BEGIN
-     SELECT SEC_Cursos.CURRVAL INTO valorSec FROM DUAL;
-     :NEW.Id_Curso := valorSec;
-END;
-/
-
-CREATE OR REPLACE TRIGGER TR_Horarios
-BEFORE INSERT ON Horarios
-FOR EACH ROW
-DECLARE
-     valorSec NUMBER := 0;
-BEGIN
-     SELECT SEC_Horarios.CURRVAL INTO valorSec FROM DUAL;
+     SELECT SEC_Horario_Curso.CURRVAL INTO valorSec FROM DUAL;
      :NEW.Id_Horario := valorSec;
-END;
-/
-
-CREATE OR REPLACE TRIGGER TR_CursosAlumnos
-BEFORE INSERT ON Cursos_Alumnos
-FOR EACH ROW
-DECLARE
-     valorSec NUMBER := 0;
-BEGIN
-     SELECT SEC_Cursos_Alumnos.CURRVAL INTO valorSec FROM DUAL;
-     :NEW.Id_Curso_Alumno := valorSec;
-END;
-/
-
-CREATE OR REPLACE TRIGGER TR_Examenes
-BEFORE INSERT ON Examenes
-FOR EACH ROW
-DECLARE
-     valorSec NUMBER := 0;
-BEGIN
-     SELECT SEC_Examenes.CURRVAL INTO valorSec FROM DUAL;
-     :NEW.Id_Examen := valorSec;
 END;
 /
 
@@ -53,18 +20,7 @@ BEGIN
      :NEW.Id_Recibo := valorSec;
 END;
 /
-
-CREATE OR REPLACE TRIGGER TR_Academias
-BEFORE INSERT ON Academias
-FOR EACH ROW
-DECLARE
-     valorSec NUMBER := 0;
-BEGIN
-     SELECT SEC_Academias.CURRVAL INTO valorSec FROM DUAL;
-     :NEW.Id_Academia := valorSec;
-END;
-/
-
+/*
 --Triger de la Regla de Negocio 1(HACER CAMBIO CON LOS TELEFONOS):
 CREATE OR REPLACE TRIGGER Datos_Necesarios1
 BEFORE INSERT ON Alumnos
@@ -82,13 +38,13 @@ END;
 /
 
 --Triger de la Regla de Negocio 2:
-CREATE OR REPLACE TRIGGER Pago_Mensual
+/*CREATE OR REPLACE TRIGGER Pago_Mensual
 BEFORE INSERT ON Recibos
 FOR EACH ROW
 DECLARE
     v_Fecha_Recibo DATE := :NEW.Fecha_Recibo;
 BEGIN
-    IF(v_Fecha_Recibo > TO_DATE(07,'DD')) THEN
+    IF(v_Fecha_Recibo < TO_DATE(07,'DD')) THEN
         RAISE_APPLICATION_ERROR(-20003,'El pago mensual debe realizarse con una semana de antelación.');
     END IF;
 END;

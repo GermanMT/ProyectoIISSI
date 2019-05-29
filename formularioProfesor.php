@@ -2,7 +2,7 @@
 	session_start();
 
 	require_once ('gestionBD.php');
-	require_once ("gestionarUsuarios.php");
+	require_once ("gestionarProfesor.php");
 	
 	// Si no existen datos del formulario en la sesión, se crea una entrada con valores por defecto
 	if (!isset($_SESSION['formulario'])) {
@@ -14,11 +14,9 @@
 		$formulario['TelefonoMovil'] = "";
 		$formulario['TelefonoFijo'] = "";
 		$formulario['Email'] = "";
-		$formulario['NombrePadreMadre'] = "";
 		$formulario['Usuario'] = "";
 		$formulario['Pass'] = "";
-		$formulario['TipoUsuario'] = "Alumno";
-		$formulario['Tipo_Examen'] = "Aptis";
+		$formulario['TipoUsuario'] = "Profesor";
 		$formulario['Nivel_Examen'] = "B1";
 
 		$_SESSION['formulario'] = $formulario;
@@ -31,8 +29,7 @@
 	if (isset($_SESSION["errores"]))
 		$errores = $_SESSION["errores"];
 
-	// Creamos una conexión con la BD
-	$conexion = crearConexionBD();
+	
 ?>
 
 <!DOCTYPE html>
@@ -40,9 +37,9 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="CSS/styleIISSI.css" />
-	<script src="js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
-  
-  <title>Alta de Usuarios</title>
+	<!--<script src="js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
+  -->
+  <title>Alta Profesor</title>
 </head>
 
 <body>
@@ -61,7 +58,7 @@
 	?>
 	
 	<!-- Detrás de "POST"   action="validacion_alta_usuario.php" onsubmit="return validateForm()" -->
-	<form id="formulario" class="formulario" method="get" onsubmit="return validateForm()" novalidate>
+	<form id="formulario" class="formulario" method="get" novalidate>
 		<p><i>Los campos obligatorios están marcados con </i><em>*</em></p>
 		<fieldset><legend>Datos personales</legend>
 			<div></div><label for="DNI">DNI<em>*</em></label>
@@ -97,31 +94,11 @@
 			<input id="Email" name="Email"  type="email" placeholder="usuario@dominio.extension" value="<?php echo $formulario['Email'];?>" required/><br>
 			</div>
 
-			<div><label for="NombrePadreMadre">Nombre Padre o Madre:</label>
-			<input id="NombrePadreMadre" name="NombrePadreMadre" type="text" value="<?php echo $formulario['NombrePadreMadre'];?>"/>
-			</div>
-
 			<div><label>TipoUsuario:</label>
 			<label>
-				<input name="TipoUsuario" type="radio" value="ALUMNO" <?php if($formulario['TipoUsuario']=='ALUMNO') echo ' checked ';?>/>
-				Alumno</label>
-			</div>
-
-			<fieldset><legend>Datos del Tipo y Nivel de Exámen</legend>
-
-			<div><label>Tipo Examen:</label>
-			<label>
-					<input name="Tipo_Examen" type="radio" value="Trinity" <?php if($formulario['Tipo_Examen']=='Trinity') echo ' checked ';?>/>
-					Trinity
-				</label>
-				<label>
-					<input name="Tipo_Examen" type="radio" value="Cambridge" <?php if($formulario['Tipo_Examen']=='Cambridge') echo ' checked ';?>/>
-					Cambridge
-				</label>
-				<label>
-					<input name="Tipo_Examen" type="radio" value="Aptis" <?php if($formulario['Tipo_Examen']=='Aptis') echo ' checked ';?>/>
-					Aptis
-				</label>
+				<input name="TipoUsuario" type="radio" value="Profesor" <?php if($formulario['TipoUsuario']=='Profesor') echo ' checked ';?>/>
+				Profesor</label>
+			
 			</div>
 
 			<div><label>Nivel Inglés:</label>
@@ -167,14 +144,9 @@
 			</div>
 		</fieldset>
 
-		<div><input type="submit" value="Enviar" formaction="accionAltaRegistro.php" /></div>
+		<div><input type="submit" value="Enviar" formaction="accionAltaRegistroProfesor.php" /></div>
 
 	</form>
-
-	<?php
-		
-		cerrarConexionBD($conexion);
-	?>
 	
 	</body>
 </html>

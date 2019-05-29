@@ -210,6 +210,16 @@ ul.menus li ul{
     line-height: 24px;
 }
 
+/*------------Botones-------------------------*/
+.editar_fila{
+	border:0px;
+	margin:3px;
+	padding:0px;
+	float: right;	/* Los botones de acci�n de cada libro aparecer�n en la parte derecha */
+
+}
+
+
 /*------------Quienes Somos-------------------*/
 .left_content_box_qs{
     padding-top: 50px;
@@ -329,3 +339,18 @@ div.error, div.excepcion {
 .nanpass {
 	background-color: lightyellow
 }
+
+.boton_personalizado{
+    text-decoration: none;
+    padding: 1px;
+    font-weight: 600;
+    font-size: 10px;
+    color: #ffffff;
+    background-color: #1883ba;
+    border-radius: 6px;
+    border: 1px solid #0016b0;
+ }
+ .boton_personalizado:hover{
+    color: #1883ba;
+    background-color: #ffffff;
+ }

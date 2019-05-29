@@ -1,22 +1,53 @@
-CREATE OR REPLACE PROCEDURE INSERTAR_ALUMNO 
-  (P_DNI IN Alumnos.DNI_Alumno%TYPE,
-   P_NOM IN Alumnos.Nombre%TYPE,
-   P_APE IN Alumnos.Apellidos%TYPE,
-   P_EDAD IN Alumnos.Edad%TYPE,
-   P_LOCALIDAD IN Alumnos.Localidad%TYPE,
-   P_RECIBO IN Alumnos.Id_Recibo%TYPE,
-   P_MOVIL IN Alumnos.Telefono_Movil%TYPE,
-   P_FIJO IN Alumnos.Telefono_Fijo%TYPE,
-   P_EMAIL IN Alumnos.Email%TYPE,
-   P_PADMAD IN Alumnos.Nombre_Padre_Madre%TYPE,
-   P_USUARIO IN Alumnos.Usuario%TYPE,
-   P_PASS IN Alumnos.Pass%TYPE
+create or replace PROCEDURE INSERTAR_USUARIO 
+  (P_DNI_Usuario IN Usuarios.DNI_Usuario%TYPE,
+   P_Nombre IN Usuarios.Nombre%TYPE,
+   P_Apellidos IN Usuarios.Apellidos%TYPE,
+   P_Edad IN Usuarios.Edad%TYPE,
+   P_Localidad IN Usuarios.Localidad%TYPE,
+   P_TelefonoMovil IN Usuarios.Telefono_Movil%TYPE,
+   P_TelefonoFijo IN Usuarios.Telefono_Fijo%TYPE,
+   P_Email IN Usuarios.Email%TYPE,
+   P_NombrePadreMadre IN Usuarios.Nombre_Padre_Madre%TYPE,
+   P_Usuario IN Usuarios.Usuario%TYPE,
+   P_Pass IN Usuarios.Pass%TYPE,
+   P_TipoUsuario IN Usuarios.TipoUsuario%TYPE
    ) IS
 BEGIN
-  INSERT INTO Alumnos(DNI_Alumno,Nombre,Apellidos,Edad,Localidad,Id_Recibo,Telefono_Movil,Telefono_Fijo,Email,Nombre_Padre_Madre,Usuario,Pass)
-  VALUES (P_DNI,P_NOM,P_APE,P_EDAD,P_LOCALIDAD,P_RECIBO,P_MOVIL,P_FIJO,P_EMAIL,P_PADMAD,P_USUARIO,P_PASS);
+  INSERT INTO Usuarios(DNI_Usuario,Nombre,Apellidos,Edad,Localidad ,Telefono_Movil,Telefono_Fijo,Email,Nombre_Padre_Madre,Usuario,Pass, TipoUsuario)
+  VALUES (P_DNI_Usuario,P_Nombre,P_Apellidos,P_Edad,P_Localidad,P_TelefonoMovil,P_TelefonoFijo,P_Email,P_NombrePadreMadre,P_Usuario,P_Pass,P_TipoUsuario);
 END;
 /
+
+
+CALL INSERTAR_Usuario('49385388H','Jose Antonio','Macias','20', 'La Puebla De Cazalla', '611227721', '954841552', 'josanfcs98@hotmail.com', 'Jose Enrique', 'JosanFCS', 'holita20', 'Alumno');
+
+--Insertar Recibo:
+CREATE OR REPLACE PROCEDURE INSERTAR_RECIBO
+  (P_Id_Recibo IN Recibos.Id_Recibo%TYPE,
+   P_Fecha_Recibo IN Recibos.Fecha_Recibo%TYPE,
+   P_Por_Pagar IN Recibos.Por_Pagar%TYPE,
+   P_Cuenta_Bancaria IN Recibos.Cuenta_Bancaria%TYPE,
+   P_Hermanos IN Recibos.Hermanos%TYPE,
+   P_DNI_Alumno IN Recibos.DNI_Alumno%TYPE,
+   P_Forma_Pago IN Recibos.Forma_Pago%TYPE
+   ) IS
+BEGIN
+  INSERT INTO Recibos(Id_Recibo,Fecha_Recibo,Por_Pagar,Cuenta_Bancaria,Hermanos,DNI_Alumno,Forma_Pago)
+  VALUES (P_Id_Recibo,P_Fecha_Recibo,P_Por_Pagar,P_Cuenta_Bancaria,P_Hermanos,P_DNI_Alumno,P_Forma_Pago);
+END;
+/
+
+BEGIN
+INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/05/06',500.00, '', 0, '21015236K', 'efectivo');
+INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/06/06',500.00, '', 0, '21015236K', 'efectivo');
+INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/07/06',500.00, '', 0, '21015236K', 'efectivo');
+INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/08/06',500.00, '', 0, '21015236K', 'efectivo');
+INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/09/06',500.00, '', 0, '21015236K', 'efectivo');
+INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/10/06',500.00, '', 0, '21015236K', 'efectivo');
+COMMIT;
+END;
+/
+
 
 --Procedimiento del Requisito Funcional 1:
 create or replace PROCEDURE Cuota_Mensual (v_DNI_Alumno IN Alumnos.DNI_Alumno%TYPE)
@@ -128,50 +159,6 @@ OPEN C;
     DBMS_OUTPUT.PUT_LINE(RPAD(v_Cursos.Id_Curso,30) || RPAD(v_Cursos.Fecha_Inicio, 30) || RPAD(v_Cursos.Fecha_Fin, 30) || RPAD(v_Cursos.Num_Alumnos, 30));
   END IF;
   FETCH C INTO v_Cursos;
-  END LOOP;
-  CLOSE C;
-END;
-/
-
---Procedimiento del Requisito Funcional 6:
-create or replace PROCEDURE Horario_Profesor (v_DNI_Profesor IN Profesores.DNI_Profesor%TYPE)
-IS
-  CURSOR C IS
-    SELECT DNI_Profesor, Hora_Inicio, Hora_Fin, Dia FROM Horarios NATURAL JOIN Profesores WHERE DNI_Profesor = v_DNI_Profesor;
-    v_Horarios C%ROWTYPE;
-BEGIN
-  OPEN C;
-  FETCH C INTO v_Horarios;
-    DBMS_OUTPUT.PUT_LINE(RPAD('DNI del Profesor: ', 20) || RPAD('Hora de Inicio: ', 20) || RPAD('Hora de Fin: ', 20) || RPAD('Dia: ', 20));
-  WHILE C%FOUND LOOP
-    IF(v_Horarios.DNI_Profesor = null) THEN
-    DBMS_OUTPUT.PUT_LINE('No hay curso de profesores creados');
-    ELSE
-    DBMS_OUTPUT.PUT_LINE(RPAD(v_Horarios.DNI_Profesor, 20) || RPAD(v_Horarios.Hora_Inicio, 20) || RPAD(v_Horarios.Hora_Fin, 20) || RPAD(v_Horarios.Dia, 20));
-    END IF;
-  FETCH C INTO v_Horarios;
-  END LOOP;
-  CLOSE C;
-END;
-/
-
---Procedimiento del Requisito Funcional 7:
-create or replace PROCEDURE Horario_Alumno (v_DNI_Alumno IN Horarios.DNI_Alumno%TYPE)
-IS
-  CURSOR C IS
-    SELECT DNI_Alumno, Hora_Inicio, Hora_Fin, Dia FROM Horarios NATURAL JOIN Alumnos WHERE DNI_Alumno = v_DNI_Alumno;
-    v_Horarios C%ROWTYPE;
-BEGIN
-  OPEN C;
-  FETCH C INTO v_Horarios;
-  DBMS_OUTPUT.PUT_LINE(RPAD('DNI del Alumno: ', 30) || RPAD('Hora de Inicio: ', 30) || RPAD('Hora de Fin: ', 30) || RPAD('Dia: ', 30));
-  WHILE C%FOUND LOOP
-    IF(v_Horarios.DNI_Alumno = null) THEN
-    DBMS_OUTPUT.PUT_LINE('No hay curso de alumnos creados');
-    ELSE
-    DBMS_OUTPUT.PUT_LINE(RPAD(v_Horarios.DNI_Alumno, 30) || RPAD(v_Horarios.Hora_Inicio, 30) || RPAD(v_Horarios.Hora_Fin, 30) || RPAD(v_Horarios.Dia, 30));
-    END IF;
-  FETCH C INTO v_Horarios;
   END LOOP;
   CLOSE C;
 END;
