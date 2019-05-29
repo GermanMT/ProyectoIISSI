@@ -9,6 +9,7 @@
 	if (isset($_SESSION["formulario"])) {
 		$usuario = $_SESSION["formulario"];
 		unset($_SESSION["formulario"]);
+		unset($_SESSION["errores"]);
 	}else {
 		header("Location: formulario.php");
 	}
