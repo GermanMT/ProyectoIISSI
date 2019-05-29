@@ -11,10 +11,9 @@
     <persistedState key="workingSets" value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?>&#xD;&#xA;&lt;workingSets/>"/>
     <persistedState key="aggregateWorkingSetId"/>
     <tags>topLevel</tags>
-    <tags>shellMaximized</tags>
-    <children xsi:type="basic:PartSashContainer" xmi:id="_jDD3oHMuEem2oICVhZb-WQ" selectedElement="_jDD3oXMuEem2oICVhZb-WQ" horizontal="true">
-      <children xsi:type="advanced:PerspectiveStack" xmi:id="_jDD3oXMuEem2oICVhZb-WQ" elementId="org.eclipse.ui.ide.perspectivestack" containerData="7500" selectedElement="_jKhxkHMuEem2oICVhZb-WQ">
-        <children xsi:type="advanced:Perspective" xmi:id="_jKhxkHMuEem2oICVhZb-WQ" elementId="com.aptana.ui.WebPerspective" selectedElement="_jKhxkXMuEem2oICVhZb-WQ" label="Web" iconURI="platform:/plugin/com.aptana.ui/icons/web.png">
+    <children xsi:type="basic:PartSashContainer" xmi:id="_xMougnWsEemsR4NfQd1Wfw" selectedElement="_xMoug3WsEemsR4NfQd1Wfw" horizontal="true">
+      <children xsi:type="advanced:PerspectiveStack" xmi:id="_xMoug3WsEemsR4NfQd1Wfw" elementId="org.eclipse.ui.ide.perspectivestack" containerData="7500" selectedElement="_xMouhHWsEemsR4NfQd1Wfw">
+        <children xsi:type="advanced:Perspective" xmi:id="_xMouhHWsEemsR4NfQd1Wfw" elementId="com.aptana.ui.WebPerspective" selectedElement="_xMouhXWsEemsR4NfQd1Wfw" label="Web" iconURI="platform:/plugin/com.aptana.ui/icons/web.png">
           <persistedState key="persp.hiddenItems" value="persp.hideToolbarSC:print,persp.hideToolbarSC:org.eclipse.ui.edit.text.toggleShowSelectedElementOnly,persp.hideToolbarSC:org.eclipse.debug.ui.commands.RunToLine,persp.actionSet:org.eclipse.ui.edit.text.actionSet.annotationNavigation,persp.actionSet:org.eclipse.ui.edit.text.actionSet.navigation,persp.actionSet:org.eclipse.ui.externaltools.ExternalToolsSet,"/>
           <tags>persp.actionSet:com.aptana.browser.actionSet</tags>
           <tags>persp.actionSet:com.aptana.ruby.debug.ui.RubyDebugActionSet</tags>
@@ -67,19 +66,19 @@
                 <children xsi:type="advanced:Placeholder" xmi:id="_xMoui3WsEemsR4NfQd1Wfw" elementId="com.aptana.ui.io.remoteview" toBeRendered="false" ref="_xMpWRHWsEemsR4NfQd1Wfw"/>
                 <children xsi:type="advanced:Placeholder" xmi:id="_xMoujHWsEemsR4NfQd1Wfw" elementId="com.aptana.explorer.view" toBeRendered="false" ref="_xMpWQ3WsEemsR4NfQd1Wfw"/>
               </children>
-              <children xsi:type="basic:PartStack" xmi:id="_jKhxmXMuEem2oICVhZb-WQ" elementId="org.eclipse.ui.views.ContentOutlineMStack" toBeRendered="false" containerData="2500">
-                <children xsi:type="advanced:Placeholder" xmi:id="_jKhxmnMuEem2oICVhZb-WQ" elementId="org.eclipse.ui.views.ContentOutline" toBeRendered="false" ref="_jKc5EHMuEem2oICVhZb-WQ"/>
-                <children xsi:type="advanced:Placeholder" xmi:id="_jKhxm3MuEem2oICVhZb-WQ" elementId="com.aptana.snippets.ui.views.SnippetsView" toBeRendered="false" ref="_jKdgIHMuEem2oICVhZb-WQ"/>
+              <children xsi:type="basic:PartStack" xmi:id="_xMoujXWsEemsR4NfQd1Wfw" elementId="org.eclipse.ui.views.ContentOutlineMStack" toBeRendered="false" containerData="2500">
+                <children xsi:type="advanced:Placeholder" xmi:id="_xMoujnWsEemsR4NfQd1Wfw" elementId="org.eclipse.ui.views.ContentOutline" toBeRendered="false" ref="_xMpWU3WsEemsR4NfQd1Wfw"/>
+                <children xsi:type="advanced:Placeholder" xmi:id="_xMouj3WsEemsR4NfQd1Wfw" elementId="com.aptana.snippets.ui.views.SnippetsView" toBeRendered="false" ref="_xMpWVnWsEemsR4NfQd1Wfw"/>
               </children>
             </children>
-            <children xsi:type="basic:PartSashContainer" xmi:id="_jKhxnHMuEem2oICVhZb-WQ" containerData="8000" selectedElement="_jKhxnnMuEem2oICVhZb-WQ">
-              <children xsi:type="advanced:Placeholder" xmi:id="_jKhxnXMuEem2oICVhZb-WQ" elementId="org.eclipse.ui.editorss" containerData="7500" ref="_jKII8HMuEem2oICVhZb-WQ"/>
-              <children xsi:type="basic:PartStack" xmi:id="_jKhxnnMuEem2oICVhZb-WQ" elementId="terminalArea" containerData="2500" selectedElement="_jKhxn3MuEem2oICVhZb-WQ">
-                <children xsi:type="advanced:Placeholder" xmi:id="_jKhxn3MuEem2oICVhZb-WQ" elementId="org.eclipse.ui.console.ConsoleView" ref="_jKVkUHMuEem2oICVhZb-WQ"/>
-                <children xsi:type="advanced:Placeholder" xmi:id="_jKhxoHMuEem2oICVhZb-WQ" elementId="com.aptana.terminal.views.terminal:*" toBeRendered="false" ref="_jKVkUXMuEem2oICVhZb-WQ"/>
-                <children xsi:type="advanced:Placeholder" xmi:id="_jKhxoXMuEem2oICVhZb-WQ" elementId="com.aptana.terminal.views.terminal" ref="_jKeuQHMuEem2oICVhZb-WQ"/>
-                <children xsi:type="advanced:Placeholder" xmi:id="_jKhxonMuEem2oICVhZb-WQ" elementId="org.eclipse.ui.views.ProblemView" ref="_jKfVUHMuEem2oICVhZb-WQ"/>
-                <children xsi:type="advanced:Placeholder" xmi:id="_jKhxo3MuEem2oICVhZb-WQ" elementId="org.eclipse.ui.views.TaskList" toBeRendered="false" ref="_jKf8YHMuEem2oICVhZb-WQ"/>
+            <children xsi:type="basic:PartSashContainer" xmi:id="_xMoukHWsEemsR4NfQd1Wfw" containerData="8000" selectedElement="_xMouknWsEemsR4NfQd1Wfw">
+              <children xsi:type="advanced:Placeholder" xmi:id="_xMoukXWsEemsR4NfQd1Wfw" elementId="org.eclipse.ui.editorss" containerData="7500" ref="_xMpWBHWsEemsR4NfQd1Wfw"/>
+              <children xsi:type="basic:PartStack" xmi:id="_xMouknWsEemsR4NfQd1Wfw" elementId="terminalArea" containerData="2500" selectedElement="_xMouk3WsEemsR4NfQd1Wfw">
+                <children xsi:type="advanced:Placeholder" xmi:id="_xMouk3WsEemsR4NfQd1Wfw" elementId="org.eclipse.ui.console.ConsoleView" ref="_xMpWRXWsEemsR4NfQd1Wfw"/>
+                <children xsi:type="advanced:Placeholder" xmi:id="_xMoulHWsEemsR4NfQd1Wfw" elementId="com.aptana.terminal.views.terminal:*" toBeRendered="false" ref="_xMpWUnWsEemsR4NfQd1Wfw"/>
+                <children xsi:type="advanced:Placeholder" xmi:id="_xMoulXWsEemsR4NfQd1Wfw" elementId="com.aptana.terminal.views.terminal" ref="_xMpWWXWsEemsR4NfQd1Wfw"/>
+                <children xsi:type="advanced:Placeholder" xmi:id="_xMoulnWsEemsR4NfQd1Wfw" elementId="org.eclipse.ui.views.ProblemView" ref="_xMpWWnWsEemsR4NfQd1Wfw"/>
+                <children xsi:type="advanced:Placeholder" xmi:id="_xMoul3WsEemsR4NfQd1Wfw" elementId="org.eclipse.ui.views.TaskList" toBeRendered="false" ref="_xMpWW3WsEemsR4NfQd1Wfw"/>
               </children>
             </children>
           </children>
@@ -176,18 +175,18 @@
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
       </menus>
-      <toolbar xmi:id="_jTBmQXMuEem2oICVhZb-WQ" elementId="org.eclipse.ui.views.ContentOutline" visible="false"/>
+      <toolbar xmi:id="_xMpWVXWsEemsR4NfQd1Wfw" elementId="org.eclipse.ui.views.ContentOutline" visible="false"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_xMpWVnWsEemsR4NfQd1Wfw" elementId="com.aptana.snippets.ui.views.SnippetsView" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Snippets" iconURI="platform:/plugin/com.aptana.scripting.ui/icons/snippet.png" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="com.aptana.snippets.ui.views.SnippetsView"/>
       <persistedState key="originalCompatibilityViewBundle" value="com.aptana.workbench"/>
       <tags>View</tags>
       <tags>categoryTag:Studio</tags>
-      <menus xmi:id="_cCndQHWrEemsR4NfQd1Wfw" elementId="com.aptana.snippets.ui.views.SnippetsView">
+      <menus xmi:id="_xMpWV3WsEemsR4NfQd1Wfw" elementId="com.aptana.snippets.ui.views.SnippetsView">
         <tags>ViewMenu</tags>
         <tags>menuContribution:menu</tags>
       </menus>
-      <toolbar xmi:id="_cCndQXWrEemsR4NfQd1Wfw" elementId="com.aptana.snippets.ui.views.SnippetsView" visible="false"/>
+      <toolbar xmi:id="_xMpWWHWsEemsR4NfQd1Wfw" elementId="com.aptana.snippets.ui.views.SnippetsView" visible="false"/>
     </sharedElements>
     <sharedElements xsi:type="basic:Part" xmi:id="_xMpWWXWsEemsR4NfQd1Wfw" elementId="com.aptana.terminal.views.terminal" contributionURI="bundleclass://org.eclipse.ui.workbench/org.eclipse.ui.internal.e4.compatibility.CompatibilityView" label="Terminal" iconURI="platform:/plugin/com.aptana.terminal/icons/terminal.png" tooltip="" closeable="true">
       <persistedState key="originalCompatibilityViewClass" value="com.aptana.terminal.views.TerminalView"/>
@@ -1499,99 +1498,99 @@
   <commands xmi:id="_xMqk8nWsEemsR4NfQd1Wfw" elementId="org.eclipse.ui.navigate.openResource" commandName="Open Resource" description="Open an editor on a particular resource" category="_xMqlPnWsEemsR4NfQd1Wfw">
     <parameters xmi:id="_xMqk83WsEemsR4NfQd1Wfw" elementId="filePath" name="File Path" typeId="org.eclipse.ui.ide.resourcePath"/>
   </commands>
-  <commands xmi:id="_iuEfGnMuEem2oICVhZb-WQ" elementId="com.aptana.editor.toggleWordWrapCommand" commandName="Word Wrap" category="_it5f9HMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_iuEfG3MuEem2oICVhZb-WQ" elementId="org.eclipse.compare.copyAllLeftToRight" commandName="Copy All from Left to Right" description="Copy All Changes from Left to Right" category="_it5f83MuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jB9rcHMuEem2oICVhZb-WQ" elementId="AUTOGEN:::com.aptana.browser.actionSet/com.aptana.browser.ShowBrowserEditorAction" commandName="Web Browser Editor" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCEZIHMuEem2oICVhZb-WQ" elementId="AUTOGEN:::com.aptana.js.debug.ui.actionSet/com.aptana.js.debug.ui.actions.Watch" commandName="Watch" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCEZIXMuEem2oICVhZb-WQ" elementId="AUTOGEN:::com.aptana.js.debug.ui.actionSet/com.aptana.js.debug.ui.actions.AddExceptionBreakpoint" commandName="Add JavaScript Exception Breakpoint..." category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCFAMHMuEem2oICVhZb-WQ" elementId="AUTOGEN:::com.aptana.js.debug.ui.actionSet/com.aptana.js.debug.ui.actions.ToggleBreakpoint" commandName="Toggle breakpoint on selected line" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCFAMXMuEem2oICVhZb-WQ" elementId="AUTOGEN:::com.aptana.js.debug.ui.actionSet/com.aptana.js.debug.ui.actions.openURL" commandName="Open URL..." category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCFAMnMuEem2oICVhZb-WQ" elementId="AUTOGEN:::org2.eclipse.php.debug.ui.actionSet/org2.eclipse.php.debug.ui.WatchAction" commandName="Watch" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCFnQHMuEem2oICVhZb-WQ" elementId="AUTOGEN:::com.aptana.terminal.actionSet/com.aptana.terminal.ShowTerminalEditorAction" commandName="Terminal Editor" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCG1YHMuEem2oICVhZb-WQ" elementId="AUTOGEN:::org.eclipse.debug.ui.launchActionSet/org.eclipse.debug.internal.ui.actions.RunWithConfigurationAction" commandName="Run As" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCHccHMuEem2oICVhZb-WQ" elementId="AUTOGEN:::org.eclipse.debug.ui.launchActionSet/org.eclipse.debug.internal.ui.actions.RunHistoryMenuAction" commandName="Run History" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCHccXMuEem2oICVhZb-WQ" elementId="AUTOGEN:::org.eclipse.debug.ui.launchActionSet/org.eclipse.debug.internal.ui.actions.RunDropDownAction" commandName="Run" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCHccnMuEem2oICVhZb-WQ" elementId="AUTOGEN:::org.eclipse.debug.ui.launchActionSet/org.eclipse.debug.internal.ui.actions.DebugWithConfigurationAction" commandName="Debug As" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCHcc3MuEem2oICVhZb-WQ" elementId="AUTOGEN:::org.eclipse.debug.ui.launchActionSet/org.eclipse.debug.internal.ui.actions.DebugHistoryMenuAction" commandName="Debug History" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCHcdHMuEem2oICVhZb-WQ" elementId="AUTOGEN:::org.eclipse.debug.ui.launchActionSet/org.eclipse.debug.internal.ui.actions.DebugDropDownAction" commandName="Debug" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCIDgHMuEem2oICVhZb-WQ" elementId="AUTOGEN:::org.eclipse.debug.ui.profileActionSet/org.eclipse.debug.internal.ui.actions.ProfileDropDownAction" commandName="Profile" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCIDgXMuEem2oICVhZb-WQ" elementId="AUTOGEN:::org.eclipse.debug.ui.profileActionSet/org.eclipse.debug.internal.ui.actions.ProfileWithConfigurationAction" commandName="Profile As" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCIqkHMuEem2oICVhZb-WQ" elementId="AUTOGEN:::org.eclipse.debug.ui.profileActionSet/org.eclipse.debug.internal.ui.actions.ProfileHistoryMenuAction" commandName="Profile History" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCIqkXMuEem2oICVhZb-WQ" elementId="AUTOGEN:::org.eclipse.ui.cheatsheets.actionSet/org.eclipse.ui.cheatsheets.actions.CheatSheetHelpMenuAction" commandName="Cheat Sheets..." category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCIqknMuEem2oICVhZb-WQ" elementId="AUTOGEN:::org.eclipse.search.searchActionSet/org.eclipse.search.OpenSearchDialogPage" commandName="Search..." description="Search" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCJRoHMuEem2oICVhZb-WQ" elementId="AUTOGEN:::org.eclipse.team.ui.actionSet/org.eclipse.team.ui.synchronizeAll" commandName="Synchronize..." description="Synchronize..." category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCJRoXMuEem2oICVhZb-WQ" elementId="AUTOGEN:::org.eclipse.team.ui.actionSet/org.eclipse.team.ui.ConfigureProject" commandName="Share Project..." description="Share the project with others using a version and configuration management system." category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCJ4sHMuEem2oICVhZb-WQ" elementId="AUTOGEN:::org.eclipse.ui.externaltools.ExternalToolsSet/org.eclipse.ui.externaltools.ExternalToolMenuDelegateMenu" commandName="External Tools" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCKfwHMuEem2oICVhZb-WQ" elementId="AUTOGEN:::com.aptana.ruby.debug.HAMLEditor.BreakpointRulerActions/com.aptana.ruby.debug.ui.doubleClickBreakpointAction" commandName="Not Used" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCKfwXMuEem2oICVhZb-WQ" elementId="AUTOGEN:::com.aptana.js.debug.ui.BreakpointRulerActions/com.aptana.js.debug.ui.actions.htmlDoubleClickBreakpointAction" commandName="Toggle Breakpoint" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCKfwnMuEem2oICVhZb-WQ" elementId="AUTOGEN:::com.aptana.js.debug.ui.BreakpointRulerActions/com.aptana.js.debug.ui.actions.jsDoubleClickBreakpointAction" commandName="Toggle Breakpoint" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCKfw3MuEem2oICVhZb-WQ" elementId="AUTOGEN:::com.aptana.js.debug.ui.BreakpointRulerActions/com.aptana.js.debug.ui.actions.phpDoubleClickBreakpointAction" commandName="Toggle Breakpoint" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCKfxHMuEem2oICVhZb-WQ" elementId="AUTOGEN:::com.aptana.editor.php.editorAction/com.aptana.php.debug.toggleBreakpointAction" commandName="Toggle Breakpoint" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCKfxXMuEem2oICVhZb-WQ" elementId="AUTOGEN:::com.aptana.ruby.debug.RubyEditor.BreakpointRulerActions/com.aptana.ruby.debug.ui.doubleClickBreakpointAction" commandName="Not Used" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCMU8HMuEem2oICVhZb-WQ" elementId="AUTOGEN:::org.eclipse.ui.texteditor.ruler.actions/org.eclipse.ui.texteditor.BookmarkRulerAction" commandName="Text Editor Bookmark Ruler Action" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCMU8XMuEem2oICVhZb-WQ" elementId="AUTOGEN:::org.eclipse.ui.texteditor.ruler.actions/org.eclipse.ui.texteditor.SelectRulerAction" commandName="Text Editor Ruler Single-Click" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCM8AHMuEem2oICVhZb-WQ" elementId="AUTOGEN:::com.aptana.debug.ui.variableViewContribution/com.aptana.debug.ui.variableViewActions.DetailOptions" commandName="JavaScript Detail Formatters..." category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCM8AXMuEem2oICVhZb-WQ" elementId="AUTOGEN:::com.aptana.debug.ui.variableViewContribution/com.aptana.debug.ui.variableViewActions.ShowConstants" commandName="Show Constants" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCNjEHMuEem2oICVhZb-WQ" elementId="AUTOGEN:::com.aptana.debug.ui.expressionViewContribution/com.aptana.debug.ui.variableViewActions.DetailOptions" commandName="JavaScript Detail Formatters..." category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCNjEXMuEem2oICVhZb-WQ" elementId="AUTOGEN:::com.aptana.debug.ui.expressionViewContribution/com.aptana.debug.ui.variableViewActions.ShowConstants" commandName="Show Constants" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCNjEnMuEem2oICVhZb-WQ" elementId="AUTOGEN:::com.aptana.debug.ui.expressionViewContribution/org.eclipse.debug.ui.expressionViewActions.AddWatchExpression" commandName="Add Watch Expression" description="Create a new watch expression" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCNjE3MuEem2oICVhZb-WQ" elementId="AUTOGEN:::com.aptana.ruby.debug.ui.BreakpointViewActions/com.aptana.ruby.debug.ui.actions.AddException" commandName="Ruby Exception Breakpoint" description="Define a ruby exception breakpoint" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCNjFHMuEem2oICVhZb-WQ" elementId="AUTOGEN:::org.eclipse.debug.ui.PulldownActions/org.eclipse.debug.ui.debugview.pulldown.ViewManagementAction" commandName="View Management..." category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCOKIHMuEem2oICVhZb-WQ" elementId="AUTOGEN:::org.eclipse.debug.ui.debugview.toolbar/org.eclipse.debug.ui.debugview.toolbar.removeAllTerminated" commandName="Remove All Terminated" description="Remove All Terminated Launches" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCOKIXMuEem2oICVhZb-WQ" elementId="AUTOGEN:::org.eclipse.debug.ui.breakpointsview.toolbar/org.eclipse.debug.ui.breakpointsView.toolbar.removeAll" commandName="Remove All" description="Remove All Breakpoints" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCOxMHMuEem2oICVhZb-WQ" elementId="AUTOGEN:::org.eclipse.debug.ui.breakpointsview.toolbar/org.eclipse.debug.ui.breakpointsView.toolbar.linkWithDebugView" commandName="Link with Debug View" description="Link with Debug View" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCPYQHMuEem2oICVhZb-WQ" elementId="AUTOGEN:::org.eclipse.debug.ui.breakpointsview.toolbar/org.eclipse.debug.ui.breakpointsView.toolbar.workingSets" commandName="Working Sets..." description="Manage Working Sets" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCPYQXMuEem2oICVhZb-WQ" elementId="AUTOGEN:::org.eclipse.debug.ui.breakpointsview.toolbar/org.eclipse.debug.ui.breakpointsView.toolbar.clearDefaultBreakpointGroup" commandName="Deselect Default Working Set" description="Deselect Default Working Set" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCP_UHMuEem2oICVhZb-WQ" elementId="AUTOGEN:::org.eclipse.debug.ui.breakpointsview.toolbar/org.eclipse.debug.ui.breakpointsView.toolbar.setDefaultBreakpointGroup" commandName="Select Default Working Set..." description="Select Default Working Set" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCQmYHMuEem2oICVhZb-WQ" elementId="AUTOGEN:::org.eclipse.debug.ui.breakpointsview.toolbar/org.eclipse.debug.ui.breakpointsView.toolbar.sortByAction" commandName="Sort By" description="Sort By" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCQmYXMuEem2oICVhZb-WQ" elementId="AUTOGEN:::org.eclipse.debug.ui.breakpointsview.toolbar/org.eclipse.debug.ui.breakpointsView.toolbar.groupByAction" commandName="Group By" description="Show" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCQmYnMuEem2oICVhZb-WQ" elementId="AUTOGEN:::org.eclipse.debug.ui.expressionsView.toolbar/org.eclipse.debug.ui.expresssionsView.toolbar.removeAll" commandName="Remove All" description="Remove All Expressions" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCRNcHMuEem2oICVhZb-WQ" elementId="AUTOGEN:::org.eclipse.debug.ui.expressionsView.toolbar/org.eclipse.debug.ui.expresssionsView.toolbar.AddWatchExpression" commandName="Add Watch Expression..." description="Create a new watch expression" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCRNcXMuEem2oICVhZb-WQ" elementId="AUTOGEN:::org.eclipse.debug.ui.memoryView.toolbar/org.eclipse.debug.ui.PinMemoryBlockAction" commandName="Pin Memory Monitor" description="Pin Memory Monitor" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCRNcnMuEem2oICVhZb-WQ" elementId="AUTOGEN:::org.eclipse.debug.ui.memoryView.toolbar/org.eclipse.debug.ui.NewMemoryViewAction" commandName="New Memory View" description="New Memory View" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCR0gHMuEem2oICVhZb-WQ" elementId="AUTOGEN:::org.eclipse.debug.ui.memoryView.toolbar/org.eclipse.debug.ui.togglemonitors" commandName="Toggle Memory Monitors Pane" description="Toggle Memory Monitors Pane" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCR0gXMuEem2oICVhZb-WQ" elementId="AUTOGEN:::org.eclipse.debug.ui.memoryView.toolbar/org.eclipse.debug.ui.linkrenderingpanes" commandName="Link Memory Rendering Panes" description="Link Memory Rendering Panes" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCSbkHMuEem2oICVhZb-WQ" elementId="AUTOGEN:::org.eclipse.debug.ui.memoryView.toolbar/org.eclipse.debug.ui.tablerendering.preferencesaction" commandName="Table Renderings Preferences..." description="&amp;Table Renderings Preferences..." category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCSbkXMuEem2oICVhZb-WQ" elementId="AUTOGEN:::org.eclipse.debug.ui.memoryView.toolbar/org.eclipse.debug.ui.togglesplitpane" commandName="Toggle Split Pane" description="Toggle Split Pane" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCSbknMuEem2oICVhZb-WQ" elementId="AUTOGEN:::org.eclipse.debug.ui.memoryView.toolbar/org.eclipse.debug.ui.switchMemoryBlock" commandName="Switch Memory Monitor" description="Switch Memory Monitor" category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <commands xmi:id="_jCTCoHMuEem2oICVhZb-WQ" elementId="AUTOGEN:::org.eclipse.debug.ui.memoryView.toolbar/org.eclipse.debug.ui.memoryViewPreferencesAction" commandName="Preferences..." description="&amp;Preferences..." category="_it5gAnMuEem2oICVhZb-WQ"/>
-  <addons xmi:id="_itCkWnMuEem2oICVhZb-WQ" elementId="org.eclipse.e4.core.commands.service" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
-  <addons xmi:id="_itCkW3MuEem2oICVhZb-WQ" elementId="org.eclipse.e4.ui.contexts.service" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
-  <addons xmi:id="_itCkXHMuEem2oICVhZb-WQ" elementId="org.eclipse.e4.ui.bindings.service" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
-  <addons xmi:id="_itCkXXMuEem2oICVhZb-WQ" elementId="org.eclipse.e4.ui.workbench.commands.model" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.CommandProcessingAddon"/>
-  <addons xmi:id="_itCkXnMuEem2oICVhZb-WQ" elementId="org.eclipse.e4.ui.workbench.contexts.model" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.ContextProcessingAddon"/>
-  <addons xmi:id="_itCkX3MuEem2oICVhZb-WQ" elementId="org.eclipse.e4.ui.workbench.bindings.model" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.swt/org.eclipse.e4.ui.workbench.swt.util.BindingProcessingAddon"/>
-  <addons xmi:id="_itCkYHMuEem2oICVhZb-WQ" elementId="Cleanup Addon" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.cleanupaddon.CleanupAddon"/>
-  <addons xmi:id="_itCkYXMuEem2oICVhZb-WQ" elementId="DnD Addon" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.dndaddon.DnDAddon"/>
-  <addons xmi:id="_itCkYnMuEem2oICVhZb-WQ" elementId="MinMax Addon" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.MinMaxAddon"/>
-  <addons xmi:id="_itCkY3MuEem2oICVhZb-WQ" elementId="org.eclipse.ui.workbench.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
-  <addons xmi:id="_itP_sHMuEem2oICVhZb-WQ" elementId="SplitterAddon" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.splitteraddon.SplitterAddon"/>
-  <addons xmi:id="_Xs4zIXWrEemsR4NfQd1Wfw" elementId="org.eclipse.ui.ide.addon.0" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
-  <addons xmi:id="_dz0JgGOlEeSMMaPQU2nlzw" elementId="org.eclipse.ui.ide.application.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.ui.ide.application/org.eclipse.ui.internal.ide.application.addons.ModelCleanupAddon"/>
-  <categories xmi:id="_it444HMuEem2oICVhZb-WQ" elementId="org.eclipse.team.ui.category.team" name="Team" description="Actions that apply when working with a Team"/>
-  <categories xmi:id="_it444XMuEem2oICVhZb-WQ" elementId="org.eclipse.ui.category.views" name="Views" description="Commands for opening views"/>
-  <categories xmi:id="_it444nMuEem2oICVhZb-WQ" elementId="org.eclipse.ui.category.edit" name="Edit"/>
-  <categories xmi:id="_it4443MuEem2oICVhZb-WQ" elementId="org.eclipse.ui.ide.markerContents" name="Contents" description="The category for menu contents"/>
-  <categories xmi:id="_it445HMuEem2oICVhZb-WQ" elementId="org.eclipse.ui.category.textEditor" name="Text Editing" description="Text Editing Commands"/>
-  <categories xmi:id="_it445XMuEem2oICVhZb-WQ" elementId="org.eclipse.ui.category.navigate" name="Navigate"/>
-  <categories xmi:id="_it445nMuEem2oICVhZb-WQ" elementId="com.aptana.editor.php.source.category" name="PHP Source" description="PHP Source Actions"/>
-  <categories xmi:id="_it5f8HMuEem2oICVhZb-WQ" elementId="org.radrails.rails.ui.category" name="Rails"/>
-  <categories xmi:id="_it5f8XMuEem2oICVhZb-WQ" elementId="com.aptana.samples.ui.category" name="Studio Samples"/>
-  <categories xmi:id="_it5f8nMuEem2oICVhZb-WQ" elementId="org.eclipse.ui.category.file" name="File"/>
-  <categories xmi:id="_it5f83MuEem2oICVhZb-WQ" elementId="org.eclipse.compare.ui.category.compare" name="Compare" description="Compare command category"/>
-  <categories xmi:id="_it5f9HMuEem2oICVhZb-WQ" elementId="org.eclipse.ui.category.window" name="Window"/>
-  <categories xmi:id="_it5f9XMuEem2oICVhZb-WQ" elementId="org.eclipse.ui.category.help" name="Help"/>
-  <categories xmi:id="_it5f9nMuEem2oICVhZb-WQ" elementId="com.aptana.git.ui.category" name="Git"/>
-  <categories xmi:id="_it5f93MuEem2oICVhZb-WQ" elementId="org.eclipse.ui.category.project" name="Project"/>
-  <categories xmi:id="_it5f-HMuEem2oICVhZb-WQ" elementId="com.aptana.ui.ftp.category" name="FTP"/>
-  <categories xmi:id="_it5f-XMuEem2oICVhZb-WQ" elementId="com.aptana.ide.syncing.ui.commands.category" name="File Transfer" description="File Transfer Commands"/>
-  <categories xmi:id="_it5f-nMuEem2oICVhZb-WQ" elementId="com.aptana.org.eclipse.tm.terminal.category1" name="Terminal view commands" description="%terminal.view.insertion.description"/>
-  <categories xmi:id="_it5f-3MuEem2oICVhZb-WQ" elementId="com.aptana.ui.s3.category" name="S3"/>
-  <categories xmi:id="_it5f_HMuEem2oICVhZb-WQ" elementId="org.eclipse.search.ui.category.search" name="Search" description="Search command category"/>
-  <categories xmi:id="_it5f_XMuEem2oICVhZb-WQ" elementId="org.eclipse.debug.ui.category.run" name="Run/Debug" description="Run/Debug command category"/>
-  <categories xmi:id="_it5f_nMuEem2oICVhZb-WQ" elementId="org.eclipse.ui.category.dialogs" name="Dialogs" description="Commands for opening dialogs"/>
-  <categories xmi:id="_it5f_3MuEem2oICVhZb-WQ" elementId="org.eclipse.ui.category.perspectives" name="Perspectives" description="Commands for opening perspectives"/>
-  <categories xmi:id="_it5gAHMuEem2oICVhZb-WQ" elementId="com.aptana.ui.category" name="Aptana"/>
-  <categories xmi:id="_it5gAXMuEem2oICVhZb-WQ" elementId="org.eclipse.ltk.ui.category.refactoring" name="Refactoring"/>
-  <categories xmi:id="_it5gAnMuEem2oICVhZb-WQ" elementId="org.eclipse.core.commands.categories.autogenerated" name="Uncategorized" description="Commands that were either auto-generated or have no category"/>
+  <commands xmi:id="_xMqk9HWsEemsR4NfQd1Wfw" elementId="com.aptana.editor.toggleWordWrapCommand" commandName="Word Wrap" category="_xMqlRHWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqk9XWsEemsR4NfQd1Wfw" elementId="org.eclipse.compare.copyAllLeftToRight" commandName="Copy All from Left to Right" description="Copy All Changes from Left to Right" category="_xMqlQ3WsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqk9nWsEemsR4NfQd1Wfw" elementId="AUTOGEN:::com.aptana.browser.actionSet/com.aptana.browser.ShowBrowserEditorAction" commandName="Web Browser Editor" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqk93WsEemsR4NfQd1Wfw" elementId="AUTOGEN:::com.aptana.js.debug.ui.actionSet/com.aptana.js.debug.ui.actions.Watch" commandName="Watch" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqk-HWsEemsR4NfQd1Wfw" elementId="AUTOGEN:::com.aptana.js.debug.ui.actionSet/com.aptana.js.debug.ui.actions.AddExceptionBreakpoint" commandName="Add JavaScript Exception Breakpoint..." category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqk-XWsEemsR4NfQd1Wfw" elementId="AUTOGEN:::com.aptana.js.debug.ui.actionSet/com.aptana.js.debug.ui.actions.ToggleBreakpoint" commandName="Toggle breakpoint on selected line" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqk-nWsEemsR4NfQd1Wfw" elementId="AUTOGEN:::com.aptana.js.debug.ui.actionSet/com.aptana.js.debug.ui.actions.openURL" commandName="Open URL..." category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqk-3WsEemsR4NfQd1Wfw" elementId="AUTOGEN:::org2.eclipse.php.debug.ui.actionSet/org2.eclipse.php.debug.ui.WatchAction" commandName="Watch" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqk_HWsEemsR4NfQd1Wfw" elementId="AUTOGEN:::com.aptana.terminal.actionSet/com.aptana.terminal.ShowTerminalEditorAction" commandName="Terminal Editor" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqk_XWsEemsR4NfQd1Wfw" elementId="AUTOGEN:::org.eclipse.debug.ui.launchActionSet/org.eclipse.debug.internal.ui.actions.RunWithConfigurationAction" commandName="Run As" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqk_nWsEemsR4NfQd1Wfw" elementId="AUTOGEN:::org.eclipse.debug.ui.launchActionSet/org.eclipse.debug.internal.ui.actions.RunHistoryMenuAction" commandName="Run History" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqk_3WsEemsR4NfQd1Wfw" elementId="AUTOGEN:::org.eclipse.debug.ui.launchActionSet/org.eclipse.debug.internal.ui.actions.RunDropDownAction" commandName="Run" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlAHWsEemsR4NfQd1Wfw" elementId="AUTOGEN:::org.eclipse.debug.ui.launchActionSet/org.eclipse.debug.internal.ui.actions.DebugWithConfigurationAction" commandName="Debug As" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlAXWsEemsR4NfQd1Wfw" elementId="AUTOGEN:::org.eclipse.debug.ui.launchActionSet/org.eclipse.debug.internal.ui.actions.DebugHistoryMenuAction" commandName="Debug History" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlAnWsEemsR4NfQd1Wfw" elementId="AUTOGEN:::org.eclipse.debug.ui.launchActionSet/org.eclipse.debug.internal.ui.actions.DebugDropDownAction" commandName="Debug" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlA3WsEemsR4NfQd1Wfw" elementId="AUTOGEN:::org.eclipse.debug.ui.profileActionSet/org.eclipse.debug.internal.ui.actions.ProfileDropDownAction" commandName="Profile" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlBHWsEemsR4NfQd1Wfw" elementId="AUTOGEN:::org.eclipse.debug.ui.profileActionSet/org.eclipse.debug.internal.ui.actions.ProfileWithConfigurationAction" commandName="Profile As" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlBXWsEemsR4NfQd1Wfw" elementId="AUTOGEN:::org.eclipse.debug.ui.profileActionSet/org.eclipse.debug.internal.ui.actions.ProfileHistoryMenuAction" commandName="Profile History" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlBnWsEemsR4NfQd1Wfw" elementId="AUTOGEN:::org.eclipse.ui.cheatsheets.actionSet/org.eclipse.ui.cheatsheets.actions.CheatSheetHelpMenuAction" commandName="Cheat Sheets..." category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlB3WsEemsR4NfQd1Wfw" elementId="AUTOGEN:::org.eclipse.search.searchActionSet/org.eclipse.search.OpenSearchDialogPage" commandName="Search..." description="Search" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlCHWsEemsR4NfQd1Wfw" elementId="AUTOGEN:::org.eclipse.team.ui.actionSet/org.eclipse.team.ui.synchronizeAll" commandName="Synchronize..." description="Synchronize..." category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlCXWsEemsR4NfQd1Wfw" elementId="AUTOGEN:::org.eclipse.team.ui.actionSet/org.eclipse.team.ui.ConfigureProject" commandName="Share Project..." description="Share the project with others using a version and configuration management system." category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlCnWsEemsR4NfQd1Wfw" elementId="AUTOGEN:::org.eclipse.ui.externaltools.ExternalToolsSet/org.eclipse.ui.externaltools.ExternalToolMenuDelegateMenu" commandName="External Tools" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlC3WsEemsR4NfQd1Wfw" elementId="AUTOGEN:::com.aptana.ruby.debug.HAMLEditor.BreakpointRulerActions/com.aptana.ruby.debug.ui.doubleClickBreakpointAction" commandName="Not Used" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlDHWsEemsR4NfQd1Wfw" elementId="AUTOGEN:::com.aptana.js.debug.ui.BreakpointRulerActions/com.aptana.js.debug.ui.actions.htmlDoubleClickBreakpointAction" commandName="Toggle Breakpoint" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlDXWsEemsR4NfQd1Wfw" elementId="AUTOGEN:::com.aptana.js.debug.ui.BreakpointRulerActions/com.aptana.js.debug.ui.actions.jsDoubleClickBreakpointAction" commandName="Toggle Breakpoint" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlDnWsEemsR4NfQd1Wfw" elementId="AUTOGEN:::com.aptana.js.debug.ui.BreakpointRulerActions/com.aptana.js.debug.ui.actions.phpDoubleClickBreakpointAction" commandName="Toggle Breakpoint" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlD3WsEemsR4NfQd1Wfw" elementId="AUTOGEN:::com.aptana.editor.php.editorAction/com.aptana.php.debug.toggleBreakpointAction" commandName="Toggle Breakpoint" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlEHWsEemsR4NfQd1Wfw" elementId="AUTOGEN:::com.aptana.ruby.debug.RubyEditor.BreakpointRulerActions/com.aptana.ruby.debug.ui.doubleClickBreakpointAction" commandName="Not Used" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlEXWsEemsR4NfQd1Wfw" elementId="AUTOGEN:::org.eclipse.ui.texteditor.ruler.actions/org.eclipse.ui.texteditor.BookmarkRulerAction" commandName="Text Editor Bookmark Ruler Action" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlEnWsEemsR4NfQd1Wfw" elementId="AUTOGEN:::org.eclipse.ui.texteditor.ruler.actions/org.eclipse.ui.texteditor.SelectRulerAction" commandName="Text Editor Ruler Single-Click" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlE3WsEemsR4NfQd1Wfw" elementId="AUTOGEN:::com.aptana.debug.ui.variableViewContribution/com.aptana.debug.ui.variableViewActions.DetailOptions" commandName="JavaScript Detail Formatters..." category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlFHWsEemsR4NfQd1Wfw" elementId="AUTOGEN:::com.aptana.debug.ui.variableViewContribution/com.aptana.debug.ui.variableViewActions.ShowConstants" commandName="Show Constants" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlFXWsEemsR4NfQd1Wfw" elementId="AUTOGEN:::com.aptana.debug.ui.expressionViewContribution/com.aptana.debug.ui.variableViewActions.DetailOptions" commandName="JavaScript Detail Formatters..." category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlFnWsEemsR4NfQd1Wfw" elementId="AUTOGEN:::com.aptana.debug.ui.expressionViewContribution/com.aptana.debug.ui.variableViewActions.ShowConstants" commandName="Show Constants" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlF3WsEemsR4NfQd1Wfw" elementId="AUTOGEN:::com.aptana.debug.ui.expressionViewContribution/org.eclipse.debug.ui.expressionViewActions.AddWatchExpression" commandName="Add Watch Expression" description="Create a new watch expression" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlGHWsEemsR4NfQd1Wfw" elementId="AUTOGEN:::com.aptana.ruby.debug.ui.BreakpointViewActions/com.aptana.ruby.debug.ui.actions.AddException" commandName="Ruby Exception Breakpoint" description="Define a ruby exception breakpoint" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlGXWsEemsR4NfQd1Wfw" elementId="AUTOGEN:::org.eclipse.debug.ui.PulldownActions/org.eclipse.debug.ui.debugview.pulldown.ViewManagementAction" commandName="View Management..." category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlGnWsEemsR4NfQd1Wfw" elementId="AUTOGEN:::org.eclipse.debug.ui.debugview.toolbar/org.eclipse.debug.ui.debugview.toolbar.removeAllTerminated" commandName="Remove All Terminated" description="Remove All Terminated Launches" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlG3WsEemsR4NfQd1Wfw" elementId="AUTOGEN:::org.eclipse.debug.ui.breakpointsview.toolbar/org.eclipse.debug.ui.breakpointsView.toolbar.removeAll" commandName="Remove All" description="Remove All Breakpoints" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlHHWsEemsR4NfQd1Wfw" elementId="AUTOGEN:::org.eclipse.debug.ui.breakpointsview.toolbar/org.eclipse.debug.ui.breakpointsView.toolbar.linkWithDebugView" commandName="Link with Debug View" description="Link with Debug View" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlHXWsEemsR4NfQd1Wfw" elementId="AUTOGEN:::org.eclipse.debug.ui.breakpointsview.toolbar/org.eclipse.debug.ui.breakpointsView.toolbar.workingSets" commandName="Working Sets..." description="Manage Working Sets" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlHnWsEemsR4NfQd1Wfw" elementId="AUTOGEN:::org.eclipse.debug.ui.breakpointsview.toolbar/org.eclipse.debug.ui.breakpointsView.toolbar.clearDefaultBreakpointGroup" commandName="Deselect Default Working Set" description="Deselect Default Working Set" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlH3WsEemsR4NfQd1Wfw" elementId="AUTOGEN:::org.eclipse.debug.ui.breakpointsview.toolbar/org.eclipse.debug.ui.breakpointsView.toolbar.setDefaultBreakpointGroup" commandName="Select Default Working Set..." description="Select Default Working Set" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlIHWsEemsR4NfQd1Wfw" elementId="AUTOGEN:::org.eclipse.debug.ui.breakpointsview.toolbar/org.eclipse.debug.ui.breakpointsView.toolbar.sortByAction" commandName="Sort By" description="Sort By" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlIXWsEemsR4NfQd1Wfw" elementId="AUTOGEN:::org.eclipse.debug.ui.breakpointsview.toolbar/org.eclipse.debug.ui.breakpointsView.toolbar.groupByAction" commandName="Group By" description="Show" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlInWsEemsR4NfQd1Wfw" elementId="AUTOGEN:::org.eclipse.debug.ui.expressionsView.toolbar/org.eclipse.debug.ui.expresssionsView.toolbar.removeAll" commandName="Remove All" description="Remove All Expressions" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlI3WsEemsR4NfQd1Wfw" elementId="AUTOGEN:::org.eclipse.debug.ui.expressionsView.toolbar/org.eclipse.debug.ui.expresssionsView.toolbar.AddWatchExpression" commandName="Add Watch Expression..." description="Create a new watch expression" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlJHWsEemsR4NfQd1Wfw" elementId="AUTOGEN:::org.eclipse.debug.ui.memoryView.toolbar/org.eclipse.debug.ui.PinMemoryBlockAction" commandName="Pin Memory Monitor" description="Pin Memory Monitor" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlJXWsEemsR4NfQd1Wfw" elementId="AUTOGEN:::org.eclipse.debug.ui.memoryView.toolbar/org.eclipse.debug.ui.NewMemoryViewAction" commandName="New Memory View" description="New Memory View" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlJnWsEemsR4NfQd1Wfw" elementId="AUTOGEN:::org.eclipse.debug.ui.memoryView.toolbar/org.eclipse.debug.ui.togglemonitors" commandName="Toggle Memory Monitors Pane" description="Toggle Memory Monitors Pane" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlJ3WsEemsR4NfQd1Wfw" elementId="AUTOGEN:::org.eclipse.debug.ui.memoryView.toolbar/org.eclipse.debug.ui.linkrenderingpanes" commandName="Link Memory Rendering Panes" description="Link Memory Rendering Panes" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlKHWsEemsR4NfQd1Wfw" elementId="AUTOGEN:::org.eclipse.debug.ui.memoryView.toolbar/org.eclipse.debug.ui.tablerendering.preferencesaction" commandName="Table Renderings Preferences..." description="&amp;Table Renderings Preferences..." category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlKXWsEemsR4NfQd1Wfw" elementId="AUTOGEN:::org.eclipse.debug.ui.memoryView.toolbar/org.eclipse.debug.ui.togglesplitpane" commandName="Toggle Split Pane" description="Toggle Split Pane" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlKnWsEemsR4NfQd1Wfw" elementId="AUTOGEN:::org.eclipse.debug.ui.memoryView.toolbar/org.eclipse.debug.ui.switchMemoryBlock" commandName="Switch Memory Monitor" description="Switch Memory Monitor" category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <commands xmi:id="_xMqlK3WsEemsR4NfQd1Wfw" elementId="AUTOGEN:::org.eclipse.debug.ui.memoryView.toolbar/org.eclipse.debug.ui.memoryViewPreferencesAction" commandName="Preferences..." description="&amp;Preferences..." category="_xMqlUnWsEemsR4NfQd1Wfw"/>
+  <addons xmi:id="_xMqlLHWsEemsR4NfQd1Wfw" elementId="org.eclipse.e4.core.commands.service" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.core.commands/org.eclipse.e4.core.commands.CommandServiceAddon"/>
+  <addons xmi:id="_xMqlLXWsEemsR4NfQd1Wfw" elementId="org.eclipse.e4.ui.contexts.service" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.services/org.eclipse.e4.ui.services.ContextServiceAddon"/>
+  <addons xmi:id="_xMqlLnWsEemsR4NfQd1Wfw" elementId="org.eclipse.e4.ui.bindings.service" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.bindings/org.eclipse.e4.ui.bindings.BindingServiceAddon"/>
+  <addons xmi:id="_xMqlL3WsEemsR4NfQd1Wfw" elementId="org.eclipse.e4.ui.workbench.commands.model" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.CommandProcessingAddon"/>
+  <addons xmi:id="_xMqlMHWsEemsR4NfQd1Wfw" elementId="org.eclipse.e4.ui.workbench.contexts.model" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.ContextProcessingAddon"/>
+  <addons xmi:id="_xMqlMXWsEemsR4NfQd1Wfw" elementId="org.eclipse.e4.ui.workbench.bindings.model" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.swt/org.eclipse.e4.ui.workbench.swt.util.BindingProcessingAddon"/>
+  <addons xmi:id="_xMqlMnWsEemsR4NfQd1Wfw" elementId="Cleanup Addon" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.cleanupaddon.CleanupAddon"/>
+  <addons xmi:id="_xMqlM3WsEemsR4NfQd1Wfw" elementId="DnD Addon" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.dndaddon.DnDAddon"/>
+  <addons xmi:id="_xMqlNHWsEemsR4NfQd1Wfw" elementId="MinMax Addon" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.minmax.MinMaxAddon"/>
+  <addons xmi:id="_xMqlNXWsEemsR4NfQd1Wfw" elementId="org.eclipse.ui.workbench.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.workbench" contributionURI="bundleclass://org.eclipse.e4.ui.workbench/org.eclipse.e4.ui.internal.workbench.addons.HandlerProcessingAddon"/>
+  <addons xmi:id="_xMqlNnWsEemsR4NfQd1Wfw" elementId="SplitterAddon" contributionURI="bundleclass://org.eclipse.e4.ui.workbench.addons.swt/org.eclipse.e4.ui.workbench.addons.splitteraddon.SplitterAddon"/>
+  <addons xmi:id="_xMqlN3WsEemsR4NfQd1Wfw" elementId="org.eclipse.ui.ide.addon.0" contributionURI="bundleclass://org.eclipse.ui.ide/org.eclipse.ui.internal.ide.addons.SaveAllDirtyPartsAddon"/>
+  <addons xmi:id="_xMqlOHWsEemsR4NfQd1Wfw" elementId="org.eclipse.ui.ide.application.addon.0" contributorURI="platform:/plugin/org.eclipse.ui.ide.application" contributionURI="bundleclass://org.eclipse.ui.ide.application/org.eclipse.ui.internal.ide.application.addons.ModelCleanupAddon"/>
+  <categories xmi:id="_xMqlOXWsEemsR4NfQd1Wfw" elementId="org.eclipse.team.ui.category.team" name="Team" description="Actions that apply when working with a Team"/>
+  <categories xmi:id="_xMqlOnWsEemsR4NfQd1Wfw" elementId="org.eclipse.ui.category.views" name="Views" description="Commands for opening views"/>
+  <categories xmi:id="_xMqlO3WsEemsR4NfQd1Wfw" elementId="org.eclipse.ui.category.edit" name="Edit"/>
+  <categories xmi:id="_xMqlPHWsEemsR4NfQd1Wfw" elementId="org.eclipse.ui.ide.markerContents" name="Contents" description="The category for menu contents"/>
+  <categories xmi:id="_xMqlPXWsEemsR4NfQd1Wfw" elementId="org.eclipse.ui.category.textEditor" name="Text Editing" description="Text Editing Commands"/>
+  <categories xmi:id="_xMqlPnWsEemsR4NfQd1Wfw" elementId="org.eclipse.ui.category.navigate" name="Navigate"/>
+  <categories xmi:id="_xMqlP3WsEemsR4NfQd1Wfw" elementId="com.aptana.editor.php.source.category" name="PHP Source" description="PHP Source Actions"/>
+  <categories xmi:id="_xMqlQHWsEemsR4NfQd1Wfw" elementId="org.radrails.rails.ui.category" name="Rails"/>
+  <categories xmi:id="_xMqlQXWsEemsR4NfQd1Wfw" elementId="com.aptana.samples.ui.category" name="Studio Samples"/>
+  <categories xmi:id="_xMqlQnWsEemsR4NfQd1Wfw" elementId="org.eclipse.ui.category.file" name="File"/>
+  <categories xmi:id="_xMqlQ3WsEemsR4NfQd1Wfw" elementId="org.eclipse.compare.ui.category.compare" name="Compare" description="Compare command category"/>
+  <categories xmi:id="_xMqlRHWsEemsR4NfQd1Wfw" elementId="org.eclipse.ui.category.window" name="Window"/>
+  <categories xmi:id="_xMqlRXWsEemsR4NfQd1Wfw" elementId="org.eclipse.ui.category.help" name="Help"/>
+  <categories xmi:id="_xMqlRnWsEemsR4NfQd1Wfw" elementId="com.aptana.git.ui.category" name="Git"/>
+  <categories xmi:id="_xMqlR3WsEemsR4NfQd1Wfw" elementId="org.eclipse.ui.category.project" name="Project"/>
+  <categories xmi:id="_xMqlSHWsEemsR4NfQd1Wfw" elementId="com.aptana.ui.ftp.category" name="FTP"/>
+  <categories xmi:id="_xMqlSXWsEemsR4NfQd1Wfw" elementId="com.aptana.ide.syncing.ui.commands.category" name="File Transfer" description="File Transfer Commands"/>
+  <categories xmi:id="_xMqlSnWsEemsR4NfQd1Wfw" elementId="com.aptana.org.eclipse.tm.terminal.category1" name="Terminal view commands" description="%terminal.view.insertion.description"/>
+  <categories xmi:id="_xMqlS3WsEemsR4NfQd1Wfw" elementId="com.aptana.ui.s3.category" name="S3"/>
+  <categories xmi:id="_xMqlTHWsEemsR4NfQd1Wfw" elementId="org.eclipse.search.ui.category.search" name="Search" description="Search command category"/>
+  <categories xmi:id="_xMqlTXWsEemsR4NfQd1Wfw" elementId="org.eclipse.debug.ui.category.run" name="Run/Debug" description="Run/Debug command category"/>
+  <categories xmi:id="_xMqlTnWsEemsR4NfQd1Wfw" elementId="org.eclipse.ui.category.dialogs" name="Dialogs" description="Commands for opening dialogs"/>
+  <categories xmi:id="_xMqlT3WsEemsR4NfQd1Wfw" elementId="org.eclipse.ui.category.perspectives" name="Perspectives" description="Commands for opening perspectives"/>
+  <categories xmi:id="_xMqlUHWsEemsR4NfQd1Wfw" elementId="com.aptana.ui.category" name="Aptana"/>
+  <categories xmi:id="_xMqlUXWsEemsR4NfQd1Wfw" elementId="org.eclipse.ltk.ui.category.refactoring" name="Refactoring"/>
+  <categories xmi:id="_xMqlUnWsEemsR4NfQd1Wfw" elementId="org.eclipse.core.commands.categories.autogenerated" name="Uncategorized" description="Commands that were either auto-generated or have no category"/>
 </application:Application>

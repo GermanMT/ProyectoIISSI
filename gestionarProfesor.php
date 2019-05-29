@@ -1,4 +1,4 @@
-﻿<?php
+<?php
     /*
      * #===========================================================#
      * #	Este fichero contiene las funciones de gestión         #
@@ -6,10 +6,10 @@
      * #===========================================================#
      */
 
- function alta_alumno($conexion,$usuario) {
+ function alta_profesor($conexion,$usuario) {
 	try {
-		$consulta = "CALL INSERTAR_USUARIO(:DNI_Usuario, :Nombre, :Apellidos, :Edad, :Localidad, :TelefonoMovil,
-		:TelefonoFijo, :Email, :NombrePadreMadre, :Usuario, :Pass, :TipoUsuario,:Tipo_Examen, :Nivel_Examen)";
+		$consulta = "CALL INSERTAR_PROFESOR(:DNI_Usuario, :Nombre, :Apellidos, :Edad, :Localidad, :TelefonoMovil,
+		:TelefonoFijo, :Email, :Usuario, :Pass,:TipoUsuario,:Nivel_Examen)";
 		$stmt=$conexion->prepare($consulta);
 		$stmt->bindParam(':DNI_Usuario',$usuario["DNI_Usuario"]);
 		$stmt->bindParam(':Nombre',$usuario["Nombre"]);
@@ -19,11 +19,9 @@
 		$stmt->bindParam(':TelefonoMovil',$usuario["TelefonoMovil"]);
 		$stmt->bindParam(':TelefonoFijo',$usuario["TelefonoFijo"]);
 		$stmt->bindParam(':Email',$usuario["Email"]);
-		$stmt->bindParam(':NombrePadreMadre',$usuario["NombrePadreMadre"]);
 		$stmt->bindParam(':Usuario',$usuario["Usuario"]);
 		$stmt->bindParam(':Pass',$usuario["Pass"]);
 		$stmt->bindParam(':TipoUsuario',$usuario["TipoUsuario"]);
-		$stmt->bindParam(':Tipo_Examen',$usuario["Tipo_Examen"]);
 		$stmt->bindParam(':Nivel_Examen',$usuario["Nivel_Examen"]);
 		
 		$stmt->execute();

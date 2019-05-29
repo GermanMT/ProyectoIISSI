@@ -63,32 +63,32 @@
 			</div>
 
 			<div><label>Tipo Examen:</label>
-				<label>
-					<input name="Tipo_Examen" type="radio" value="B1" <?php if($formulario['Tipo_Examen']=='B1') echo ' checked ';?>/>
-					B1
+			<label>
+					<input name="Tipo_Examen" type="radio" value="Trinity" <?php if($formulario['Tipo_Examen']=='Trinity') echo ' checked ';?>/>
+					Trinity
 				</label>
 				<label>
-					<input name="Tipo_Examen" type="radio" value="B2" <?php if($formulario['Tipo_Examen']=='B2') echo ' checked ';?>/>
-					B2
+					<input name="Tipo_Examen" type="radio" value="Cambridge" <?php if($formulario['Tipo_Examen']=='Cambridge') echo ' checked ';?>/>
+					Cambridge
 				</label>
 				<label>
-					<input name="Tipo_Examen" type="radio" value="C1" <?php if($formulario['Tipo_Examen']=='C1') echo ' checked ';?>/>
-					C1
+					<input name="Tipo_Examen" type="radio" value="Aptis" <?php if($formulario['Tipo_Examen']=='Aptis') echo ' checked ';?>/>
+					Aptis
 				</label>
 			</div>
 
 			<div><label>Nivel Inglés:</label>
-				<label>
-					<input name="Nivel_Ingles" type="radio" value="Trinity" <?php if($formulario['Nivel_Ingles']=='Trinity') echo ' checked ';?>/>
-					Trinity
+			<label>
+					<input name="Nivel_Ingles" type="radio" value="B1" <?php if($formulario['Nivel_Ingles']=='B1') echo ' checked ';?>/>
+					B1
 				</label>
 				<label>
-					<input name="Nivel_Ingles" type="radio" value="Cambridge" <?php if($formulario['Nivel_Ingles']=='Cambridge') echo ' checked ';?>/>
-					Cambridge
+					<input name="Nivel_Ingles" type="radio" value="B2" <?php if($formulario['Nivel_Ingles']=='B2') echo ' checked ';?>/>
+					B2
 				</label>
 				<label>
-					<input name="Nivel_Ingles" type="radio" value="Aptis" <?php if($formulario['Nivel_Ingles']=='Aptis') echo ' checked ';?>/>
-					Aptis
+					<input name="Nivel_Ingles" type="radio" value="C1" <?php if($formulario['Nivel_Ingles']=='C1') echo ' checked ';?>/>
+					C1
 				</label>
 			</div>
 
