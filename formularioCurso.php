@@ -93,7 +93,7 @@
 			</div>
 
 			<div><label for="Id_Curso">Id Curso:</label>
-			<input id="Id_Curso" name="Fecha_Fin" type="text" size="50" value="<?php echo $formulario['Fecha_Fin'];?>"/>
+			<input id="Id_Curso" name="Id_Curso" type="text" size="50" value="<?php echo $formulario['Id_Curso'];?>"/>
 			</div>
 
 

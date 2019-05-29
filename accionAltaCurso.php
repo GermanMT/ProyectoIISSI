@@ -12,6 +12,7 @@ if (isset($_SESSION["formulario"])) {
 	$usuario["Fecha_Fin"] = $_REQUEST["Fecha_Fin"];
 	$usuario["Tipo_Examen"] = $_REQUEST["Tipo_Examen"];
 	$usuario["Nivel_Ingles"] = $_REQUEST["Nivel_Ingles"];
+	$usuario["Id_Curso"] = $_REQUEST["Id_Curso"];
 
 	
 } else {
