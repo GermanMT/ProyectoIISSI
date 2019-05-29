@@ -44,38 +44,14 @@ if (count($errores) > 0) {
  ========================================================================== */
  function validacionRegistroCurso($conexion, $usuario) {
 	$errores = array();
-/*	
-	if ($usuario["DNI_Usuario"] == "") {
-		$errores[] = "El DNI no puede estar vacío";
-	} else if (!preg_match("/^[0-9]{8}[A-Z]$/", $usuario["DNI_Usuario"])) {
-		$errores[] = "El DNI debe contener 8 números y una letra mayúscula: " . $usuario["DNI_Usuario"] . "";
+	if ($usuario["Fecha_Inicio"] == "") {
+		$errores[] = "La fecha de inicio no puede estar vacía";
 	}
-	
-	if ($usuario["Nombre"] == "" || !preg_match("/^[A-Za-záéíóúÁÉÍÓÚ\s]+$/", $usuario["Nombre"])) {
-		$errores[] = "El nombre no puede estar vacío o no ser alfabetico";
+	if ($usuario["Fecha_Fin"] == "") {
+		$errores[] = "La fecha final no puede estar vacía";
 	}
-	if ($usuario["Apellidos"] == "" || !preg_match("/^[A-Za-záéíóúÁÉÍÓÚ\s]+$/", $usuario["Apellidos"]) ) {
-		$errores[] = "Los apellidos no puede estar vacío o no ser alfabeticos";
-	}
-	if ($usuario["Email"] == "") {
-		$errores[] = "El email no puede estar vacío";
-	}
-	if ($usuario["TelefonoMovil"] == "" or !is_numeric($usuario["TelefonoMovil"]) or strlen($usuario["TelefonoMovil"]) < 9) {
-		$errores[] = "El teléfono móvil no es correcto";
-	}
-	if ($usuario["TelefonoFijo"] == "" or !is_numeric($usuario["TelefonoFijo"]) or strlen($usuario["TelefonoFijo"]) < 9) {
-		$errores[] = "El teléfono fijo no es correcto";
-	}
-	
-	if (!isset($usuario["Pass"]) || strlen($usuario["Pass"]) < 8) {
-		$errores[] = "Contraseña no válida: debe tener al menos 8 caracteres";
-	} else if (!preg_match("/[a-z]+/", $usuario["Pass"]) || !preg_match("/[A-Z]+/", $usuario["Pass"]) || !preg_match("/[0-9]+/", $usuario["Pass"])) {
-		$errores[] = "Contraseña no válida: debe contener letras mayúsculas y minúsculas y dígitos";
-	} else if ($usuario["Pass"] != $usuario["confirmpass"]) {
-		$errores[] = "La confirmación de contraseña no coincide con la contraseña";
-	} 
-	
+
 	return $errores;
-*/
+
 }
 ?>

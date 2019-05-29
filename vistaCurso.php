@@ -42,21 +42,6 @@
                     </div>
                 </div>
             
-            
-                <div class="menu_bar">
-                    <ul class="menus">
-                        <li><a href="IISSI.html">Home</a></li>
-                        <li><a href="#">Cursos Ofertados</a>
-                            <ul class="sub-menu">
-                                <li><a href="Niveles.html">Niveles</a></li>
-                                <li><a href="Examenes.html">Exámenes</a></li>
-                            </ul>
-                        </li>
-                        <li class="menu3"><a href="QuienesSomos.html">¿Quienes somos?</a></li>
-                       <!--<li><a href="file:///C:/xampp/htdocs/sample/contact.html">Contact</a></li>
-                    --> 
-                    </ul>
-                </div>
 
     <div class="body_content">
         <p><h1>Esta es la página de los alumnos del curso:</h1></p>
