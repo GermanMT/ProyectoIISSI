@@ -10,7 +10,8 @@
 	else {
 		$conexion = crearConexionBD();
 		$DNI = base64_decode($_GET['var']);
-		$filas1 = consultarTodosHorariosProfesor($conexion,$DNI);
+		$IDC = base64_decode($_GET['var2']);
+		$filas1 = consultarTodosHorariosProfesor($conexion,$IDC);
 		cerrarConexionBD($conexion);
 	}
 ?>
@@ -59,14 +60,14 @@
                     </ul>
                 </div>
 
-    <div class="body_content">
+    <div class="body_content" align="center">
         <p><h1>Bienvenido</h1></p>
-    </div>
+    
                 
                 <main>
                 	<!--Mostrar tabla de horarios de un profesor-->
 
-	<div align="center" style="margin-top: 300px;"><p><h1>Horarios:</h1></p></div>
+	<div align="center" style="margin-top: 50px;"><p><h1>Horarios:</h1></p></div>
 		<table align="center" border="1" style="width:auto; height:20px;">
 		<tr>
 	    <th>Dia</th>
@@ -90,5 +91,6 @@
 	<?php } ?>
 	</table>
 </main>
+</div>
         </body>
 </html>

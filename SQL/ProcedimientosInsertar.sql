@@ -14,6 +14,32 @@ END;
 CALL INSERTAR_CURSO('14/09/2018', '02/06/2019', 'Aptis', 'B1', 'Grupo 2 de B1')
 
 --Insertar Usuario:
+create or replace PROCEDURE INSERTAR_USUARIO_CON_CURSO
+  (P_DNI_Usuario IN Usuarios.DNI_Usuario%TYPE,
+   P_Nombre IN Usuarios.Nombre%TYPE,
+   P_Apellidos IN Usuarios.Apellidos%TYPE,
+   P_Edad IN Usuarios.Edad%TYPE,
+   P_Localidad IN Usuarios.Localidad%TYPE,
+   P_TelefonoMovil IN Usuarios.Telefono_Movil%TYPE,
+   P_TelefonoFijo IN Usuarios.Telefono_Fijo%TYPE,
+   P_Email IN Usuarios.Email%TYPE,
+   P_NombrePadreMadre IN Usuarios.Nombre_Padre_Madre%TYPE,
+   P_Usuario IN Usuarios.Usuario%TYPE,
+   P_Pass IN Usuarios.Pass%TYPE,
+   P_TipoUsuario IN Usuarios.TipoUsuario%TYPE,
+   P_Tipo_Examen IN Usuarios.Tipo_Examen%TYPE,
+   P_Nivel_Examen IN Usuarios.Nivel_Examen%TYPE,
+   P_Id_Curso IN Usuarios.Id_Curso%TYPE
+   ) IS
+BEGIN
+  INSERT INTO Usuarios(DNI_Usuario,Nombre,Apellidos,Edad,Localidad ,Telefono_Movil,
+  Telefono_Fijo,Email,Nombre_Padre_Madre,Usuario,Pass, TipoUsuario, Tipo_Examen, Nivel_Examen,Id_Curso)
+  VALUES (P_DNI_Usuario,P_Nombre,P_Apellidos,P_Edad,P_Localidad,P_TelefonoMovil,
+  P_TelefonoFijo,P_Email,P_NombrePadreMadre,P_Usuario,P_Pass,P_TipoUsuario, P_Tipo_Examen, P_Nivel_Examen,P_Id_Curso);
+END;
+/
+
+--Insertar Usuario:
 create or replace PROCEDURE INSERTAR_USUARIO 
   (P_DNI_Usuario IN Usuarios.DNI_Usuario%TYPE,
    P_Nombre IN Usuarios.Nombre%TYPE,
@@ -60,15 +86,6 @@ BEGIN
   P_TelefonoFijo,P_Email,P_Usuario,P_Pass,P_TipoUsuario, P_Nivel_Examen);
 END;
 /
-
-CALL INSERTAR_PROFESOR('12345678G', 'AlvaroProfesor', 'Frias',20, 'Arahal', '674466722','954841642', 'alvarofb1998@gmail.com',
-'AlvaroProfesor', 'AlvaroFrias9', 'Profesor', 'B1')
-
-CALL INSERTAR_USUARIO('47555425G', 'Alvaro', 'Frias',20, 'Arahal', '674466722','954841642', 'alvarofb1998@gmail.com', 'Jose Enrique',
-'Alvarofb7', 'AlvaroFrias7', 'Alumno', 'Aptis', 'B1')
-
-CALL INSERTAR_USUARIO('98765432A', 'Alvaro', 'Frias',20, 'Arahal', '674466722','954841642', 'alvarofb1998@gmail.com', 'Jose Enrique',
-'Administrador', 'administrador', 'Admin', 'Aptis', 'B1')
 
 --Insertar Horario_Curso:
 CREATE OR REPLACE PROCEDURE INSERTAR_HORARIO_CURSO

@@ -5,9 +5,9 @@
      * #	de horarios de alumnos de la capa de acceso a datos    #
      * #===========================================================#
      */
-	function consultarTodosHorarios($conexion,$DNI) {
-		$consulta = "SELECT * FROM HORARIO_ALUMNO"
-			. " WHERE (HORARIO_ALUMNO.DNI_USUARIO = '".$DNI."')";
+	function consultarTodosHorariosAlumnos($conexion,$IDC) {
+		$consulta = "SELECT * FROM HORARIO_CURSO"
+			. " WHERE (HORARIO_CURSO.ID_CURSO = '".$IDC."')";
 	    return $conexion->query($consulta);
 	} 
 ?>
