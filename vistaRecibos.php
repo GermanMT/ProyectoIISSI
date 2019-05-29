@@ -69,7 +69,7 @@
             <div class="header">
                 <div class="header_box">
                     <div class="logo">
-                        <a href="IISSI.html">Academia 2G</a>
+                        <a href="IISSI.php">Academia 2G</a>
                     </div>
                     <div class="detail">
                         <div class="login" style="
@@ -85,7 +85,7 @@
             
                 <div class="menu_bar">
                     <ul class="menus">
-                        <li><a href="IISSI.html">Home</a></li>
+                        <li><a href="IISSI.php">Home</a></li>
                         <li><a href="#">Cursos Ofertados</a>
                             <ul class="sub-menu">
                                 <li><a href="Niveles.html">Niveles</a></li>

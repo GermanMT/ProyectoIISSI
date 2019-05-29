@@ -5,7 +5,7 @@
 	require_once("gestionarTablaAdmin.php");
 	require_once("paginacionConsulta.php");
 	
-	if (!isset($_SESSION['login']))
+	if (!isset($_SESSION['loginAdmin']))
 		Header("Location: login.php");
 	else {
 		if (isset($_SESSION["usuario"])) {
@@ -92,7 +92,7 @@
             <div class="header">
                 <div class="header_box">
                     <div class="logo">
-                        <a href="IISSI.html">Academia 2G</a>
+                        <a href="IISSI.php">Academia 2G</a>
                     </div>
                     <div class="detail">
                         <div class="login" style="
@@ -108,7 +108,7 @@
             
                 <div class="menu_bar">
                     <ul class="menus">
-                        <li><a href="IISSI.html">Home</a></li>
+                        <li><a href="IISSI.php">Home</a></li>
                         <li><a href="#">Cursos Ofertados</a>
                             <ul class="sub-menu">
                                 <li><a href="Niveles.html">Niveles</a></li>
@@ -127,7 +127,7 @@
 						if ( $pagina == $pagina_seleccionada) { 	?>
 							<span class="current"><?php echo $pagina; ?></span>
 				<?php }	else { ?>
-							<a href="vistaAdminCurso.php?PAG_NUM=<?php echo $pagina; ?>&PAG_TAM=<?php echo $pag_tam; ?>"><?php echo $pagina; ?></a>
+							<a href="vistaAdminCurso.php?var2=<?php echo base64_encode($IDC); ?>&PAG_NUM=<?php echo $pagina; ?>&PAG_TAM=<?php echo $pag_tam; ?>"><?php echo $pagina; ?></a>
 				<?php } ?>
 			</div>
 			<form align="center" method="get" action="vistaAdminCurso.php">	

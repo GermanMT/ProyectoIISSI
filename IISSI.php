@@ -1,3 +1,10 @@
+<?php
+	session_start();
+
+	unset($_SESSION["loginAdmin"]);
+	unset($_SESSION["loginAlumno"]);
+	unset($_SESSION["loginProfesor"]);
+?>
 <!DOCTYPE html>
 <html>
     <head>

@@ -8,7 +8,9 @@
 	require_once("conseguirTipoUsuario.php");
 	require_once("conseguirIdCurso.php");
 	
-	unset($_SESSION["login"]);
+	unset($_SESSION["loginAdmin"]);
+	unset($_SESSION["loginAlumno"]);
+	unset($_SESSION["loginProfesor"]);
 	
 	if (isset($_POST['submit'])){
 		$usuario= $_POST['usuario'];
