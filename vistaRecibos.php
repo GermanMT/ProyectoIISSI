@@ -5,6 +5,7 @@
 
 	require_once("gestionBD.php");
 	require_once("gestionarRecibos.php");
+	require_once("paginacionConsulta.php");
 	
 	if (!isset($_SESSION['login']))
 		Header("Location: login.php");
@@ -13,8 +14,35 @@
 			$recibo = $_SESSION["recibos"];
 			unset($_SESSION["recibos"]);
 		}
+		// Paginacion recibos
+		if (isset($_SESSION["paginacion"]))
+			$paginacion = $_SESSION["paginacion"];
+		
+		$pagina_seleccionada = isset($_GET["PAG_NUM3"]) ? (int)$_GET["PAG_NUM3"] : (isset($paginacion) ? (int)$paginacion["PAG_NUM3"] : 1);
+		$pag_tam = isset($_GET["PAG_TAM3"]) ? (int)$_GET["PAG_TAM3"] : (isset($paginacion) ? (int)$paginacion["PAG_TAM3"] : 5);
+	
+		if ($pagina_seleccionada < 1) 		$pagina_seleccionada = 1;
+		if ($pag_tam < 1) 		$pag_tam = 5;
+	
+		unset($_SESSION["paginacion"]);
+	
 		$conexion = crearConexionBD();
-		$filas1 = consultarTodosRecibos($conexion,$v1);
+	
+		$query = "SELECT * FROM RECIBOS"
+			. " WHERE (RECIBOS.DNI_USUARIO = '".$v1."')";
+	
+		$total_registros = total_consulta($conexion, $query);
+		$total_paginas = (int)($total_registros / $pag_tam);
+	
+		if ($total_registros % $pag_tam > 0)		$total_paginas++;
+	
+		if ($pagina_seleccionada > $total_paginas)		$pagina_seleccionada = $total_paginas;
+	
+		$paginacion["PAG_NUM3"] = $pagina_seleccionada;
+		$paginacion["PAG_TAM3"] = $pag_tam;
+		$_SESSION["paginacion"] = $paginacion;
+	
+		$filas1 = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
 		$filas2 = consultarTodosAlumnosRecibos($conexion,$v1);
 		cerrarConexionBD($conexion);
 	}
@@ -65,17 +93,35 @@
                             </ul>
                         </li>
                         <li class="menu3"><a href="QuienesSomos.html">¿Quienes somos?</a></li>
-                       <!--<li><a href="file:///C:/xampp/htdocs/sample/contact.html">Contact</a></li>
-                    --> 
                     </ul>
                 </div>
 	    <main>
                
-               		<!-- Mostrar recibos de los alumnos -->
-
-		<div align="center" style="margin-top:250px;"><p><h1>Recibos del alumno</h1></p></div>
+        <nav>
+			<div align="center" style="margin-top: 250px;">
+				<?php
+					for( $pagina = 1; $pagina <= $total_paginas; $pagina++ )
+						if ( $pagina == $pagina_seleccionada) { 	?>
+							<span class="current"><?php echo $pagina; ?></span>
+				<?php }	else { ?>
+							<a href="vistaRecibos.php?var=<?php echo base64_encode($v1); ?>&PAG_NUM3=<?php echo $pagina; ?>&PAG_TAM3=<?php echo $pag_tam; ?>"><?php echo $pagina; ?></a>
+				<?php } ?>
+			</div>
+			<form align="center" method="get" action="vistaRecibos.php">
+				<input id="var" name="var" type="hidden" value="<?php echo base64_encode($v1)?>"/>			
+				<input id="PAG_NUM3" name="PAG_NUM3" type="hidden" value="<?php echo $pagina_seleccionada?>"/>		
+				Mostrando	
+				<input id="PAG_TAM3" name="PAG_TAM3" type="number"	
+					min="1" max="<?php echo $total_registros; ?>"	
+					value="<?php echo $pag_tam?>" autofocus="autofocus" />	
+				entradas de <?php echo $total_registros?>	
+				<input type="submit" class="boton_personalizado" value="Cambiar">
+			</form>
+		</nav> 
+		
+        <!-- Mostrar recibos de los alumnos -->
+		<div align="center" style="margin-top:20px;"><p><h1>Recibos del alumno</h1></p></div>
 		<table align="center" border="1" style="width:auto; height:20px;">
-
 			<tr>
 				<th>¿Pagado?</th>
 		    	<th>DNI del alumno</th>
@@ -83,11 +129,11 @@
 		    	<th>Apellidos</th>
 		    	<th>Edad</th>
 		    </tr>
-		
+		    
 		<?php
 			foreach($filas1 as $fila) {
 		?>
-		 
+			 
 		<article>
 			<form method="post" action="controladorRecibo.php">
 				<div>
@@ -113,24 +159,20 @@
 							
 	
 					<?php if (isset($recibo) and ($recibo["ID_RECIBO"] == $fila["ID_RECIBO"])) { ?>
-							<!-- Editando alumno -->
-							
-								<tr>
-								    <td><h3><input id="PAGADO" name="PAGADO" type="text" value="<?php echo $fila["PAGADO"]; ?>"/></h3></td>					    
-								</tr>
+						<!-- Editando recibo -->
+							<tr>
+								<td><h3><input id="PAGADO" name="PAGADO" type="text" value="<?php echo $fila["PAGADO"]; ?>"/></h3></td>					    
+							</tr>
 							
 					<?php } else { ?>
-						<!-- Mostrando alumno -->
+						<!-- Mostrando recibo -->
 							<input id="ID_RECIBO" name="ID_RECIBO" type="hidden" value="<?php echo $fila["ID_RECIBO"]; ?>"/>
-							
 								<tr>
 									<td><?php echo $fila["PAGADO"]; ?></td>
 									<td><?php echo $dni; ?></td>
 									<td><?php echo $nombre; ?></td>
 									<td><?php echo $apellidos; ?></td>
 									<td><?php echo $edad; ?></td>
-								
-							
 					<?php } ?>
 
 					</div>
@@ -153,6 +195,7 @@
 			</form>
 		</article>
 		<?php } ?>
+		
 		</table>
     </body>
 </html>

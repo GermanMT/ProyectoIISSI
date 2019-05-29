@@ -72,6 +72,7 @@
 		$_SESSION["paginacion"] = $paginacion2;
 	
 		$filas2 = consulta_paginada($conexion, $query2, $pagina_seleccionada2, $pag_tam2);
+		
 		cerrarConexionBD($conexion);
 	}
 ?>
@@ -114,8 +115,6 @@
                             </ul>
                         </li>
                         <li class="menu3"><a href="QuienesSomos.html">¿Quienes somos?</a></li>
-                       <!--<li><a href="file:///C:/xampp/htdocs/sample/contact.html">Contact</a></li>
-                    --> 
                     </ul>
                 </div>
         <main>  
