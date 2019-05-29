@@ -10,8 +10,9 @@
 	else {
 		$conexion = crearConexionBD();
 		$DNI = base64_decode($_GET['var']);
+		$IDC = base64_decode($_GET['var2']);
 		$filas2 = consultarTodosRecibos($conexion,$DNI);
-		$filas1 = consultarTodosHorarios($conexion,$DNI);
+		$filas1 = consultarTodosHorariosAlumnos($conexion,$IDC);
 		cerrarConexionBD($conexion);
 	}
 ?>
