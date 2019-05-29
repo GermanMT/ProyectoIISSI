@@ -1,11 +1,11 @@
 ﻿<?php
+	
 	session_start();
 
 	require_once("gestionBD.php");
-	require_once("gestionarTablaAdmin.php");
-	require_once("paginacionConsulta.php");
+	require_once("gestionarCurso.php");
 	
-	if (!isset($_SESSION['loginAdmin'])){
+	if (!isset($_SESSION['loginAdmin']))
 		Header("Location: login.php");
 	else {
 		$conexion = crearConexionBD();
@@ -58,62 +58,34 @@
                 
 							<!--Mostrando los cursos-->
 							
-	
-					<?php if (isset($usuario) and ($usuario["DNI_USUARIO"] == $fila["DNI_USUARIO"])) { ?>
-						<!-- Editando profesor -->
-							<tr>
-								<td><h4><?php echo $fila["DNI_USUARIO"];?></h4></td>
-								<td><h3><input id="NOMBRE" name="NOMBRE" type="text" value="<?php echo $fila["NOMBRE"]; ?>"/></h3></td>
-								<td><h3><input id="APELLIDOS" name="APELLIDOS" type="text" value="<?php echo $fila["APELLIDOS"]; ?>"/></h3></td>
-								<td><h3><input id="EDAD" name="EDAD" type="text" value="<?php echo $fila["EDAD"]; ?>"/></h3></td>
-								<td><h3><input id="LOCALIDAD" name="LOCALIDAD" type="text" value="<?php echo $fila["LOCALIDAD"]; ?>"/></h3></td>
-								<td><h3><input id="TELEFONO_MOVIL" name="TELEFONO_MOVIL" type="text" value="<?php echo $fila["TELEFONO_MOVIL"]; ?>"/></h3></td>
-								<td><h3><input id="TELEFONO_FIJO" name="TELEFONO_FIJO" type="text" value="<?php echo $fila["TELEFONO_FIJO"]; ?>"/></h3></td>
-								<td><h3><input id="EMAIL" name="EMAIL" type="text" value="<?php echo $fila["EMAIL"]; ?>"/></h3></td>
-							</tr>
-					<?php } else { ?>
-						<!-- Mostrando profesor -->
-							<input id="DNI_USUARIO" name="DNI_USUARIO" type="hidden" value="<?php echo $fila["DNI_USUARIO"]; ?>"/>
-								<tr>
-								   	<td><?php echo $fila["DNI_USUARIO"]; ?></td>
-								    <td><?php echo $fila["NOMBRE"]; ?></td>
-								    <td><?php echo $fila["APELLIDOS"]; ?></td>
-								    <td><?php echo $fila["EDAD"]; ?></td>
-								    <td><?php echo $fila["LOCALIDAD"]; ?></td>
-								    <td><?php echo $fila["TELEFONO_MOVIL"]; ?></td>
-								    <td><?php echo $fila["TELEFONO_FIJO"]; ?></td>
-								    <td><?php echo $fila["EMAIL"]; ?></td>					
-					<?php } ?>
-					</div>
-					
-					<div>
-							<td>
-							<?php if (isset($usuario) and ($usuario["DNI_USUARIO"] == $fila["DNI_USUARIO"])) { ?>
-								<button id="grabar" name="grabar" class="boton_personalizado" type="submit">
-									<p>Guardar modificación</p>
-								</button>
-							<?php } else { ?>
-								<button id="editar" name="editar" class="boton_personalizado" type="submit">
-									<p>Editar Profesor</p>
-								</button>
-							<?php } ?>
-								<button id="borrar" name="borrar" class="boton_personalizado" type="submit">
-									<p>Borrar Profesor</p>
-								</button>
-							</td>
-						</tr>
-					</div>
-				</div>
-			</form>
-		</article>
-		
-		<?php } ?>
-		</table>
-		<div align="center" style="margin-top: 15px;">
-			<a href="formularioProfesor.php">Añade un profesor</a>
-			<a href="formularioCurso.php">Añade un curso</a>
-		</div>
+ <main>
 
-		</main>
-	</body>
+	<div align="center" style="margin-top: 200px;"><p><h1>Cursos</h1></p></div>
+		<table align="center" border="1" style="width:auto; height:20px;">
+		<tr>
+	    <th>Curso</th>
+	    <th>Fecha de Inicio</th> 
+	    <th>Fecha de Fin</th>
+	    <th>Tipo de Examen</th>
+	    <th>Nivel de Examen</th>
+	  </tr>
+	
+	
+	<?php
+		foreach($filas1 as $fila) {
+	?>
+	
+	  <tr>
+	    <td><a href="vistaAdminCurso.php?var2=<?php echo base64_encode($fila["ID_CURSO"]);?>"><?php echo $fila["ID_CURSO"]; ?></a></td>
+		<td><?php echo $fila["FECHA_INICIO"]; ?></td>
+		<td><?php echo $fila["FECHA_FIN"]; ?></td>
+		<td><?php echo $fila["TIPO_EXAMEN"]; ?></td>
+		<td><?php echo $fila["NIVEL_EXAMEN"]; ?></td>
+	  </tr>
+	
+	<?php } ?>
+	</table>
+</main>
+</div>
+</body>
 </html>
