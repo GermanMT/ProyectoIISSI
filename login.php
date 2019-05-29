@@ -8,6 +8,8 @@
 	require_once("conseguirTipoUsuario.php");
 	require_once("conseguirIdCurso.php");
 	
+	unset($_SESSION["login"]);
+	
 	if (isset($_POST['submit'])){
 		$usuario= $_POST['usuario'];
 		$pass = $_POST['pass'];
@@ -29,14 +31,14 @@
 					$_SESSION['login'] = $usuario;
 					foreach($DNI_Usuario as $DNI){
 						foreach($id_Curso as $IDC){
-						Header("Location: vistaAlumno.php?var=". base64_encode($DNI["DNI_USUARIO"]) ."&var2=". base64_encode($IDC["ID_CURSO"])); 
+							Header("Location: vistaAlumno.php?var=". base64_encode($DNI["DNI_USUARIO"]) ."&var2=". base64_encode($IDC["ID_CURSO"])); 
 						}
 					}
 				}else if($tipoUsuario == 'Profesor' AND $tipoUsuario == $tipo["TIPOUSUARIO"]){
 					$_SESSION['login'] = $usuario;
 					foreach($DNI_Usuario as $DNI){
 						foreach($id_Curso as $IDC){
-						Header("Location: vistaProfesor.php?var=". base64_encode($DNI["DNI_USUARIO"])."&var2=". base64_encode($IDC["ID_CURSO"])); 
+							Header("Location: vistaProfesor.php?var=". base64_encode($DNI["DNI_USUARIO"])."&var2=". base64_encode($IDC["ID_CURSO"])); 
 						}
 					}
 				}else if($tipoUsuario == 'Admin' AND $tipoUsuario == $tipo["TIPOUSUARIO"]){

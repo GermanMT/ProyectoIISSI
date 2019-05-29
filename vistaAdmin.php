@@ -5,9 +5,9 @@
 	require_once("gestionarTablaAdmin.php");
 	require_once("paginacionConsulta.php");
 	
-	if (!isset($_SESSION['login']))
+	if (!isset($_SESSION['login'])){
 		Header("Location: login.php");
-	else {
+	}else {
 		if (isset($_SESSION["usuario"])) {
 			$usuario = $_SESSION["usuario"];
 			unset($_SESSION["usuario"]);
@@ -97,9 +97,13 @@
                         <div class="login" style="
                         width: 121.198">
                             <img src="images/logoAcademia.png">
-                            <a href="login.php" target="blank" style="
-                            height: 0px;
-                            padding-right: 20px;">Cerrar Sesión</a>
+                            <li>
+                            	<?php if (isset($_SESSION['login'])) {	?>
+		                            <a href="logout.php" target="blank" style="
+		                            height: 0px;
+		                            padding-right: 20px;">Cerrar Sesión</a>
+	                            <?php } ?>
+	                        </li>
                         </div>
                     </div>
                 </div>
