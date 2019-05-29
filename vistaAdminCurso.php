@@ -314,6 +314,8 @@
 							type="hidden" value="<?php echo $fila["PASS"]; ?>"/>
 						<input id="TIPOUSUARIO" name="TIPOUSUARIO"
 							type="hidden" value="<?php echo $fila["TIPOUSUARIO"]; ?>"/>
+						<input id="ID_CURSO" name="ID_CURSO"
+							type="hidden" value="<?php echo base64_encode($IDC); ?>"/>
 							
 	
 					<?php if (isset($usuario) and ($usuario["DNI_USUARIO"] == $fila["DNI_USUARIO"])) { ?>
