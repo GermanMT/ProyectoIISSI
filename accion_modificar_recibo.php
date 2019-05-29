@@ -16,11 +16,11 @@
 			
 		if ($excepcion<>"") {
 			$_SESSION["excepcion"] = $excepcion;
-			$_SESSION["destino"] = "vistaRecibos.php" . $_GET["var"];
+			$_SESSION["destino"] = "vistaRecibos.php?var=" . $_GET["var"];
 			Header("Location: excepcion.php");
 		}
 		else
 			Header("Location: vistaRecibos.php?var=" . $_GET["var"]);
 	} 
-	else Header("Location: vistaRecibos.php" . $_GET["var"]); // Se ha tratado de acceder directamente a este PHP
+	else Header("Location: vistaRecibos.php?var=" . $_GET["var"]); // Se ha tratado de acceder directamente a este PHP
 ?>

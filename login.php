@@ -26,21 +26,21 @@
 				$login = "error";	
 			else {
 				if($tipoUsuario == 'Alumno' AND $tipoUsuario == $tipo["TIPOUSUARIO"]){
-					$_SESSION['login'] = $usuario;
+					$_SESSION['loginAlumno'] = $usuario;
 					foreach($DNI_Usuario as $DNI){
 						foreach($id_Curso as $IDC){
 						Header("Location: vistaAlumno.php?var=". base64_encode($DNI["DNI_USUARIO"]) ."&var2=". base64_encode($IDC["ID_CURSO"])); 
 						}
 					}
 				}else if($tipoUsuario == 'Profesor' AND $tipoUsuario == $tipo["TIPOUSUARIO"]){
-					$_SESSION['login'] = $usuario;
+					$_SESSION['loginProfesor'] = $usuario;
 					foreach($DNI_Usuario as $DNI){
 						foreach($id_Curso as $IDC){
 						Header("Location: vistaProfesor.php?var=". base64_encode($DNI["DNI_USUARIO"])."&var2=". base64_encode($IDC["ID_CURSO"])); 
 						}
 					}
 				}else if($tipoUsuario == 'Admin' AND $tipoUsuario == $tipo["TIPOUSUARIO"]){
-					$_SESSION['login'] = $usuario;
+					$_SESSION['loginAdmin'] = $usuario;
 					Header("Location: vistaAdmin.php"); 
 				}else{
 					$login = "error";
