@@ -158,7 +158,6 @@ ul.menus li ul{
     width: 100%;
 
 }
-
 .bottom_content{
     margin: 0 auto;
     width: 90%;
@@ -219,6 +218,7 @@ ul.menus li ul{
 	float: right;	/* Los botones de acci�n de cada libro aparecer�n en la parte derecha */
 
 }
+
 
 /*------------Quienes Somos-------------------*/
 .left_content_box_qs{
