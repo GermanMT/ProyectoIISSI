@@ -2,9 +2,21 @@
 DROP TABLE Horario_Alumno;
 DROP TABLE Horario_Profesor;
 DROP TABLE Horario_Curso;
-DROP TABLE Cursos;
 DROP TABLE Recibos;
 DROP TABLE Usuarios;
+DROP TABLE Cursos;
+
+
+CREATE TABLE Cursos(
+Fecha_Inicio VARCHAR2(20) NOT NULL,
+Fecha_Fin VARCHAR2(20),
+Tipo_Examen VARCHAR2(10) 
+            CHECK (Tipo_Examen IN('Trinity', 'Cambridge', 'Aptis')) NOT NULL,
+Nivel_Examen VARCHAR2(10) 
+            CHECK (Nivel_Examen IN('B1', 'B2', 'C1')) NOT NULL, 
+Id_Curso VARCHAR2(30) NOT NULL,
+PRIMARY KEY(Id_Curso)
+);
 
 CREATE TABLE Usuarios(
 DNI_Usuario CHAR(9) NOT NULL,
@@ -18,9 +30,15 @@ Email VARCHAR2(50),
 Nombre_Padre_Madre VARCHAR(20),
 Usuario VARCHAR2(20) NOT NULL,
 Pass VARCHAR2(20) NOT NULL,
+Tipo_Examen VARCHAR2(10) 
+            CHECK (Tipo_Examen IN('Trinity', 'Cambridge', 'Aptis')),
+Nivel_Examen VARCHAR2(10) 
+            CHECK (Nivel_Examen IN('B1', 'B2', 'C1')) NOT NULL, 
 TipoUsuario VARCHAR2(30)
           CHECK (TipoUsuario IN('Alumno', 'Profesor', 'Admin')) NOT NULL,
-PRIMARY KEY (DNI_Usuario)
+Id_Curso VARCHAR2(30),
+PRIMARY KEY (DNI_Usuario),
+FOREIGN KEY (Id_Curso) REFERENCES Cursos
 );
 
 CREATE TABLE Recibos(
@@ -37,18 +55,6 @@ PRIMARY KEY(Id_Recibo),
 FOREIGN KEY(DNI_Usuario) REFERENCES Usuarios
 );
 
-CREATE TABLE Cursos(
-Fecha_Inicio VARCHAR2(20) NOT NULL,
-Fecha_Fin VARCHAR2(20),
-Tipo_Examen VARCHAR2(10) 
-            CHECK (Tipo_Examen IN('Trinity', 'Cambridge', 'Aptis')) NOT NULL,
-Nivel_Examen VARCHAR2(10) 
-            CHECK (Nivel_Examen IN('B1', 'B2', 'C1')) NOT NULL, 
-Id_Curso INTEGER NOT NULL,
-DNI_Usuario CHAR(9),
-PRIMARY KEY(Id_Curso),
-FOREIGN KEY(DNI_Usuario) REFERENCES Usuarios
-);
 
 CREATE TABLE Horario_Alumno(
 Hora_Inicio CHAR(8) NOT NULL,
@@ -56,7 +62,7 @@ Hora_Fin CHAR(8) NOT NULL,
 Dia VARCHAR2(40) NOT NULL,
 Id_Horario INTEGER NOT NULL,
 DNI_Usuario CHAR(9),
-Id_Curso INTEGER NOT NULL,
+Id_Curso VARCHAR2(30),
 PRIMARY KEY(Id_Horario),
 FOREIGN KEY(DNI_Usuario) REFERENCES Usuarios,
 FOREIGN KEY(Id_Curso) REFERENCES Cursos
@@ -67,7 +73,7 @@ Hora_Inicio CHAR(8) NOT NULL,
 Hora_Fin CHAR(8) NOT NULL,
 Dia VARCHAR2(40) NOT NULL,
 Id_Horario INTEGER NOT NULL,
-Id_Curso INTEGER NOT NULL,
+Id_Curso VARCHAR2(30) NOT NULL,
 DNI_Usuario CHAR(9),
 PRIMARY KEY(Id_Horario),
 FOREIGN KEY(DNI_Usuario) REFERENCES Usuarios,
@@ -79,7 +85,7 @@ Hora_Inicio CHAR(8) NOT NULL,
 Hora_Fin CHAR(8) NOT NULL,
 Dia VARCHAR2(40) NOT NULL,
 Id_Horario INTEGER NOT NULL,
-Id_Curso INTEGER NOT NULL,
+Id_Curso VARCHAR2(30) NOT NULL,
 PRIMARY KEY(Id_Horario),
 FOREIGN KEY(Id_Curso) REFERENCES Cursos
 );
@@ -106,18 +112,12 @@ ALTER TABLE Usuarios ADD CONSTRAINT CK_Edad_Usuarios CHECK(edad > 0);
 --ALTER TABLE Profesores ADD CONSTRAINT CK_Sueldo_Prof CHECK(Sueldo_Profesor > 0);
 
 --Borrado de secuencias:
-DROP SEQUENCE SEC_Cursos;
 DROP SEQUENCE SEC_Horario_Alumno;
 DROP SEQUENCE SEC_Horario_Profesor;
 DROP SEQUENCE SEC_Horario_Curso;
 DROP SEQUENCE SEC_Recibos;
 
 --Creacion de secuencias:
-CREATE SEQUENCE SEC_Cursos
-INCREMENT BY 1
-START WITH 1
-MAXVALUE 9999;
-
 CREATE SEQUENCE SEC_Horario_Alumno
 INCREMENT BY 1 
 START WITH 1 

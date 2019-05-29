@@ -1,15 +1,4 @@
 --Triggers asociados a secuencias:
-CREATE OR REPLACE TRIGGER TR_Cursos
-BEFORE INSERT ON Cursos
-FOR EACH ROW
-DECLARE
-     valorSec NUMBER := 0;
-BEGIN
-     SELECT SEC_Cursos.CURRVAL INTO valorSec FROM DUAL;
-     :NEW.Id_Curso := valorSec;
-END;
-/
-
 CREATE OR REPLACE TRIGGER TR_Horario_Profesor
 BEFORE INSERT ON Horario_Profesor
 FOR EACH ROW
