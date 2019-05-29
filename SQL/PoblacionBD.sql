@@ -43,7 +43,8 @@ COMMIT;
 END;
 /
 
---Insercciones de cursos:
+
+--Inserciones de cursos:
 BEGIN
 INSERTAR_CURSO('20/05/2018','20/12/2018','Aptis','B1',SEC_Cursos.NEXTVAL,'');
 INSERTAR_CURSO('20/03/2018','20/10/2018','Trinity','B2',SEC_Cursos.NEXTVAL,'');
@@ -81,7 +82,7 @@ INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/07/06','50', '', '0', 'Si', '21015236
 INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/08/06','50', '', '0', 'Si', '21015236K', 'efectivo');
 INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/09/06','50', '', '0', 'Si', '21015236K', 'efectivo');
 INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/10/06','50', '', '0', 'No', '21015236K', 'efectivo');
-INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/10/06','50', '', '0', 'No', '76558322H', 'efectivo');
+INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/10/06','50', '', '0', 'No', '53276322Z', 'efectivo');
 COMMIT;
 END;
 /

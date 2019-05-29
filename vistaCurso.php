@@ -37,8 +37,7 @@
                             <img src="images/logoAcademia.png">
                             <a href="login.php" target="blank" style="
                             height: 0px;
-                            padding-right: 20px;">Login</a>
-                            <a href="formulario.php" target="blank">Register</a>
+                            padding-right: 20px;">Cerrar Sesión</a>
                         </div>
                     </div>
                 </div>

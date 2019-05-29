@@ -72,6 +72,7 @@
 		$_SESSION["paginacion"] = $paginacion2;
 	
 		$filas2 = consulta_paginada($conexion, $query2, $pagina_seleccionada2, $pag_tam2);
+		
 		cerrarConexionBD($conexion);
 	}
 ?>
@@ -98,8 +99,7 @@
                             <img src="images/logoAcademia.png">
                             <a href="login.php" target="blank" style="
                             height: 0px;
-                            padding-right: 20px;">Login</a>
-                            <a href="formulario.php" target="blank">Register</a>
+                            padding-right: 20px;">Cerrar Sesión</a>
                         </div>
                     </div>
                 </div>
@@ -115,8 +115,6 @@
                             </ul>
                         </li>
                         <li class="menu3"><a href="QuienesSomos.html">¿Quienes somos?</a></li>
-                       <!--<li><a href="file:///C:/xampp/htdocs/sample/contact.html">Contact</a></li>
-                    --> 
                     </ul>
                 </div>
         <main>  
@@ -143,7 +141,6 @@
 		</nav>          
                 	
 		<!-- Mostrar alumnos de la academia -->
-
 		<div align="center" style="margin-top:50px;"><p><h1>Alumnos:</h1></p></div>
 		<table align="center" border="1" style="width:auto; height:20px;">
 

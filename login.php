@@ -5,6 +5,7 @@
  	include_once("gestionarUsuarios.php");
 	
 	require_once("conseguirDNI.php");
+	require_once("conseguirTipoUsuario.php");
 	
 	if (isset($_POST['submit'])){
 		$usuario= $_POST['usuario'];
@@ -13,28 +14,33 @@
 		
 		$conexion = crearConexionBD();
 		$DNI_Usuario = consultarDNI($conexion,$usuario,$pass);
+		$Tipo_Usuario = consultarTipoUsuario($conexion,$usuario,$pass);
 		$num_usuarios = consultarUsuario($conexion,$usuario,$pass,$tipoUsuario);
-		cerrarConexionBD($conexion);	
+		cerrarConexionBD($conexion);
+		
+		foreach($Tipo_Usuario as $tipo){	
 	
-		if ($num_usuarios == 0)
-			$login = "error";	
-		else {
-			if($tipoUsuario == 'Alumno'){
-				$_SESSION['login'] = $usuario;
-				foreach($DNI_Usuario as $DNI){
-					Header("Location: vistaAlumno.php?var=". base64_encode($DNI["DNI_USUARIO"])); 
+			if ($num_usuarios == 0)
+				$login = "error";	
+			else {
+				if($tipoUsuario == 'Alumno' AND $tipoUsuario == $tipo["TIPOUSUARIO"]){
+					$_SESSION['login'] = $usuario;
+					foreach($DNI_Usuario as $DNI){
+						Header("Location: vistaAlumno.php?var=". base64_encode($DNI["DNI_USUARIO"])); 
+					}
+				}else if($tipoUsuario == 'Profesor' AND $tipoUsuario == $tipo["TIPOUSUARIO"]){
+					$_SESSION['login'] = $usuario;
+					foreach($DNI_Usuario as $DNI){
+						Header("Location: vistaProfesor.php?var=". base64_encode($DNI["DNI_USUARIO"])); 
+					}
+				}else if($tipoUsuario == 'Admin' AND $tipoUsuario == $tipo["TIPOUSUARIO"]){
+					$_SESSION['login'] = $usuario;
+					Header("Location: vistaAdmin.php"); 
+				}else{
+					$login = "error";
 				}
-				// <?php echo $fila["DNI_USUARIO"]; 
-			}else if($tipoUsuario == 'Profesor'){
-				$_SESSION['login'] = $usuario;
-				foreach($DNI_Usuario as $DNI){
-					Header("Location: vistaProfesor.php?var=". base64_encode($DNI["DNI_USUARIO"])); 
-				}
-			}else if($tipoUsuario == 'Admin'){
-				$_SESSION['login'] = $usuario;
-				Header("Location: vistaAdmin.php"); 
-			}
-		}	
+			}	
+		}
 	}
 ?>
 
@@ -55,7 +61,7 @@
 <main>
 	<?php if (isset($login)) {
 		echo "<div class=\"error\">";
-		echo "Error en la contraseña o no existe el usuario.";
+		echo "Error en la contraseña, el tipo de usuario escogido o no existe el usuario.";
 		echo "</div>";
 	}	
 	?>
