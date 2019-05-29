@@ -67,7 +67,7 @@
 <?php
 	include_once("cabecera.php");
 ?>
-<div align="center" style="margin-top: 300px;">
+
 <main>
 	<?php if (isset($login)) {
 		echo "<div class=\"error\">";
@@ -77,7 +77,6 @@
 	?>
 	
 	<!-- The HTML login form -->
-	
 	<form action="login.php" method="post">
 		<div><label for="usuario">Usuario: </label><input type="text" name="usuario" id="usuario" /></div>
 		<div><label for="pass">Contraseña: </label><input type="password" name="pass" id="pass" /></div>
@@ -97,6 +96,6 @@
 		
 	<p>¿No estás registrado? <a href="formulario.php">¡Registrate!</a></p>
 </main>
-</div>
+
 </body>
 </html>

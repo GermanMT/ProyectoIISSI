@@ -42,9 +42,7 @@
                             padding-right: 20px;">Cerrar Sesión</a>
                         </div>
                     </div>
-                </div>
-            
-            
+                </div>  
                 <div class="menu_bar">
                     <ul class="menus">
                         <li><a href="IISSI.php">Home</a></li>
