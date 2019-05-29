@@ -1,5 +1,4 @@
 <?php
-	$v1=base64_decode($_GET['var']);
 	
 	session_start();
 
@@ -10,6 +9,7 @@
 		Header("Location: login.php");
 	else {
 		$conexion = crearConexionBD();
+		$v1=base64_decode($_GET['var']);
 		$filas1 = consultarTodosCursosProfesor($conexion,$v1);
 		cerrarConexionBD($conexion);
 	}

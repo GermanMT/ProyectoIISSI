@@ -2,7 +2,7 @@
 	session_start();
 
 	require_once ('gestionBD.php');
-	require_once ("gestionarUsuarios.php");
+	require_once ("gestionarCurso.php");
 	
 	// Si no existen datos del formulario en la sesión, se crea una entrada con valores por defecto
 	if (!isset($_SESSION['formulario'])) {
