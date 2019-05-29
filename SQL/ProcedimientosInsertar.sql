@@ -131,7 +131,6 @@ CREATE OR REPLACE PROCEDURE QUITAR_USUARIO (DNI_Usuario_A_QUITAR IN Usuarios.DNI
 BEGIN
     DELETE FROM Horario_Alumno WHERE DNI_Usuario = DNI_Usuario_A_QUITAR;
     DELETE FROM Recibos WHERE DNI_Usuario = DNI_Usuario_A_QUITAR;
-    DELETE FROM Cursos_Alumnos WHERE DNI_Usuario = DNI_Usuario_A_QUITAR;
     DELETE FROM Usuarios WHERE DNI_Usuario = DNI_Usuario_A_QUITAR;
 END;
 /
@@ -163,4 +162,3 @@ BEGIN
   WHERE ID_RECIBO = IDR_REC_A_MOD;
 END;
 /
-

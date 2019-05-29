@@ -72,35 +72,55 @@
 		$_SESSION["paginacion"] = $paginacion2;
 	
 		$filas2 = consulta_paginada($conexion, $query2, $pagina_seleccionada2, $pag_tam2);
+		
 		cerrarConexionBD($conexion);
 	}
 ?>
 
+<!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+        <title>IISSI</title>
         <link rel="stylesheet" href="CSS/styleIISSI.css">
-        <script type="text/javascript" src="./js/boton.js"></script>
-        <title>VistaAdmin</title>
     </head>
     <body>
-        <div class="header">
-	    	<div class="header_box">
-	        	<div class="logo">
-	            	<a href="IISSI.html">Academia 2G</a>
-	            </div>
-	            <div class="detail">
-	            	<div class="login" style=" width: 121.198">
-	                	<img src="images/logoAcademia.png">
-	                </div>
-	            </div>
-	        </div>
-	    </div>
+        <div class = "main">
+            <div class="header">
+                <div class="header_box">
+                    <div class="logo">
+                        <a href="IISSI.html">Academia 2G</a>
+                    </div>
+                    <div class="detail">
+                        <div class="login" style="
+                        width: 121.198">
+                            <img src="images/logoAcademia.png">
+                            <a href="login.php" target="blank" style="
+                            height: 0px;
+                            padding-right: 20px;">Cerrar Sesión</a>
+                        </div>
+                    </div>
+                </div>
+            
+            
+                <div class="menu_bar">
+                    <ul class="menus">
+                        <li><a href="IISSI.html">Home</a></li>
+                        <li><a href="#">Cursos Ofertados</a>
+                            <ul class="sub-menu">
+                                <li><a href="Niveles.html">Niveles</a></li>
+                                <li><a href="Examenes.html">Exámenes</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu3"><a href="QuienesSomos.html">¿Quienes somos?</a></li>
+                    </ul>
+                </div>
         <main>  
 	    
 	    <nav>
-			<div align="center" style="margin-top: 15px;">
+			<div align="center" style="margin-top: 250px;">
 				<?php
 					for( $pagina = 1; $pagina <= $total_paginas; $pagina++ )
 						if ( $pagina == $pagina_seleccionada) { 	?>
@@ -121,7 +141,7 @@
 		</nav>          
                 	
 		<!-- Mostrar alumnos de la academia -->
-		<div align="center"><p><h1>Alumnos:</h1></p></div>
+		<div align="center" style="margin-top:50px;"><p><h1>Alumnos:</h1></p></div>
 		<table align="center" border="1" style="width:auto; height:20px;">
 
 			<tr>
@@ -227,7 +247,7 @@
 		</table>
 		
 		<nav>
-			<div align="center" style="margin-top: 15px;">
+			<div align="center" style="margin-top: 50px;">
 				<?php
 					for( $pagina2 = 1; $pagina2 <= $total_paginas2; $pagina2++ )
 						if ( $pagina2 == $pagina_seleccionada2) { 	?>
@@ -248,7 +268,7 @@
 		</nav> 
 			
 		<!-- Mostrar profesores de la academia -->
-		<div align="center"><p><h1>Profesores:</h1></p></div>
+		<div align="center" style="margin-top: 50px;"><p><h1>Profesores:</h1></p></div>
 	  	<table align="center" border="1" style="width:auto; height:20px;">
 			<tr>
 		    	<th>DNI del Profesor</th>

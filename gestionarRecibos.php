@@ -1,4 +1,4 @@
-<?php
+﻿<?php
     /*
      * #===========================================================#
      * #	Este fichero contiene las funciones de gestión     	   #	 
@@ -21,9 +21,9 @@
 
 function modificarRecibo($conexion,$ID_RECIBO,$PAGADO) {
 		try {
-			$stmt=$conexion->prepare('CALL MODIFICAR_RECIBO(:ID_RECIBO, :PAGADO)');
-			$stmt->bindParam(':PAGADO',$PAGADO);
+			$stmt=$conexion->prepare('CALL MODIFICAR_RECIBO(:ID_RECIBO,:PAGADO)');
 			$stmt->bindParam(':ID_RECIBO',$ID_RECIBO);
+			$stmt->bindParam(':PAGADO',$PAGADO);
 			$stmt->execute();
 			return "";
 		} catch(PDOException $e) {
