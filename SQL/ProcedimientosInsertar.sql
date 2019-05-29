@@ -65,20 +65,8 @@ CALL INSERTAR_PROFESOR('12345678G', 'AlvaroProfesor', 'Frias',20, 'Arahal', '674
 CALL INSERTAR_USUARIO('47555425G', 'Alvaro', 'Frias',20, 'Arahal', '674466722','954841642', 'alvarofb1998@gmail.com', 'Jose Enrique',
 'Alvarofb7', 'AlvaroFrias7', 'Alumno', 'Aptis', 'B1')
 
---Insertar Horario_Alumno:
-CREATE OR REPLACE PROCEDURE INSERTAR_HORARIO_ALUMNO
-  (P_Hora_Inicio IN Horario_Alumno.Hora_Inicio%TYPE,
-   P_Hora_Fin IN Horario_Alumno.Hora_Fin%TYPE,
-   P_Dia IN Horario_Alumno.Dia%TYPE,
-   P_Id_Horario IN Horario_Alumno.Id_Horario%TYPE,
-   P_DNI_Usuario IN Horario_Alumno.DNI_Usuario%TYPE,
-   P_Id_Curso IN Horario_Alumno.Id_Curso%TYPE
-   ) IS
-BEGIN
-  INSERT INTO Horario_Alumno(Hora_Inicio,Hora_Fin,Dia,Id_Horario,DNI_Usuario,Id_Curso)
-  VALUES (P_Hora_Inicio,P_Hora_Fin,P_Dia,P_Id_Horario,P_DNI_Usuario,P_Id_Curso);
-END;
-/
+CALL INSERTAR_USUARIO('98765432A', 'Alvaro', 'Frias',20, 'Arahal', '674466722','954841642', 'alvarofb1998@gmail.com', 'Jose Enrique',
+'Administrador', 'administrador', 'Admin', 'Aptis', 'B1')
 
 --Insertar Horario_Curso:
 CREATE OR REPLACE PROCEDURE INSERTAR_HORARIO_CURSO
@@ -91,21 +79,6 @@ CREATE OR REPLACE PROCEDURE INSERTAR_HORARIO_CURSO
 BEGIN
   INSERT INTO Horario_Curso(Hora_Inicio,Hora_Fin,Dia,Id_Horario,Id_Curso)
   VALUES (P_Hora_Inicio,P_Hora_Fin,P_Dia,P_Id_Horario,P_Id_Curso);
-END;
-/
-
---Insertar Horario_Profesor:
-CREATE OR REPLACE PROCEDURE INSERTAR_HORARIO_PROFESOR
-  (P_Hora_Inicio IN Horario_Profesor.Hora_Inicio%TYPE,
-   P_Hora_Fin IN Horario_Profesor.Hora_Fin%TYPE,
-   P_Dia IN Horario_Profesor.Dia%TYPE,
-   P_Id_Horario IN Horario_Profesor.Id_Horario%TYPE,
-   P_Id_Curso IN Horario_Profesor.Id_Curso%TYPE,
-   P_DNI_Usuario IN Horario_Profesor.DNI_Usuario%TYPE
-   ) IS
-BEGIN
-  INSERT INTO Horario_Profesor(Hora_Inicio,Hora_Fin,Dia,Id_Horario,Id_Curso,DNI_Usuario)
-  VALUES (P_Hora_Inicio,P_Hora_Fin,P_Dia,P_Id_Horario,P_Id_Curso,P_DNI_Usuario);
 END;
 /
 

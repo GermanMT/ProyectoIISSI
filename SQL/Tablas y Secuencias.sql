@@ -1,6 +1,4 @@
 --Borrado de tablas:
-DROP TABLE Horario_Alumno;
-DROP TABLE Horario_Profesor;
 DROP TABLE Horario_Curso;
 DROP TABLE Recibos;
 DROP TABLE Usuarios;
@@ -55,31 +53,6 @@ PRIMARY KEY(Id_Recibo),
 FOREIGN KEY(DNI_Usuario) REFERENCES Usuarios
 );
 
-
-CREATE TABLE Horario_Alumno(
-Hora_Inicio CHAR(8) NOT NULL,
-Hora_Fin CHAR(8) NOT NULL,
-Dia VARCHAR2(40) NOT NULL,
-Id_Horario INTEGER NOT NULL,
-DNI_Usuario CHAR(9),
-Id_Curso VARCHAR2(30),
-PRIMARY KEY(Id_Horario),
-FOREIGN KEY(DNI_Usuario) REFERENCES Usuarios,
-FOREIGN KEY(Id_Curso) REFERENCES Cursos
-);
-
-CREATE TABLE Horario_Profesor(
-Hora_Inicio CHAR(8) NOT NULL,
-Hora_Fin CHAR(8) NOT NULL,
-Dia VARCHAR2(40) NOT NULL,
-Id_Horario INTEGER NOT NULL,
-Id_Curso VARCHAR2(30) NOT NULL,
-DNI_Usuario CHAR(9),
-PRIMARY KEY(Id_Horario),
-FOREIGN KEY(DNI_Usuario) REFERENCES Usuarios,
-FOREIGN KEY(Id_Curso) REFERENCES Cursos
-);
-
 CREATE TABLE Horario_Curso(
 Hora_Inicio CHAR(8) NOT NULL,
 Hora_Fin CHAR(8) NOT NULL,
@@ -102,8 +75,6 @@ ALTER TABLE Usuarios ADD CONSTRAINT CK_Telefono_Movil_Usuarios
       CHECK (REGEXP_LIKE(Telefono_Movil, '[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]'));
 
 --Horario
-ALTER TABLE Horario_Alumno ADD CONSTRAINT CK_Horario_Alumno CHECK (Hora_Inicio < Hora_Fin);
-ALTER TABLE Horario_Profesor ADD CONSTRAINT CK_Horario_Profesor CHECK (Hora_Inicio < Hora_Fin);
 ALTER TABLE Horario_Curso ADD CONSTRAINT CK_Horario_Curso CHECK (Hora_Inicio < Hora_Fin);
 ALTER TABLE Cursos ADD CONSTRAINT CK_Fechas_Cursos CHECK (TO_DATE(Fecha_Inicio, 'DD/MM/YYYY') < TO_DATE(Fecha_Fin, 'DD/MM/YYYY'));
 
@@ -112,22 +83,10 @@ ALTER TABLE Usuarios ADD CONSTRAINT CK_Edad_Usuarios CHECK(edad > 0);
 --ALTER TABLE Profesores ADD CONSTRAINT CK_Sueldo_Prof CHECK(Sueldo_Profesor > 0);
 
 --Borrado de secuencias:
-DROP SEQUENCE SEC_Horario_Alumno;
-DROP SEQUENCE SEC_Horario_Profesor;
 DROP SEQUENCE SEC_Horario_Curso;
 DROP SEQUENCE SEC_Recibos;
 
 --Creacion de secuencias:
-CREATE SEQUENCE SEC_Horario_Alumno
-INCREMENT BY 1 
-START WITH 1 
-MAXVALUE 9999;
-
-CREATE SEQUENCE SEC_Horario_Profesor
-INCREMENT BY 1 
-START WITH 1 
-MAXVALUE 9999;
-
 CREATE SEQUENCE SEC_Horario_Curso
 INCREMENT BY 1 
 START WITH 1 

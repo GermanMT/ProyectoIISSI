@@ -2,7 +2,7 @@
 	session_start();
 
 	require_once("gestionBD.php");
-	require_once("gestionarUsuarios.php");
+	require_once("gestionarCurso.php");
 	
 	//require_once ('includes/funciones.php');	
 	// Comprobar que hemos llegado a esta página porque se ha rellenado el formulario
@@ -10,7 +10,7 @@
 		$usuario = $_SESSION["formulario"];
 		unset($_SESSION["formulario"]);
 	}else {
-		header("Location: formulario.php");
+		header("Location: formularioCurso.php");
 	}
 		//Se crea una conexión a la base de datos
 	$conexion = crearConexionBD();
@@ -24,7 +24,7 @@
 <html lang="es">
 <head>
   <meta charset="utf-8">
-  <title>Gestión de la Academia: Alta de Usuario realizada con éxito</title>
+  <title>Gestión de la Academia: Creación de curso realizada con éxito</title>
 </head>
 
 <body>
