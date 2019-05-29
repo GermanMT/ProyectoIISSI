@@ -74,3 +74,11 @@ INSERTAR_HORARIO_CURSO('17:00','18:00','Miercoles',SEC_Horario_Curso.NEXTVAL,'G2
 COMMIT;
 END;
 /
+
+--Inserciones de horarios cursos:
+BEGIN
+INSERTAR_HORARIO_CURSO('16:00','17:00','Martes',SEC_Horario_Curso.NEXTVAL,'G1');
+INSERTAR_HORARIO_CURSO('17:00','18:00','Miercoles',SEC_Horario_Curso.NEXTVAL,'G2');
+COMMIT;
+END;
+/

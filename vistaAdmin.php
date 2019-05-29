@@ -5,9 +5,26 @@
 	require_once("gestionBD.php");
 	require_once("gestionarCurso.php");
 	
-	if (!isset($_SESSION['login']))
+	if (!isset($_SESSION['loginAdmin']))
 		Header("Location: login.php");
-	else {
+	}else {
+		if (isset($_SESSION["usuario"])) {
+			$usuario = $_SESSION["usuario"];
+			unset($_SESSION["usuario"]);
+		}
+		
+		// Paginacion Alumnos
+		if (isset($_SESSION["paginacion"]))
+			$paginacion = $_SESSION["paginacion"];
+		
+		$pagina_seleccionada = isset($_GET["PAG_NUM"]) ? (int)$_GET["PAG_NUM"] : (isset($paginacion) ? (int)$paginacion["PAG_NUM"] : 1);
+		$pag_tam = isset($_GET["PAG_TAM"]) ? (int)$_GET["PAG_TAM"] : (isset($paginacion) ? (int)$paginacion["PAG_TAM"] : 5);
+	
+		if ($pagina_seleccionada < 1) 		$pagina_seleccionada = 1;
+		if ($pag_tam < 1) 		$pag_tam = 5;
+	
+		unset($_SESSION["paginacion"]);
+	
 		$conexion = crearConexionBD();
 		$filas1 = consultarTodosCursosAdmin($conexion);
 		cerrarConexionBD($conexion);
@@ -34,7 +51,7 @@
                         <div class="login" style="
                         width: 121.198">
                             <img src="images/logoAcademia.png">
-                            <a href="login.php" target="blank" style="
+                            <a href="logout.php" target="blank" style="
                             height: 0px;
                             padding-right: 20px;">Cerrar Sesión</a>
                         </div>

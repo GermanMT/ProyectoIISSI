@@ -5,7 +5,7 @@
 	require_once("gestionBD.php");
 	require_once("gestionarCurso.php");
 	
-	if (!isset($_SESSION['login']))
+	if (!isset($_SESSION['loginProfesor']))
 		Header("Location: login.php");
 	else {
 		$conexion = crearConexionBD();
@@ -35,7 +35,7 @@
                         <div class="login" style="
                         width: 121.198">
                             <img src="images/logoAcademia.png">
-                            <a href="login.php" target="blank" style="
+                            <a href="logout.php" target="blank" style="
                             height: 0px;
                             padding-right: 20px;">Cerrar Sesión</a>
                         </div>
