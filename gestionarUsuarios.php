@@ -12,16 +12,8 @@
 		$stmt=$conexion->prepare($consulta);
 		$stmt->bindParam(':DNI_Usuario',$usuario["DNI_Usuario"]);
 		$stmt->bindParam(':Nombre',$usuario["Nombre"]);
-		$stmt->bindParam(':Apellidos',$usuario["Apellidos"]);
-		$stmt->bindParam(':Edad',$usuario["Edad"]);
-		$stmt->bindParam(':Localidad',$usuario["Localidad"]);
-		$stmt->bindParam(':TelefonoMovil',$usuario["TelefonoMovil"]);
-		$stmt->bindParam(':TelefonoFijo',$usuario["TelefonoFijo"]);
-		$stmt->bindParam(':Email',$usuario["Email"]);
-		$stmt->bindParam(':NombrePadreMadre',$usuario["NombrePadreMadre"]);
-		$stmt->bindParam(':Usuario',$usuario["Usuario"]);
-		$stmt->bindParam(':Pass',$usuario["Pass"]);
 		$stmt->bindParam(':TipoUsuario',$usuario["TipoUsuario"]);
+		$stmt->bindParam(':Apellidos',$usuario["Apellidos"]);
 		
 		$stmt->execute();
 		return true;

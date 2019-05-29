@@ -6,19 +6,11 @@
 	
 	// Si no existen datos del formulario en la sesión, se crea una entrada con valores por defecto
 	if (!isset($_SESSION['formulario'])) {
-		$formulario['FechaInicio'] = "";
-		$formulario['FechaFin'] = "";
-		$formulario['Apellidos'] = "";
-		$formulario['Edad'] = "";
-		$formulario['Localidad'] = "";
-		$formulario['TelefonoMovil'] = "";
-		$formulario['TelefonoFijo'] = "";
-		$formulario['Email'] = "";
-		$formulario['NombrePadreMadre'] = "";
-		$formulario['Usuario'] = "";
-		$formulario['Pass'] = "";
-		$formulario['TipoUsuario'] = "Profesor";
-
+		$formulario['Fecha_Inicio'] = "";
+		$formulario['Fecha_Fin'] = "";
+		$formulario['Tipo_Examen'] = "Trinity";
+		$formulario['Nivel_Ingles'] = "B1";
+		$formulario['Id_Curso'] = "B1 Grupo 1";
 		$_SESSION['formulario'] = $formulario;
 	}
 	// Si ya existían valores, los cogemos para inicializar el formulario
@@ -39,7 +31,7 @@
   <link rel="stylesheet" type="text/css" href="CSS/styleIISSI.css" />
 	<!--<script src="js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
   -->
-  <title>Alta de Usuarios</title>
+  <title>Creación de Curso</title>
 </head>
 
 <body>
@@ -56,3 +48,58 @@
     		echo "</div>";
   		}
 	?>
+
+	<!-- Detrás de "POST"   action="validacion_alta_usuario.php" onsubmit="return validateForm()" -->
+	<form id="formulario" class="formulario" method="get" novalidate>
+		<p><i>Los campos obligatorios están marcados con </i><em>*</em></p>
+		<fieldset><legend>Datos del Curso</legend>
+			
+			<div><label for="Fecha_Inicio">Fecha Inicio:<em>*</em></label>
+			<input id="Fecha_Inicio" name="Fecha_Inicio" type="text" size="30" value="<?php echo $formulario['Fecha_Inicio'];?>" required/>
+			</div>
+
+			<div><label for="Fecha_Fin">Fecha Fin:</label>
+			<input id="Fecha_Fin" name="Fecha_Fin" type="text" size="50" value="<?php echo $formulario['Fecha_Fin'];?>"/>
+			</div>
+
+			<div><label>Tipo Examen:</label>
+				<label>
+					<input name="Tipo_Examen" type="radio" value="B1" <?php if($formulario['Tipo_Examen']=='B1') echo ' checked ';?>/>
+					B1
+				</label>
+				<label>
+					<input name="Tipo_Examen" type="radio" value="B2" <?php if($formulario['Tipo_Examen']=='B2') echo ' checked ';?>/>
+					B2
+				</label>
+				<label>
+					<input name="Tipo_Examen" type="radio" value="C1" <?php if($formulario['Tipo_Examen']=='C1') echo ' checked ';?>/>
+					C1
+				</label>
+			</div>
+
+			<div><label>Nivel Inglés:</label>
+				<label>
+					<input name="Nivel_Ingles" type="radio" value="Trinity" <?php if($formulario['Nivel_Ingles']=='Trinity') echo ' checked ';?>/>
+					Trinity
+				</label>
+				<label>
+					<input name="Nivel_Ingles" type="radio" value="Cambridge" <?php if($formulario['Nivel_Ingles']=='Cambridge') echo ' checked ';?>/>
+					Cambridge
+				</label>
+				<label>
+					<input name="Nivel_Ingles" type="radio" value="Aptis" <?php if($formulario['Nivel_Ingles']=='Aptis') echo ' checked ';?>/>
+					Aptis
+				</label>
+			</div>
+
+			<div><label for="Id_Curso">Id Curso:</label>
+			<input id="Id_Curso" name="Fecha_Fin" type="text" size="50" value="<?php echo $formulario['Fecha_Fin'];?>"/>
+			</div>
+
+
+		<div><input type="submit" value="Enviar" formaction="accionAltaCurso.php" /></div>
+
+	</form>
+	
+	</body>
+</html>

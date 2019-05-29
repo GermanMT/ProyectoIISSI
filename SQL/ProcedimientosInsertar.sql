@@ -1,3 +1,17 @@
+--Insertar Curso:
+CREATE OR REPLACE PROCEDURE INSERTAR_CURSO 
+  (P_Fecha_Inicio IN Cursos.Fecha_Inicio%TYPE,
+  P_Fecha_Fin IN Cursos.Fecha_Fin%TYPE,
+  P_Tipo_Examen IN Cursos.Tipo_Examen%TYPE,
+  P_Nivel_Examen IN Cursos.Nivel_Examen%TYPE,
+  P_Id_Curso IN Cursos.Id_Curso%TYPE
+  ) IS
+BEGIN
+  INSERT INTO Cursos(Fecha_Inicio,Fecha_Fin,Tipo_Examen,Nivel_Examen, Id_Curso)
+  VALUES (P_Fecha_Inicio, P_Fecha_Fin, P_Tipo_Examen, P_Nivel_Examen, P_Id_Curso);
+END;
+/
+
 --Insertar Usuario:
 create or replace PROCEDURE INSERTAR_USUARIO 
   (P_DNI_Usuario IN Usuarios.DNI_Usuario%TYPE,
@@ -11,28 +25,45 @@ create or replace PROCEDURE INSERTAR_USUARIO
    P_NombrePadreMadre IN Usuarios.Nombre_Padre_Madre%TYPE,
    P_Usuario IN Usuarios.Usuario%TYPE,
    P_Pass IN Usuarios.Pass%TYPE,
-   P_TipoUsuario IN Usuarios.TipoUsuario%TYPE
+   P_TipoUsuario IN Usuarios.TipoUsuario%TYPE,
+   P_Tipo_Examen IN Usuarios.Tipo_Examen%TYPE,
+   P_Nivel_Examen IN Usuarios.Nivel_Examen%TYPE
    ) IS
 BEGIN
-  INSERT INTO Usuarios(DNI_Usuario,Nombre,Apellidos,Edad,Localidad ,Telefono_Movil,Telefono_Fijo,Email,Nombre_Padre_Madre,Usuario,Pass, TipoUsuario)
-  VALUES (P_DNI_Usuario,P_Nombre,P_Apellidos,P_Edad,P_Localidad,P_TelefonoMovil,P_TelefonoFijo,P_Email,P_NombrePadreMadre,P_Usuario,P_Pass,P_TipoUsuario);
+  INSERT INTO Usuarios(DNI_Usuario,Nombre,Apellidos,Edad,Localidad ,Telefono_Movil,
+  Telefono_Fijo,Email,Nombre_Padre_Madre,Usuario,Pass, TipoUsuario, Tipo_Examen, Nivel_Examen)
+  VALUES (P_DNI_Usuario,P_Nombre,P_Apellidos,P_Edad,P_Localidad,P_TelefonoMovil,
+  P_TelefonoFijo,P_Email,P_NombrePadreMadre,P_Usuario,P_Pass,P_TipoUsuario, P_Tipo_Examen, P_Nivel_Examen);
 END;
 /
 
---Insertar Curso:
-CREATE OR REPLACE PROCEDURE INSERTAR_CURSO 
-  (P_Fecha_Inicio IN Cursos.Fecha_Inicio%TYPE,
-  P_Fecha_Fin IN Cursos.Fecha_Fin%TYPE,
-  P_Tipo_Examen IN Cursos.Tipo_Examen%TYPE,
-  P_Nivel_Examen IN Cursos.Nivel_Examen%TYPE,
-  P_Id_Curso IN Cursos.Id_Curso%TYPE,
-  P_DNI_Usuario IN Cursos.DNI_Usuario%TYPE
-  ) IS
+--Insertar Usuario:
+create or replace PROCEDURE INSERTAR_PROFESOR 
+  (P_DNI_Usuario IN Usuarios.DNI_Usuario%TYPE,
+   P_Nombre IN Usuarios.Nombre%TYPE,
+   P_Apellidos IN Usuarios.Apellidos%TYPE,
+   P_Edad IN Usuarios.Edad%TYPE,
+   P_Localidad IN Usuarios.Localidad%TYPE,
+   P_TelefonoMovil IN Usuarios.Telefono_Movil%TYPE,
+   P_TelefonoFijo IN Usuarios.Telefono_Fijo%TYPE,
+   P_Email IN Usuarios.Email%TYPE,
+   P_Usuario IN Usuarios.Usuario%TYPE,
+   P_Pass IN Usuarios.Pass%TYPE,
+   P_TipoUsuario IN Usuarios.TipoUsuario%TYPE,
+   P_Nivel_Examen IN Usuarios.Nivel_Examen%TYPE
+   ) IS
 BEGIN
-  INSERT INTO Cursos(Fecha_Inicio,Fecha_Fin,Tipo_Examen,Nivel_Examen, Id_Curso,DNI_Usuario)
-  VALUES (P_Fecha_Inicio, P_Fecha_Fin, P_Tipo_Examen, P_Nivel_Examen, P_Id_Curso,P_DNI_Usuario);
+  INSERT INTO Usuarios(DNI_Usuario,Nombre,Apellidos,Edad,Localidad ,Telefono_Movil,
+  Telefono_Fijo,Email,Usuario,Pass, TipoUsuario, Nivel_Examen)
+  VALUES (P_DNI_Usuario,P_Nombre,P_Apellidos,P_Edad,P_Localidad,P_TelefonoMovil,
+  P_TelefonoFijo,P_Email,P_Usuario,P_Pass,P_TipoUsuario, P_Nivel_Examen);
 END;
 /
+CALL INSERTAR_PROFESOR('12345678G', 'AlvaroProfesor', 'Frias',20, 'Arahal', '674466722','954841642', 'alvarofb1998@gmail.com',
+'AlvaroProfesor', 'AlvaroFrias9', 'Profesor', 'B1')
+
+CALL INSERTAR_USUARIO('47555425G', 'Alvaro', 'Frias',20, 'Arahal', '674466722','954841642', 'alvarofb1998@gmail.com', 'Jose Enrique',
+'Alvarofb7', 'AlvaroFrias7', 'Alumno', 'Aptis', 'B1')
 
 --Insertar Horario_Alumno:
 CREATE OR REPLACE PROCEDURE INSERTAR_HORARIO_ALUMNO
