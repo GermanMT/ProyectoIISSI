@@ -1,15 +1,4 @@
 --Triggers asociados a secuencias:
-CREATE OR REPLACE TRIGGER TR_Horario_Profesor
-BEFORE INSERT ON Horario_Profesor
-FOR EACH ROW
-DECLARE
-     valorSec NUMBER := 0;
-BEGIN
-     SELECT SEC_Horario_Profesor.CURRVAL INTO valorSec FROM DUAL;
-     :NEW.Id_Horario := valorSec;
-END;
-/
-
 CREATE OR REPLACE TRIGGER TR_Horario_Curso
 BEFORE INSERT ON Horario_Curso
 FOR EACH ROW
@@ -17,17 +6,6 @@ DECLARE
      valorSec NUMBER := 0;
 BEGIN
      SELECT SEC_Horario_Curso.CURRVAL INTO valorSec FROM DUAL;
-     :NEW.Id_Horario := valorSec;
-END;
-/
-
-CREATE OR REPLACE TRIGGER TR_Horario_Alumno
-BEFORE INSERT ON Horario_Alumno
-FOR EACH ROW
-DECLARE
-     valorSec NUMBER := 0;
-BEGIN
-     SELECT SEC_Horario_Alumno.CURRVAL INTO valorSec FROM DUAL;
      :NEW.Id_Horario := valorSec;
 END;
 /
