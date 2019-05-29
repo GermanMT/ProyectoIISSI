@@ -42,11 +42,7 @@
 						}
 					}
 				}else if($tipoUsuario == 'Admin' AND $tipoUsuario == $tipo["TIPOUSUARIO"]){
-<<<<<<< HEAD
 					$_SESSION['loginAdmin'] = $usuario;
-=======
-					$_SESSION['login'] = $usuario;
->>>>>>> parent of 6017b10... Merge branch 'Josan'
 					Header("Location: vistaAdmin.php"); 
 				}else{
 					$login = "error";

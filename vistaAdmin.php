@@ -5,13 +5,9 @@
 	require_once("gestionarTablaAdmin.php");
 	require_once("paginacionConsulta.php");
 	
-	if (!isset($_SESSION['loginAdmin']))
+	if (!isset($_SESSION['loginAdmin'])){
 		Header("Location: login.php");
-<<<<<<< HEAD
 	}else {
-=======
-	else {
->>>>>>> parent of 6017b10... Merge branch 'Josan'
 		if (isset($_SESSION["usuario"])) {
 			$usuario = $_SESSION["usuario"];
 			unset($_SESSION["usuario"]);
