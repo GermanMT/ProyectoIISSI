@@ -45,24 +45,6 @@ END;
 
 --Insercciones de cursos:
 BEGIN
-INSERTAR_CURSO('12/06/2018', '24/09/2018','10', SEC_Cursos.NEXTVAL, 1);
-
-COMMIT;
-END;
-/
-
---Inserciones de horarios de alumnos:
-BEGIN
-INSERTAR_HORARIO_ALUMNO('12:00', '14:00','Lunes', SEC_Horario_Alumno.NEXTVAL, '21015236K');
-INSERTAR_HORARIO_ALUMNO('17:00', '19:00','Miercoles', SEC_Horario_Alumno.NEXTVAL, '21015236K');
-INSERTAR_HORARIO_ALUMNO('12:00', '14:00','Viernes', SEC_Horario_Alumno.NEXTVAL, '21015236K');
-INSERTAR_HORARIO_ALUMNO('12:00', '14:00','Viernes', SEC_Horario_Alumno.NEXTVAL, '76558322H');
-COMMIT;
-END;
-/
-
---Inserciones de cursos:
-BEGIN
 INSERTAR_CURSO('20/05/2018','20/12/2018','Aptis','B1',SEC_Cursos.NEXTVAL,'');
 INSERTAR_CURSO('20/03/2018','20/10/2018','Trinity','B2',SEC_Cursos.NEXTVAL,'');
 INSERTAR_CURSO('20/02/2018','20/09/2018','Trinity','C1',SEC_Cursos.NEXTVAL,'');
@@ -76,10 +58,11 @@ BEGIN
 INSERTAR_HORARIO_ALUMNO('12:00', '14:00','Lunes', SEC_Horario_Alumno.NEXTVAL, '21015236K',SEC_Cursos.CURRVAL);
 INSERTAR_HORARIO_ALUMNO('17:00', '19:00','Miercoles', SEC_Horario_Alumno.NEXTVAL, '21015236K',SEC_Cursos.CURRVAL);
 INSERTAR_HORARIO_ALUMNO('12:00', '14:00','Viernes', SEC_Horario_Alumno.NEXTVAL, '21015236K',SEC_Cursos.CURRVAL);
-INSERTAR_HORARIO_ALUMNO('12:00', '14:00','Viernes', SEC_Horario_Alumno.NEXTVAL, '67843287L',SEC_Cursos.CURRVAL);
+INSERTAR_HORARIO_ALUMNO('12:00', '14:00','Viernes', SEC_Horario_Alumno.NEXTVAL, '53276322Z',SEC_Cursos.CURRVAL);
 COMMIT;
 END;
 /
+
 
 --Inserciones de Horario para profesor:
 BEGIN

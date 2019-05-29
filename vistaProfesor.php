@@ -60,14 +60,14 @@
                     </ul>
                 </div>
 
-    <div class="body_content">
+    <div class="body_content" align="center">
         <p><h1>Bienvenido</h1></p>
-    </div>
+    
                 
                 <main>
                 	<!--Mostrar tabla de horarios de un profesor-->
 
-	<div align="center" style="margin-top: 300px;"><p><h1>Horarios:</h1></p></div>
+	<div align="center" style="margin-top: 50px;"><p><h1>Horarios:</h1></p></div>
 		<table align="center" border="1" style="width:auto; height:20px;">
 		<tr>
 	    <th>Dia</th>
@@ -91,5 +91,6 @@
 	<?php } ?>
 	</table>
 </main>
+</div>
         </body>
 </html>
