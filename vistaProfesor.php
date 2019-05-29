@@ -1,4 +1,4 @@
-﻿<?php
+<?php
 	session_start();
 
 	require_once("gestionBD.php");
@@ -43,10 +43,27 @@
                         </div>
                     </div>
                 </div>
+            
+            
+                <div class="menu_bar">
+                    <ul class="menus">
+                        <li><a href="IISSI.php">Home</a></li>
+                        <li><a href="#">Cursos Ofertados</a>
+                            <ul class="sub-menu">
+                                <li><a href="Niveles.html">Niveles</a></li>
+                                <li><a href="Examenes.html">Exámenes</a></li>
+                            </ul>
+                        </li>
+                        <li class="menu3"><a href="QuienesSomos.html">¿Quienes somos?</a></li>
+                       <!--<li><a href="file:///C:/xampp/htdocs/sample/contact.html">Contact</a></li>
+                    --> 
+                    </ul>
+                </div>
 
     <div class="body_content" align="center">
         <p><h1>Bienvenido</h1></p>
-        
+    
+                
                 <main>
                 	<!--Mostrar tabla de horarios de un profesor-->
 
