@@ -17,12 +17,12 @@
 		
 		$_SESSION["usuario"] = $usuario;
 		
-		if (isset($_REQUEST["editar"])) Header("Location: vistaAdmin.php"); 
-		else if (isset($_REQUEST["grabar"])) Header("Location: accion_modificar_usuario.php");
-		else /* if (isset($_REQUEST["borrar"])) */ Header("Location: accion_quitar_usuario.php"); 
+		if (isset($_REQUEST["editar"])) Header("Location: vistaAdminCurso.php?var2=" .$_REQUEST["ID_CURSO"]); 
+		else if (isset($_REQUEST["grabar"])) Header("Location: accion_modificar_usuario.php?var2=" .$_REQUEST["ID_CURSO"]);
+		else /* if (isset($_REQUEST["borrar"])) */ Header("Location: accion_quitar_usuario.php?var2=" .$_REQUEST["ID_CURSO"]); 
 
 	}
 	else {
-		Header("Location: vistaAdmin.php");
+		Header("Location: vistaAdminCurso.php?var2=" .$_REQUEST["ID_CURSO"]);
 	}
 ?>
