@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	
 	session_start();
 
@@ -41,8 +41,7 @@
                         </div>
                     </div>
                 </div>
-            
-            
+                      
                 <div class="menu_bar">
                     <ul class="menus">
                         <li><a href="IISSI.php">Home</a></li>

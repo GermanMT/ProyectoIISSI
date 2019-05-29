@@ -28,13 +28,8 @@
 
 
 	function consultarTodosCursosProfesor($conexion,$Id_Curso) {
-		$consulta = "SELECT * FROM USUARIOS "
-			. " WHERE (USUARIOS.ID_CURSO = '".$Id_Curso."') ";
-	    return $conexion->query($consulta);
-	}
-	
-	function consultarTodosCursosAdmin($conexion) {
-		$consulta = "SELECT * FROM CURSOS ";
+		$consulta = "SELECT * FROM Cursos_Alumnos, Usuarios"
+			. " WHERE (Cursos_Alumnos.ID_CURSO = '".$Id_Curso."') AND (Cursos_Alumnos.DNI_USUARIO = Usuarios.DNI_USUARIO)";
 	    return $conexion->query($consulta);
 	}
     
