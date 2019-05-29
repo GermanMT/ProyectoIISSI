@@ -104,19 +104,6 @@
                     </div>
                 </div>
             
-            
-                <div class="menu_bar">
-                    <ul class="menus">
-                        <li><a href="IISSI.html">Home</a></li>
-                        <li><a href="#">Cursos Ofertados</a>
-                            <ul class="sub-menu">
-                                <li><a href="Niveles.html">Niveles</a></li>
-                                <li><a href="Examenes.html">Exámenes</a></li>
-                            </ul>
-                        </li>
-                        <li class="menu3"><a href="QuienesSomos.html">¿Quienes somos?</a></li>
-                    </ul>
-                </div>
         <main>  
 	    
 	    <nav>

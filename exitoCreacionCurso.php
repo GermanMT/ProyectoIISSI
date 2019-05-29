@@ -33,21 +33,16 @@
 	?>
 
 	<main>
-
 		<?php if ($altaCurso) { ?>
 			<span>¡Enhorabuena! Su proceso de creación de curso se ha completado con éxito.</span><br /><br />
-					
-			<!--	$_SESSION['login'] = $nuevoUsuario['Usuario']; -->
- 		
-			<!--	<h1>Hola  ?php echo $nuevoUsuario["Nombre"]; ?>, gracias por registrarte</h1> -->
-				<!--<div >	
-			   		Pulsa <a href="consulta_libros.php">aquí</a> para acceder a la gestión de biblioteca.
-				</div> -->
+			<div >				
+					Pulsa <a href="vistaAdmin.php">aquí</a> para volver a la vista de Administrador.
+				</div>
 		<?php } else { 
 			?>	
 				
  				<h1>No se ha creado el curso.</h1>
-				<div >				<!--<a href= "formulario.php">-->
+				<div >				
 					Pulsa <a href="formularioCurso.html">aquí</a> para volver al formulario.
 				</div>
 		<?php } ?>

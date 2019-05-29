@@ -16,16 +16,14 @@ if (isset($_SESSION["formulario"])) {
 	$usuario["TelefonoMovil"] = $_REQUEST["TelefonoMovil"];
 	$usuario["TelefonoFijo"] = $_REQUEST["TelefonoFijo"];
 	$usuario["Email"] = $_REQUEST["Email"];
-	$usuario["NombrePadreMadre"] = $_REQUEST["NombrePadreMadre"];
 	$usuario["Usuario"] = $_REQUEST["Usuario"];
 	$usuario["Pass"] = $_REQUEST["Pass"];
 	$usuario["confirmpass"] = $_REQUEST["confirmpass"];
 	$usuario["TipoUsuario"] = $_REQUEST["TipoUsuario"];
-	$usuario["Tipo_Examen"] = $_REQUEST["Tipo_Examen"];
 	$usuario["Nivel_Examen"] = $_REQUEST["Nivel_Examen"];
 	
 } else {
-	header('Location: formulario.php');
+	header('Location: formularioProfesor.php');
 }
 
 $_SESSION["formulario"] = $usuario;
@@ -38,22 +36,21 @@ try{
 	/*Mensaje de depuracion */
 	$_SESSION["errores"] = "<p>ERROR en la validacion: fallo en el acceso a la base de datos.</p><p>"
 		.$e -> getMessage() ."</p>";
-		Header('Location: formulario.php');
+		Header('Location: formularioProfesor.php');
 }
 //En el caso de que haya errores, se redirige a la página de matriculacion y se muestran los errores, en caso contrario se redirige a la página de exitoAltaMatricula
 if (count($errores) > 0) {
 	$_SESSION['errores'] = $errores;
-	header('Location: formulario.php');
+	header('Location: formularioProfesor.php');
 } else {
 	unset($_SESSION['errores']);
-	header('Location: exito_alta_usuario.php');
+	header('Location: exitoAltaProfesor.php');
 }
 
 /* Función para validar la matriculación.
  ========================================================================== */
  function validacionRegistro($conexion, $usuario) {
 	$errores = array();
-	
 	
 	if ($usuario["DNI_Usuario"] == "") {
 		$errores[] = "El DNI no puede estar vacío";
@@ -80,6 +77,7 @@ if (count($errores) > 0) {
 	if ($usuario["TelefonoFijo"] == "" or !is_numeric($usuario["TelefonoFijo"]) or strlen($usuario["TelefonoFijo"]) < 9) {
 		$errores[] = "El teléfono fijo no es correcto";
 	}
+	
 	if (!isset($usuario["Pass"]) || strlen($usuario["Pass"]) < 8) {
 		$errores[] = "Contraseña no válida: debe tener al menos 8 caracteres";
 	} else if (!preg_match("/[a-z]+/", $usuario["Pass"]) || !preg_match("/[A-Z]+/", $usuario["Pass"]) || !preg_match("/[0-9]+/", $usuario["Pass"])) {

@@ -2,7 +2,7 @@
 	session_start();
 
 	require_once ('gestionBD.php');
-	require_once ("gestionarUsuarios.php");
+	require_once ("gestionarProfesor.php");
 	
 	// Si no existen datos del formulario en la sesión, se crea una entrada con valores por defecto
 	if (!isset($_SESSION['formulario'])) {
@@ -14,10 +14,10 @@
 		$formulario['TelefonoMovil'] = "";
 		$formulario['TelefonoFijo'] = "";
 		$formulario['Email'] = "";
-		$formulario['NombrePadreMadre'] = "";
 		$formulario['Usuario'] = "";
 		$formulario['Pass'] = "";
 		$formulario['TipoUsuario'] = "Profesor";
+		$formulario['Nivel_Examen'] = "B1";
 
 		$_SESSION['formulario'] = $formulario;
 	}
@@ -39,7 +39,7 @@
   <link rel="stylesheet" type="text/css" href="CSS/styleIISSI.css" />
 	<!--<script src="js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
   -->
-  <title>Alta de Usuarios</title>
+  <title>Alta Profesor</title>
 </head>
 
 <body>
@@ -94,15 +94,26 @@
 			<input id="Email" name="Email"  type="email" placeholder="usuario@dominio.extension" value="<?php echo $formulario['Email'];?>" required/><br>
 			</div>
 
-			<div><label for="NombrePadreMadre">Nombre Padre o Madre:</label>
-			<input id="NombrePadreMadre" name="NombrePadreMadre" type="text" value="<?php echo $formulario['NombrePadreMadre'];?>"/>
-			</div>
-
 			<div><label>TipoUsuario:</label>
 			<label>
 				<input name="TipoUsuario" type="radio" value="Profesor" <?php if($formulario['TipoUsuario']=='Profesor') echo ' checked ';?>/>
 				Profesor</label>
 			
+			</div>
+
+			<div><label>Nivel Inglés:</label>
+			<label>
+					<input name="Nivel_Examen" type="radio" value="B1" <?php if($formulario['Nivel_Examen']=='B1') echo ' checked ';?>/>
+					B1
+				</label>
+				<label>
+					<input name="Nivel_Examen" type="radio" value="B2" <?php if($formulario['Nivel_Examen']=='B2') echo ' checked ';?>/>
+					B2
+				</label>
+				<label>
+					<input name="Nivel_Examen" type="radio" value="C1" <?php if($formulario['Nivel_Examen']=='C1') echo ' checked ';?>/>
+					C1
+				</label>
 			</div>
 
 		</fieldset>
@@ -133,7 +144,7 @@
 			</div>
 		</fieldset>
 
-		<div><input type="submit" value="Enviar" formaction="accionAltaRegistro.php" /></div>
+		<div><input type="submit" value="Enviar" formaction="accionAltaRegistroProfesor.php" /></div>
 
 	</form>
 	

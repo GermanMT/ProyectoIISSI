@@ -18,6 +18,8 @@
 		$formulario['Usuario'] = "";
 		$formulario['Pass'] = "";
 		$formulario['TipoUsuario'] = "Alumno";
+		$formulario['Tipo_Examen'] = "Aptis";
+		$formulario['Nivel_Examen'] = "B1";
 
 		$_SESSION['formulario'] = $formulario;
 	}
@@ -29,7 +31,8 @@
 	if (isset($_SESSION["errores"]))
 		$errores = $_SESSION["errores"];
 
-	
+	// Creamos una conexión con la BD
+	$conexion = crearConexionBD();
 ?>
 
 <!DOCTYPE html>
@@ -37,8 +40,8 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="CSS/styleIISSI.css" />
-	<!--<script src="js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
-  -->
+	<script src="js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
+  
   <title>Alta de Usuarios</title>
 </head>
 
@@ -58,7 +61,7 @@
 	?>
 	
 	<!-- Detrás de "POST"   action="validacion_alta_usuario.php" onsubmit="return validateForm()" -->
-	<form id="formulario" class="formulario" method="get" novalidate>
+	<form id="formulario" class="formulario" method="get" onsubmit="return validateForm()" novalidate>
 		<p><i>Los campos obligatorios están marcados con </i><em>*</em></p>
 		<fieldset><legend>Datos personales</legend>
 			<div></div><label for="DNI">DNI<em>*</em></label>
@@ -102,7 +105,38 @@
 			<label>
 				<input name="TipoUsuario" type="radio" value="ALUMNO" <?php if($formulario['TipoUsuario']=='ALUMNO') echo ' checked ';?>/>
 				Alumno</label>
-			
+			</div>
+
+			<fieldset><legend>Datos del Tipo y Nivel de Exámen</legend>
+
+			<div><label>Tipo Examen:</label>
+			<label>
+					<input name="Tipo_Examen" type="radio" value="Trinity" <?php if($formulario['Tipo_Examen']=='Trinity') echo ' checked ';?>/>
+					Trinity
+				</label>
+				<label>
+					<input name="Tipo_Examen" type="radio" value="Cambridge" <?php if($formulario['Tipo_Examen']=='Cambridge') echo ' checked ';?>/>
+					Cambridge
+				</label>
+				<label>
+					<input name="Tipo_Examen" type="radio" value="Aptis" <?php if($formulario['Tipo_Examen']=='Aptis') echo ' checked ';?>/>
+					Aptis
+				</label>
+			</div>
+
+			<div><label>Nivel Inglés:</label>
+			<label>
+					<input name="Nivel_Examen" type="radio" value="B1" <?php if($formulario['Nivel_Examen']=='B1') echo ' checked ';?>/>
+					B1
+				</label>
+				<label>
+					<input name="Nivel_Examen" type="radio" value="B2" <?php if($formulario['Nivel_Examen']=='B2') echo ' checked ';?>/>
+					B2
+				</label>
+				<label>
+					<input name="Nivel_Examen" type="radio" value="C1" <?php if($formulario['Nivel_Examen']=='C1') echo ' checked ';?>/>
+					C1
+				</label>
 			</div>
 
 		</fieldset>
@@ -136,6 +170,11 @@
 		<div><input type="submit" value="Enviar" formaction="accionAltaRegistro.php" /></div>
 
 	</form>
+
+	<?php
+		
+		cerrarConexionBD($conexion);
+	?>
 	
 	</body>
 </html>
