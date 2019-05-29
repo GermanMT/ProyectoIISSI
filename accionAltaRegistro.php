@@ -54,7 +54,6 @@ if (count($errores) > 0) {
  function validacionRegistro($conexion, $usuario) {
 	$errores = array();
 	
-	
 	if ($usuario["DNI_Usuario"] == "") {
 		$errores[] = "El DNI no puede estar vacío";
 	} else if (!preg_match("/^[0-9]{8}[A-Z]$/", $usuario["DNI_Usuario"])) {
