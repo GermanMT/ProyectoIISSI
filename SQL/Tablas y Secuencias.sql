@@ -4,7 +4,6 @@ DROP TABLE Recibos;
 DROP TABLE Usuarios;
 DROP TABLE Cursos;
 
-
 CREATE TABLE Cursos(
 Fecha_Inicio VARCHAR2(20) NOT NULL,
 Fecha_Fin VARCHAR2(20),
@@ -80,7 +79,6 @@ ALTER TABLE Cursos ADD CONSTRAINT CK_Fechas_Cursos CHECK (TO_DATE(Fecha_Inicio, 
 
 -- Sueldo/Edad/aulas
 ALTER TABLE Usuarios ADD CONSTRAINT CK_Edad_Usuarios CHECK(edad > 0);
---ALTER TABLE Profesores ADD CONSTRAINT CK_Sueldo_Prof CHECK(Sueldo_Profesor > 0);
 
 --Borrado de secuencias:
 DROP SEQUENCE SEC_Horario_Curso;
