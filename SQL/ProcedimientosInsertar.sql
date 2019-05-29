@@ -11,7 +11,6 @@ BEGIN
   VALUES (P_Fecha_Inicio, P_Fecha_Fin, P_Tipo_Examen, P_Nivel_Examen, P_Id_Curso);
 END;
 /
-CALL INSERTAR_CURSO('14/09/2018', '02/06/2019', 'Aptis', 'B1', 'Grupo 2 de B1')
 
 --Insertar Usuario:
 create or replace PROCEDURE INSERTAR_USUARIO_CON_CURSO
