@@ -1,3 +1,3 @@
 <?php
-    header("Location: IISSI.html");
+    header("Location: IISSI.php");
 ?>
