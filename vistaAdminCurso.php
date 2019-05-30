@@ -132,7 +132,7 @@
 		                	
 			<!-- Mostrar alumnos de la academia -->
 			<div align="center" style="margin-top:50px;"><p><h1>Alumnos</h1></p></div>
-				<table align="center" border="1" style="width:auto; height:20px;">
+				<table align="center" border="1" style="width:90%; height:20px;">
 					<tr>
 				    	<th>DNI del alumno</th>
 				    	<th>Nombre</th>
@@ -257,7 +257,7 @@
 				
 			<!-- Mostrar profesores de la academia -->
 			<div align="center" style="margin-top: 50px;"><p><h1>Profesor</h1></p></div>
-		  	<table align="center" border="1" style="width:auto; height:20px;">
+		  	<table align="center" border="1" style="width:90%; height:20px;">
 				<tr>
 			    	<th>DNI del Profesor</th>
 			    	<th>Nombre</th>
@@ -355,7 +355,6 @@
 			</table>
 			<div align="center" style="margin-top: 15px;">
 				<a href="formularioProfesor.php">Añade un profesor</a>
-				<a href="formularioCurso.php">Añade un curso</a>
 			</div>
 	
 			</main>

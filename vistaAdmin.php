@@ -66,6 +66,9 @@
 					</table>
 				</main>
 			</div>
+			<div align="center" style="margin-top: 15px;">
+				<a href="formularioCurso.php">Añade un curso</a>
+			</div>
 		</div>
 	</body>
 </html>

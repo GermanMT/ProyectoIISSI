@@ -41,7 +41,7 @@
 		include_once("cabecera.php");
 	?>
 	
-	<!--?php 
+	<?php 
 		// Mostrar los errores de validación (Si los hay)
 		if (isset($errores) && count($errores)>0) { 
 	    	echo "<div id=\"div_errores\" class=\"error\">";
@@ -49,22 +49,22 @@
     		foreach($errores as $error) echo $error; 
     		echo "</div>";
   		}
-	?>-->
+	?>
 
 	<!-- Detrás de "POST"   action="validacion_alta_usuario.php" onsubmit="return validateForm()" -->
 	<form id="formularioCurso" class="formularioCurso" method="get" novalidate>
 		<p><i>Los campos obligatorios están marcados con </i><em>*</em></p>
 		<fieldset><legend>Datos del Curso</legend>
 			
-			<div><label for="Fecha_Inicio">Fecha Inicio:<em>*</em></label>
+			<div><label for="Fecha_Inicio">Fecha Inicio:<em>* (Debe de estar en formato dd/MM/yyyy)</em></label>
 			<input id="Fecha_Inicio" name="Fecha_Inicio" type="text" size="30" value="<?php echo $formulario['Fecha_Inicio'];?>" required/>
 			</div>
 
-			<div><label for="Fecha_Fin">Fecha Fin:</label>
+			<div><label for="Fecha_Fin">Fecha Fin:<em>* (Debe de estar en formato dd/MM/yyyy)</em></label>
 			<input id="Fecha_Fin" name="Fecha_Fin" type="text" size="50" value="<?php echo $formulario['Fecha_Fin'];?>"/>
 			</div>
 
-			<div><label>Tipo Examen:</label>
+			<div><label>Tipo Examen:<em>*</em></label>
 			<label>
 					<input name="Tipo_Examen" type="radio" value="Trinity" <?php if($formulario['Tipo_Examen']=='Trinity') echo ' checked ';?>/>
 					Trinity
@@ -79,7 +79,7 @@
 				</label>
 			</div>
 
-			<div><label>Nivel Inglés:</label>
+			<div><label>Nivel Inglés:<em>*</em></label>
 			<label>
 					<input name="Nivel_Ingles" type="radio" value="B1" <?php if($formulario['Nivel_Ingles']=='B1') echo ' checked ';?>/>
 					B1
@@ -94,7 +94,7 @@
 				</label>
 			</div>
 
-			<div><label for="Id_Curso">Id Curso:</label>
+			<div><label for="Id_Curso">Id Curso:<em>*</em></label>
 			<input id="Id_Curso" name="Id_Curso" type="text" size="50" value="<?php echo $formulario['Id_Curso'];?>"/>
 			</div>
 
