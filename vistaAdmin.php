@@ -23,9 +23,9 @@
         <title>IISSI</title>
         <link rel="stylesheet" href="CSS/styleIISSI.css">
     </head>
-    <body>
+	<body>
         <div class = "main">
-            <div class="header">
+			<div class="header">
                 <div class="header_box">
                     <div class="logo">
                         <a href="IISSI.php">Academia 2G</a>
@@ -40,52 +40,32 @@
                         </div>
                     </div>
                 </div>
-            
-                <div class="menu_bar">
-                    <ul class="menus">
-                        <li><a href="IISSI.php">Home</a></li>
-                        <li><a href="#">Cursos Ofertados</a>
-                            <ul class="sub-menu">
-                                <li><a href="Niveles.html">Niveles</a></li>
-                                <li><a href="Examenes.html">Exámenes</a></li>
-                            </ul>
-                        </li>
-                        <li class="menu3"><a href="QuienesSomos.html">¿Quienes somos?</a></li>
-                       <!--<li><a href="file:///C:/xampp/htdocs/sample/contact.html">Contact</a></li>
-                    --> 
-                    </ul>
-                </div>
                 
-							<!--Mostrando los cursos-->
-							
- <main>
-
-	<div align="center" style="margin-top: 200px;"><p><h1>Cursos</h1></p></div>
-		<table align="center" border="1" style="width:auto; height:20px;">
-		<tr>
-	    <th>Curso</th>
-	    <th>Fecha de Inicio</th> 
-	    <th>Fecha de Fin</th>
-	    <th>Tipo de Examen</th>
-	    <th>Nivel de Examen</th>
-	  </tr>
-	
-	
-	<?php
-		foreach($filas1 as $fila) {
-	?>
-	
-	  <tr>
-	    <td><a href="vistaAdminCurso.php?var2=<?php echo base64_encode($fila["ID_CURSO"]);?>"><?php echo $fila["ID_CURSO"]; ?></a></td>
-		<td><?php echo $fila["FECHA_INICIO"]; ?></td>
-		<td><?php echo $fila["FECHA_FIN"]; ?></td>
-		<td><?php echo $fila["TIPO_EXAMEN"]; ?></td>
-		<td><?php echo $fila["NIVEL_EXAMEN"]; ?></td>
-	  </tr>
-	
-	<?php } ?>
-	</table>
-</main>
-</div>
-</body>
+				<!--Mostrando los cursos-->
+				<main>
+				<div align="center" style="margin-top: 200px;"><p><h1>Cursos</h1></p></div>
+					<table align="center" border="1" style="width:auto; height:20px;">
+						<tr>
+						    <th>Curso</th>
+						    <th>Fecha de Inicio</th> 
+						    <th>Fecha de Fin</th>
+						    <th>Tipo de Examen</th>
+						    <th>Nivel de Examen</th>
+					    </tr>
+				<?php
+					foreach($filas1 as $fila) {
+				?>
+						<tr>
+							<td><a href="vistaAdminCurso.php?var2=<?php echo base64_encode($fila["ID_CURSO"]);?>"><?php echo $fila["ID_CURSO"]; ?></a></td>
+							<td><?php echo $fila["FECHA_INICIO"]; ?></td>
+							<td><?php echo $fila["FECHA_FIN"]; ?></td>
+							<td><?php echo $fila["TIPO_EXAMEN"]; ?></td>
+							<td><?php echo $fila["NIVEL_EXAMEN"]; ?></td>
+						</tr>
+				<?php } ?>
+					</table>
+				</main>
+			</div>
+		</div>
+	</body>
 </html>
