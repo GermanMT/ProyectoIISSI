@@ -7,7 +7,7 @@
 require_once ("gestionBD.php");
 
 //Se comprueba que hemos llegado aquí por el formulario de matriculación y en tal caso se mete en la variable $usuario los datos del formulario, en caso contrario, se redirige a la página de matriculación
-if (isset($_SESSION["formulario"])) {
+if (isset($_SESSION["formularioCurso"])) {
 	$usuario["Fecha_Inicio"] = $_REQUEST["Fecha_Inicio"];
 	$usuario["Fecha_Fin"] = $_REQUEST["Fecha_Fin"];
 	$usuario["Tipo_Examen"] = $_REQUEST["Tipo_Examen"];
@@ -19,7 +19,7 @@ if (isset($_SESSION["formulario"])) {
 	header('Location: formularioCurso.php');
 }
 
-$_SESSION["formulario"] = $usuario;
+$_SESSION["formularioCurso"] = $usuario;
 
 try{
 	$conexion = crearConexionBD();

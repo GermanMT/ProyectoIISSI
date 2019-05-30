@@ -29,7 +29,8 @@
 	if (isset($_SESSION["errores"]))
 		$errores = $_SESSION["errores"];
 
-	
+	// Creamos una conexión con la BD
+	$conexion = crearConexionBD();
 ?>
 
 <!DOCTYPE html>
@@ -148,5 +149,10 @@
 
 	</form>
 	
+	<?php
+		
+		cerrarConexionBD($conexion);
+	?>
+
 	</body>
 </html>

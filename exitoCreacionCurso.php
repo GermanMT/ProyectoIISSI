@@ -6,9 +6,9 @@
 	
 	//require_once ('includes/funciones.php');	
 	// Comprobar que hemos llegado a esta página porque se ha rellenado el formulario
-	if (isset($_SESSION["formulario"])) {
-		$usuario = $_SESSION["formulario"];
-		unset($_SESSION["formulario"]);
+	if (isset($_SESSION["formularioCurso"])) {
+		$usuario = $_SESSION["formularioCurso"];
+		unset($_SESSION["formularioCurso"]);
 	}else {
 		header("Location: formularioCurso.php");
 	}
@@ -43,7 +43,7 @@
 				
  				<h1>No se ha creado el curso.</h1>
 				<div >				
-					Pulsa <a href="formularioCurso.html">aquí</a> para volver al formulario.
+					Pulsa <a href="formularioCurso.php">aquí</a> para volver al formulario.
 				</div>
 		<?php } ?>
 

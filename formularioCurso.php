@@ -5,22 +5,24 @@
 	require_once ("gestionarCurso.php");
 	
 	// Si no existen datos del formulario en la sesión, se crea una entrada con valores por defecto
-	if (!isset($_SESSION['formulario'])) {
+	if (!isset($_SESSION['formularioCurso'])) {
 		$formulario['Fecha_Inicio'] = "";
 		$formulario['Fecha_Fin'] = "";
 		$formulario['Tipo_Examen'] = "Trinity";
 		$formulario['Nivel_Ingles'] = "B1";
 		$formulario['Id_Curso'] = "B1 Grupo 1";
-		$_SESSION['formulario'] = $formulario;
+		$_SESSION['formularioCurso'] = $formulario;
 	}
 	// Si ya existían valores, los cogemos para inicializar el formulario
 	else
-		$formulario = $_SESSION['formulario'];
+		$formulario = $_SESSION['formularioCurso'];
 			
 	// Si hay errores de validación, hay que mostrarlos y marcar los campos (El estilo viene dado y ya se explicará)
 	if (isset($_SESSION["errores"]))
 		$errores = $_SESSION["errores"];
 
+	// Creamos una conexión con la BD
+	$conexion = crearConexionBD();
 	
 ?>
 
@@ -39,7 +41,7 @@
 		include_once("cabecera.php");
 	?>
 	
-	<?php 
+	<!--?php 
 		// Mostrar los errores de validación (Si los hay)
 		if (isset($errores) && count($errores)>0) { 
 	    	echo "<div id=\"div_errores\" class=\"error\">";
@@ -47,10 +49,10 @@
     		foreach($errores as $error) echo $error; 
     		echo "</div>";
   		}
-	?>
+	?>-->
 
 	<!-- Detrás de "POST"   action="validacion_alta_usuario.php" onsubmit="return validateForm()" -->
-	<form id="formulario" class="formulario" method="get" novalidate>
+	<form id="formularioCurso" class="formularioCurso" method="get" novalidate>
 		<p><i>Los campos obligatorios están marcados con </i><em>*</em></p>
 		<fieldset><legend>Datos del Curso</legend>
 			
@@ -100,6 +102,10 @@
 		<div><input type="submit" value="Enviar" formaction="accionAltaCurso.php" /></div>
 
 	</form>
-	
+
+	<?php
+		
+		cerrarConexionBD($conexion);
+	?>
 	</body>
 </html>

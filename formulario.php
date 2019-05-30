@@ -103,7 +103,7 @@
 
 			<div><label>TipoUsuario:</label>
 			<label>
-				<input name="TipoUsuario" type="radio" value="ALUMNO" <?php if($formulario['TipoUsuario']=='ALUMNO') echo ' checked ';?>/>
+				<input name="TipoUsuario" type="radio" value="Alumno" <?php if($formulario['TipoUsuario']=='Alumno') echo ' checked ';?>/>
 				Alumno</label>
 			</div>
 
