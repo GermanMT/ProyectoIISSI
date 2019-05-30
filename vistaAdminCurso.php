@@ -1,4 +1,8 @@
 ﻿<?php
+	$IDC = base64_decode($_GET['var2']);
+?>
+
+<?php
 	session_start();
 
 	require_once("gestionBD.php");
@@ -26,7 +30,6 @@
 		unset($_SESSION["paginacion"]);
 	
 		$conexion = crearConexionBD();
-		$IDC = base64_decode($_GET['var2']);
 	
 		$query = "SELECT * FROM Usuarios"
 			. " WHERE (Usuarios.TipoUsuario = 'Alumno' AND Usuarios.Id_Curso = '".$IDC."')";
@@ -131,6 +134,7 @@
 				<?php } ?>
 			</div>
 			<form align="center" method="get" action="vistaAdminCurso.php">	
+				<input id="var2" name="var2" type="hidden" value="<?php echo base64_encode($IDC) ?>"/>
 				<input id="PAG_NUM" name="PAG_NUM" type="hidden" value="<?php echo $pagina_seleccionada?>"/>	
 				Mostrando	
 				<input id="PAG_TAM" name="PAG_TAM" type="number"	
@@ -260,6 +264,7 @@
 				<?php } ?>
 			</div>
 			<form align="center" method="get" action="vistaAdminCurso.php">	
+				<input id="var2" name="var2" type="hidden" value="<?php echo base64_encode($IDC)?>"/>
 				<input id="PAG_NUM2" name="PAG_NUM2" type="hidden" value="<?php echo $pagina_seleccionada2?>"/>	
 				Mostrando	
 				<input id="PAG_TAM2" name="PAG_TAM2" type="number"	
