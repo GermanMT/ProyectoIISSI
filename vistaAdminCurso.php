@@ -46,36 +46,7 @@
 		$_SESSION["paginacion"] = $paginacion;
 	
 		$filas1 = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
-		
-		// Paginación Profesores
-		if (isset($_SESSION["paginacion"]))
-			$paginacion2 = $_SESSION["paginacion"];
-		
-		$pagina_seleccionada2 = isset($_GET["PAG_NUM2"]) ? (int)$_GET["PAG_NUM2"] : (isset($paginacion2) ? (int)$paginacion2["PAG_NUM2"] : 1);
-		$pag_tam2 = isset($_GET["PAG_TAM2"]) ? (int)$_GET["PAG_TAM2"] : (isset($paginacion2) ? (int)$paginacion2["PAG_TAM2"] : 5);
-	
-		if ($pagina_seleccionada2 < 1) 		$pagina_seleccionada2 = 1;
-		if ($pag_tam2 < 1) 		$pag_tam2 = 5;
-	
-		unset($_SESSION["paginacion"]);
-	
-		$conexion = crearConexionBD();
-	
-		$query2 = "SELECT * FROM Usuarios"
-			. " WHERE (Usuarios.TipoUsuario = 'Profesor' AND Usuarios.Id_Curso = '".$IDC."')";
-	
-		$total_registros2 = total_consulta($conexion, $query2);
-		$total_paginas2 = (int)($total_registros2 / $pag_tam2);
-	
-		if ($total_registros2 % $pag_tam2 > 0)		$total_paginas2++;
-	
-		if ($pagina_seleccionada2 > $total_paginas2)		$pagina_seleccionada2 = $total_paginas2;
-	
-		$paginacion2["PAG_NUM2"] = $pagina_seleccionada2;
-		$paginacion2["PAG_TAM2"] = $pag_tam2;
-		$_SESSION["paginacion"] = $paginacion2;
-	
-		$filas2 = consulta_paginada($conexion, $query2, $pagina_seleccionada2, $pag_tam2);
+		$filas2 = profesorDeCurso($conexion,$IDC);
 		
 		cerrarConexionBD($conexion);
 	}
@@ -231,29 +202,7 @@
 	
 			
 			<?php } ?>
-			</table>
-			
-			<nav>
-				<div align="center" style="margin-top: 50px;">
-					<?php
-						for( $pagina2 = 1; $pagina2 <= $total_paginas2; $pagina2++ )
-							if ( $pagina2 == $pagina_seleccionada2) { 	?>
-								<span class="current"><?php echo $pagina2; ?></span>
-					<?php }	else { ?>
-								<a href="vistaAdminCurso.php?PAG_NUM2=<?php echo $pagina2; ?>&PAG_TAM2=<?php echo $pag_tam2; ?>"><?php echo $pagina2; ?></a>
-					<?php } ?>
-				</div>
-				<form align="center" method="get" action="vistaAdminCurso.php">	
-					<input id="var2" name="var2" type="hidden" value="<?php echo base64_encode($IDC)?>"/>
-					<input id="PAG_NUM2" name="PAG_NUM2" type="hidden" value="<?php echo $pagina_seleccionada2?>"/>	
-					Mostrando	
-					<input id="PAG_TAM2" name="PAG_TAM2" type="number"	
-						min="1" max="<?php echo $total_registros2; ?>"	
-						value="<?php echo $pag_tam2?>" autofocus="autofocus" />	
-					entradas de <?php echo $total_registros2?>	
-					<input type="submit" class="boton_personalizado" value="Cambiar">
-				</form>
-			</nav> 
+			</table> 
 				
 			<!-- Mostrar profesores de la academia -->
 			<div align="center" style="margin-top: 50px;"><p><h1>Profesor</h1></p></div>
@@ -353,8 +302,9 @@
 			
 			<?php } ?>
 			</table>
+			
 			<div align="center" style="margin-top: 15px;">
-				<a href="formularioProfesor.php">Añade un profesor</a>
+				<a href="asignacionAlumno.php">Añade un Alumno</a>
 			</div>
 	
 			</main>
