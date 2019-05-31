@@ -5,7 +5,7 @@
 	require_once ("gestionarProfesor.php");
 	
 	// Si no existen datos del formulario en la sesión, se crea una entrada con valores por defecto
-	if (!isset($_SESSION['formulario'])) {
+	if (!isset($_SESSION['formularioProfesor'])) {
 		$formulario['DNI'] = "";
 		$formulario['Nombre'] = "";
 		$formulario['Apellidos'] = "";
@@ -19,15 +19,16 @@
 		$formulario['TipoUsuario'] = "Profesor";
 		$formulario['Nivel_Examen'] = "B1";
 
-		$_SESSION['formulario'] = $formulario;
+		$_SESSION['formularioProfesor'] = $formulario;
 	}
 	// Si ya existían valores, los cogemos para inicializar el formulario
 	else
-		$formulario = $_SESSION['formulario'];
+		$formulario = $_SESSION['formularioProfesor'];
 			
 	// Si hay errores de validación, hay que mostrarlos y marcar los campos (El estilo viene dado y ya se explicará)
 	if (isset($_SESSION["errores"]))
 		$errores = $_SESSION["errores"];
+		unset($_SESSION["errores"]);
 
 	// Creamos una conexión con la BD
 	$conexion = crearConexionBD();
@@ -59,7 +60,7 @@
 	?>
 	
 	<!-- Detrás de "POST"   action="validacion_alta_usuario.php" onsubmit="return validateForm()" -->
-	<form id="formulario" class="formulario" method="get" novalidate>
+	<form id="formularioProfesor" class="formularioProfesor" method="get" novalidate>
 		<p><i>Los campos obligatorios están marcados con </i><em>*</em></p>
 		<fieldset><legend>Datos personales</legend>
 			<div></div><label for="DNI">DNI<em>*</em></label>
@@ -91,7 +92,7 @@
 			<input id="TelefonoFijo" name="TelefonoFijo" type="text" value="<?php echo $formulario['TelefonoFijo'];?>"/>
 			</div>
 
-			<div><label for="Email">Email:<em>*</em></label>
+			<div><label for="Email">Email:<em>(Debe de terminar en @gmail.com)</em></label>
 			<input id="Email" name="Email"  type="email" placeholder="usuario@dominio.extension" value="<?php echo $formulario['Email'];?>" required/><br>
 			</div>
 

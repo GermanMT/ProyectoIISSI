@@ -93,7 +93,7 @@
 			<input id="TelefonoFijo" name="TelefonoFijo" type="text" value="<?php echo $formulario['TelefonoFijo'];?>"/>
 			</div>
 
-			<div><label for="Email">Email:</label>
+			<div><label for="Email">Email:<em>(Debe de terminar en @gmail.com)</em></label>
 			<input id="Email" name="Email"  type="email" placeholder="usuario@dominio.extension" value="<?php echo $formulario['Email'];?>" required/><br>
 			</div>
 
