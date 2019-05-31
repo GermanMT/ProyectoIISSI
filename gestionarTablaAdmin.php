@@ -35,4 +35,10 @@
 			return $e->getMessage();
 	    }
 	}
+	
+	function profesorDeCurso($conexion,$IDC){
+		$consulta = "SELECT * FROM Usuarios"
+			. " WHERE (Usuarios.TipoUsuario = 'Profesor' AND Usuarios.Id_Curso = '".$IDC."')";
+		return $conexion->query($consulta);
+	}
 ?>
