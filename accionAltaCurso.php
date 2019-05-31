@@ -46,10 +46,10 @@ if (count($errores) > 0) {
 	$errores = array();
 	
 	/* || !preg_match("/^\d{2}/\d{2}/d{4}$/", $usuario["Fecha_Inicio"])*/
-	if ($usuario["Fecha_Inicio"] == "" ) {
+	if ($usuario["Fecha_Inicio"] == "" || !preg_match("/^\d{2}\/\d{2}\/\d{4}$/", $usuario["Fecha_Inicio"])) {
 		$errores[] = "La fecha de inicio no puede estar vacía o no tener el formato dd/MM/YYYY";
 	}
-	if ($usuario["Fecha_Fin"] == "" ) {
+	if ($usuario["Fecha_Fin"] == "" || !preg_match("/^\d{2}\/\d{2}\/\d{4}$/", $usuario["Fecha_Fin"])) {
 		$errores[] = "La fecha de fin no puede estar vacía o no tener el formato dd/MM/YYYY";
 	}
 	if ($usuario["Tipo_Examen"] == "") {
