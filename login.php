@@ -96,6 +96,7 @@
 	</form>
 		
 	<p>¿No estás registrado? <a href="formulario.php">¡Registrate!</a></p>
+	<a class="button" href="IISSI.php"><button type="button" class="read_more">Vuelve Atrás</button></a>
 </main>
 </div>
 </body>
