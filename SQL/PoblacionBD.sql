@@ -7,6 +7,7 @@ INSERTAR_CURSO('20/01/2018','20/08/2018','Trinity','B1','G4');
 COMMIT;
 END;
 /
+
 --Inserciones de usuarios: 
 BEGIN
 INSERTAR_USUARIO_CON_CURSO('21015236K','Antonio German','Márquez Trujillo','21', 'El Repilado', '619527721', '954841642', 'antonio-german-1@hotmail.com', 'Jose Enrique', 'GermanOctavo', '19german15','Alumno','Aptis','B1','G1');
@@ -52,7 +53,6 @@ COMMIT;
 END;
 /
 
-
 --Inserciones de recibos:
 BEGIN
 INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/05/06','50', '', '0', 'Si', '21015236K', 'efectivo');
@@ -74,5 +74,10 @@ COMMIT;
 END;
 /
 
-SELECT DNI_USUARIO FROM USUARIOS WHERE (USUARIOS.USUARIO = 'GermanOctavo' AND USUARIOS.PASS = '19german15');
-SELECT * FROM RECIBOS WHERE (RECIBOS.DNI_USUARIO = '21015236K');
+--Inserciones de horarios cursos:
+BEGIN
+INSERTAR_HORARIO_CURSO('16:00','17:00','Martes',SEC_Horario_Curso.NEXTVAL,'G1');
+INSERTAR_HORARIO_CURSO('17:00','18:00','Miercoles',SEC_Horario_Curso.NEXTVAL,'G2');
+COMMIT;
+END;
+/
