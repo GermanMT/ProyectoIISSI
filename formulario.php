@@ -93,7 +93,7 @@
 			<input id="TelefonoFijo" name="TelefonoFijo" type="text" value="<?php echo $formulario['TelefonoFijo'];?>"/>
 			</div>
 
-			<div><label for="Email">Email:</label>
+			<div><label for="Email">Email:<em>(Debe de terminar en @gmail.com)</em></label>
 			<input id="Email" name="Email"  type="email" placeholder="usuario@dominio.extension" value="<?php echo $formulario['Email'];?>" required/><br>
 			</div>
 
@@ -170,6 +170,7 @@
 		<div><input type="submit" value="Enviar" formaction="accionAltaRegistro.php" /></div>
 
 	</form>
+	<a class="button" href="IISSI.php"><button type="button" class="read_more">Vuelve Atrás</button></a>
 
 	<?php
 		

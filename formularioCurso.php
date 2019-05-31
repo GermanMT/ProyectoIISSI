@@ -20,6 +20,7 @@
 	// Si hay errores de validación, hay que mostrarlos y marcar los campos (El estilo viene dado y ya se explicará)
 	if (isset($_SESSION["errores"]))
 		$errores = $_SESSION["errores"];
+		unset($_SESSION["errores"]);
 
 	// Creamos una conexión con la BD
 	$conexion = crearConexionBD();

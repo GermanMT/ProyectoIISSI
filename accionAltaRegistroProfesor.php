@@ -7,7 +7,7 @@
 require_once ("gestionBD.php");
 
 //Se comprueba que hemos llegado aquí por el formulario de matriculación y en tal caso se mete en la variable $usuario los datos del formulario, en caso contrario, se redirige a la página de matriculación
-if (isset($_SESSION["formulario"])) {
+if (isset($_SESSION["formularioProfesor"])) {
 	$usuario["DNI_Usuario"] = $_REQUEST["DNI_Usuario"];
 	$usuario["Nombre"] = $_REQUEST["Nombre"];
 	$usuario["Apellidos"] = $_REQUEST["Apellidos"];
@@ -26,7 +26,7 @@ if (isset($_SESSION["formulario"])) {
 	header('Location: formularioProfesor.php');
 }
 
-$_SESSION["formulario"] = $usuario;
+$_SESSION["formularioProfesor"] = $usuario;
 
 try{
 	$conexion = crearConexionBD();
@@ -71,16 +71,18 @@ if (count($errores) > 0) {
 	if ($usuario["Localidad"] == "" || !preg_match("/^[A-Za-záéíóúÁÉÍÓÚ\s]+$/", $usuario["Localidad"])) {
 		$errores[] = "La localidad no puede estar vacía o no ser alfabetico";
 	}
-	if ($usuario["TelefonoMovil"] == "" or !is_numeric($usuario["TelefonoMovil"]) or strlen($usuario["TelefonoMovil"]) < 9) {
+	if ($usuario["TelefonoMovil"] == "" or !is_numeric($usuario["TelefonoMovil"]) 
+	or strlen($usuario["TelefonoMovil"]) < 9 or strlen($usuario["TelefonoMovil"]) > 9) {
 		$errores[] = "El teléfono móvil no es correcto";
-	}
-	if ($usuario["TelefonoFijo"] == "" or !is_numeric($usuario["TelefonoFijo"]) or strlen($usuario["TelefonoFijo"]) < 9) {
+	if ($usuario["TelefonoFijo"] == "" or !is_numeric($usuario["TelefonoFijo"])
+	 or strlen($usuario["TelefonoFijo"]) < 9 or strlen($usuario["TelefonoFijo"]) > 9) {
 		$errores[] = "El teléfono fijo no es correcto";
 	}
-	
 	if (!isset($usuario["Pass"]) || strlen($usuario["Pass"]) < 8) {
 		$errores[] = "Contraseña no válida: debe tener al menos 8 caracteres";
-	} else if (!preg_match("/[a-z]+/", $usuario["Pass"]) || !preg_match("/[A-Z]+/", $usuario["Pass"]) || !preg_match("/[0-9]+/", $usuario["Pass"])) {
+	} else if (!preg_match("/[a-z]+/", $usuario["Pass"]) 
+			|| !preg_match("/[A-Z]+/", $usuario["Pass"]) 
+			|| !preg_match("/[0-9]+/", $usuario["Pass"])) {
 		$errores[] = "Contraseña no válida: debe contener letras mayúsculas y minúsculas y dígitos";
 	} else if ($usuario["Pass"] != $usuario["confirmpass"]) {
 		$errores[] = "La confirmación de contraseña no coincide con la contraseña";
