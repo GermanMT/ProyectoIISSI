@@ -73,7 +73,7 @@
 			<input id="Nombre" name="Nombre" type="text" size="30" value="<?php echo $formulario['Nombre'];?>" required/>
 			</div>
 
-			<div><label for="Apellidos">Apellidos:</label>
+			<div><label for="Apellidos">Apellidos:<em>*</em></label>
 			<input id="Apellidos" name="Apellidos" type="text" size="50" value="<?php echo $formulario['Apellidos'];?>"/>
 			</div>
 
@@ -85,7 +85,7 @@
 			<input id="Localidad" name="Localidad" type="text" value="<?php echo $formulario['Localidad'];?>"/>
 			</div>
 
-			<div><label for="TelefonoMovil">Teléfono Móvil:</label>
+			<div><label for="TelefonoMovil">Teléfono Móvil:<em>*</em></label>
 			<input id="TelefonoMovil" name="TelefonoMovil" type="text" value="<?php echo $formulario['TelefonoMovil'];?>"/>
 			</div>
 
@@ -93,7 +93,7 @@
 			<input id="TelefonoFijo" name="TelefonoFijo" type="text" value="<?php echo $formulario['TelefonoFijo'];?>"/>
 			</div>
 
-			<div><label for="Email">Email:<em>*</em></label>
+			<div><label for="Email">Email:</label>
 			<input id="Email" name="Email"  type="email" placeholder="usuario@dominio.extension" value="<?php echo $formulario['Email'];?>" required/><br>
 			</div>
 
@@ -101,7 +101,7 @@
 			<input id="NombrePadreMadre" name="NombrePadreMadre" type="text" value="<?php echo $formulario['NombrePadreMadre'];?>"/>
 			</div>
 
-			<div><label>TipoUsuario:</label>
+			<div><label>TipoUsuario:<em>*</em></label>
 			<label>
 				<input name="TipoUsuario" type="radio" value="Alumno" <?php if($formulario['TipoUsuario']=='Alumno') echo ' checked ';?>/>
 				Alumno</label>
@@ -109,7 +109,7 @@
 
 			<fieldset><legend>Datos del Tipo y Nivel de Exámen</legend>
 
-			<div><label>Tipo Examen:</label>
+			<div><label>Tipo Examen:<em>*</em></label>
 			<label>
 					<input name="Tipo_Examen" type="radio" value="Trinity" <?php if($formulario['Tipo_Examen']=='Trinity') echo ' checked ';?>/>
 					Trinity
@@ -124,7 +124,7 @@
 				</label>
 			</div>
 
-			<div><label>Nivel Inglés:</label>
+			<div><label>Nivel Inglés:<em>*</em></label>
 			<label>
 					<input name="Nivel_Examen" type="radio" value="B1" <?php if($formulario['Nivel_Examen']=='B1') echo ' checked ';?>/>
 					B1
@@ -155,16 +155,16 @@
 				<span id ="fortaleza"></span>
 				
 			</div>
-		<!--<div><label for="confirmpass">Confirmar Password: </label>
+			<div><label for="confirmpass">Confirmar Password: </label>
 			<input type="password" name="confirmpass" id="confirmpass" placeholder="Confirmación de contraseña" required
 			oninput = "if(!passwordConfirmation()) this.setCustomValidity('Password y confirmación diferentes')
 					else this.setCustomValidity('')"
 			/>
 			</div>
--->
-			<div><label for="confirmpass">Confirmar Password: </label>
+
+			<!--<div><label for="confirmpass">Confirmar Password: </label>
 			<input type="password" name="confirmpass" id="confirmpass" placeholder="Confirmación de contraseña" required/>
-			</div>
+			</div>-->
 		</fieldset>
 
 		<div><input type="submit" value="Enviar" formaction="accionAltaRegistro.php" /></div>

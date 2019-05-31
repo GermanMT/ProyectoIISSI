@@ -71,7 +71,7 @@
 			<input id="Nombre" name="Nombre" type="text" size="30" value="<?php echo $formulario['Nombre'];?>" required/>
 			</div>
 
-			<div><label for="Apellidos">Apellidos:</label>
+			<div><label for="Apellidos">Apellidos:<em>*</em></label>
 			<input id="Apellidos" name="Apellidos" type="text" size="50" value="<?php echo $formulario['Apellidos'];?>"/>
 			</div>
 
@@ -83,7 +83,7 @@
 			<input id="Localidad" name="Localidad" type="text" value="<?php echo $formulario['Localidad'];?>"/>
 			</div>
 
-			<div><label for="TelefonoMovil">Teléfono Móvil:</label>
+			<div><label for="TelefonoMovil">Teléfono Móvil:<em>*</em></label>
 			<input id="TelefonoMovil" name="TelefonoMovil" type="text" value="<?php echo $formulario['TelefonoMovil'];?>"/>
 			</div>
 
@@ -95,14 +95,14 @@
 			<input id="Email" name="Email"  type="email" placeholder="usuario@dominio.extension" value="<?php echo $formulario['Email'];?>" required/><br>
 			</div>
 
-			<div><label>TipoUsuario:</label>
+			<div><label>TipoUsuario:<em>*</em></label>
 			<label>
 				<input name="TipoUsuario" type="radio" value="Profesor" <?php if($formulario['TipoUsuario']=='Profesor') echo ' checked ';?>/>
 				Profesor</label>
 			
 			</div>
 
-			<div><label>Nivel Inglés:</label>
+			<div><label>Nivel Inglés:<em>*</em></label>
 			<label>
 					<input name="Nivel_Examen" type="radio" value="B1" <?php if($formulario['Nivel_Examen']=='B1') echo ' checked ';?>/>
 					B1
@@ -148,6 +148,8 @@
 		<div><input type="submit" value="Enviar" formaction="accionAltaRegistroProfesor.php" /></div>
 
 	</form>
+
+	<a class="button" href="VistaAdminCurso.php"><button type="button" class="read_more">Vuelve Atrás</button></a>
 	
 	<?php
 		
