@@ -149,7 +149,7 @@
 
 	</form>
 
-	<a class="button" href="VistaAdminCurso.php"><button type="button" class="read_more">Vuelve Atrás</button></a>
+	<a class="button" href="VistaAdmin.php"><button type="button" class="read_more">Vuelve Atrás</button></a>
 	
 	<?php
 		

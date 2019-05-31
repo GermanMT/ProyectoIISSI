@@ -302,8 +302,9 @@
 			
 			<?php } ?>
 			</table>
+			
 			<div align="center" style="margin-top: 15px;">
-				<a href="formularioProfesor.php">Añade un profesor</a>
+				<a href="asignacionAlumno.php">Añade un Alumno</a>
 			</div>
 	
 			</main>

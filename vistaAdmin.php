@@ -69,6 +69,10 @@
 			<div align="center" style="margin-top: 15px;">
 				<a href="formularioCurso.php">Añade un curso</a>
 			</div>
+			
+			<div align="center" style="margin-top: 15px;">
+				<a href="formularioProfesor.php">Añade un profesor</a>
+			</div>
 		</div>
 	</body>
 </html>
