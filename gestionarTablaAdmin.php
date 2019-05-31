@@ -35,4 +35,26 @@
 			return $e->getMessage();
 	    }
 	}
+
+	function asignarUsuario($conexion,$DNI_Usuario,$NOMBRE,$APELLIDOS,$TIPO_EXAMEN,$NIVEL_EXAMEN,$ID_CURSO){
+		try {
+			$stmt=$conexion->prepare('CALL ASIGNAR_USUARIO(:DNI_Usuario,:NOMBRE,:APELLIDOS,:TIPO_EXAMEN,:NIVEL_EXAMEN,:ID_CURSO)');
+			$stmt->bindParam(':DNI_Usuario',$DNI_Usuario);
+			$stmt->bindParam(':NOMBRE',$NOMBRE);
+			$stmt->bindParam(':APELLIDOS',$APELLIDOS);
+			$stmt->bindParam(':TIPO_EXAMEN',$TIPO_EXAMEN);
+			$stmt->bindParam(':NIVEL_EXAMEN',$NIVEL_EXAMEN);
+			$stmt->bindParam(':ID_CURSO',$ID_CURSO);
+			$stmt->execute();
+			return "";
+		} catch(PDOException $e) {
+			return $e->getMessage();
+	    }
+	}
+	
+	function profesorDeCurso($conexion,$IDC){
+		$consulta = "SELECT * FROM Usuarios"
+			. " WHERE (Usuarios.TipoUsuario = 'Profesor' AND Usuarios.Id_Curso = '".$IDC."')";
+		return $conexion->query($consulta);
+	}
 ?>

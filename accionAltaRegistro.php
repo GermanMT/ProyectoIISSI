@@ -40,7 +40,7 @@ try{
 		.$e -> getMessage() ."</p>";
 		Header('Location: formulario.php');
 }
-//En el caso de que haya errores, se redirige a la página de matriculacion y se muestran los errores, en caso contrario se redirige a la página de exitoAltaMatricula
+//En el caso de que haya errores, se redirige al formulario y se muestran los errores, en caso contrario se redirige a la página de exito_alta_usuario
 if (count($errores) > 0) {
 	$_SESSION['errores'] = $errores;
 	header('Location: formulario.php');
@@ -74,15 +74,19 @@ if (count($errores) > 0) {
 	if ($usuario["Localidad"] == "" || !preg_match("/^[A-Za-záéíóúÁÉÍÓÚ\s]+$/", $usuario["Localidad"])) {
 		$errores[] = "La localidad no puede estar vacía o no ser alfabetico";
 	}
-	if ($usuario["TelefonoMovil"] == "" or !is_numeric($usuario["TelefonoMovil"]) or strlen($usuario["TelefonoMovil"]) < 9) {
+	if ($usuario["TelefonoMovil"] == "" or !is_numeric($usuario["TelefonoMovil"]) 
+	|| !preg_match("/^\d{9}$/", $usuario["TelefonoMovil"])) {
 		$errores[] = "El teléfono móvil no es correcto";
 	}
-	if ($usuario["TelefonoFijo"] == "" or !is_numeric($usuario["TelefonoFijo"]) or strlen($usuario["TelefonoFijo"]) < 9) {
+	if ($usuario["TelefonoFijo"] == "" or !is_numeric($usuario["TelefonoFijo"])
+	|| !preg_match("/^\d{9}$/", $usuario["TelefonoFijo"])) {
 		$errores[] = "El teléfono fijo no es correcto";
 	}
 	if (!isset($usuario["Pass"]) || strlen($usuario["Pass"]) < 8) {
 		$errores[] = "Contraseña no válida: debe tener al menos 8 caracteres";
-	} else if (!preg_match("/[a-z]+/", $usuario["Pass"]) || !preg_match("/[A-Z]+/", $usuario["Pass"]) || !preg_match("/[0-9]+/", $usuario["Pass"])) {
+	} else if (!preg_match("/[a-z]+/", $usuario["Pass"]) 
+			|| !preg_match("/[A-Z]+/", $usuario["Pass"])
+			|| !preg_match("/[0-9]+/", $usuario["Pass"])) {
 		$errores[] = "Contraseña no válida: debe contener letras mayúsculas y minúsculas y dígitos";
 	} else if ($usuario["Pass"] != $usuario["confirmpass"]) {
 		$errores[] = "La confirmación de contraseña no coincide con la contraseña";

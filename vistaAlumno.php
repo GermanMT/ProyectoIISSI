@@ -25,6 +25,14 @@
 
         <title>IISSI</title>
         <link rel="stylesheet" href="CSS/styleIISSI.css">
+        <style>
+    	table {
+  			border-collapse: collapse;
+		}
+		table, td, th {
+ 	    	border: 1px solid black;
+		}
+		</style>
     </head>
     <body>
         <div class = "main">
@@ -47,7 +55,7 @@
     <!-- Mostrar los recibos del alumno -->       
     <div align="center" style="margin-top:250px;"><p><h1>Recibos:</h1></p></div>
 		<table align="center" border="1" style="width:auto; height:20px;">
-			<tr>
+			<tr style="background-color: #FFFF00;">
 			    <th>DNI</th>
 			    <th>Fecha del recibo</th> 
 			    <th>Importe</th>
@@ -57,7 +65,7 @@
 		foreach($filas2 as $fila) {
 	?>	
 	
-	  <tr>
+	  <tr style="background-color: #FFFFE0;">
 	    <td><?php echo $fila["DNI_USUARIO"]; ?></td>
 		<td><?php echo $fila["FECHA_RECIBO"]; ?></td>
 		<td><?php echo $fila["POR_PAGAR"]; ?></td>
@@ -72,7 +80,7 @@
 	 <div align="center"><p><h1>Horarios:</h1></p></div>
 		<table align="center" border="1" style="width:auto; height:20px;">
 			
-		<tr>
+		<tr style="background-color: #FFFF00;">
 	    <th>Dia</th>
 	    <th>Hora de Inicio</th> 
 	    <th>Hora de fin</th>
@@ -84,7 +92,7 @@
 	?>
 	
 	
-	  <tr>
+	  <tr style="background-color: #FFFFE0;">
 	    <td><?php echo $fila["DIA"]; ?></td>
 		<td><?php echo $fila["HORA_INICIO"]; ?></td>
 		<td><?php echo $fila["HORA_FIN"]; ?></td>

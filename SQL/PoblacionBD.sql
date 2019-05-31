@@ -40,12 +40,12 @@ INSERTAR_USUARIO_CON_CURSO('43266633P','Emilio','Márquez','18', 'Arahal', '61952
 INSERTAR_USUARIO_CON_CURSO('34654364P','Carmen','Márquez','25', 'Marchena', '619527721', '954841642', 'carmen@hotmail.com', 'Jose Enrique', 'Carmen', '19german15','Alumno','Trinity','C1','G3');
 INSERTAR_USUARIO_CON_CURSO('13541322I','Eugenio','Márquez','27', 'Sevilla', '619527721', '954841642', 'eugenio@hotmail.com', 'Jose Enrique', 'Eugenio', '19german15','Alumno','Trinity','C1','G3');
 INSERTAR_USUARIO_CON_CURSO('64326431Y','Salvador','Márquez','31', 'Marchena', '619527721', '954841642', 'salvador@hotmail.com', 'Jose Enrique', 'Salvador', '19german15','Alumno','Trinity','C1','G3');
-INSERTAR_USUARIO_CON_CURSO('12564343O','Antonia','Márquez','23', 'La Puebla De Cazalla', '619527721', '954841642', 'antonia@hotmail.com', 'Jose Enrique', 'Antonia', '19german15','Alumno','Trinity','B1','G4');
-INSERTAR_USUARIO_CON_CURSO('12353252L','Cecilia','Márquez','22', 'Arahal', '619527721', '954841642', 'cecilia@hotmail.com', 'Jose Enrique', 'Cecilia', '19german15','Alumno','Trinity','B1','G4');
-INSERTAR_USUARIO_CON_CURSO('13251321D','Ángel','Márquez','24', 'Marchena', '619527721', '954841642', 'angel@hotmail.com', 'Jose Enrique', 'Angel', '19german15','Alumno','Trinity','B1','G4');
-INSERTAR_USUARIO_CON_CURSO('76558322H','Rafael','Márquez','19', 'Sevilla', '619527721', '954841642', 'rafael@hotmail.com', 'Jose Enrique', 'Rafael', '19german15','Alumno','Trinity','B1','G4');
-INSERTAR_USUARIO_CON_CURSO('78907890T','Antonio Jesus','Márquez','30', 'Carmona', '619527721', '954841642', 'antonio-jesus@hotmail.com', 'Jose Enrique', 'Antonio', '19german15','Alumno','Trinity','B1','G4');
-INSERTAR_USUARIO_CON_CURSO('75867742J','Alvaro','Frias Balbuena','21', 'Arahal', '619527721', '954841642', 'alvaro-231@hotmail.com', 'Pedro', 'Alvarofb7', '123456','Alumno','Trinity','B1','G4');
+INSERTAR_USUARIO_CON_CURSO('12564343O','Antonia','Márquez','23', 'La Puebla De Cazalla', '619527721', '954841642', 'antonia@hotmail.com', 'Jose Enrique', 'Antonia', '19german15','Alumno','Trinity','B1',null);
+INSERTAR_USUARIO_CON_CURSO('12353252L','Cecilia','Márquez','22', 'Arahal', '619527721', '954841642', 'cecilia@hotmail.com', 'Jose Enrique', 'Cecilia', '19german15','Alumno','Trinity','B1',null);
+INSERTAR_USUARIO_CON_CURSO('13251321D','Ángel','Márquez','24', 'Marchena', '619527721', '954841642', 'angel@hotmail.com', 'Jose Enrique', 'Angel', '19german15','Alumno','Trinity','B1',null);
+INSERTAR_USUARIO_CON_CURSO('76558322H','Rafael','Márquez','19', 'Sevilla', '619527721', '954841642', 'rafael@hotmail.com', 'Jose Enrique', 'Rafael', '19german15','Alumno','Trinity','B1',null);
+INSERTAR_USUARIO_CON_CURSO('78907890T','Antonio Jesus','Márquez','30', 'Carmona', '619527721', '954841642', 'antonio-jesus@hotmail.com', 'Jose Enrique', 'Antonio', '19german15','Alumno','Trinity','B1',null);
+INSERTAR_USUARIO('75867742J','Alvaro','Frias Balbuena','21', 'Arahal', '619527721', '954841642', 'alvaro-231@hotmail.com', 'Pedro', 'Alvarofb7', '123456','Alumno','Trinity','B1');
 INSERTAR_USUARIO('11111111K','Admin','Admin','1', 'Arahal', '698765432', '123456789', 'academia@hotmail.com', 'Jose Enrique', 'Admin', 'administrador','Admin',NULL,'B1');
 INSERTAR_USUARIO_CON_CURSO('49385388H','Jose Antonio','Macias','50', 'La Puebla De Cazalla', '619525521', '954822642', 'josanfcs98@hotmail.com', '', 'JosanFCS', 'holita20','Profesor','Aptis','B1','G1');
 INSERTAR_USUARIO_CON_CURSO('49385378H','Pedro','Macias Portillo','45', 'La Puebla De Cazalla', '619525521', '954822642', 'josanfcs98@hotmail.com', '', 'JosanFCS2', 'holita20','Profesor','Trinity','B2','G2');

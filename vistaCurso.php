@@ -23,6 +23,14 @@
 
         <title>IISSI</title>
         <link rel="stylesheet" href="CSS/styleIISSI.css">
+        <style>
+	    	table {
+	  			border-collapse: collapse;
+			}
+			table, td, th {
+	 	    	border: 1px solid black;
+			}
+		</style>
     </head>
     <body>
         <div class = "main">
@@ -52,18 +60,18 @@
 	
 	<div align="center" style="margin-top:300px;"><p><h1>Cursos</h1></p></div>
 		<table align="center" border="1" style="width:auto; height:20px;">
-		<tr>
-	    <th>Nombre</th>
-	    <th>Apellidos</th> 
-	    <th>DNI</th>
-	  </tr>
+		<tr style="background-color: #228B22;">
+		    <th>Nombre</th>
+		    <th>Apellidos</th> 
+		    <th>DNI</th>
+	  	</tr>
 	
 	<?php
 		foreach($filas1 as $fila) {
 	?>
 	
 	
-	  <tr>
+	  <tr style="background-color: #98FB98;">
 	    <td><?php echo $fila["NOMBRE"]; ?></td>
 		<td><?php echo $fila["APELLIDOS"]; ?></td>
 		<td><?php echo $fila["DNI_USUARIO"]; ?></td>

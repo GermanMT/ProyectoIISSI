@@ -10,5 +10,5 @@
 	if (isset($_SESSION['loginProfesor']))
         unset($_SESSION['loginProfesor']);
     
-    header("Location: index.php");
+    header("Location: login.php");
 ?>

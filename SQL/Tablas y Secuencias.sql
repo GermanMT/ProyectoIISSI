@@ -31,9 +31,9 @@ Tipo_Examen VARCHAR2(10)
             CHECK (Tipo_Examen IN('Trinity', 'Cambridge', 'Aptis')),
 Nivel_Examen VARCHAR2(10) 
             CHECK (Nivel_Examen IN('B1', 'B2', 'C1')) NOT NULL, 
-TipoUsuario VARCHAR2(30)
-          CHECK (TipoUsuario IN('Alumno', 'Profesor', 'Admin')) NOT NULL,
-Id_Curso VARCHAR2(30),
+TipoUsuario VARCHAR2(30),
+          
+Id_Curso VARCHAR2(10),
 PRIMARY KEY (DNI_Usuario),
 FOREIGN KEY (Id_Curso) REFERENCES Cursos
 );

@@ -46,36 +46,7 @@
 		$_SESSION["paginacion"] = $paginacion;
 	
 		$filas1 = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
-		
-		// Paginación Profesores
-		if (isset($_SESSION["paginacion"]))
-			$paginacion2 = $_SESSION["paginacion"];
-		
-		$pagina_seleccionada2 = isset($_GET["PAG_NUM2"]) ? (int)$_GET["PAG_NUM2"] : (isset($paginacion2) ? (int)$paginacion2["PAG_NUM2"] : 1);
-		$pag_tam2 = isset($_GET["PAG_TAM2"]) ? (int)$_GET["PAG_TAM2"] : (isset($paginacion2) ? (int)$paginacion2["PAG_TAM2"] : 5);
-	
-		if ($pagina_seleccionada2 < 1) 		$pagina_seleccionada2 = 1;
-		if ($pag_tam2 < 1) 		$pag_tam2 = 5;
-	
-		unset($_SESSION["paginacion"]);
-	
-		$conexion = crearConexionBD();
-	
-		$query2 = "SELECT * FROM Usuarios"
-			. " WHERE (Usuarios.TipoUsuario = 'Profesor' AND Usuarios.Id_Curso = '".$IDC."')";
-	
-		$total_registros2 = total_consulta($conexion, $query2);
-		$total_paginas2 = (int)($total_registros2 / $pag_tam2);
-	
-		if ($total_registros2 % $pag_tam2 > 0)		$total_paginas2++;
-	
-		if ($pagina_seleccionada2 > $total_paginas2)		$pagina_seleccionada2 = $total_paginas2;
-	
-		$paginacion2["PAG_NUM2"] = $pagina_seleccionada2;
-		$paginacion2["PAG_TAM2"] = $pag_tam2;
-		$_SESSION["paginacion"] = $paginacion2;
-	
-		$filas2 = consulta_paginada($conexion, $query2, $pagina_seleccionada2, $pag_tam2);
+		$filas2 = profesorDeCurso($conexion,$IDC);
 		
 		cerrarConexionBD($conexion);
 	}
@@ -89,6 +60,14 @@
 
         <title>IISSI</title>
         <link rel="stylesheet" href="CSS/styleIISSI.css">
+        <style>
+    	table {
+  			border-collapse: collapse;
+		}
+		table, td, th {
+ 	    	border: 1px solid black;
+		}
+		</style>
     </head>
     <body>
         <div class = "main">
@@ -101,7 +80,7 @@
                         <div class="login" style="
                         width: 121.198">
                             <img src="images/logoAcademia.png">
-                            <a href="login.php" target="blank" style="
+                            <a href="logout.php" target="blank" style="
                             height: 0px;
                             padding-right: 20px;">Cerrar Sesión</a>
                         </div>
@@ -132,8 +111,8 @@
 		                	
 			<!-- Mostrar alumnos de la academia -->
 			<div align="center" style="margin-top:50px;"><p><h1>Alumnos</h1></p></div>
-				<table align="center" border="1" style="width:auto; height:20px;">
-					<tr>
+				<table align="center" border="1" style="width:90%; height:20px;">
+					<tr style="background-color: #87CEFA;">
 				    	<th>DNI del alumno</th>
 				    	<th>Nombre</th>
 				    	<th>Apellidos</th>
@@ -181,7 +160,7 @@
 		
 						<?php if (isset($usuario) and ($usuario["DNI_USUARIO"] == $fila["DNI_USUARIO"])) { ?>
 								<!-- Editando alumno -->
-								<tr>
+								<tr style="background-color: #E0FFFF;">
 									<td><h4><?php echo $fila["DNI_USUARIO"];?></h4></td>
 									<td><h3><input id="NOMBRE" name="NOMBRE" type="text" value="<?php echo $fila["NOMBRE"]; ?>"/></h3></td>
 									<td><h3><input id="APELLIDOS" name="APELLIDOS" type="text" value="<?php echo $fila["APELLIDOS"]; ?>"/></h3></td>
@@ -195,7 +174,7 @@
 						<?php } else { ?>
 							<!-- Mostrando alumno -->
 								<input id="DNI_USUARIO" name="DNI_USUARIO" type="hidden" value="<?php echo $fila["DNI_USUARIO"]; ?>"/>
-									<tr>
+									<tr style="background-color: #E0FFFF;">
 									   	<td><?php echo $fila["DNI_USUARIO"]; ?></td>
 									    <td><?php echo $fila["NOMBRE"]; ?></td>
 									    <td><?php echo $fila["APELLIDOS"]; ?></td>
@@ -231,34 +210,12 @@
 	
 			
 			<?php } ?>
-			</table>
-			
-			<nav>
-				<div align="center" style="margin-top: 50px;">
-					<?php
-						for( $pagina2 = 1; $pagina2 <= $total_paginas2; $pagina2++ )
-							if ( $pagina2 == $pagina_seleccionada2) { 	?>
-								<span class="current"><?php echo $pagina2; ?></span>
-					<?php }	else { ?>
-								<a href="vistaAdminCurso.php?PAG_NUM2=<?php echo $pagina2; ?>&PAG_TAM2=<?php echo $pag_tam2; ?>"><?php echo $pagina2; ?></a>
-					<?php } ?>
-				</div>
-				<form align="center" method="get" action="vistaAdminCurso.php">	
-					<input id="var2" name="var2" type="hidden" value="<?php echo base64_encode($IDC)?>"/>
-					<input id="PAG_NUM2" name="PAG_NUM2" type="hidden" value="<?php echo $pagina_seleccionada2?>"/>	
-					Mostrando	
-					<input id="PAG_TAM2" name="PAG_TAM2" type="number"	
-						min="1" max="<?php echo $total_registros2; ?>"	
-						value="<?php echo $pag_tam2?>" autofocus="autofocus" />	
-					entradas de <?php echo $total_registros2?>	
-					<input type="submit" class="boton_personalizado" value="Cambiar">
-				</form>
-			</nav> 
+			</table> 
 				
 			<!-- Mostrar profesores de la academia -->
 			<div align="center" style="margin-top: 50px;"><p><h1>Profesor</h1></p></div>
-		  	<table align="center" border="1" style="width:auto; height:20px;">
-				<tr>
+		  	<table align="center" border="1" style="width:90%; height:20px;">
+				<tr style="background-color: #87CEFA;">
 			    	<th>DNI del Profesor</th>
 			    	<th>Nombre</th>
 			    	<th>Apellidos</th>
@@ -318,7 +275,7 @@
 						<?php } else { ?>
 							<!-- Mostrando profesor -->
 								<input id="DNI_USUARIO" name="DNI_USUARIO" type="hidden" value="<?php echo $fila["DNI_USUARIO"]; ?>"/>
-									<tr>
+									<tr style="background-color: #E0FFFF;">
 									   	<td><?php echo $fila["DNI_USUARIO"]; ?></td>
 									    <td><?php echo $fila["NOMBRE"]; ?></td>
 									    <td><?php echo $fila["APELLIDOS"]; ?></td>
@@ -353,10 +310,6 @@
 			
 			<?php } ?>
 			</table>
-			<div align="center" style="margin-top: 15px;">
-				<a href="formularioProfesor.php">Añade un profesor</a>
-				<a href="formularioCurso.php">Añade un curso</a>
-			</div>
 	
 			</main>
 		</div>

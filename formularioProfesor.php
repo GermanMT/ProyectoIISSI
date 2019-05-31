@@ -5,7 +5,7 @@
 	require_once ("gestionarProfesor.php");
 	
 	// Si no existen datos del formulario en la sesión, se crea una entrada con valores por defecto
-	if (!isset($_SESSION['formulario'])) {
+	if (!isset($_SESSION['formularioProfesor'])) {
 		$formulario['DNI'] = "";
 		$formulario['Nombre'] = "";
 		$formulario['Apellidos'] = "";
@@ -19,17 +19,19 @@
 		$formulario['TipoUsuario'] = "Profesor";
 		$formulario['Nivel_Examen'] = "B1";
 
-		$_SESSION['formulario'] = $formulario;
+		$_SESSION['formularioProfesor'] = $formulario;
 	}
 	// Si ya existían valores, los cogemos para inicializar el formulario
 	else
-		$formulario = $_SESSION['formulario'];
+		$formulario = $_SESSION['formularioProfesor'];
 			
 	// Si hay errores de validación, hay que mostrarlos y marcar los campos (El estilo viene dado y ya se explicará)
 	if (isset($_SESSION["errores"]))
 		$errores = $_SESSION["errores"];
+		unset($_SESSION["errores"]);
 
-	
+	// Creamos una conexión con la BD
+	$conexion = crearConexionBD();
 ?>
 
 <!DOCTYPE html>
@@ -58,7 +60,7 @@
 	?>
 	
 	<!-- Detrás de "POST"   action="validacion_alta_usuario.php" onsubmit="return validateForm()" -->
-	<form id="formulario" class="formulario" method="get" novalidate>
+	<form id="formularioProfesor" class="formularioProfesor" method="get" novalidate>
 		<p><i>Los campos obligatorios están marcados con </i><em>*</em></p>
 		<fieldset><legend>Datos personales</legend>
 			<div></div><label for="DNI">DNI<em>*</em></label>
@@ -70,7 +72,7 @@
 			<input id="Nombre" name="Nombre" type="text" size="30" value="<?php echo $formulario['Nombre'];?>" required/>
 			</div>
 
-			<div><label for="Apellidos">Apellidos:</label>
+			<div><label for="Apellidos">Apellidos:<em>*</em></label>
 			<input id="Apellidos" name="Apellidos" type="text" size="50" value="<?php echo $formulario['Apellidos'];?>"/>
 			</div>
 
@@ -82,7 +84,7 @@
 			<input id="Localidad" name="Localidad" type="text" value="<?php echo $formulario['Localidad'];?>"/>
 			</div>
 
-			<div><label for="TelefonoMovil">Teléfono Móvil:</label>
+			<div><label for="TelefonoMovil">Teléfono Móvil:<em>*</em></label>
 			<input id="TelefonoMovil" name="TelefonoMovil" type="text" value="<?php echo $formulario['TelefonoMovil'];?>"/>
 			</div>
 
@@ -90,18 +92,18 @@
 			<input id="TelefonoFijo" name="TelefonoFijo" type="text" value="<?php echo $formulario['TelefonoFijo'];?>"/>
 			</div>
 
-			<div><label for="Email">Email:<em>*</em></label>
+			<div><label for="Email">Email:<em>(Debe de terminar en @gmail.com)</em></label>
 			<input id="Email" name="Email"  type="email" placeholder="usuario@dominio.extension" value="<?php echo $formulario['Email'];?>" required/><br>
 			</div>
 
-			<div><label>TipoUsuario:</label>
+			<div><label>TipoUsuario:<em>*</em></label>
 			<label>
 				<input name="TipoUsuario" type="radio" value="Profesor" <?php if($formulario['TipoUsuario']=='Profesor') echo ' checked ';?>/>
 				Profesor</label>
 			
 			</div>
 
-			<div><label>Nivel Inglés:</label>
+			<div><label>Nivel Inglés:<em>*</em></label>
 			<label>
 					<input name="Nivel_Examen" type="radio" value="B1" <?php if($formulario['Nivel_Examen']=='B1') echo ' checked ';?>/>
 					B1
@@ -147,6 +149,13 @@
 		<div><input type="submit" value="Enviar" formaction="accionAltaRegistroProfesor.php" /></div>
 
 	</form>
+
+	<a class="button" href="VistaAdmin.php"><button type="button" class="read_more">Vuelve Atrás</button></a>
 	
+	<?php
+		
+		cerrarConexionBD($conexion);
+	?>
+
 	</body>
 </html>

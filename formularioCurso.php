@@ -5,22 +5,25 @@
 	require_once ("gestionarCurso.php");
 	
 	// Si no existen datos del formulario en la sesión, se crea una entrada con valores por defecto
-	if (!isset($_SESSION['formulario'])) {
+	if (!isset($_SESSION['formularioCurso'])) {
 		$formulario['Fecha_Inicio'] = "";
 		$formulario['Fecha_Fin'] = "";
 		$formulario['Tipo_Examen'] = "Trinity";
 		$formulario['Nivel_Ingles'] = "B1";
 		$formulario['Id_Curso'] = "B1 Grupo 1";
-		$_SESSION['formulario'] = $formulario;
+		$_SESSION['formularioCurso'] = $formulario;
 	}
 	// Si ya existían valores, los cogemos para inicializar el formulario
 	else
-		$formulario = $_SESSION['formulario'];
+		$formulario = $_SESSION['formularioCurso'];
 			
 	// Si hay errores de validación, hay que mostrarlos y marcar los campos (El estilo viene dado y ya se explicará)
 	if (isset($_SESSION["errores"]))
 		$errores = $_SESSION["errores"];
+		unset($_SESSION["errores"]);
 
+	// Creamos una conexión con la BD
+	$conexion = crearConexionBD();
 	
 ?>
 
@@ -50,19 +53,19 @@
 	?>
 
 	<!-- Detrás de "POST"   action="validacion_alta_usuario.php" onsubmit="return validateForm()" -->
-	<form id="formulario" class="formulario" method="get" novalidate>
+	<form id="formularioCurso" class="formularioCurso" method="get" novalidate>
 		<p><i>Los campos obligatorios están marcados con </i><em>*</em></p>
 		<fieldset><legend>Datos del Curso</legend>
 			
-			<div><label for="Fecha_Inicio">Fecha Inicio:<em>*</em></label>
+			<div><label for="Fecha_Inicio">Fecha Inicio:<em>* (Debe de estar en formato dd/MM/yyyy)</em></label>
 			<input id="Fecha_Inicio" name="Fecha_Inicio" type="text" size="30" value="<?php echo $formulario['Fecha_Inicio'];?>" required/>
 			</div>
 
-			<div><label for="Fecha_Fin">Fecha Fin:</label>
+			<div><label for="Fecha_Fin">Fecha Fin:<em>* (Debe de estar en formato dd/MM/yyyy)</em></label>
 			<input id="Fecha_Fin" name="Fecha_Fin" type="text" size="50" value="<?php echo $formulario['Fecha_Fin'];?>"/>
 			</div>
 
-			<div><label>Tipo Examen:</label>
+			<div><label>Tipo Examen:<em>*</em></label>
 			<label>
 					<input name="Tipo_Examen" type="radio" value="Trinity" <?php if($formulario['Tipo_Examen']=='Trinity') echo ' checked ';?>/>
 					Trinity
@@ -77,7 +80,7 @@
 				</label>
 			</div>
 
-			<div><label>Nivel Inglés:</label>
+			<div><label>Nivel Inglés:<em>*</em></label>
 			<label>
 					<input name="Nivel_Ingles" type="radio" value="B1" <?php if($formulario['Nivel_Ingles']=='B1') echo ' checked ';?>/>
 					B1
@@ -92,7 +95,7 @@
 				</label>
 			</div>
 
-			<div><label for="Id_Curso">Id Curso:</label>
+			<div><label for="Id_Curso">Id Curso:<em>*</em></label>
 			<input id="Id_Curso" name="Id_Curso" type="text" size="50" value="<?php echo $formulario['Id_Curso'];?>"/>
 			</div>
 
@@ -100,6 +103,11 @@
 		<div><input type="submit" value="Enviar" formaction="accionAltaCurso.php" /></div>
 
 	</form>
-	
+
+	<a class="button" href="VistaAdmin.php"><button type="button" class="read_more">Vuelve Atrás</button></a>
+	<?php
+		
+		cerrarConexionBD($conexion);
+	?>
 	</body>
 </html>

@@ -63,6 +63,14 @@
 
         <title>IISSI</title>
         <link rel="stylesheet" href="CSS/styleIISSI.css">
+        <style>
+    	table {
+  			border-collapse: collapse;
+		}
+		table, td, th {
+ 	    	border: 1px solid black;
+		}
+		</style>
     </head>
     <body>
         <div class = "main">
@@ -108,7 +116,7 @@
         <!-- Mostrar recibos de los alumnos -->
 		<div align="center" style="margin-top:20px;"><p><h1>Recibos del alumno</h1></p></div>
 		<table align="center" border="1" style="width:auto; height:20px;">
-			<tr>
+			<tr style="background-color: #87CEFA;">
 				<th>¿Pagado?</th>
 		    	<th>DNI del alumno</th>
 		    	<th>Nombre</th>
@@ -146,19 +154,24 @@
 	
 					<?php if (isset($recibo) and ($recibo["ID_RECIBO"] == $fila["ID_RECIBO"])) { ?>
 						<!-- Editando recibo -->
-							<tr>
-								<td><h3><input id="PAGADO" name="PAGADO" type="text" value="<?php echo $fila["PAGADO"]; ?>"/></h3></td>					    
+							<tr style="background-color: #E0FFFF;">
+								<td><h3><input id="PAGADO" name="PAGADO" type="text" value="<?php echo $fila["PAGADO"]; ?>"/></h3></td>
+								<td><?php echo $dni; ?></td>
+								<td><?php echo $nombre; ?></td>
+								<td><?php echo $apellidos; ?></td>
+								<td><?php echo $edad; ?></td>					    
 							</tr>
 							
 					<?php } else { ?>
 						<!-- Mostrando recibo -->
 							<input id="ID_RECIBO" name="ID_RECIBO" type="hidden" value="<?php echo $fila["ID_RECIBO"]; ?>"/>
-								<tr>
+								<tr style="background-color: #E0FFFF;">
 									<td><?php echo $fila["PAGADO"]; ?></td>
 									<td><?php echo $dni; ?></td>
 									<td><?php echo $nombre; ?></td>
 									<td><?php echo $apellidos; ?></td>
 									<td><?php echo $edad; ?></td>
+								
 					<?php } ?>
 
 					</div>

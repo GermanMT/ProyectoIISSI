@@ -103,3 +103,25 @@
 		return type;
 	}
 	
+	function colorContraseña(){
+		$("#Pass").on("keyup", function(){
+			
+			var clave = $("#Pass").val();
+			if(seguridad_clave(clave)<10){
+				 $("#Pass").css("background-color","red");
+			}else if(seguridad_clave(clave)>=10 && seguridad_clave(clave)<0.3){
+				$("#Pass").css("background-color","#ffaf7f");
+			}else if(seguridad_clave(clave)>=30 && seguridad_clave(clave)<0.4){
+				$("#Pass").css("background-color","#ffc976");
+			}else if(seguridad_clave(clave)>=40 && seguridad_clave(clave)<0.6){
+				$("#Pass").css("background-color","#fffd88");
+			}else if(seguridad_clave(clave)>=60 && seguridad_clave(clave)<0.7){
+				$("#Pass").css("background-color","#eff580");
+			}else if(seguridad_clave(clave)>70 && seguridad_clave(clave)<=0.9)
+				$("#Pass").css("background-color","#cde762");
+			else if(seguridad_clave(clave)>90 ){
+				$("#Pass").css("background-color","#8bff65");
+			}
+			
+		})
+	}

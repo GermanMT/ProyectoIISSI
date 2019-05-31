@@ -6,9 +6,9 @@
 	
 	//require_once ('includes/funciones.php');	
 	// Comprobar que hemos llegado a esta página porque se ha rellenado el formulario
-	if (isset($_SESSION["formulario"])) {
-		$usuario = $_SESSION["formulario"];
-		unset($_SESSION["formulario"]);
+	if (isset($_SESSION["formularioProfesor"])) {
+		$usuario = $_SESSION["formularioProfesor"];
+		unset($_SESSION["formularioProfesor"]);
 	}else {
 		header("Location: formularioProfesor.php");
 	}

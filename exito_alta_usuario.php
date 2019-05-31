@@ -46,7 +46,7 @@
 				
  				<h1>El usuario ya existe en la base de datos o no se ha introducido con éxito.</h1>
 				<div >				
-					Pulsa <a href="formulario.html">aquí</a> para volver al formulario.
+					Pulsa <a href="formulario.php">aquí</a> para volver al formulario.
 				</div>
 		<?php } ?>
 
