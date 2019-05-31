@@ -98,7 +98,7 @@
 				<input name="tipoUsuario" type="radio" value="Admin"/>
 				Admin</label>
 		</div>
-		<input type="submit" name="submit" value="Logueate!" />
+		<input type="submit" class="btn1" name="submit" value="Logueate!" />
 	</form>
 		
 	<p>¿No estás registrado? <a href="formulario.php">¡Registrate!</a></p>
