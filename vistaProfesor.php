@@ -13,6 +13,8 @@
 		$IDC = base64_decode($_GET['var2']);
 		$filas1 = consultarTodosHorariosProfesor($conexion,$IDC);
 		cerrarConexionBD($conexion);
+		//datos: #98FB98
+		// cabecera: #228B22
 	}
 ?>
 
@@ -26,6 +28,14 @@
         <title>IISSI</title>
         <link rel="stylesheet" href="CSS/styleIISSI.css">
     </head>
+    <style>
+    	table {
+  			border-collapse: collapse;
+		}
+		table, td, th {
+ 	    	border: 1px solid black;
+		}
+	</style>
     <body>
         <div class = "main">
             <div class="header">
@@ -53,19 +63,19 @@
 
 	<div align="center" style="margin-top: 50px;"><p><h1>Horarios:</h1></p></div>
 		<table align="center" border="1" style="width:auto; height:20px;">
-		<tr>
-	    <th>Dia</th>
-	    <th>Hora de Inicio</th> 
-	    <th>Hora de Fin</th>
-	    <th>Curso</th>
-	  </tr>
+		<tr style="background-color: #228B22;">
+		    <th>Dia</th>
+		    <th>Hora de Inicio</th> 
+		    <th>Hora de Fin</th>
+		    <th>Curso</th>
+	  	</tr>
 	
 	
 	<?php
 		foreach($filas1 as $fila) {
 	?>
 	
-	  <tr>
+	  <tr style="background-color: #98FB98;">
 	    <td><?php echo $fila["DIA"]; ?></td>
 		<td><?php echo $fila["HORA_INICIO"]; ?></td>
 		<td><?php echo $fila["HORA_FIN"]; ?></td>

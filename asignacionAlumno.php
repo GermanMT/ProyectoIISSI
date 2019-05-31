@@ -52,9 +52,16 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-
         <title>IISSI</title>
         <link rel="stylesheet" href="CSS/styleIISSI.css">
+        <style>
+	    	table {
+	  			border-collapse: collapse;
+			}
+			table, td, th {
+	 	    	border: 1px solid black;
+			}
+		</style>
     </head>
     <body>
         <div class = "main">
@@ -67,7 +74,7 @@
                         <div class="login" style="
                         width: 121.198">
                             <img src="images/logoAcademia.png">
-                            <a href="login.php" target="blank" style="
+                            <a href="logout.php" target="blank" style="
                             height: 0px;
                             padding-right: 20px;">Cerrar Sesión</a>
                         </div>
@@ -99,7 +106,7 @@
 			<!-- Mostrar alumnos de la academia -->
 			<div align="center" style="margin-top:50px;"><p><h1>Alumnos</h1></p></div>
 				<table align="center" border="1" style="width:90%; height:20px;">
-					<tr>
+					<tr style="background-color: #87CEFA;">
 				    	<th>DNI del alumno</th>
 				    	<th>Nombre</th>
 				    	<th>Apellidos</th>
@@ -130,18 +137,18 @@
 		
 						<?php if (isset($usuario) and ($usuario["DNI_USUARIO"] == $fila["DNI_USUARIO"])) { ?>
 								<!-- Editando alumno -->
-								<tr>
+								<tr style="background-color: #E0FFFF;">
 									<td><h4><?php echo $fila["DNI_USUARIO"];?></h4></td>
 									<td><h4><?php echo $fila["NOMBRE"];?></h4></td>
 									<td><h4><?php echo $fila["APELLIDOS"];?></h4></td>
 									<td><h4><?php echo $fila["TIPO_EXAMEN"];?></h4></td>
 									<td><h4><?php echo $fila["NIVEL_EXAMEN"];?></h4></td>
-									<td><h3><input id="ID_CURSO" name="ID_CURSO" type="text" value="<?php echo $fila["Id_Curso"]; ?>"/></h3></td>
+									<td><h3><input id="ID_CURSO" name="ID_CURSO" type="text" value="<?php echo $fila["ID_CURSO"]; ?>"/></h3></td>
 								</tr>
 						<?php } else { ?>
 							<!-- Mostrando alumno -->
 								<input id="DNI_Usuario" name="DNI_Usuario" type="hidden" value="<?php echo $fila["DNI_Usuario"]; ?>"/>
-									<tr>
+									<tr style="background-color: #E0FFFF;">
 									   	<td><?php echo $fila["DNI_USUARIO"]; ?></td>
 									    <td><?php echo $fila["NOMBRE"]; ?></td>
 									    <td><?php echo $fila["APELLIDOS"]; ?></td>

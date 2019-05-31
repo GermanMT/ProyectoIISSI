@@ -60,6 +60,14 @@
 
         <title>IISSI</title>
         <link rel="stylesheet" href="CSS/styleIISSI.css">
+        <style>
+    	table {
+  			border-collapse: collapse;
+		}
+		table, td, th {
+ 	    	border: 1px solid black;
+		}
+		</style>
     </head>
     <body>
         <div class = "main">
@@ -72,7 +80,7 @@
                         <div class="login" style="
                         width: 121.198">
                             <img src="images/logoAcademia.png">
-                            <a href="login.php" target="blank" style="
+                            <a href="logout.php" target="blank" style="
                             height: 0px;
                             padding-right: 20px;">Cerrar Sesión</a>
                         </div>
@@ -104,7 +112,7 @@
 			<!-- Mostrar alumnos de la academia -->
 			<div align="center" style="margin-top:50px;"><p><h1>Alumnos</h1></p></div>
 				<table align="center" border="1" style="width:90%; height:20px;">
-					<tr>
+					<tr style="background-color: #87CEFA;">
 				    	<th>DNI del alumno</th>
 				    	<th>Nombre</th>
 				    	<th>Apellidos</th>
@@ -152,7 +160,7 @@
 		
 						<?php if (isset($usuario) and ($usuario["DNI_USUARIO"] == $fila["DNI_USUARIO"])) { ?>
 								<!-- Editando alumno -->
-								<tr>
+								<tr style="background-color: #E0FFFF;">
 									<td><h4><?php echo $fila["DNI_USUARIO"];?></h4></td>
 									<td><h3><input id="NOMBRE" name="NOMBRE" type="text" value="<?php echo $fila["NOMBRE"]; ?>"/></h3></td>
 									<td><h3><input id="APELLIDOS" name="APELLIDOS" type="text" value="<?php echo $fila["APELLIDOS"]; ?>"/></h3></td>
@@ -166,7 +174,7 @@
 						<?php } else { ?>
 							<!-- Mostrando alumno -->
 								<input id="DNI_USUARIO" name="DNI_USUARIO" type="hidden" value="<?php echo $fila["DNI_USUARIO"]; ?>"/>
-									<tr>
+									<tr style="background-color: #E0FFFF;">
 									   	<td><?php echo $fila["DNI_USUARIO"]; ?></td>
 									    <td><?php echo $fila["NOMBRE"]; ?></td>
 									    <td><?php echo $fila["APELLIDOS"]; ?></td>
@@ -207,7 +215,7 @@
 			<!-- Mostrar profesores de la academia -->
 			<div align="center" style="margin-top: 50px;"><p><h1>Profesor</h1></p></div>
 		  	<table align="center" border="1" style="width:90%; height:20px;">
-				<tr>
+				<tr style="background-color: #87CEFA;">
 			    	<th>DNI del Profesor</th>
 			    	<th>Nombre</th>
 			    	<th>Apellidos</th>
@@ -267,7 +275,7 @@
 						<?php } else { ?>
 							<!-- Mostrando profesor -->
 								<input id="DNI_USUARIO" name="DNI_USUARIO" type="hidden" value="<?php echo $fila["DNI_USUARIO"]; ?>"/>
-									<tr>
+									<tr style="background-color: #E0FFFF;">
 									   	<td><?php echo $fila["DNI_USUARIO"]; ?></td>
 									    <td><?php echo $fila["NOMBRE"]; ?></td>
 									    <td><?php echo $fila["APELLIDOS"]; ?></td>
@@ -302,10 +310,6 @@
 			
 			<?php } ?>
 			</table>
-			
-			<div align="center" style="margin-top: 15px;">
-				<a href="asignacionAlumno.php">Añade un Alumno</a>
-			</div>
 	
 			</main>
 		</div>
