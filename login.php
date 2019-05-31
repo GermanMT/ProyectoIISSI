@@ -64,10 +64,16 @@
 
 <body>
 
-<?php
-	include_once("cabecera.php");
+
+<div class="body_content_login">
+	<?php
+	include_once("cabeceraLogin.php");
+	
 ?>
-<div align="center" style="margin-top: 300px;">
+	<div class="bottom_content">
+		
+<!--<hr size="60" noshade="noshade"/ style="margin-top: -4px;">-->
+<div align="center" style="margin-top: 350px;">
 <main>
 	<?php if (isset($login)) {
 		echo "<div class=\"error\">";
@@ -99,5 +105,8 @@
 	<a class="button" href="IISSI.php"><button type="button" class="read_more">Vuelve Atrás</button></a>
 </main>
 </div>
+</div>
+</div>
+<!--</div>-->
 </body>
 </html>
