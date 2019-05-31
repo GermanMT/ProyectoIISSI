@@ -11,8 +11,13 @@
 		
 		$_SESSION["usuario"] = $usuario;
 		
-		if (isset($_REQUEST["editar"])) Header("Location: asignacionAlumno.php?var2=" .base64_encode($_REQUEST["ID_CURSO"])); 
-		else if (isset($_REQUEST["grabar"])) Header("Location: accion_asignar.php?var2=" .base64_encode($_REQUEST["ID_CURSO"])); 
+		if($_REQUEST["TIPOUSUARIO"] == "Alumno"){
+			if (isset($_REQUEST["editar"])) Header("Location: asignacionAlumno.php?var2=" .base64_encode($_REQUEST["ID_CURSO"]));
+			else if (isset($_REQUEST["grabar"])) Header("Location: accion_asignar.php?var2=" .base64_encode($_REQUEST["ID_CURSO"])); 
+		} else if($_REQUEST["TIPOUSUARIO"] == "Profesor"){
+			if (isset($_REQUEST["editar"])) Header("Location: asignacionProfesor.php?var2=" .base64_encode($_REQUEST["ID_CURSO"]));
+			else if (isset($_REQUEST["grabar"])) Header("Location: accion_asignar.php?var2=" .base64_encode($_REQUEST["ID_CURSO"]));
+		}
 
 	}
 	else {
