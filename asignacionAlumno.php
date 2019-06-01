@@ -181,6 +181,9 @@
 			
 			<?php } ?>
 			</table> 
+			<div align="center">
+				<a class="button" href="VistaAdmin.php"><button type="button" class="read_more">Vuelve Atrás</button></a>
+			</div>
 			</main>
 			</div>
 		</div>
