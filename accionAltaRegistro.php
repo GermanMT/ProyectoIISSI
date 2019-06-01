@@ -79,10 +79,7 @@ if (count($errores) > 0) {
 	|| !preg_match("/^\d{9}$/", $usuario["TelefonoMovil"])) {
 		$errores[] = "El teléfono móvil no es correcto";
 	}
-	if ($usuario["TelefonoFijo"] == "" or !is_numeric($usuario["TelefonoFijo"])
-	|| !preg_match("/^\d{9}$/", $usuario["TelefonoFijo"])) {
-		$errores[] = "El teléfono fijo no es correcto";
-	}
+	
 	if (!isset($usuario["Pass"]) || strlen($usuario["Pass"]) < 8) {
 		$errores[] = "Contraseña no válida: debe tener al menos 8 caracteres";
 	} else if (!preg_match("/[a-z]+/", $usuario["Pass"]) 
