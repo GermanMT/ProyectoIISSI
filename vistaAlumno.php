@@ -35,6 +35,7 @@
 		</style>
     </head>
     <body>
+    	
         <div class = "main">
             <div class="header">
                 <div class="header_box">
@@ -50,10 +51,12 @@
                             padding-right: 20px;">Cerrar Sesión</a>
                         </div>
                     </div>
-                </div>                    
+                </div>   
+   <hr size="60" noshade="noshade"/ style="margin-top: 180px;">  
+   <div class="body_content_Alumno" style="margin-top: -10px;">               
     <main>
     <!-- Mostrar los recibos del alumno -->       
-    <div align="center" style="margin-top:250px;"><p><h1>Recibos:</h1></p></div>
+    <div align="center" style="margin-top:120px;"><p><h1>Recibos:</h1></p></div>
 		<table align="center" border="1" style="width:auto; height:20px;">
 			<tr style="background-color: #FFFF00;">
 			    <th>DNI</th>
@@ -103,5 +106,6 @@
 	
 	
 	</main>
+	</div>
 </body>
 </html>

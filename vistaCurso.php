@@ -49,16 +49,16 @@
                         </div>
                     </div>
                 </div>
-
-    <div class="body_content">
-        <p><h1>Esta es la página de los alumnos del curso:</h1></p>
+	<hr size="60" noshade="noshade"/ style="margin-top: 180px;">  
+   <div class="body_content_ProfesorCurso" style="margin-top: -10px;">
+    <div align="center">
+        <p><h1>Estos son los alumnos de ese curso:</h1></p>
     </div>
-    
  <main>
  	
 <!--Mostar tabla de los cursos-->
 	
-	<div align="center" style="margin-top:300px;"><p><h1>Cursos</h1></p></div>
+	<div align="center" style="margin-top:60px;"><p><h1>Cursos</h1></p></div>
 		<table align="center" border="1" style="width:auto; height:20px;">
 		<tr style="background-color: #228B22;">
 		    <th>Nombre</th>
@@ -80,5 +80,6 @@
 	<?php } ?>
 	</table>
 </main>
+</div>
         </body>
 </html>

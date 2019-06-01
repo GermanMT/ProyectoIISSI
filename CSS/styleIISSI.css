@@ -165,6 +165,62 @@ ul.menus li ul{
     width: 100%;
 
 }
+.body_content_Alumno{
+    background-image: url("https://img.freepik.com/foto-gratis/papel-pintado-pared-hormigon-pintado-textura-concepto-coloreado_53876-31799.jpg?size=626&ext=jpg");
+    background-size:100%;
+    padding-bottom: 68px;
+    float: left;
+    width: 100%;
+
+}
+.body_content_Profesor{
+    background-image: url("http://fadermex.com/wp-content/uploads/2017/01/6a771a_blue_1920x1200.jpg");
+    background-size:100%;
+    padding-bottom: 285px;
+    float: left;
+    width: 100%;
+
+}
+.body_content_ProfesorCurso{
+    background-image: url("http://fadermex.com/wp-content/uploads/2017/01/6a771a_blue_1920x1200.jpg");
+    background-size:100%;
+    padding-bottom: 87px;
+    float: left;
+    width: 100%;
+
+}
+.body_content_AdminCurso{
+    background-image: url("https://st2.depositphotos.com/2009363/6705/i/950/depositphotos_67053115-stock-photo-background-for-vintage-style-cards.jpg");
+    background-size:100%;
+    padding-bottom: 87px;
+    float: left;
+    width: 100%;
+
+}
+.body_content_AdminRecibo{
+    background-image: url("https://st2.depositphotos.com/2009363/6705/i/950/depositphotos_67053115-stock-photo-background-for-vintage-style-cards.jpg");
+    background-size:100%;
+    padding-bottom: 85px;
+    float: left;
+    width: 100%;
+
+}
+.body_content_Admin{
+    background-image: url("https://st2.depositphotos.com/2009363/6705/i/950/depositphotos_67053115-stock-photo-background-for-vintage-style-cards.jpg");
+    background-size:100%;
+    padding-bottom: 52px;
+    float: left;
+    width: 100%;
+
+}
+.body_content_AdminAsignacion{
+    background-image: url("https://st2.depositphotos.com/2009363/6705/i/950/depositphotos_67053115-stock-photo-background-for-vintage-style-cards.jpg");
+    background-size:100%;
+    padding-bottom: 45px;
+    float: left;
+    width: 100%;
+
+}
 .bottom_content{
     margin: 0 auto;
     width: 90%;
