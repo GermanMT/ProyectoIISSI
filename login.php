@@ -38,10 +38,8 @@
 					}
 				}else if($tipoUsuario == 'Profesor' AND $tipoUsuario == $tipo["TIPOUSUARIO"]){
 					$_SESSION['loginProfesor'] = $usuario;
-					foreach($DNI_Usuario as $DNI){
-						foreach($id_Curso as $IDC){
-							Header("Location: vistaProfesor.php?var=". base64_encode($DNI["DNI_USUARIO"])."&var2=". base64_encode($IDC["ID_CURSO"])); 
-						}
+					foreach($id_Curso as $IDC){
+						Header("Location: vistaProfesor.php?var=". base64_encode($IDC["ID_CURSO"])); 
 					}
 				}else if($tipoUsuario == 'Admin' AND $tipoUsuario == $tipo["TIPOUSUARIO"]){
 					$_SESSION['loginAdmin'] = $usuario;

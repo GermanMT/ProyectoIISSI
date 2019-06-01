@@ -79,6 +79,9 @@
 	
 	<?php } ?>
 	</table>
+	<div align="center">
+		<a class="button" href="vistaProfesor.php?var=<?php echo base64_encode($v1);?>"><button type="button" class="read_more">Vuelve Atrás</button></a>
+	</div>
 </main>
 </div>
         </body>

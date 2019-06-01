@@ -9,8 +9,7 @@
 		Header("Location: login.php");
 	else {
 		$conexion = crearConexionBD();
-		$DNI = base64_decode($_GET['var']);
-		$IDC = base64_decode($_GET['var2']);
+		$IDC = base64_decode($_GET['var']);
 		$filas1 = consultarTodosHorariosProfesor($conexion,$IDC);
 		cerrarConexionBD($conexion);
 		//datos: #98FB98

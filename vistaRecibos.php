@@ -27,6 +27,8 @@
 		unset($_SESSION["paginacion"]);
 	
 		$conexion = crearConexionBD();
+		
+		$Id_Curso = consultarCursoAlumnoRecibo($conexion,$v1);	
 	
 		$query = "SELECT * FROM RECIBOS"
 			. " WHERE (RECIBOS.DNI_USUARIO = '".$v1."')";
@@ -137,6 +139,8 @@
 					<div>
 						<input id="DNI" name="DNI"
 							type="hidden" value="<?php echo base64_encode($v1); ?>"/>	
+						<input id="ID_CURSO" name="ID_CURSO"
+							type="hidden" value="<?php echo base64_encode(['var2']); ?>"/>	
 						<input id="ID_RECIBO" name="ID_RECIBO"
 							type="hidden" value="<?php echo $fila["ID_RECIBO"]; ?>"/>
 						<input id="FECHA_RECIBO" name="FECHA_RECIBO"
@@ -196,9 +200,13 @@
 				</div>
 			</form>
 		</article>
-		<?php } ?>
-		
+		<?php } ?>	
 		</table>
+		<div align="center">
+			<?php foreach($Id_Curso as $Id){ ?>
+				<a class="button" href="vistaAdminCurso.php?var2=<?php echo base64_encode($Id["ID_CURSO"]);?>"><button type="button" class="read_more">Vuelve Atrás</button></a>
+			<?php } ?>
+		</div>
 		</main>
 		</div>
     </body>

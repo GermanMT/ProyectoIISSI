@@ -5,6 +5,12 @@
      * #	de Recibos de la capa de acceso a datos 	           #
      * #===========================================================#
      */
+    function consultarCursoAlumnoRecibo($conexion,$DNI){
+     	$consulta = "SELECT ID_CURSO FROM USUARIOS"
+			. " WHERE (USUARIOS.DNI_USUARIO = '".$DNI."')";
+	    return $conexion->query($consulta);
+    }
+	 
 	function consultarTodosRecibos($conexion,$DNI) {
 		$consulta = "SELECT * FROM RECIBOS"
 			. " WHERE (RECIBOS.DNI_USUARIO = '".$DNI."')"
