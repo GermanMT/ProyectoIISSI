@@ -58,12 +58,15 @@
     		echo "</div>";
   		}
 	?>
+	<hr size="60" noshade="noshade"/ style="margin-top: 180px;">  
+	<div class="body_content_FormProfesor" style="margin-top: -10px;">   
+		<main>
 	
 	<!-- Detrás de "POST"   action="validacion_alta_usuario.php" onsubmit="return validateForm()" -->
 	<form id="formularioProfesor" class="formularioProfesor" method="get" novalidate>
 		<p><i>Los campos obligatorios están marcados con </i><em>*</em></p>
 		<fieldset><legend>Datos personales</legend>
-			<div></div><label for="DNI">DNI<em>*</em></label>
+			<div><label for="DNI">DNI<em>*</em></label>
 			<input id="DNI_Usuario" name="DNI_Usuario" type="text" placeholder="12345678X" pattern="^[0-9]{8}[A-Z]" title="Ocho dígitos seguidos de una letra mayúscula" 
 			value="<?php echo $formulario['DNI'];?>" required>
 			</div>
@@ -157,5 +160,7 @@
 		cerrarConexionBD($conexion);
 	?>
 
+	</main>
+	</div>
 	</body>
 </html>

@@ -154,6 +154,21 @@ ul.menus li ul{
 .body_content{
     background-image: url("https://cdn.pixabay.com/photo/2017/04/06/20/17/workshop-2209239__480.jpg");
     background-size:100%;
+     padding-bottom: 128px;
+    float: left;
+    width: 100%;
+}
+.body_content_Niveles{
+    background-image: url("https://cdn.pixabay.com/photo/2017/04/06/20/17/workshop-2209239__480.jpg");
+    background-size:100%;
+     padding-bottom: 55px;
+    float: left;
+    width: 100%;
+}
+.body_content_QS{
+    background-image: url("https://cdn.pixabay.com/photo/2017/04/06/20/17/workshop-2209239__480.jpg");
+    background-size:100%;
+     padding-bottom: 143px;
     float: left;
     width: 100%;
 }
@@ -215,6 +230,30 @@ ul.menus li ul{
 }
 .body_content_AdminAsignacion{
     background-image: url("https://st2.depositphotos.com/2009363/6705/i/950/depositphotos_67053115-stock-photo-background-for-vintage-style-cards.jpg");
+    background-size:100%;
+    padding-bottom: 45px;
+    float: left;
+    width: 100%;
+
+}
+.body_content_Form{
+    background-image: url("https://static.wixstatic.com/media/00820c_b6f4317385194004b861738d6f8a4bd1.jpg");
+    background-size:100%;
+    padding-bottom: 70px;
+    float: left;
+    width: 100%;
+
+}
+.body_content_FormCurso{
+    background-image: url("https://static.wixstatic.com/media/00820c_b6f4317385194004b861738d6f8a4bd1.jpg");
+    background-size:100%;
+    padding-bottom: 215px;
+    float: left;
+    width: 100%;
+
+}
+.body_content_FormProfesor{
+    background-image: url("https://static.wixstatic.com/media/00820c_b6f4317385194004b861738d6f8a4bd1.jpg");
     background-size:100%;
     padding-bottom: 45px;
     float: left;
