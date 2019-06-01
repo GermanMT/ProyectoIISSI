@@ -79,9 +79,11 @@
                         </div>
                     </div>
                 </div>
+         <hr size="60" noshade="noshade"/ style="margin-top: 180px;">  
+  		 <div class="body_content_AdminAsignacion" style="margin-top: -10px;">
 	        <main> 
 			    <nav>
-					<div align="center" style="margin-top: 250px;">
+					<div align="center" style="margin-top: 100px;">
 						<?php
 							for( $pagina = 1; $pagina <= $total_paginas; $pagina++ )
 								if ( $pagina == $pagina_seleccionada) { 	?>
@@ -103,7 +105,7 @@
 				</nav>          
 		                	
 			<!-- Mostrar alumnos de la academia -->
-			<div align="center" style="margin-top:50px;"><p><h1>Alumnos</h1></p></div>
+			<div align="center" style="margin-top:50px;"><p><h1>Profesores</h1></p></div>
 				<table align="center" border="1" style="width:90%; height:20px;">
 					<tr style="background-color: #87CEFA;">
 				    	<th>DNI del alumno</th>
@@ -177,6 +179,7 @@
 			<?php } ?>
 			</table> 
 			</main>
+			</div>
 		</div>
 	</body>
 </html>

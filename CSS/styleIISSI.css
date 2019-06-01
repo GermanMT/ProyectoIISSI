@@ -213,6 +213,14 @@ ul.menus li ul{
     width: 100%;
 
 }
+.body_content_AdminAsignacion{
+    background-image: url("https://st2.depositphotos.com/2009363/6705/i/950/depositphotos_67053115-stock-photo-background-for-vintage-style-cards.jpg");
+    background-size:100%;
+    padding-bottom: 45px;
+    float: left;
+    width: 100%;
+
+}
 .bottom_content{
     margin: 0 auto;
     width: 90%;
