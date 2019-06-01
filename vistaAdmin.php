@@ -88,7 +88,7 @@
 			</div>
 			
 			<div align="center" style="margin-top: 15px;">
-				<a href="asignacionAlumno.php" class="boton_1">Añade un Profesor</a>
+				<a href="asignacionProfesor.php" class="boton_1">Añade un Profesor</a>
 			</div>
 		
 			</main>

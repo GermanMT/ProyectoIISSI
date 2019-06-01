@@ -27,7 +27,7 @@
 		$conexion = crearConexionBD();
 	
 		$query = "SELECT * FROM Usuarios"
-			. " WHERE (Usuarios.TipoUsuario = 'Alumno' AND Usuarios.Id_Curso IS NULL)";
+			. " WHERE (Usuarios.TipoUsuario = 'Profesor' AND Usuarios.Id_Curso IS NULL)";
 	
 		$total_registros = total_consulta($conexion, $query);
 		$total_paginas = (int)($total_registros / $pag_tam);
@@ -109,8 +109,7 @@
 				    	<th>DNI del alumno</th>
 				    	<th>Nombre</th>
 				    	<th>Apellidos</th>
-				    	<th>Tipo de examen</th>
-				    	<th>Nidel del examen</th>
+				    	<th>Nivel del Profesor</th>
 				    	<th>Curso</th>
 				    </tr>
 			<?php
@@ -142,7 +141,6 @@
 									<td><h4><?php echo $fila["DNI_USUARIO"];?></h4></td>
 									<td><h4><?php echo $fila["NOMBRE"];?></h4></td>
 									<td><h4><?php echo $fila["APELLIDOS"];?></h4></td>
-									<td><h4><?php echo $fila["TIPO_EXAMEN"];?></h4></td>
 									<td><h4><?php echo $fila["NIVEL_EXAMEN"];?></h4></td>
 									<td><h3><input id="ID_CURSO" name="ID_CURSO" type="text" value="<?php echo $fila["ID_CURSO"]; ?>"/></h3></td>
 								</tr>
@@ -153,7 +151,6 @@
 									   	<td><?php echo $fila["DNI_USUARIO"]; ?></td>
 									    <td><?php echo $fila["NOMBRE"]; ?></td>
 									    <td><?php echo $fila["APELLIDOS"]; ?></td>
-									    <td><?php echo $fila["TIPO_EXAMEN"]; ?></td>
 									    <td><?php echo $fila["NIVEL_EXAMEN"]; ?></td>
 									    <td><?php echo $fila["ID_CURSO"]; ?></td>
 						<?php } ?>
@@ -162,7 +159,7 @@
 								<td>
 								<?php if (isset($usuario) and ($usuario["DNI_USUARIO"] == $fila["DNI_USUARIO"])) { ?>
 									<button id="grabar" name="grabar" class="boton_personalizado" type="submit">
-										<p>Añadir alumno</p>
+										<p>Añadir profesor</p>
 									</button>
 								<?php } else { ?>
 									<button id="editar" name="editar" class="boton_personalizado" type="submit">
