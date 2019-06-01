@@ -14,7 +14,7 @@
 		return true;
 	}
 
-	// EJERCICIO 3.1: Comprobar la restricciones del password y aplicar clases CSS mediante JQuery
+	// Comprobamos la restricciones del password y aplicacamos clases CSS mediante JQuery
 	function passwordValidation(){
 		var password = document.getElementById("Pass");
 		var pwd = password.value;
@@ -31,7 +31,7 @@
 		
 		// Si no cumple las restricciones, devolvemos un error
 		if(!valid){
-			var error = "Please enter a valid password! Length >= 8, (upper and lower case) letters and digits";
+			var error = "Por favor, introduce una contraseña válida. Tamaño >= 8, dígitos y letras mayúsculas minúsculas";
 		}else{
 			var error = "";
 		}
@@ -39,7 +39,7 @@
 		return error;
 	}
 	
-	// EJERCICIO 3.2: Campos de contraseña y confirmación de contraseña iguales
+	//Campos de contraseña y confirmación de contraseña iguales
 	function passwordConfirmation(){
 		// Obtenemos el campo de password y su valor
         var password = document.getElementById("Pass");
@@ -50,7 +50,7 @@
 
 		// Los comparamos
 		if (pwd != confirmation) {
-			var error = "Please enter matching passwords!";
+			var error = "Introduce la misma contraseña!";
 		}else{
 			var error = "";
 		}
@@ -60,7 +60,7 @@
 		return error;
 	}
 
-	// EJERCICIO 2: Calcula la fortaleza de una contraseña: frecuencia de repetición de caracteres
+	//Calculamos la fortaleza de una contraseña: frecuencia de repetición de caracteres
 	function passwordStrength(password){
     		// Creamos un Map donde almacenar las ocurrencias de cada carácter
     		var letters = {};
@@ -82,7 +82,7 @@
 	}
 	
 	// EJERCICIO 4: Coloreado del campo de contraseña según su fortaleza
-	function passwordColor(){
+/*	function passwordColor(){
 		var passField = document.getElementById("Pass");
 		var strength = passwordStrength(passField.value);
 		
@@ -102,26 +102,27 @@
 		
 		return type;
 	}
-	
-	function colorContraseña(){
-		$("#Pass").on("keyup", function(){
-			
-			var clave = $("#Pass").val();
-			if(seguridad_clave(clave)<10){
-				 $("#Pass").css("background-color","red");
-			}else if(seguridad_clave(clave)>=10 && seguridad_clave(clave)<0.3){
-				$("#Pass").css("background-color","#ffaf7f");
-			}else if(seguridad_clave(clave)>=30 && seguridad_clave(clave)<0.4){
-				$("#Pass").css("background-color","#ffc976");
-			}else if(seguridad_clave(clave)>=40 && seguridad_clave(clave)<0.6){
-				$("#Pass").css("background-color","#fffd88");
-			}else if(seguridad_clave(clave)>=60 && seguridad_clave(clave)<0.7){
-				$("#Pass").css("background-color","#eff580");
-			}else if(seguridad_clave(clave)>70 && seguridad_clave(clave)<=0.9)
-				$("#Pass").css("background-color","#cde762");
-			else if(seguridad_clave(clave)>90 ){
-				$("#Pass").css("background-color","#8bff65");
-			}
-			
-		})
-	}
+*/
+	/*Funcion para darle color al imput según su fortaleza*/ 
+function colorContraseña(){
+	$("#Pass").keyup(function(){
+		
+		var clave = $("#Pass").val();
+		if(seguridad_clave(clave)<10){
+			 $("#Pass").css("background-color","red");
+		}else if(seguridad_clave(clave)>=0.1 && seguridad_clave(clave)<30){
+			$("#Pass").css("background-color","#ffaf7f");
+		}else if(seguridad_clave(clave)>=0.3 && seguridad_clave(clave)<40){
+			$("#Pass").css("background-color","#ffc976");
+		}else if(seguridad_clave(clave)>=0.4 && seguridad_clave(clave)<60){
+			$("#Pass").css("background-color","#fffd88");
+		}else if(seguridad_clave(clave)>=0.6 && seguridad_clave(clave)<=70){
+			$("#Pass").css("background-color","#eff580");
+		}else if(seguridad_clave(clave)>0.7 && seguridad_clave(clave)<=90)
+			$("#Pass").css("background-color","#cde762");
+		else if(seguridad_clave(clave)>0.9 ){
+			$("#Pass").css("background-color","#8bff65");
+		}
+		
+	})
+}

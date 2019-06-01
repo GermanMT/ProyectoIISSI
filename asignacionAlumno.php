@@ -110,7 +110,7 @@
 				    	<th>Nombre</th>
 				    	<th>Apellidos</th>
 				    	<th>Tipo de examen</th>
-				    	<th>Nidel del examen</th>
+				    	<th>Nivel del examen</th>
 				    	<th>Curso</th>
 				    </tr>
 			<?php

@@ -40,8 +40,9 @@ if (count($errores) > 0) {
 	header('Location: exitoCreacionCurso.php');
 }
 
-/* Función para validar la matriculación.
- ========================================================================== */
+///////////////////////////////////////////////////////////////
+// Validación en servidor del formulario de creación de curso//
+///////////////////////////////////////////////////////////////
  function validacionRegistroCurso($conexion, $usuario) {
 	$errores = array();
 	
