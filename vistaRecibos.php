@@ -18,8 +18,8 @@
 		if (isset($_SESSION["paginacion"]))
 			$paginacion = $_SESSION["paginacion"];
 		
-		$pagina_seleccionada = isset($_GET["PAG_NUM3"]) ? (int)$_GET["PAG_NUM3"] : (isset($paginacion) ? (int)$paginacion["PAG_NUM3"] : 1);
-		$pag_tam = isset($_GET["PAG_TAM3"]) ? (int)$_GET["PAG_TAM3"] : (isset($paginacion) ? (int)$paginacion["PAG_TAM3"] : 5);
+		$pagina_seleccionada = isset($_GET["PAG_NUM"]) ? (int)$_GET["PAG_NUM"] : (isset($paginacion) ? (int)$paginacion["PAG_NUM"] : 1);
+		$pag_tam = isset($_GET["PAG_TAM"]) ? (int)$_GET["PAG_TAM"] : (isset($paginacion) ? (int)$paginacion["PAG_TAM"] : 5);
 	
 		if ($pagina_seleccionada < 1) 		$pagina_seleccionada = 1;
 		if ($pag_tam < 1) 		$pag_tam = 5;
@@ -106,9 +106,9 @@
 			</div>
 			<form align="center" method="get" action="vistaRecibos.php">
 				<input id="var" name="var" type="hidden" value="<?php echo base64_encode($v1)?>"/>			
-				<input id="PAG_NUM3" name="PAG_NUM3" type="hidden" value="<?php echo $pagina_seleccionada?>"/>		
+				<input id="PAG_NUM" name="PAG_NUM" type="hidden" value="<?php echo $pagina_seleccionada?>"/>		
 				Mostrando	
-				<input id="PAG_TAM3" name="PAG_TAM3" type="number"	
+				<input id="PAG_TAM" name="PAG_TAM" type="number"	
 					min="1" max="<?php echo $total_registros; ?>"	
 					value="<?php echo $pag_tam?>" autofocus="autofocus" />	
 				entradas de <?php echo $total_registros?>	
