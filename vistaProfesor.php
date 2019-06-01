@@ -53,8 +53,9 @@
                         </div>
                     </div>
                 </div>
-
-    <div class="body_content" align="center">
+	<hr size="60" noshade="noshade"/ style="margin-top: 180px;">  
+   <div class="body_content_Profesor" style="margin-top: -10px;">
+    <div align="center">
         <p><h1>Bienvenido</h1></p>
     
                 
@@ -85,6 +86,7 @@
 	<?php } ?>
 	</table>
 </main>
+</div>
 </div>
         </body>
 </html>

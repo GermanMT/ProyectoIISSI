@@ -89,10 +89,13 @@
                         </div>
                     </div>
                 </div>
+                
+   <hr size="60" noshade="noshade"/ style="margin-top: 180px;">  
+   <div class="body_content_AdminRecibo" style="margin-top: -10px;">
 	    <main>
                
         <nav>
-			<div align="center" style="margin-top: 250px;">
+			<div align="center" style="margin-top: 100px;">
 				<?php
 					for( $pagina = 1; $pagina <= $total_paginas; $pagina++ )
 						if ( $pagina == $pagina_seleccionada) { 	?>
@@ -196,5 +199,7 @@
 		<?php } ?>
 		
 		</table>
+		</main>
+		</div>
     </body>
 </html>

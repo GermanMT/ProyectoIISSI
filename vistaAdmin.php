@@ -48,9 +48,11 @@
                     </div>
                 </div>
                 
+       	<hr size="60" noshade="noshade"/ style="margin-top: 180px;">  
+  		 <div class="body_content_Admin" style="margin-top: -10px;">
 				<!--Mostrando los cursos-->
 				<main>
-				<div align="center" style="margin-top: 200px;"><p><h1>Cursos:</h1></p></div>
+				<div align="center" style="margin-top: 100px;"><p><h1>Cursos:</h1></p></div>
 					<table align="center">
 						<tr style="background-color: #87CEFA;">
 						    <th>Curso</th>
@@ -71,9 +73,9 @@
 						</tr>
 				<?php } ?>
 					</table>
-				</main>
-			</div>
-			<div align="center" style="margin-top: 400px;">
+			
+		
+			<div align="center" style="margin-top: 80px;">
 				<a href="formularioCurso.php" class="boton_1">Crea un curso</a>
 			</div>
 			
@@ -88,6 +90,8 @@
 			<div align="center" style="margin-top: 15px;">
 				<a href="asignacionAlumno.php" class="boton_1">Añade un Profesor</a>
 			</div>
+		
+			</main>
 		</div>
 	</body>
 </html>
