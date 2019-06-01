@@ -41,7 +41,7 @@ FOREIGN KEY (Id_Curso) REFERENCES Cursos
 CREATE TABLE Recibos(
 Id_Recibo INTEGER NOT NULL,
 Fecha_Recibo VARCHAR2(30) NOT NULL,
-Por_Pagar INTEGER,
+Por_Pagar VARCHAR2(30),
 Cuenta_Bancaria CHAR(24),
 Hermanos NUMBER(2,0) NOT NULL,
 Pagado VARCHAR2(30) CHECK(Pagado IN('Si','No')),

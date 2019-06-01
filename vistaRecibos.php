@@ -40,8 +40,8 @@
 	
 		if ($pagina_seleccionada > $total_paginas)		$pagina_seleccionada = $total_paginas;
 	
-		$paginacion["PAG_NUM3"] = $pagina_seleccionada;
-		$paginacion["PAG_TAM3"] = $pag_tam;
+		$paginacion["PAG_NUM"] = $pagina_seleccionada;
+		$paginacion["PAG_TAM"] = $pag_tam;
 		$_SESSION["paginacion"] = $paginacion;
 	
 		$filas1 = consulta_paginada($conexion, $query, $pagina_seleccionada, $pag_tam);
@@ -103,7 +103,7 @@
 						if ( $pagina == $pagina_seleccionada) { 	?>
 							<span class="current"><?php echo $pagina; ?></span>
 				<?php }	else { ?>
-							<a href="vistaRecibos.php?var=<?php echo base64_encode($v1); ?>&PAG_NUM3=<?php echo $pagina; ?>&PAG_TAM3=<?php echo $pag_tam; ?>"><?php echo $pagina; ?></a>
+							<a href="vistaRecibos.php?var=<?php echo base64_encode($v1); ?>&PAG_NUM=<?php echo $pagina; ?>&PAG_TAM=<?php echo $pag_tam; ?>"><?php echo $pagina; ?></a>
 				<?php } ?>
 			</div>
 			<form align="center" method="get" action="vistaRecibos.php">
