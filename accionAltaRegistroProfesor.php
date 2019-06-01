@@ -75,9 +75,6 @@ if (count($errores) > 0) {
 	if ($usuario["TelefonoMovil"] == "" or !is_numeric($usuario["TelefonoMovil"]) 
 	or strlen($usuario["TelefonoMovil"]) < 9 or strlen($usuario["TelefonoMovil"]) > 9) {
 		$errores[] = "El teléfono móvil no es correcto";
-	if ($usuario["TelefonoFijo"] == "" or !is_numeric($usuario["TelefonoFijo"])
-	 or strlen($usuario["TelefonoFijo"]) < 9 or strlen($usuario["TelefonoFijo"]) > 9) {
-		$errores[] = "El teléfono fijo no es correcto";
 	}
 	if (!isset($usuario["Pass"]) || strlen($usuario["Pass"]) < 8) {
 		$errores[] = "Contraseña no válida: debe tener al menos 8 caracteres";
@@ -90,5 +87,4 @@ if (count($errores) > 0) {
 	} 
 	
 	return $errores;
-}
-?>
+ }

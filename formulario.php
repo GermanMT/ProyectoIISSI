@@ -27,9 +27,10 @@
 	else
 		$formulario = $_SESSION['formulario'];
 			
-	// Si hay errores de validación, hay que mostrarlos y marcar los campos (El estilo viene dado y ya se explicará)
+	// Si hay errores de validación, hay que mostrarlos y marcar los campos
 	if (isset($_SESSION["errores"]))
 		$errores = $_SESSION["errores"];
+		unset($_SESSION["errores"]);
 
 	// Creamos una conexión con la BD
 	$conexion = crearConexionBD();
@@ -40,21 +41,30 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="CSS/styleIISSI.css" />
-  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js'></script> 
- <!-- <script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>	-->
+<!--  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js'></script>-->
+  <script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>
   <script src="js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
-  <script>
-	$(document).ready(function() {
-	colorContraseña();
-	});
-  </script>
+  
   <title>Alta de Usuarios</title>
 </head>
 
 <body>
-	
-	
-      
+<script>
+	$(document).ready(function() {
+		$("#formulario").on("submit", function() {
+				return validateForm();
+			});
+		/*validateForm();*/
+		validacionUsuario();
+		/*colorContraseña();
+		passwordColor();*/
+			$("#Pass").on("keyup", function() {
+				// Calculo el color
+				passwordColor();
+			});
+	});
+  </script>
+
 	<?php
 		include_once("cabecera.php");
 	?>
@@ -117,7 +127,7 @@
 				<input name="TipoUsuario" type="radio" value="Alumno" <?php if($formulario['TipoUsuario']=='Alumno') echo ' checked ';?>/>
 				Alumno</label>
 			</div>
-
+		  	</fieldset>
 			<fieldset><legend>Datos del Tipo y Nivel de Exámen</legend>
 
 			<div><label>Tipo Examen:<em>*</em></label>
@@ -178,7 +188,7 @@
 			</div>-->
 		</fieldset>
 
-		<div><input type="submit" value="Enviar" formaction="accionAltaRegistro.php" /></div>
+		<div><input class='enviar' type="submit" value="Enviar" formaction="accionAltaRegistro.php" /></div>
 
 	</form>
 	<a class="button" href="IISSI.php"><button type="button" class="read_more">Vuelve Atrás</button></a>
