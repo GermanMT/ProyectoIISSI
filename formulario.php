@@ -40,8 +40,14 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="CSS/styleIISSI.css" />
-	<script src="js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
-  
+  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js'></script> 
+ <!-- <script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>	-->
+  <script src="js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
+  <script>
+	$(document).ready(function() {
+	colorContraseña();
+	});
+  </script>
   <title>Alta de Usuarios</title>
 </head>
 

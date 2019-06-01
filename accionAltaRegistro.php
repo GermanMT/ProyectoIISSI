@@ -49,8 +49,9 @@ if (count($errores) > 0) {
 	header('Location: exito_alta_usuario.php');
 }
 
-/* Función para validar la matriculación.
- ========================================================================== */
+/////////////////////////////////////////////////////////////
+// Validación en servidor del formulario de alta de alumno//
+/////////////////////////////////////////////////////////////
  function validacionRegistro($conexion, $usuario) {
 	$errores = array();
 	
