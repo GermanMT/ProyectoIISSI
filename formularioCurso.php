@@ -63,19 +63,11 @@
 	
 <hr size="60" noshade="noshade" style="margin-top: 180px;">  
 	<div class="body_content_FormCurso" style="margin-top: -10px;">   
-		<main>
-<<<<<<< HEAD
-	
+		<main>	
 	<div align="center">
 	<form id="formularioCurso" class="formularioCurso" method="get"action="accionAltaCurso.php">
 		<p><i><h3>Todos los campos son obligatorios</h3></i></p>
 		<fieldset><legend><h3><div class="heading">Datos del Curso</div></h3></legend>
-=======
-	<!-- Detrás de "POST"   action="validacion_alta_usuario.php" onsubmit="return validateForm()" -->
-	<form id="formularioCurso" class="formularioCurso" method="get" action="accionAltaCurso.php">
-		<p><i>Todos los campos son obligatorios </i></p>
-		<fieldset><legend>Datos del Curso</legend>
->>>>>>> parent of 5ba1460... Merge branch 'Josan'
 			
 			<div><label for="Fecha_Inicio">Fecha Inicio:<em>(Debe de estar en formato dd/MM/yyyy)</em></label>
 			<input id="Fecha_Inicio" name="Fecha_Inicio" type="text" size="30" value="<?php echo $formulario['Fecha_Inicio'];?>" required/>
