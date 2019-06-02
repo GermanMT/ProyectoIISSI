@@ -1,4 +1,4 @@
-<?php
+﻿<?php
 	session_start();
 
 	require_once ('gestionBD.php');
@@ -32,7 +32,6 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="CSS/styleIISSI.css" />
-  <link rel="stylesheet" type="text/css" href="CSS/excepciones.css" />
   <script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
   <script src="js/validacionAltaCurso.js" type="text/javascript"></script>
   
