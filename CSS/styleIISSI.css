@@ -429,21 +429,6 @@ div.error, div.excepcion {
 	margin: 10px;
 }
 
-.strongpass {
-	background-color: green
-}
-
-.middlepass {
-	background-color: yellow
-}
-
-.weakpass {
-	background-color: red
-}
-
-.nanpass {
-	background-color: lightyellow
-}
 
 .boton_personalizado{
     text-decoration: none;

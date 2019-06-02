@@ -1,0 +1,32 @@
+.color1 {
+  background-color: red;
+
+}
+
+.color2{
+  background-color: #fffd88;
+
+}
+
+.color3{
+  background-color: #8bff65;
+
+}
+
+/* Poner la clase responsive para el que javascript muestre los vinculos al pulsar en el */
+@media screen and (max-width:680px) {
+    ul.topnav.responsive {position: relative};
+    ul.topnav.responsive li.icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    ul.topnav.responsive li {
+      float: none;
+      display: inline;
+    }
+    ul.topnav.responsive li a {
+      display: block;
+      text-align: left;
+    }
+}

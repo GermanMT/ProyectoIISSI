@@ -62,44 +62,53 @@
 
 	//Calculamos la fortaleza de una contraseña: frecuencia de repetición de caracteres
 	function passwordStrength(password){
-    		// Creamos un Map donde almacenar las ocurrencias de cada carácter
-    		var letters = {};
-
-    		// Recorremos la contraseña carácter por carácter
-    		var length = password.length;
-    		for(x = 0, length; x < length; x++) {
-        		// Consultamos el carácter en la posición x
-        		var l = password.charAt(x);
-
-        		// Si NO existe en el Map, inicializamos su contador a uno
-        		// Si ya existía, incrementamos el contador en uno
-        		letters[l] = (isNaN(letters[l])? 1 : letters[l] + 1);
-    		}
-
-    		// Devolvemos el cociente entre el número de caracteres únicos (las claves del Map)
-		// y la longitud de la contraseña
-    		return Object.keys(letters).length / length;
-	}
+		var clave = password;
+		var seguridad = 0;
+			if (clave.length!=0){
+			   if (/[0-9]/.test(clave)){
+				  seguridad += 20;
+			   }
+			   if (/[a-z]/.test(clave)){
+				  seguridad += 10;
+			   }
+			   if(/[A_Z]/.test(clave)){
+				seguridad += 20;
+			   }
+			   if (clave.length >= 4 && clave.length <= 5){
+				  seguridad += 10;
+			   }else{
+				  if (clave.length >= 6 && clave.length <= 8){
+					 seguridad += 20;
+				  }else{
+					 if (clave.length > 8){
+						seguridad += 40;
+					 }
+				  }
+			   }
+			}
+			return seguridad            
+		 } 
+	
 	
 	//Coloreado del campo de contraseña según su fortaleza
 	function passwordColor(){
-		var passField = document.getElementById("Pass");
-		var strength = passwordStrength(passField.value);
+		var password = document.getElementById("Pass");
+		var clave = password.value;
+		var fortaleza = passwordStrength(clave);
 		
-		if(!isNaN(strength)){
-			var type = "weakpass";
-			if(passwordValidation()!=""){
-				type = "weakpass";
-			}else if(strength > 0.7){
-				type = "strongpass";
-			}else if(strength > 0.4){
-				type = "middlepass";
-			}
-		}else{
-			type = "nanpass";
-		}
-		passField.className = type;
-		
+		if(fortaleza<30){
+			var type = "color1";
+	   }else if(fortaleza >=30 && fortaleza<60){
+			var type = "color2";
+	   }else if(fortaleza>=60 && fortaleza<=90)
+			var type = "color3";
+	   else if(fortaleza > 90 ){
+			var type = "color3";
+	   }else if(passwordValidation()!=""){
+		type = "color1";
+	   }
+	   
+		password.className = type;
 		return type;
 	}
 
@@ -127,6 +136,7 @@
 	})
 }
 */
+/*
 function validacionUsuario() {
 	var contador = 0;
 
@@ -301,11 +311,7 @@ function validacionUsuario() {
 	}
 
 	$('.enviar').click(function() {
-
-		// if(validaForm1()==false || validaForm2()==false){
-		// document.location="matriculacion.php";
-		// }
-		validacionFormulario();
+		validateForm();
 	})
 
 
