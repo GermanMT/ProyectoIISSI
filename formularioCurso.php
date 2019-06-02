@@ -55,9 +55,10 @@
 	<div class="body_content_FormCurso" style="margin-top: -10px;">   
 		<main>
 	<!-- Detrás de "POST"   action="validacion_alta_usuario.php" onsubmit="return validateForm()" -->
+	<div align="center">
 	<form id="formularioCurso" class="formularioCurso" method="get" novalidate>
-		<p><i>Los campos obligatorios están marcados con </i><em>*</em></p>
-		<fieldset><legend>Datos del Curso</legend>
+		<p><i><h3>Los campos obligatorios están marcados con </h3></i><em>*</em></p>
+		<fieldset><legend><h3><div class="heading">Datos del Curso</div></h3></legend>
 			
 			<div><label for="Fecha_Inicio">Fecha Inicio:<em>* (Debe de estar en formato dd/MM/yyyy)</em></label>
 			<input id="Fecha_Inicio" name="Fecha_Inicio" type="text" size="30" value="<?php echo $formulario['Fecha_Inicio'];?>" required/>
@@ -102,7 +103,7 @@
 			</div>
 
 
-		<div><input type="submit" value="Enviar" formaction="accionAltaCurso.php" /></div>
+		<div><input type="submit" class="btn1" value="Enviar" formaction="accionAltaCurso.php" /></div>
 
 	</form>
 
@@ -111,6 +112,7 @@
 		
 		cerrarConexionBD($conexion);
 	?>
+	</div>
 	</main>
 	</div>
 	</body>

@@ -63,9 +63,10 @@
 		<main>
 	
 	<!-- Detrás de "POST"   action="validacion_alta_usuario.php" onsubmit="return validateForm()" -->
+	<div align="center">
 	<form id="formularioProfesor" class="formularioProfesor" method="get" novalidate>
-		<p><i>Los campos obligatorios están marcados con </i><em>*</em></p>
-		<fieldset><legend>Datos personales</legend>
+		<p><i><h3>Los campos obligatorios están marcados con</h3></i><em>*</em></p>
+		<fieldset><legend><h3><div class="heading">Datos personales</div></h3></legend>
 			<div><label for="DNI">DNI<em>*</em></label>
 			<input id="DNI_Usuario" name="DNI_Usuario" type="text" placeholder="12345678X" pattern="^[0-9]{8}[A-Z]" title="Ocho dígitos seguidos de una letra mayúscula" 
 			value="<?php echo $formulario['DNI'];?>" required>
@@ -123,7 +124,7 @@
 
 		</fieldset>
 
-		<fieldset><legend>Datos de cuenta</legend>
+		<fieldset><legend><h3><div class="heading">Datos de cuenta</div></h3></legend>
 
 			<div><label for="Usuario">Nombre Usuario:<em>*</em></label>
 				<input id="Usuario" name="Usuario" type="text" size="20" value="<?php echo $formulario['Usuario'];?>" />
@@ -149,7 +150,7 @@
 			</div>
 		</fieldset>
 
-		<div><input type="submit" value="Enviar" formaction="accionAltaRegistroProfesor.php" /></div>
+		<div><input type="submit" class="btn1" value="Enviar" formaction="accionAltaRegistroProfesor.php" /></div>
 
 	</form>
 
@@ -159,7 +160,7 @@
 		
 		cerrarConexionBD($conexion);
 	?>
-
+	</div>
 	</main>
 	</div>
 	</body>
