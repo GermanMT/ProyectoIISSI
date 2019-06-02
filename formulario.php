@@ -61,13 +61,15 @@
 			$("#Pass").on("keyup", function() {
 				// Calculo el color
 				passwordColor();
-            });
+      });
 
-            $("#confirmpass").on("keyup", function() {
+      $("#confirmpass").on("keyup", function() {
 				// Calculo el color
 				passwordConfirmation();
-            });
-        });
+			});
+			
+			validacionUsuario();
+  });
   </script>
 
 	<?php

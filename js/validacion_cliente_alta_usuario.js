@@ -112,31 +112,6 @@
 		return type;
 	}
 
-	/*Funcion para darle color al imput según su fortaleza*/ 
-/*function colorContraseña(){
-	$("#Pass").keyup(function(){
-		
-		var clave = $("#Pass").val();
-		if(seguridad_clave(clave)<10){
-			 $("#Pass").css("background-color","red");
-		}else if(seguridad_clave(clave)>=0.1 && seguridad_clave(clave)<30){
-			$("#Pass").css("background-color","#ffaf7f");
-		}else if(seguridad_clave(clave)>=0.3 && seguridad_clave(clave)<40){
-			$("#Pass").css("background-color","#ffc976");
-		}else if(seguridad_clave(clave)>=0.4 && seguridad_clave(clave)<60){
-			$("#Pass").css("background-color","#fffd88");
-		}else if(seguridad_clave(clave)>=0.6 && seguridad_clave(clave)<=70){
-			$("#Pass").css("background-color","#eff580");
-		}else if(seguridad_clave(clave)>0.7 && seguridad_clave(clave)<=90)
-			$("#Pass").css("background-color","#cde762");
-		else if(seguridad_clave(clave)>0.9 ){
-			$("#Pass").css("background-color","#8bff65");
-		}
-		
-	})
-}
-*/
-/*
 function validacionUsuario() {
 	var contador = 0;
 
@@ -311,7 +286,7 @@ function validacionUsuario() {
 	}
 
 	$('.enviar').click(function() {
-		validateForm();
+		validacionFormulario();
 	})
 
 
