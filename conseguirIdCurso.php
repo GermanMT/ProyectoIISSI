@@ -2,7 +2,7 @@
   /*
      * #===========================================================#
      * #	Este fichero contiene las funciones de gestión     	   # 
-     * #	de horarios de profesores de la capa de acceso a datos #		
+     * #	de Id de curso de la capa de acceso a datos            #		
      * #===========================================================#
      */
 function consultarIdCurso($conexion,$usuario,$pass) {
