@@ -31,26 +31,31 @@
 	<?php
 		include_once("cabecera.php");
 	?>
-
+	
+	<hr size="60" noshade="noshade" style="margin-top: 180px;">  
+	<div class="body_content_ExitoProfesor" style="margin-top: -10px;">    
 	<main>
 
 		<?php if ($altaProfesor) { ?>
-			<span>¡Enhorabuena! Su proceso de matriculación de profesor se ha completado con éxito.</span><br /><br />
+			<div align="center" class="heading">
+			<span><h1>¡Enhorabuena! Su proceso de matriculación de profesor se ha completado con éxito.</h1></span><br /><br />
                 
-			   		Pulsa <a href="vistaAdmin.php">aquí</a> volver a la vista de Administrador.
-				</div> -->
+			   		<h3>Pulsa <a href="vistaAdmin.php">aquí</a> volver a la vista de Administrador.</h3>
+				</div> 
+			</div>
 		<?php } else { 
 			?>	
-				
+				<div align="center" class="heading">
  				<h1>El profesor ya existe en la base de datos o no se ha podido crear con éxito.</h1>
 				<div >				
 					Pulsa <a href="formularioProfesor.php">aquí</a> para volver al formulario.
+				</div>
 				</div>
 		<?php } ?>
 
 	</main>
 
-
+</div>
 </body>
 </html>
 
