@@ -31,15 +31,18 @@
 	<?php
 		include_once("cabecera.php");
 	?>
-
+	
+	<hr size="60" noshade="noshade" style="margin-top: 180px;">  
+	<div class="body_content_ExitoUsuario" style="margin-top: -10px;">    
 	<main>
 
 		<?php if ($altaAlumno) { ?>
-			<span>¡Enhorabuena! Su proceso de matriculación se ha completado con éxito.</span><br /><br />
+			<span><h1>¡Enhorabuena! Su proceso de matriculación se ha completado con éxito.</h1></span><br /><br />
 				
 				<h1>Hola  <?php echo $usuario["Nombre"]; ?>, gracias por registrarte</h1>
-				<div >	
+				<div ><h3>
 			   		Pulsa <a href="login.php">aquí</a> para loguearte.
+			   		</h3>	
 				</div>
 		<?php } else { 
 			?>	
@@ -51,6 +54,7 @@
 		<?php } ?>
 
 	</main>
+	</div>
 
 
 </body>

@@ -260,6 +260,30 @@ ul.menus li ul{
     width: 100%;
 
 }
+.body_content_ExitoUsuario{
+    background-image: url("https://images6.alphacoders.com/429/429155.jpg");
+    background-size:100%;
+    padding-bottom: 400px;
+    float: left;
+    width: 100%;
+
+}
+.body_content_ExitoProfesor{
+    background-image: url("https://images6.alphacoders.com/429/429155.jpg");
+    background-size:100%;
+    padding-bottom: 400px;
+    float: left;
+    width: 100%;
+
+}
+.body_content_ExitoCurso{
+    background-image: url("https://images6.alphacoders.com/429/429155.jpg");
+    background-size:100%;
+    padding-bottom: 600px;
+    float: left;
+    width: 100%;
+
+}
 .bottom_content{
     margin: 0 auto;
     width: 90%;

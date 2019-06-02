@@ -31,14 +31,16 @@
 	<?php
 		include_once("cabecera.php");
 	?>
-
+	
+	<hr size="60" noshade="noshade" style="margin-top: 180px;">  
+	<div class="body_content_ExitoProfesor" style="margin-top: -10px;">    
 	<main>
 
 		<?php if ($altaProfesor) { ?>
-			<span>¡Enhorabuena! Su proceso de matriculación de profesor se ha completado con éxito.</span><br /><br />
+			<span><h1>¡Enhorabuena! Su proceso de matriculación de profesor se ha completado con éxito.</h1></span><br /><br />
                 
-			   		Pulsa <a href="vistaAdmin.php">aquí</a> volver a la vista de Administrador.
-				</div> -->
+			   		<h3>Pulsa <a href="vistaAdmin.php">aquí</a> volver a la vista de Administrador.</h3>
+				</div> 
 		<?php } else { 
 			?>	
 				
@@ -50,7 +52,7 @@
 
 	</main>
 
-
+</div>
 </body>
 </html>
 
