@@ -6,7 +6,7 @@
 	
 	// Si no existen datos del formulario en la sesión, se crea una entrada con valores por defecto
 	if (!isset($_SESSION['formularioProfesor'])) {
-		$formulario['DNI'] = "";
+		$formulario['DNI_Usuario'] = "";
 		$formulario['Nombre'] = "";
 		$formulario['Apellidos'] = "";
 		$formulario['Edad'] = "";
@@ -39,17 +39,40 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="CSS/styleIISSI.css" />
-	<!--<script src="js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
-  -->
+  <link rel="stylesheet" type="text/css" href="CSS/excepciones.css" />
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
+  <script src="js/validacionAltaProfesor.js" type="text/javascript"></script>
+  
   <title>Alta Profesor</title>
 </head>
 
 <body>
+	<script>
+		$(document).ready(function() {
+			$("#formularioProfesor").on("submit", function() {
+				return validateForm();
+			});
+			
+			//Manejador de evento del color de la contraseña
+			$("#Pass").on("keyup", function() {
+				// Calculo el color
+				passwordColor();
+      	});
+
+      	$("#confirmpass").on("keyup", function() {
+				// Calculo el color
+				passwordConfirmation();
+			});
+			//Validación del formulario
+			validacionProfesor();
+  });
+  </script>
+
 	<?php
 		include_once("cabecera.php");
 	?>
 	
-	<?php 
+	<!-- poner < ? php
 		// Mostrar los errores de validación (Si los hay)
 		if (isset($errores) && count($errores)>0) { 
 	    	echo "<div id=\"div_errores\" class=\"error\">";
@@ -57,26 +80,27 @@
     		foreach($errores as $error) echo $error; 
     		echo "</div>";
   		}
-	?>
+	?> -->
+
 	<hr size="60" noshade="noshade"/ style="margin-top: 180px;">  
 	<div class="body_content_FormProfesor" style="margin-top: -10px;">   
 		<main>
 	
 	<!-- Detrás de "POST"   action="validacion_alta_usuario.php" onsubmit="return validateForm()" -->
 	<div align="center">
-	<form id="formularioProfesor" class="formularioProfesor" method="get" novalidate>
-		<p><i><h3>Los campos obligatorios están marcados con</h3></i><em>*</em></p>
+	<form id="formularioProfesor" class="formularioProfesor" method="get"  action="accionAltaRegistroProfesor.php">
+		<p><i><h3>Todos los campos son obligatorios</h3></i></p>
 		<fieldset><legend><h3><div class="heading">Datos personales</div></h3></legend>
-			<div><label for="DNI">DNI<em>*</em></label>
+			<div><label for="DNI">DNI:</label>
 			<input id="DNI_Usuario" name="DNI_Usuario" type="text" placeholder="12345678X" pattern="^[0-9]{8}[A-Z]" title="Ocho dígitos seguidos de una letra mayúscula" 
-			value="<?php echo $formulario['DNI'];?>" required>
+			value="<?php echo $formulario['DNI_Usuario'];?>" required>
 			</div>
 
-			<div><label for="Nombre">Nombre:<em>*</em></label>
+			<div><label for="Nombre">Nombre:</label>
 			<input id="Nombre" name="Nombre" type="text" size="30" value="<?php echo $formulario['Nombre'];?>" required/>
 			</div>
 
-			<div><label for="Apellidos">Apellidos:<em>*</em></label>
+			<div><label for="Apellidos">Apellidos:</label>
 			<input id="Apellidos" name="Apellidos" type="text" size="50" value="<?php echo $formulario['Apellidos'];?>"/>
 			</div>
 
@@ -84,11 +108,11 @@
 			<input id="Edad" name="Edad" type="text" value="<?php echo $formulario['Edad'];?>"/>
 			</div>
 
-			<div><label for="Localidad">Localidad:<em>*</em></label>
+			<div><label for="Localidad">Localidad:</label>
 			<input id="Localidad" name="Localidad" type="text" value="<?php echo $formulario['Localidad'];?>"/>
 			</div>
 
-			<div><label for="TelefonoMovil">Teléfono Móvil:<em>*</em></label>
+			<div><label for="TelefonoMovil">Teléfono Móvil:</label>
 			<input id="TelefonoMovil" name="TelefonoMovil" type="text" value="<?php echo $formulario['TelefonoMovil'];?>"/>
 			</div>
 
@@ -96,18 +120,18 @@
 			<input id="TelefonoFijo" name="TelefonoFijo" type="text" value="<?php echo $formulario['TelefonoFijo'];?>"/>
 			</div>
 
-			<div><label for="Email">Email:<em>(Debe de terminar en @gmail.com)*</em></label>
+			<div><label for="Email">Email:<em>(Debe de terminar en @gmail.com)</em></label>
 			<input id="Email" name="Email"  type="email" placeholder="usuario@dominio.extension" value="<?php echo $formulario['Email'];?>" required/><br>
 			</div>
 
-			<div><label>TipoUsuario:<em>*</em></label>
+			<div><label>TipoUsuario:</label>
 			<label>
 				<input name="TipoUsuario" type="radio" value="Profesor" <?php if($formulario['TipoUsuario']=='Profesor') echo ' checked ';?>/>
 				Profesor</label>
 			
 			</div>
 
-			<div><label>Nivel Inglés:<em>*</em></label>
+			<div><label>Nivel Inglés:</label>
 			<label>
 					<input name="Nivel_Examen" type="radio" value="B1" <?php if($formulario['Nivel_Examen']=='B1') echo ' checked ';?>/>
 					B1
@@ -126,10 +150,10 @@
 
 		<fieldset><legend><h3><div class="heading">Datos de cuenta</div></h3></legend>
 
-			<div><label for="Usuario">Nombre Usuario:<em>*</em></label>
+			<div><label for="Usuario">Nombre Usuario:</label>
 				<input id="Usuario" name="Usuario" type="text" size="20" value="<?php echo $formulario['Usuario'];?>" />
 			</div>
-			<div><label for="Pass">Password:<em>*</em></label>
+			<div><label for="Pass">Password:</label>
 				<input type="password" name="Pass" id="Pass"  value="<?php echo $formulario['Pass'];?>" required placeholder="Mínimo 8 caracteres entre letras y dígitos" 
 				onkeyup= "document.getElementById('fortaleza').innerText = 
 				passwordStrength(this.value)"
@@ -138,19 +162,13 @@
 				<span id ="fortaleza"></span>
 				
 			</div>
-		<!--<div><label for="confirmpass">Confirmar Password: </label>
-			<input type="password" name="confirmpass" id="confirmpass" placeholder="Confirmación de contraseña" required
-			oninput = "if(!passwordConfirmation()) this.setCustomValidity('Password y confirmación diferentes')
-					else this.setCustomValidity('')"
-			/>
-			</div>
--->
+	
 			<div><label for="confirmpass">Confirmar Password: </label>
 			<input type="password" name="confirmpass" id="confirmpass" placeholder="Confirmación de contraseña" required/>
 			</div>
 		</fieldset>
 
-		<div><input type="submit" class="btn1" value="Enviar" formaction="accionAltaRegistroProfesor.php" /></div>
+		<div><input class='enviar' type="submit" class="btn1" value="Enviar"/></div>
 
 	</form>
 

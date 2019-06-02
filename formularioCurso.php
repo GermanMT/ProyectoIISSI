@@ -32,17 +32,26 @@
 <head>
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="CSS/styleIISSI.css" />
-	<!--<script src="js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
-  -->
+  <link rel="stylesheet" type="text/css" href="CSS/excepciones.css" />
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
+  <script src="js/validacionAltaCurso.js" type="text/javascript"></script>
+  
   <title>Creación de Curso</title>
 </head>
 
 <body>
+	<script>
+		$(document).ready(function() {
+			//Validación del formulario
+			validacionCurso();
+  });
+  </script>
+
 	<?php
 		include_once("cabecera.php");
 	?>
 	
-	<?php 
+	<!-- poner < ? php
 		// Mostrar los errores de validación (Si los hay)
 		if (isset($errores) && count($errores)>0) { 
 	    	echo "<div id=\"div_errores\" class=\"error\">";
@@ -50,25 +59,26 @@
     		foreach($errores as $error) echo $error; 
     		echo "</div>";
   		}
-	?>
-<hr size="60" noshade="noshade"/ style="margin-top: 180px;">  
+	?> -->
+	
+<hr size="60" noshade="noshade" style="margin-top: 180px;">  
 	<div class="body_content_FormCurso" style="margin-top: -10px;">   
 		<main>
-	<!-- Detrás de "POST"   action="validacion_alta_usuario.php" onsubmit="return validateForm()" -->
+	
 	<div align="center">
-	<form id="formularioCurso" class="formularioCurso" method="get" novalidate>
-		<p><i><h3>Los campos obligatorios están marcados con </h3></i><em>*</em></p>
+	<form id="formularioCurso" class="formularioCurso" method="get"action="accionAltaCurso.php">
+		<p><i><h3>Todos los campos son obligatorios</h3></i></p>
 		<fieldset><legend><h3><div class="heading">Datos del Curso</div></h3></legend>
 			
-			<div><label for="Fecha_Inicio">Fecha Inicio:<em>* (Debe de estar en formato dd/MM/yyyy)</em></label>
+			<div><label for="Fecha_Inicio">Fecha Inicio:<em>(Debe de estar en formato dd/MM/yyyy)</em></label>
 			<input id="Fecha_Inicio" name="Fecha_Inicio" type="text" size="30" value="<?php echo $formulario['Fecha_Inicio'];?>" required/>
 			</div>
 
-			<div><label for="Fecha_Fin">Fecha Fin:<em>* (Debe de estar en formato dd/MM/yyyy)</em></label>
+			<div><label for="Fecha_Fin">Fecha Fin:<em>(Debe de estar en formato dd/MM/yyyy)</em></label>
 			<input id="Fecha_Fin" name="Fecha_Fin" type="text" size="50" value="<?php echo $formulario['Fecha_Fin'];?>"/>
 			</div>
 
-			<div><label>Tipo Examen:<em>*</em></label>
+			<div><label>Tipo Examen:</label>
 			<label>
 					<input name="Tipo_Examen" type="radio" value="Trinity" <?php if($formulario['Tipo_Examen']=='Trinity') echo ' checked ';?>/>
 					Trinity
@@ -83,7 +93,7 @@
 				</label>
 			</div>
 
-			<div><label>Nivel Inglés:<em>*</em></label>
+			<div><label>Nivel Inglés:</label>
 			<label>
 					<input name="Nivel_Ingles" type="radio" value="B1" <?php if($formulario['Nivel_Ingles']=='B1') echo ' checked ';?>/>
 					B1
@@ -98,12 +108,12 @@
 				</label>
 			</div>
 
-			<div><label for="Id_Curso">Id Curso:<em>*</em></label>
+			<div><label for="Id_Curso">Id Curso:</label>
 			<input id="Id_Curso" name="Id_Curso" type="text" size="50" value="<?php echo $formulario['Id_Curso'];?>"/>
 			</div>
 
 
-		<div><input type="submit" class="btn1" value="Enviar" formaction="accionAltaCurso.php" /></div>
+		<div><input class='enviar' type="submit" class="btn1" value="Enviar" /></div>
 
 	</form>
 

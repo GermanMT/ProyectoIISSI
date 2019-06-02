@@ -395,10 +395,6 @@ ul.menus li ul{
     line-height: 24px;
 }
 
-
-
-/*------------Quienes Somos-------------------*/
-
 button.read_more{
     width: 30%;
     padding: 15px 0px;
@@ -414,23 +410,6 @@ button.read_more:hover{
     background: #4CAF50;
 }
 
-/******footer css start*******/
-/*
-footer{
-    float: left;
-    width: 100%;
-    background: #9E9E9E;
-}
-.page_footer{
-    float: left;
-    width: 100%;
-    text-align: center;
-    padding: 0px 0px;
-}
-.footer_text{
-    color: #fff;
-}
-/*****footer css end**********/
 /*******contact page css star***********/
 .content{
     float: left;
