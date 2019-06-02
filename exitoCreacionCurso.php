@@ -36,17 +36,20 @@
 	<div class="body_content_ExitoCurso" style="margin-top: -10px;">    
 	<main>
 		<?php if ($altaCurso) { ?>
+			<div align="center" class="heading">
 			<span><h1>¡Enhorabuena! Su proceso de creación de curso se ha completado con éxito.</h1></span><br /><br />
 			<div ><h3>	
 					Pulsa <a href="vistaAdmin.php">aquí</a> para volver a la vista de Administrador.
 					</h3>		
 				</div>
+			</div>
 		<?php } else { 
 			?>	
-				
+				<div align="center" class="heading">
  				<h1>No se ha creado el curso.</h1>
 				<div >				
 					Pulsa <a href="formularioCurso.php">aquí</a> para volver al formulario.
+				</div>
 				</div>
 		<?php } ?>
 

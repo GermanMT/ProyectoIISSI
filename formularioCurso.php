@@ -64,10 +64,11 @@
 <hr size="60" noshade="noshade" style="margin-top: 180px;">  
 	<div class="body_content_FormCurso" style="margin-top: -10px;">   
 		<main>
-	<!-- Detrás de "POST"   action="validacion_alta_usuario.php" onsubmit="return validateForm()" -->
-	<form id="formularioCurso" class="formularioCurso" method="get" action="accionAltaCurso.php">
-		<p><i>Todos los campos son obligatorios </i></p>
-		<fieldset><legend>Datos del Curso</legend>
+	
+	<div align="center">
+	<form id="formularioCurso" class="formularioCurso" method="get"action="accionAltaCurso.php">
+		<p><i><h3>Los campos obligatorios están marcados con </h3></i><em>*</em></p>
+		<fieldset><legend><h3><div class="heading">Datos del Curso</div></h3></legend>
 			
 			<div><label for="Fecha_Inicio">Fecha Inicio:<em>(Debe de estar en formato dd/MM/yyyy)</em></label>
 			<input id="Fecha_Inicio" name="Fecha_Inicio" type="text" size="30" value="<?php echo $formulario['Fecha_Inicio'];?>" required/>
@@ -112,7 +113,7 @@
 			</div>
 
 
-		<div><input class='enviar' type="submit" value="Enviar" /></div>
+		<div><input class='enviar' type="submit" class="btn1" value="Enviar" /></div>
 
 	</form>
 
@@ -121,6 +122,7 @@
 		
 		cerrarConexionBD($conexion);
 	?>
+	</div>
 	</main>
 	</div>
 	</body>

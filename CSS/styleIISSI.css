@@ -261,7 +261,7 @@ ul.menus li ul{
 
 }
 .body_content_ExitoUsuario{
-    background-image: url("https://images6.alphacoders.com/429/429155.jpg");
+    background-image: url("http://2.bp.blogspot.com/-bOmKFjUrna0/TsbbzjSDooI/AAAAAAAABuw/6D6G7XXw6QM/s1600/fondoAzulClaro.JPG");
     background-size:100%;
     padding-bottom: 400px;
     float: left;
@@ -269,7 +269,7 @@ ul.menus li ul{
 
 }
 .body_content_ExitoProfesor{
-    background-image: url("https://images6.alphacoders.com/429/429155.jpg");
+    background-image: url("http://2.bp.blogspot.com/-bOmKFjUrna0/TsbbzjSDooI/AAAAAAAABuw/6D6G7XXw6QM/s1600/fondoAzulClaro.JPG");
     background-size:100%;
     padding-bottom: 400px;
     float: left;
@@ -277,7 +277,7 @@ ul.menus li ul{
 
 }
 .body_content_ExitoCurso{
-    background-image: url("https://images6.alphacoders.com/429/429155.jpg");
+    background-image: url("http://2.bp.blogspot.com/-bOmKFjUrna0/TsbbzjSDooI/AAAAAAAABuw/6D6G7XXw6QM/s1600/fondoAzulClaro.JPG");
     background-size:100%;
     padding-bottom: 600px;
     float: left;
@@ -475,4 +475,6 @@ div.error, div.excepcion {
       background-color: #FF8C00;
       color: white;
   }
- 
+  /* Color Letras*/
+ .heading {
+ 	 color: #00008B; }

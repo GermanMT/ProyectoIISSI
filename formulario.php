@@ -88,10 +88,12 @@
 	<hr size="60" noshade="noshade" style="margin-top: 180px;">  
 	<div class="body_content_Form" style="margin-top: -10px;">    
 	<main>
-	
+	<div align="center">
 	<form id="formulario" class="formulario" method="get" action="accionAltaRegistro.php" >
-		<p><i>Todos los campos son obligatorios </i></p>
-		<fieldset><legend>Datos personales</legend>
+		<p><i><h3>Todos los campos son obligatorios</h3></i></p>
+		
+		<fieldset><legend><h3><div class="heading">Datos personales</div></h3></legend>
+			
 			<div><label for="DNI_Usuario">DNI:</label>
 			<input id="DNI_Usuario" name="DNI_Usuario" type="text" placeholder="12345678X" pattern="^[0-9]{8}[A-Z]" title="Ocho dígitos seguidos de una letra mayúscula" 
 			value="<?php echo $formulario['DNI_Usuario'];?>" required>
@@ -135,7 +137,7 @@
 				Alumno</label>
 			</div>
 		  	</fieldset>
-			<fieldset><legend>Datos del Tipo y Nivel de Exámen</legend>
+			<fieldset><legend><h3><div class="heading">Datos del Tipo y Nivel de Exámen</div></h3></legend>
 
 			<div><label>Tipo Examen:</label>
 			<label>
@@ -169,7 +171,7 @@
 
 		</fieldset>
 
-		<fieldset><legend>Datos de cuenta</legend>
+		<fieldset><legend><h3><div class="heading">Datos de cuenta</div></h3></legend>
 
 			<div><label for="Usuario">Nombre Usuario:</label>
 				<input id="Usuario" name="Usuario" type="text" size="20" value="<?php echo $formulario['Usuario'];?>" />
@@ -189,7 +191,7 @@
 
 		</fieldset>
 
-		<div><input class='enviar' type="submit" value="Enviar" /></div>
+		<div><input class="btn1" type="submit" value="Enviar" /></div>
 
 	</form>
 	<a class="button" href="IISSI.php"><button type="button" class="read_more">Vuelve Atrás</button></a>
@@ -198,6 +200,7 @@
 		
 		cerrarConexionBD($conexion);
 	?>
+	</div>
 	</main>
 	</div>
 	</body>
