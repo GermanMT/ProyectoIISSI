@@ -82,7 +82,7 @@
 	<main>
 	
 	<form id="formulario" class="formulario" method="get" action="accionAltaRegistro.php" >
-		<p><i>Los campos obligatorios están marcados con </i><em>*</em></p>
+		<p><i>Todos los campos son obligatorios </i></p>
 		<fieldset><legend>Datos personales</legend>
 			<div><label for="DNI_Usuario">DNI<em>*</em></label>
 			<input id="DNI_Usuario" name="DNI_Usuario" type="text" placeholder="12345678X" pattern="^[0-9]{8}[A-Z]" title="Ocho dígitos seguidos de una letra mayúscula" 

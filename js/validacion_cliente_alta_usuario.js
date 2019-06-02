@@ -113,7 +113,6 @@
 	}
 
 function validacionUsuario() {
-	var contador = 0;
 
 	function validacionFormulario(){
 		var exprNumero = /^([0-9])+$/;
@@ -209,6 +208,20 @@ function validacionUsuario() {
 			$('#TelefonoFijo').css("background-color", "white");
 		}
 
+		if ($('#Edad').val().trim() == '') {
+			Edad.setCustomValidity('Introduzca su edad.');
+			$('#Edad').css("background-color", "#ffeeee");
+			resultado = false;
+		} else if (!exprNumero.test($('#Edad').val().trim())) {
+			Edad.setCustomValidity('La edad solo puede contener números.');
+			$('#Edad').css("background-color", "#ffeeee");
+			resultado = false;
+		}else if ($('#Edad').val().trim() <  0 || $('#Edad').val().trim() >  100) {
+			Edad.setCustomValidity('Introduzca su edad correcta');
+			$('#Edad').css("background-color", "#ffeeee");
+			resultado = false;
+		}
+
 		if ($('#Email').val().trim() == '') {
 			Email.setCustomValidity('Introduzca su email.');
 			$('#Email').css("background-color", "#ffeeee");
@@ -248,11 +261,7 @@ function validacionUsuario() {
 			Usuario.setCustomValidity("Introduzca su usuario.");
 			$('#Usuario').css("background-color", "#ffeeee");
 			resultado = false;
-		}else if(!exprTildes.test($('#Usuario').val().trim())){
-			Usuario.setCustomValidity("Introduzca un usuario válido.");
-			$('#Usuario').css("background-color", "#ffeeee");
-			resultado = false;
-		} else {
+		}else {
 			Usuario.setCustomValidity("");
 			$('#Usuario').css("background-color", "white");
 		}
@@ -270,10 +279,10 @@ function validacionUsuario() {
 			Pass.setCustomValidity('La contraseña debe incluir mayusculas, minusculas y un número.');
 			$('#Pass').css("background-color", "#ffeeee");
 			resultado = false;
-		} else if ($("#Pass").val() != $("#confirmPass").val()) {
+		} else if ($("#Pass").val() != $("#confirmpass").val()) {
 			Pass.setCustomValidity('La contraseña debe coincidir con la confirmacion de contraseña.');
 			$('#Pass').css("background-color", "#ffeeee");
-			$('#confirmPass').css("background-color", "#ffeeee");
+			$('#confirmpass').css("background-color", "#ffeeee");
 			resultado = false;
 		} else {
 			Pass.setCustomValidity('');
