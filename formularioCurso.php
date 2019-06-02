@@ -51,7 +51,9 @@
     		echo "</div>";
   		}
 	?>
-
+<hr size="60" noshade="noshade"/ style="margin-top: 180px;">  
+	<div class="body_content_FormCurso" style="margin-top: -10px;">   
+		<main>
 	<!-- Detrás de "POST"   action="validacion_alta_usuario.php" onsubmit="return validateForm()" -->
 	<form id="formularioCurso" class="formularioCurso" method="get" novalidate>
 		<p><i>Los campos obligatorios están marcados con </i><em>*</em></p>
@@ -109,5 +111,7 @@
 		
 		cerrarConexionBD($conexion);
 	?>
+	</main>
+	</div>
 	</body>
 </html>
