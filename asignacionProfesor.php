@@ -104,7 +104,7 @@
 					</form>
 				</nav>          
 		                	
-			<!-- Mostrar alumnos de la academia -->
+			<!-- Mostrar profesores de la academia -->
 			<div align="center" style="margin-top:50px;"><p><h1>Profesores</h1></p></div>
 				<table align="center" border="1" style="width:90%; height:20px;">
 					<tr style="background-color: #87CEFA;">
@@ -138,7 +138,7 @@
 								
 		
 						<?php if (isset($usuario) and ($usuario["DNI_USUARIO"] == $fila["DNI_USUARIO"])) { ?>
-								<!-- Editando alumno -->
+								<!-- Editando profesor -->
 								<tr style="background-color: #E0FFFF;">
 									<td><h4><?php echo $fila["DNI_USUARIO"];?></h4></td>
 									<td><h4><?php echo $fila["NOMBRE"];?></h4></td>
@@ -147,7 +147,7 @@
 									<td><h3><input id="ID_CURSO" name="ID_CURSO" type="text" value="<?php echo $fila["ID_CURSO"]; ?>"/></h3></td>
 								</tr>
 						<?php } else { ?>
-							<!-- Mostrando alumno -->
+							<!-- Mostrando profesor -->
 								<input id="DNI_Usuario" name="DNI_Usuario" type="hidden" value="<?php echo $fila["DNI_Usuario"]; ?>"/>
 									<tr style="background-color: #E0FFFF;">
 									   	<td><?php echo $fila["DNI_USUARIO"]; ?></td>

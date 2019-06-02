@@ -2,7 +2,7 @@
     /*
      * #===========================================================#
      * #	Este fichero contiene las funciones de gestión         #
-     * #	de usuarios de la capa de acceso a datos               #
+     * #	de profesores de la capa de acceso a datos             #
      * #===========================================================#
      */
 

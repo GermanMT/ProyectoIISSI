@@ -12,8 +12,7 @@
 		$IDC = base64_decode($_GET['var']);
 		$filas1 = consultarTodosHorariosProfesor($conexion,$IDC);
 		cerrarConexionBD($conexion);
-		//datos: #98FB98
-		// cabecera: #228B22
+		
 	}
 ?>
 

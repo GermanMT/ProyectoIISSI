@@ -75,7 +75,7 @@
 			</div>
 
 			<div><label for="Fecha_Fin">Fecha Fin:<em>(Debe de estar en formato dd/MM/yyyy)</em></label>
-			<input id="Fecha_Fin" name="Fecha_Fin" type="text" size="50" value="<?php echo $formulario['Fecha_Fin'];?>"/>
+			<input id="Fecha_Fin" name="Fecha_Fin" type="text" size="50" value="<?php echo $formulario['Fecha_Fin'];?>" required/>
 			</div>
 
 			<div><label>Tipo Examen:</label>
@@ -109,7 +109,7 @@
 			</div>
 
 			<div><label for="Id_Curso">Id Curso:</label>
-			<input id="Id_Curso" name="Id_Curso" type="text" size="50" value="<?php echo $formulario['Id_Curso'];?>"/>
+			<input id="Id_Curso" name="Id_Curso" type="text" size="50" value="<?php echo $formulario['Id_Curso'];?>" required/>
 			</div>
 
 
