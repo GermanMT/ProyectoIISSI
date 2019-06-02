@@ -5,6 +5,7 @@
 //Includes
 //include_once ('includes/funciones.php');
 require_once ("gestionBD.php");
+require_once ("gestionarUsuarios.php");
 
 //Se comprueba que hemos llegado aquí por el formulario de matriculación y en tal caso se mete en la variable $usuario los datos del formulario, en caso contrario, se redirige a la página de matriculación
 if (isset($_SESSION["formulario"])) {
@@ -32,7 +33,8 @@ $_SESSION["formulario"] = $usuario;
 
 try{
 	$conexion = crearConexionBD();
-	$errores = validacionRegistro($conexion, $usuario);
+	$DNIS = todosDNI($conexion);
+	$errores = validacionRegistro($conexion, $usuario, $DNIS);
 	cerrarConexionBD($conexion);
 }catch(PDOException $e){
 	/*Mensaje de depuracion */
@@ -52,15 +54,21 @@ if (count($errores) > 0) {
 /////////////////////////////////////////////////////////////
 // Validación en servidor del formulario de alta de alumno//
 /////////////////////////////////////////////////////////////
- function validacionRegistro($conexion, $usuario) {
+ function validacionRegistro($conexion, $usuario, $DNIS) {
 	$errores = array();
-	
+	$DNI1 = $usuario["DNI_Usuario"];
 	
 	if ($usuario["DNI_Usuario"] == "") {
 		$errores[] = "El DNI no puede estar vacío";
 	} else if (!preg_match("/^[0-9]{8}[A-Z]$/", $usuario["DNI_Usuario"])) {
 		$errores[] = "El DNI debe contener 8 números y una letra mayúscula: " . $usuario["DNI_Usuario"] . "";
-	}
+	}else {
+		foreach ($DNIS as $DNI) {
+			if($DNI1 == $DNI["DNI_USUARIO"]){
+				$errores[] = "El DNI ya está registrado";
+			}
+		}
+ 	}
 	if ($usuario["Nombre"] == "" || !preg_match("/^[A-Za-záéíóúÁÉÍÓÚ\s]+$/", $usuario["Nombre"])) {
 		$errores[] = "El nombre no puede estar vacío o no ser alfabetico";
 	}
