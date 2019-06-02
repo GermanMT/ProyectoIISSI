@@ -42,10 +42,8 @@
   <meta charset="utf-8">
   <link rel="stylesheet" type="text/css" href="CSS/styleIISSI.css" />
   <link rel="stylesheet" type="text/css" href="CSS/excepciones.css" />
-<!--  <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js'></script>-->
-<!--  <script src="js/jquery-3.1.1.min.js" type="text/javascript"></script>-->
-<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
-  <script src="js/validacion_cliente_alta_usuario.js" type="text/javascript"></script>
+	<script src="https://code.jquery.com/jquery-3.1.1.min.js" type="text/javascript"></script>
+  <script src="js/validacionAltaUsuario.js" type="text/javascript"></script>
   
   <title>Alta de Usuarios</title>
 </head>
@@ -67,7 +65,7 @@
 					// Calculo el color
 					passwordConfirmation();
 			});
-			
+			//Validación del formulario
 			validacionUsuario();
   });
   </script>
@@ -76,6 +74,16 @@
 		include_once("cabecera.php");
 	?>
 	
+	<!-- poner < ? php
+		// Mostrar los errores de validación (Si los hay)
+		if (isset($errores) && count($errores)>0) { 
+	    	echo "<div id=\"div_errores\" class=\"error\">";
+			echo "<h4> Errores en el formulario:</h4>";
+    		foreach($errores as $error) echo $error; 
+    		echo "</div>";
+  		}
+	?> -->
+
 	
 	<hr size="60" noshade="noshade" style="margin-top: 180px;">  
 	<div class="body_content_Form" style="margin-top: -10px;">    
@@ -84,16 +92,16 @@
 	<form id="formulario" class="formulario" method="get" action="accionAltaRegistro.php" >
 		<p><i>Todos los campos son obligatorios </i></p>
 		<fieldset><legend>Datos personales</legend>
-			<div><label for="DNI_Usuario">DNI<em>*</em></label>
+			<div><label for="DNI_Usuario">DNI:</label>
 			<input id="DNI_Usuario" name="DNI_Usuario" type="text" placeholder="12345678X" pattern="^[0-9]{8}[A-Z]" title="Ocho dígitos seguidos de una letra mayúscula" 
 			value="<?php echo $formulario['DNI_Usuario'];?>" required>
 			</div>
 
-			<div><label for="Nombre">Nombre:<em>*</em></label>
+			<div><label for="Nombre">Nombre:</label>
 			<input id="Nombre" name="Nombre" type="text" size="30" value="<?php echo $formulario['Nombre'];?>" required/>
 			</div>
 
-			<div><label for="Apellidos">Apellidos:<em>*</em></label>
+			<div><label for="Apellidos">Apellidos:</label>
 			<input id="Apellidos" name="Apellidos" type="text" size="50" value="<?php echo $formulario['Apellidos'];?>"/>
 			</div>
 
@@ -121,7 +129,7 @@
 			<input id="NombrePadreMadre" name="NombrePadreMadre" type="text" value="<?php echo $formulario['NombrePadreMadre'];?>"/>
 			</div>
 
-			<div><label>TipoUsuario:<em>*</em></label>
+			<div><label>TipoUsuario:</label>
 			<label>
 				<input name="TipoUsuario" type="radio" value="Alumno" <?php if($formulario['TipoUsuario']=='Alumno') echo ' checked ';?>/>
 				Alumno</label>
@@ -129,7 +137,7 @@
 		  	</fieldset>
 			<fieldset><legend>Datos del Tipo y Nivel de Exámen</legend>
 
-			<div><label>Tipo Examen:<em>*</em></label>
+			<div><label>Tipo Examen:</label>
 			<label>
 					<input name="Tipo_Examen" type="radio" value="Trinity" <?php if($formulario['Tipo_Examen']=='Trinity') echo ' checked ';?>/>
 					Trinity
@@ -144,7 +152,7 @@
 				</label>
 			</div>
 
-			<div><label>Nivel Inglés:<em>*</em></label>
+			<div><label>Nivel Inglés:</label>
 			<label>
 					<input name="Nivel_Examen" type="radio" value="B1" <?php if($formulario['Nivel_Examen']=='B1') echo ' checked ';?>/>
 					B1
@@ -163,10 +171,10 @@
 
 		<fieldset><legend>Datos de cuenta</legend>
 
-			<div><label for="Usuario">Nombre Usuario:<em>*</em></label>
+			<div><label for="Usuario">Nombre Usuario:</label>
 				<input id="Usuario" name="Usuario" type="text" size="20" value="<?php echo $formulario['Usuario'];?>" />
 			</div>
-			<div><label for="Pass">Password:<em>*</em></label>
+			<div><label for="Pass">Password:</label>
 				<input type="password" name="Pass" id="Pass" placeholder="Mínimo 8 caracteres entre letras y dígitos" 
 				required oninput= "passwordValidation();"
 				/>
@@ -179,9 +187,6 @@
 			oninput = "passwordConfirmation();"/>
 			</div>
 
-			<!--<div><label for="confirmpass">Confirmar Password: </label>
-			<input type="password" name="confirmpass" id="confirmpass" placeholder="Confirmación de contraseña" required/>
-			</div>-->
 		</fieldset>
 
 		<div><input class='enviar' type="submit" value="Enviar" /></div>
