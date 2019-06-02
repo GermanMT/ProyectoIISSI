@@ -87,11 +87,10 @@
 		<main>
 	
 	<!-- Detrás de "POST"   action="validacion_alta_usuario.php" onsubmit="return validateForm()" -->
-	<div align="center">
-	<form id="formularioProfesor" class="formularioProfesor" method="get"  action="accionAltaRegistroProfesor.php">
-		<p><i><h3>Todos los campos son obligatorios</h3></i></p>
-		<fieldset><legend><h3><div class="heading">Datos personales</div></h3></legend>
-			<div><label for="DNI">DNI:</label>
+	<form id="formularioProfesor" class="formularioProfesor" method="get" action="accionAltaRegistroProfesor.php">
+		<p><i>Todos los campos son obligatorios </i></p>
+		<fieldset><legend>Datos personales</legend>
+			<div><label for="DNI_Usuario">DNI:</label>
 			<input id="DNI_Usuario" name="DNI_Usuario" type="text" placeholder="12345678X" pattern="^[0-9]{8}[A-Z]" title="Ocho dígitos seguidos de una letra mayúscula" 
 			value="<?php echo $formulario['DNI_Usuario'];?>" required>
 			</div>
@@ -148,7 +147,7 @@
 
 		</fieldset>
 
-		<fieldset><legend><h3><div class="heading">Datos de cuenta</div></h3></legend>
+		<fieldset><legend>Datos de cuenta</legend>
 
 			<div><label for="Usuario">Nombre Usuario:</label>
 				<input id="Usuario" name="Usuario" type="text" size="20" value="<?php echo $formulario['Usuario'];?>" />
@@ -168,7 +167,7 @@
 			</div>
 		</fieldset>
 
-		<div><input class='enviar' type="submit" class="btn1" value="Enviar"/></div>
+		<div><input class='enviar' type="submit" value="Enviar" /></div>
 
 	</form>
 
@@ -178,7 +177,7 @@
 		
 		cerrarConexionBD($conexion);
 	?>
-	</div>
+
 	</main>
 	</div>
 	</body>
