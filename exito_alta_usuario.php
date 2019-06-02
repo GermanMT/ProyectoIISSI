@@ -37,7 +37,6 @@
 	<main>
 
 		<?php if ($altaAlumno) { ?>
-			<div align="center" class="heading">
 			<span><h1>¡Enhorabuena! Su proceso de matriculación se ha completado con éxito.</h1></span><br /><br />
 				
 				<h1>Hola  <?php echo $usuario["Nombre"]; ?>, gracias por registrarte</h1>
@@ -45,14 +44,12 @@
 			   		Pulsa <a href="login.php">aquí</a> para loguearte.
 			   		</h3>	
 				</div>
-				</div>
 		<?php } else { 
 			?>	
-				<div align="center" class="heading">
+				
  				<h1>El usuario ya existe en la base de datos o no se ha introducido con éxito.</h1>
 				<div >				
 					Pulsa <a href="formulario.php">aquí</a> para volver al formulario.
-				</div>
 				</div>
 		<?php } ?>
 
