@@ -33,19 +33,21 @@ $_SESSION["formulario"] = $usuario;
 
 try{
 	$conexion = crearConexionBD();
-	$DNIS = todosDNI($conexion);
-	$errores = validacionRegistro($conexion, $usuario, $DNIS);
+/*	$DNIS = todosDNI($conexion);*/
+/*	$Usuarios = todosUsuario($conexion);*/
+	$errores = validacionRegistro($conexion, $usuario/*, $DNIS, $Usuarios*/ );
 	cerrarConexionBD($conexion);
 }catch(PDOException $e){
 	/*Mensaje de depuracion */
-	$_SESSION["errores"] = "<p>ERROR en la validacion: fallo en el acceso a la base de datos.</p><p>"
+/*	$_SESSION["errores"] = "<p>ERROR en la validacion: fallo en el acceso a la base de datos.</p><p>"
 		.$e -> getMessage() ."</p>";
 		Header('Location: formulario.php');
+*/	return false;
 }
 //En el caso de que haya errores, se redirige al formulario y se muestran los errores, en caso contrario se redirige a la página de exito_alta_usuario
 if (count($errores) > 0) {
 	$_SESSION['errores'] = $errores;
-	header('Location: formulario.php');
+	header('Location: exito_alta_usuario.php');
 } else {
 	unset($_SESSION['errores']);
 	header('Location: exito_alta_usuario.php');
@@ -54,21 +56,33 @@ if (count($errores) > 0) {
 /////////////////////////////////////////////////////////////
 // Validación en servidor del formulario de alta de alumno//
 /////////////////////////////////////////////////////////////
- function validacionRegistro($conexion, $usuario, $DNIS) {
+ function validacionRegistro($conexion, $usuario) {
 	$errores = array();
 	$DNI1 = $usuario["DNI_Usuario"];
+	$NombreUsuario = $usuario["Usuario"];
 	
 	if ($usuario["DNI_Usuario"] == "") {
 		$errores[] = "El DNI no puede estar vacío";
 	} else if (!preg_match("/^[0-9]{8}[A-Z]$/", $usuario["DNI_Usuario"])) {
 		$errores[] = "El DNI debe contener 8 números y una letra mayúscula: " . $usuario["DNI_Usuario"] . "";
-	}else {
+	}/*else {
 		foreach ($DNIS as $DNI) {
 			if($DNI1 == $DNI["DNI_USUARIO"]){
 				$errores[] = "El DNI ya está registrado";
 			}
 		}
- 	}
+	 }*/
+	 
+	 if ($usuario["Usuario"] == "") {
+		$errores[] = "El nombre de Usuario no puede estar vacío";
+	 } /*else {
+		foreach ($Usuarios as $Usuario) {
+			if($NombreUsuario== $Usuario["Usuario"]){
+				$errores[] = "El Usuario ya está registrado";
+			}
+		}
+ 	}*/
+
 	if ($usuario["Nombre"] == "" || !preg_match("/^[A-Za-záéíóúÁÉÍÓÚ\s]+$/", $usuario["Nombre"])) {
 		$errores[] = "El nombre no puede estar vacío o no ser alfabetico";
 	}
