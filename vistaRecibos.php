@@ -162,7 +162,13 @@
 					<?php if (isset($recibo) and ($recibo["ID_RECIBO"] == $fila["ID_RECIBO"])) { ?>
 						<!-- Editando recibo -->
 							<tr style="background-color: #E0FFFF;">
-								<td><h3><input id="PAGADO" name="PAGADO" type="text" value="<?php echo $fila["PAGADO"]; ?>"/></h3></td>
+								<td>
+									Seleccione una opción:
+									<select id="PAGADO" name="PAGADO" size="1">
+										<option value="Si">Si</option>
+										<option value="No">No</option>
+									</select>
+								</td>
 								<td><?php echo $dni; ?></td>
 								<td><?php echo $nombre; ?></td>
 								<td><?php echo $apellidos; ?></td>
