@@ -3,6 +3,7 @@
 
 	require_once("gestionBD.php");
 	require_once("paginacionConsulta.php");
+	require_once("gestionarCurso.php");
 	
 	if (!isset($_SESSION['loginAdmin']))
 		Header("Location: login.php");
@@ -25,6 +26,8 @@
 		unset($_SESSION["paginacion"]);
 	
 		$conexion = crearConexionBD();
+		
+		$cursos = consultarTodosCursosAdmin($conexion);
 	
 		$query = "SELECT * FROM Usuarios"
 			. " WHERE (Usuarios.TipoUsuario = 'Profesor' AND Usuarios.Id_Curso IS NULL)";
@@ -144,7 +147,14 @@
 									<td><h4><?php echo $fila["NOMBRE"];?></h4></td>
 									<td><h4><?php echo $fila["APELLIDOS"];?></h4></td>
 									<td><h4><?php echo $fila["NIVEL_EXAMEN"];?></h4></td>
-									<td><h3><input id="ID_CURSO" name="ID_CURSO" type="text" value="<?php echo $fila["ID_CURSO"]; ?>"/></h3></td>
+									<td>
+										Seleccione un curso:
+										<select id="ID_CURSO" name="ID_CURSO" size="1">
+											<?php foreach($cursos as $curso){ ?>
+												<option value="<?php echo $curso["ID_CURSO"]; ?>"><?php echo $curso["ID_CURSO"]; ?></option>
+											<?php } ?>
+										</select>
+									</td>
 								</tr>
 						<?php } else { ?>
 							<!-- Mostrando alumno -->
