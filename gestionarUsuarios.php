@@ -29,9 +29,11 @@
 			$stmt->execute();
 			return true;
 		} catch(PDOException $e) {
-			$_SESSION['excepcion'] = $e -> GetMessage();
+			/*$_SESSION['excepcion'] = $e -> GetMessage();
 			header("Location: excepcion.php");
-	    }
+			*/
+			return false;
+		}
 	}
   
 	function consultarUsuario($conexion,$Usuario,$Pass) {
@@ -42,10 +44,16 @@
 		$stmt->execute();
 		return $stmt->fetchColumn();
 	}
-	
+	/*
 	function todosDNI($conexion){
 		$consulta = "SELECT DNI_USUARIO FROM Usuarios";
 		return $conexion->query($consulta);
 	}
+
+	function todosUsuario($conexion){
+		$consulta = "SELECT Usuario FROM Usuarios";
+		return $conexion->query($consulta);
+	}
+*/
 
 ?>

@@ -11,6 +11,14 @@ END;
 --Inserciones de usuarios: 
 BEGIN
 INSERTAR_USUARIO_CON_CURSO('21015236K','Antonio German','Márquez Trujillo','21', 'El Repilado', '619527721', '954841642', 'antonio-german-1@gmail.com', 'Jose Enrique', 'GermanOctavo', '19german15','Alumno','Aptis','B1','G1');
+INSERTAR_USUARIO('11111111K','Admin','Admin','1', 'Arahal', '698765432', '123456789', 'academia@gmail.com', 'Jose Enrique', 'Admin', 'administrador','Admin',NULL,'B1');
+INSERTAR_USUARIO_CON_CURSO('49385388H','Jose Antonio','Macias','50', 'La Puebla De Cazalla', '619525521', '954822642', 'josanfcs98@gmail.com', '', 'JosanFCS', 'holita20','Profesor','Aptis','B1','G1');
+COMMIT;
+END;
+/
+/*
+BEGIN
+INSERTAR_USUARIO_CON_CURSO('21015236K','Antonio German','Márquez Trujillo','21', 'El Repilado', '619527721', '954841642', 'antonio-german-1@gmail.com', 'Jose Enrique', 'GermanOctavo', '19german15','Alumno','Aptis','B1','G1');
 INSERTAR_USUARIO_CON_CURSO('64562266L','Fernando','Vázquez Osorio','20', 'Arahal', '613463421', '954841642', 'fernando@gmail.com', 'Jose Enrique', 'Fernando', 'Fernando','Alumno','Aptis','B1','G1');
 INSERTAR_USUARIO_CON_CURSO('90789636G','Antonio','Fernandez Cruz','18', 'Sevilla', '619527721', '954841642', 'antonio@gmail.com', 'Jose Enrique', 'Antonio', 'Antonio','Alumno','Aptis','B1','G1');
 INSERTAR_USUARIO_CON_CURSO('65686546J','Manuel','Garcia Ferrer','18', 'Carmona', '619527721', '954841642', 'manuel@gmail.com', 'Jose Enrique', 'Manuel', '19german15','Alumno','Aptis','B1','G1');
@@ -55,7 +63,7 @@ INSERTAR_USUARIO_CON_CURSO('28572832H','Faustino','Garcia Menendez','30', 'March
 COMMIT;
 END;
 /
-
+*/
 --Inserciones de recibos:
 BEGIN
 INSERTAR_RECIBO(SEC_Recibos.NEXTVAL, '2019/05/06','50€', '', '0', 'Si', '21015236K', 'efectivo');
@@ -82,6 +90,3 @@ INSERTAR_HORARIO_CURSO('17:00','18:00','Viernes',SEC_Horario_Curso.NEXTVAL,'G3')
 COMMIT;
 END;
 /
-
---Inserciones de horarios cursos:
-

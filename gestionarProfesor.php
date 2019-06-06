@@ -27,9 +27,11 @@
 		$stmt->execute();
 		return true;
 	} catch(PDOException $e) {
-		$_SESSION['excepcion'] = $e -> GetMessage();
+	/*	$_SESSION['excepcion'] = $e -> GetMessage();
 		header("Location: excepcion.php");
-    }
+	*/
+	return false;
+	}
 }
   
 function consultarUsuario($conexion,$Usuario,$Pass) {
