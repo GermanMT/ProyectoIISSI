@@ -34,14 +34,15 @@ try{
 	cerrarConexionBD($conexion);
 }catch(PDOException $e){
 	/*Mensaje de depuracion */
-	$_SESSION["errores"] = "<p>ERROR en la validacion: fallo en el acceso a la base de datos.</p><p>"
+/*	$_SESSION["errores"] = "<p>ERROR en la validacion: fallo en el acceso a la base de datos.</p><p>"
 		.$e -> getMessage() ."</p>";
-		Header('Location: formularioProfesor.php');
+		Header('Location: formularioProfesor.php');*/	
+	return false;
 }
 //En el caso de que haya errores, se redirige a la página de matriculacion y se muestran los errores, en caso contrario se redirige a la página de exitoAltaMatricula
 if (count($errores) > 0) {
 	$_SESSION['errores'] = $errores;
-	header('Location: formularioProfesor.php');
+	header('Location: exitoAltaProfesor.php');
 } else {
 	unset($_SESSION['errores']);
 	header('Location: exitoAltaProfesor.php');
